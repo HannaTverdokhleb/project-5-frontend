@@ -1,7 +1,7 @@
-import AddFeedbackBtn from './AddFeedbackBtn/AddFeedbackBtn';
+import FeedbackForm from './Feedback/FeedBackForm/FeedbackForm';
 
 export const App = () => {
-  return <AddFeedbackBtn />;
+  return <FeedbackForm />;
 };
 
 // export const App = () => {

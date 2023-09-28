@@ -9,7 +9,7 @@
 
   border: none;
   border-radius: 10px;
-  background-color: #3e85f3;
+  background-color: var(--main-color-blue);
 
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
@@ -32,7 +32,6 @@
   }
 
   &:hover {
-    background-color: #2b78ef;
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    background-color: var(--btn-state-hover);
   }
 }
