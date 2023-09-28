@@ -2,7 +2,6 @@
 @import './css/color';
 @import './fonts/fonts';
 
-
 ul {
   list-style: none;
   padding: 0;
@@ -37,7 +36,6 @@ img {
   height: auto;
 }
 
-
 html {
   scroll-behavior: smooth;
 }
@@ -54,4 +52,9 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.dark {
+  color: var(--main-color-blue);
+  background-color: var(--bcg-color-dark-grey);
 }
