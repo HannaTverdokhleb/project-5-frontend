@@ -2,7 +2,7 @@
 @import './css/color';
 @import './fonts/fonts';
 
-//default styles
+
 ul {
   list-style: none;
   padding: 0;
@@ -38,7 +38,6 @@ img {
 }
 
 
-//Smooth scroll behavior
 html {
   scroll-behavior: smooth;
 }
