@@ -1,19 +1,16 @@
-import { Description } from "./Homepage/DescSection/DescSection";
-
 export const App = () => {
   return (
-    <Description/>
-    // <div
-    //   style={{
-    //     height: '100vh',
-    //     display: 'flex',
-    //     justifyContent: 'center',
-    //     alignItems: 'center',
-    //     fontSize: 40,
-    //     color: '#010101'
-    //   }}
-    // >
-    //   React homework template
-    // </div>
+    <div
+      style={{
+        height: '100vh',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        fontSize: 40,
+        color: '#010101'
+      }}
+    >
+      React homework template
+    </div>
   );
 };
