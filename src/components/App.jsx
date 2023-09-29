@@ -1,23 +1,23 @@
-import { lazy } from "react";
+import { lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
-const HomePage = lazy(() => import('../pages/Homepage'));
-const RegisterPage = lazy(() => import('../pages/Register'));
+const Homepage = lazy(() => import('../pages/Homepage'));
 const LoginPage = lazy(() => import('../pages/Login'));
-const Account = lazy(() => import('../pages/AccountPage'));
-const Calendar = lazy(() => import('../pages/CalendarPage'));
-const Statistics = lazy(() => import('../pages/StatisticsPage'));
+const RegisterPage = lazy(() => import('../pages/Register'));
+const AccountPage = lazy(() => import('../pages/AccountPage'));
+const CalendarPage = lazy(() => import('../pages/CalendarPage'));
+const StatisticsPage = lazy(() => import('../pages/StatisticsPage'));
 const Page404 = lazy(() => import('../pages/404'));
 
 
 export const App = () => {
   return (
     <Routes>
-      <Route path="/" element={<HomePage />} />
+      <Route path="/" element={<Homepage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/register" element={<RegisterPage />} />
-      <Route path="/account" element={<Account />} />
-      <Route path="/calendar" element={<Calendar />} />
-      <Route path="/statistics" element={<Statistics />} />
+      <Route path="/account" element={<AccountPage />} />
+      <Route path="/calendar" element={<CalendarPage />} />
+      <Route path="/statistics" element={<StatisticsPage />} />
       <Route path="*" element={<Page404 />} />
     </Routes>
   );
