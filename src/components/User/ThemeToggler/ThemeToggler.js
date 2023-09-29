@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import css from './ThemeToggler.module.css';
+import moonSvg from 'images/moon.svg';
+import sunSvg from 'images/sun.svg';
 
-const ThemeTogler = () => {
+const ThemeToggler = () => {
   const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
 
   useEffect(() => {
+    document.body.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);
-
-    document.body.className = theme;
   }, [theme]);
 
   const toggleTheme = () => {
@@ -14,17 +16,18 @@ const ThemeTogler = () => {
   };
 
   return (
-    <div>
-      <button onClick={toggleTheme}>
-        <img
-          src="/images/mobileImages/logo/logo_mob@1x.png"
-          alt={theme ? 'moon' : 'sun'}
-          width="8"
-          height="8"
-        />
-      </button>
-    </div>
+    <button className={css.buttonTheme} type="button" onClick={toggleTheme}>
+      {theme === 'light' ? (
+        <>
+          <img src={moonSvg} alt="Місяць" />
+        </>
+      ) : (
+        <>
+          <img src={sunSvg} alt="Сонце" />
+        </>
+      )}
+    </button>
   );
 };
 
-export default ThemeTogler;
+export default ThemeToggler;
