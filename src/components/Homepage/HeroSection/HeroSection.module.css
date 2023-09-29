@@ -38,7 +38,8 @@
 }
 
 .buttonWhite {
-  display: inline-block;
+  display: flex;
+  gap: 6px;
   background-color: var(--bcg-color-white);
   padding: 14px 32px;
   border-radius: 16px;
@@ -46,10 +47,6 @@
   font-size: 14px;
   color: var(--main-color-blue);
   font-weight: 600;
-}
-
-.arrowIcon{
-    fill: var(--main-color-blue);
 }
 
 .textWhite {
