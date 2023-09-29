@@ -80,3 +80,10 @@ export const ReviewsSlider = () => {
     </Swiper>
   );
 };
+
+
+export const TitleH2 = () => {
+  return (
+    <h2 className={css.titleH2}>Reviews</h2>
+  )
+}

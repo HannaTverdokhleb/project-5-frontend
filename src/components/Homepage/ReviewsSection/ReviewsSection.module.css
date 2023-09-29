@@ -1,5 +1,6 @@
 .container {
   padding: 64px 20px;
+  margin-bottom: 64px;
 }
 
 .slideContainer {
@@ -40,10 +41,23 @@
   color: #595959;
 }
 
+.titleH2 {
+  color: var(--main-color-blue);
+  text-align: center;
+  text-transform: uppercase;
+  font-family: Inter, sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+}
+
 @media screen and (min-width: 768px) {
   .container {
     width: 580px;
     padding: 32px;
+    margin-bottom: 100px;
+  }
+  .titleH2 {
+    font-size: 40px;
   }
 }
 
@@ -51,5 +65,6 @@
   .container {
     width: 1184px;
     padding: 32px;
+    margin-bottom: 118px;
   }
 }
