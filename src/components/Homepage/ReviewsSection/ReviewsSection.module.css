@@ -1,5 +1,6 @@
 .container {
   padding: 64px 20px;
+  margin-bottom: 64px;
 }
 
 .slideContainer {
@@ -44,6 +45,7 @@
   .container {
     width: 580px;
     padding: 32px;
+    margin-bottom: 100px;
   }
 }
 
@@ -51,5 +53,6 @@
   .container {
     width: 1184px;
     padding: 32px;
+    margin-bottom: 118px;
   }
 }
