@@ -14,18 +14,18 @@ export const HeroSection = () => {
       <div className={css.content}>
         <picture>
           <source
-            srcset={`${gooseImageDesktop} 1x, ${gooseImageDesktop2x} 2x`}
+            srcSet={`${gooseImageDesktop} 1x, ${gooseImageDesktop2x} 2x`}
             media="(min-width: 1440px)"
             sizes="min-width: 150px"
           />
 
           <source
-            srcset={`${gooseImageTablet} 1x, ${gooseImageTablet2x} 2x`}
+            srcSet={`${gooseImageTablet} 1x, ${gooseImageTablet2x} 2x`}
             media="(min-width: 768px)"
             sizes="min-width: 150px"
           />
           <source
-            srcset={`${gooseImageMobile} 1x, ${gooseImageMobile2x} 2x`}
+            srcSet={`${gooseImageMobile} 1x, ${gooseImageMobile2x} 2x`}
             media="(max-width: 767px)"
             sizes="150px"
           />
