@@ -6,7 +6,7 @@ const RegisterPage = lazy(() => import('../pages/Register'));
 const AccountPage = lazy(() => import('../pages/AccountPage'));
 const CalendarPage = lazy(() => import('../pages/CalendarPage'));
 const StatisticsPage = lazy(() => import('../pages/StatisticsPage'));
-const Page404 = lazy(() => import('../pages/404'));
+const Page404 = lazy(() => import('../pages/NotFoundPage/NotFoundPage'));
 
 
 export const App = () => {
