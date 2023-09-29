@@ -1,0 +1,124 @@
+.container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 100vh;   
+}
+
+@media screen and (min-width: 375px) {
+    .container {
+        width: 252px;
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .container {
+        width: 503px;
+    }
+}
+
+.not__found__box {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row; 
+    align-items: center;
+    height: 150px;   
+}
+
+
+@media screen and (min-width: 768px) {
+    .not__found__box {
+        height: 250px;
+    }
+}
+
+.image__rocket {
+    position: absolute;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url('../../images/mobileImages/notFound/not_found_mob1x.png');
+    width: 166px;
+    height: 180px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@media (min-device-pixel-ratio: 2),
+(min-resolution: 192dpi),
+(min-resolution: 2dppx) {
+    .image__rocket {
+        background-image: url("../../images/mobileImages/notFound/not_found_mob2x.png");
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .image__rocket {
+        background-image: url('../../images/desktopImages/notFound/not_found1x.png');
+        width: 368px;
+        height: 414px;
+    }
+}
+
+@media (min-device-pixel-ratio: 2),
+(min-resolution: 192dpi),
+(min-resolution: 2dppx) {
+    .image__rocket {
+        background-image: url("../../images/desktopImages/notFound/not_found2x.png");
+    }
+}
+
+.title__number {
+    font-family: Inter;
+    font-size: 100px;
+    font-weight: 700;
+    line-height: 1.5;
+    color: var(--main-color-blue);
+    text-shadow: 0px 9.399999618530273px 57.6875px rgba(0, 0, 0, 0.04), 0px 47px 355px rgba(0, 0, 0, 0.07);
+}
+
+@media screen and (min-width: 768px) {
+    .title__number {
+        font-size: 200px;
+        line-height: 1.25%;
+    }
+}
+
+.text {
+    font-family: Inter;
+    font-weight: 500;
+    margin-top: 28px;
+    margin-bottom: 24px;
+    font-size: 14px;
+    line-height: 1.286;
+    color: rgba(17, 17, 17, 0.70);
+}
+
+@media screen and (min-width: 768px) {
+    .text {
+        margin-top: 80px;
+        margin-bottom: 32px;
+    }
+}
+
+
+/* .theme-light {
+  background: var(--bcg-color-white);
+  color: rgba(17, 17, 17, 0.70);
+} */
+
+
+
+/*  theme:dark {
+    background-color: var(--text-main-title);  #171820;
+    color: rgba(255, 255, 255, 0.70);
+} */
+

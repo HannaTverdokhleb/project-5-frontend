@@ -2,7 +2,7 @@
   "name": "project-5-frontend",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://HannaTverdokhleb.github.io/project-5-frontend/",
+  "homepage": "https://hannatverdokhleb.github.io/project-5-frontend/",
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.6",
     "@smastrom/react-rating": "^1.3.2",
