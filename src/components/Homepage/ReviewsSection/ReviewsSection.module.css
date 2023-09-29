@@ -39,3 +39,17 @@
   line-height: 18px;
   color: #595959;
 }
+
+@media screen and (min-width: 768px) {
+  .container {
+    width: 580px;
+    padding: 32px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .container {
+    width: 1184px;
+    padding: 32px;
+  }
+}

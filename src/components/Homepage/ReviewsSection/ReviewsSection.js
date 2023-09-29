@@ -37,35 +37,46 @@ const SlideDetails = () =>{
 
 //Slider Component
 export const ReviewsSlider = () => {
+  const swiperParams = {
+    modules: [Navigation, Pagination, Scrollbar, A11y],
+    spaceBetween: 24,
+    slidesPerView: 1,
+    navigation: true,
+    breakpoints: {
+      // when window width is >= 320px
+      375: {
+        slidesPerView: 1,
+      },
+      // when window width is >= 768px
+      768: {
+        slidesPerView: 1,
+
+      },
+      // when window width is >= 1200px
+      1440: {
+        slidesPerView: 2,
+        spaceBetween: 24,
+      },
+    },
+  };
+
   return (
-    <Swiper
-      className={css.container}
-      // install Swiper modules
-      modules={[Navigation, Pagination, Scrollbar, A11y]}
-      spaceBetween={24}
-      slidesPerView={1}
-      navigation
-      //   pagination={{ clickable: true }}
-      //   scrollbar={{ draggable: true }}
-      // onSwiper={swiper => console.log(swiper)}
-      // onSlideChange={() => console.log('slide change')}
-    >
+    <Swiper {...swiperParams} className={css.container}>
       <SwiperSlide>
-       <SlideDetails/>
-      </SwiperSlide>
-      
-      <SwiperSlide>
-        <SlideDetails/>
+        <SlideDetails />
       </SwiperSlide>
 
       <SwiperSlide>
-        <SlideDetails/>
+        <SlideDetails />
       </SwiperSlide>
 
       <SwiperSlide>
-        <SlideDetails/>
+        <SlideDetails />
       </SwiperSlide>
-      
+
+      <SwiperSlide>
+        <SlideDetails />
+      </SwiperSlide>
     </Swiper>
   );
 };
