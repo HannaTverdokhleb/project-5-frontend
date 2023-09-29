@@ -1,4 +1,4 @@
-import { Modal } from '../Modal/Modal';
+import { Modal } from '../../Modal/Modal';
 import { FeedbackForm } from '../FeedBackForm/FeedbackForm';
 
 const AddFeedbackModal = ({ onClose }) => {

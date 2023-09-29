@@ -1,4 +1,4 @@
-import FeedbackForm from './Feedback/FeedBackForm/FeedbackForm';
+import { FeedbackForm } from './Feedback/FeedBackForm/FeedbackForm';
 
 export const App = () => {
   return <FeedbackForm />;
