@@ -9,7 +9,6 @@ const Statistics = lazy(() => import('../pages/StatisticsPage'));
 const Page404 = lazy(() => import('../pages/404'));
 
 
-
 export const App = () => {
   return (
     <Routes>
