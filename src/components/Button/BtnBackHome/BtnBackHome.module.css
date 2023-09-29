@@ -1,0 +1,33 @@
+.back__button {
+    max-width: 153px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 14px 32px;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 1.286;
+    letter-spacing: -0.28px;
+    border-radius: 16px;
+    box-shadow: 4px 2px 16px 0px rgba(136, 165, 191, 0.48);
+    border: none;
+    background-color: var(--main-color-blue);
+    color: #FFF;
+    /* var(--bcg-color-white); */
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+    .back__button {
+        max-width: 211px;
+        padding: 16px 48px;
+        font-size: 18px;
+        line-height: 1.333;
+        letter-spacing: -0.36px;
+    }
+}
+
+.back__button:hover,
+.back__button:focus {
+    background-color: var(--btn-state-hover);
+}
