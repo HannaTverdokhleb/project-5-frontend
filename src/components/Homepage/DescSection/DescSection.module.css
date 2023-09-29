@@ -97,7 +97,7 @@
 @media screen and (min-width: 1440px) {
   .container {
     width: 1184px;
-    margin: 0 auto;
+    margin: 64px auto;
   }
 
   .alignSelf {
