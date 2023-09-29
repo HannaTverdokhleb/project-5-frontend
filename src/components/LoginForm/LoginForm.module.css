@@ -36,12 +36,20 @@
   border-radius: 8px;
   background: var(--bcg-color-white);
 }
+
 .logo_goose {
+  display: none;
   position: absolute;
   width: 368px;
   bottom: 14%;
   right: 60px;
 }
+@media screen and (min-width: 1440px) {
+  .logo_goose {
+    display: block;
+  }
+}
+
 .title {
   color: var(--main-color-blue);
   text-shadow: 0px 9.399999618530273px 57.6875px rgba(0, 0, 0, 0.04),

@@ -8,6 +8,7 @@ export const LoginForm = () => {
       <div className={css.div_container_flex}>
         <picture className={css.logo_goose}>
           <source
+            className={css.source}
             srcset={`${loginGoose} 1x, ${loginGoosex2} 2x`}
             media="(min-width: 1440px)"
           />
