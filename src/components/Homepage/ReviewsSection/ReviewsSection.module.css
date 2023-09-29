@@ -41,6 +41,15 @@
   color: #595959;
 }
 
+.titleH2 {
+  padding: 8px 18px;
+  color: var(--main-color-blue);
+  border-radius: 44px;
+  margin-bottom: 8px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
 @media screen and (min-width: 768px) {
   .container {
     width: 580px;

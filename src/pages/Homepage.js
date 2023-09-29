@@ -1,6 +1,6 @@
 import { Description } from 'components/Homepage/DescSection/DescSection';
 import { HeroSection } from 'components/Homepage/HeroSection/HeroSection';
-import { ReviewsSlider } from 'components/Homepage/ReviewsSection/ReviewsSection';
+import { ReviewsSlider, TitleH2 } from 'components/Homepage/ReviewsSection/ReviewsSection';
 
 
 const Homepage = () => {
@@ -8,6 +8,7 @@ const Homepage = () => {
     <>
       <HeroSection />
       <Description />
+      <TitleH2/>
       <ReviewsSlider />
     </>
   );
