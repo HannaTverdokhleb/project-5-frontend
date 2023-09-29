@@ -27,7 +27,7 @@ const SlideDetails = () =>{
             <div>★★★★★</div>
           </div>
         </div>
-        <p>
+        <p className={css.mainText}>
           GooseTrack is impressive, the calendar view and filter options make
           it easy to stay organized and focused. Highly recommended.
         </p>
