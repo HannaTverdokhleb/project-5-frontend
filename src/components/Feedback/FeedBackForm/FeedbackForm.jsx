@@ -38,7 +38,7 @@ const handleEdit = () => {};
 
 const handleDelete = () => {};
 
-export const FeedbackForm = ({ onClose }) => {
+const FeedbackForm = ({ onClose }) => {
   const initialValues = {
     review: '',
     rating: 4,
@@ -135,4 +135,4 @@ export const FeedbackForm = ({ onClose }) => {
   );
 };
 
-// export default FeedbackForm;
+export default FeedbackForm;
