@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import css from './HeroSection.module.css';
 import gooseImageDesktop from 'images/desktopImages/heroSection/heroGoose_desk@1x.png';
 import gooseImageDesktop2x from 'images/desktopImages/heroSection/heroGoose_desk@2x.png';
@@ -41,16 +42,16 @@ export const HeroSection = () => {
           G<span className={css.titleItalic}>oo</span>seTrack
         </h1>
         <nav className={css.contentButtons}>
-          <a className={css.buttonWhite} href="/src/pages/Login.js">
-            Log in
-            <svg className={css.arrowIcon} width="13.5" height="13.5">
-              <use xlinkHref={`${arrowIcon}#icon-arrow-right-link`} />
-            </svg>
-          </a>
-          <a className={css.textWhite} href="/src/pages/Register.js">
-            Sign Up
-          </a>
-        </nav>
+      <Link to="/login" className={css.buttonWhite}>
+        Log in
+        <svg className={css.arrowIcon} width="13.5" height="13.5">
+        <use xlinkHref={`${arrowIcon}#icon-arrow-right-link`} />
+        </svg>
+      </Link>
+      <Link to="/register" className={css.textWhite}>
+        Sign Up
+      </Link>
+    </nav>
       </div>
     </div>
   );
