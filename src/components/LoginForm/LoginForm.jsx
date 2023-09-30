@@ -1,8 +1,11 @@
-// import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import css from './LoginForm.module.css';
-// import { logIn } from 'redux/Auth/operations';
+import { logIn } from 'redux/Auth/operations';
+import { useSelector } from 'react-redux';
+import { selectErrorMessage } from 'redux/Auth/selectors';
+
 
 import loginGoose from '../../images/desktopImages/loginPage/loginGoose_desk@1x.png';
 import loginGoosex2 from '../../images/desktopImages/loginPage/loginGoose_desk@2x.png';
@@ -12,27 +15,42 @@ import errorsvg from '../../images/error.svg';
 import successsvg from '../../images/success.svg';
 
 export const LoginForm = () => {
+  const dispatch = useDispatch();
+  const errorMessage = useSelector(selectErrorMessage);
+
   const initialValues = {
     email: '',
     password: '',
   };
 
   const validationLoginSchema = Yup.object().shape({
-    email: Yup.string()
-      .email('This is an ERROR email')
-      .required('Email is required'),
+    // email: Yup.string()
+    //   .email('Email is not valid')
+    //   .required('Email is required'),
     password: Yup.string()
       .min(6, 'Your password can not be so short')
       .max(16, 'Your password can not be so long')
       .required('Password is required'),
   });
 
-  // const dispatch = useDispatch();
+  function validateEmail(value) {
+    let error;
+    if (!value) {
+      error = 'Email is required';
+    } else if (!/^([a-zA-Z0-9_.+-])+@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/.test(value)) {
+      error = 'Email is not valid';
+    }
+    return error;
+  }
 
-  const handleSubmit = (value, { resetForm }) => {
-    console.log(value);
-    // dispatch(logIn(value));
-    resetForm();
+  const handleSubmit = ({ email, password }, { resetForm }) => {
+    dispatch(
+      logIn({
+        email,
+        password,
+      })
+    );
+    // resetForm();
   };
 
   return (
@@ -89,6 +107,7 @@ export const LoginForm = () => {
                           data-valid={
                             touched.email && !errors.email ? 'true' : 'false'
                           }
+                          validate={validateEmail}
                         />
                         {touched.email && errors.email && (
                           <img
@@ -110,7 +129,7 @@ export const LoginForm = () => {
 
                       {touched.email && !errors.email && (
                         <div className={css.success}>
-                          This is an CORRECT email
+                          Email is valid
                         </div>
                       )}
                       <ErrorMessage
@@ -184,7 +203,7 @@ export const LoginForm = () => {
                       </div>
                       {touched.password && !errors.password && (
                         <div className={css.success}>
-                          This is an CORRECT password
+                          Password is valid
                         </div>
                       )}
                       <ErrorMessage
@@ -194,7 +213,7 @@ export const LoginForm = () => {
                         )}
                       />
                     </label>
-
+                    {errorMessage && <p>{errorMessage}</p>}
                     <button className={css.button} type="submit">
                       Log In
                       <img

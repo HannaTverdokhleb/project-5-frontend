@@ -5,14 +5,11 @@ import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 
 
-
-
 const schema = yup.object().shape({
   name: yup.string().max(16).required(),
   email: yup.string().email().required(),
   password: yup.string().required(),
 })
-
 
 const RegisterPage = () => {
   const dispatch = useDispatch();
