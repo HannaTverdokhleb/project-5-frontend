@@ -1,10 +1,9 @@
-import { Header } from 'components/User/Header/Header';
+import { LoginForm } from 'components/LoginForm/LoginForm';
 
 const LoginPage = () => {
   return (
     <div>
-      <Header />
-      Login
+      <LoginForm />
     </div>
   );
 };
