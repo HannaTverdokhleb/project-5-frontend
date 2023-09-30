@@ -53,8 +53,8 @@ const RoundedBar = props => {
 export const StatisticsChart = () => {
   return (
     <div className={css.container}>
-        <p>Tasks</p>
-      <BarChart
+        <p className={css.tasks}>Tasks</p>
+      <BarChart className={css.textChart}
         width={320}
         height={266}
         data={data}
