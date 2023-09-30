@@ -53,37 +53,51 @@ const RoundedBar = props => {
 export const StatisticsChart = () => {
   return (
     <div className={css.container}>
-        <div className={css.chartBlock}>
-        <p className={css.tasks}>Tasks</p>
-      <BarChart className={css.textChart}
-        width={320}
-        height={266}
-        data={data}
-        barSize={22}
-        barGap={8}
-        barCategoryGap="30px"
-      >
-        <defs>{gradientPink}</defs>
-        <defs>{gradientBlue}</defs>
-        <CartesianGrid stroke="#E3F3FF" />
-        <CartesianGrid vertical={false} />
-        {/* <CartesianGrid strokeDasharray="3 3" /> */}
+      <div className={css.textFilter}>
 
-        <XAxis dataKey="name" />
-        <YAxis />
-        {/* <Tooltip /> */}
-        {/* <Legend /> */}
-        <Bar
-          dataKey="day"
-          fill="url(#barGradientPink)"
-          shape={<RoundedBar />}
-        />
-        <Bar
-          dataKey="month"
-          fill="url(#barGradientBlue)"
-          shape={<RoundedBar />}
-        />
-      </BarChart>
+        <div className={css.circleTextBlock}>
+        <div className={css.circlePink}></div>
+        <p className={css.textBy}>By Day</p>
+        </div>
+
+        <div className={css.circleTextBlock}>
+        <div className={css.circleBlue}></div>
+        <p className={css.textBy}>By Month</p>
+        </div>
+
+      </div>
+      <div className={css.chartBlock}>
+        <p className={css.tasks}>Tasks</p>
+        <BarChart
+          className={css.textChart}
+          width={320}
+          height={266}
+          data={data}
+          barSize={22}
+          barGap={8}
+          barCategoryGap="30px"
+        >
+          <defs>{gradientPink}</defs>
+          <defs>{gradientBlue}</defs>
+          <CartesianGrid stroke="#E3F3FF" />
+          <CartesianGrid vertical={false} />
+          {/* <CartesianGrid strokeDasharray="3 3" /> */}
+
+          <XAxis dataKey="name" />
+          <YAxis />
+          {/* <Tooltip /> */}
+          {/* <Legend /> */}
+          <Bar
+            dataKey="day"
+            fill="url(#barGradientPink)"
+            shape={<RoundedBar />}
+          />
+          <Bar
+            dataKey="month"
+            fill="url(#barGradientBlue)"
+            shape={<RoundedBar />}
+          />
+        </BarChart>
       </div>
     </div>
   );

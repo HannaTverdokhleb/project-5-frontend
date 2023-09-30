@@ -1,3 +1,4 @@
+/*General container*/
 .container {
   display: flex;
   flex-direction: column;
@@ -8,6 +9,39 @@
   background-color: var(--bcg-color-white);
 }
 
+/*ByDay/Month Filter*/
+.textFilter {
+  display: flex;
+  gap: 14px;
+}
+
+.circleTextBlock{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.textBy {
+  color: #343434;
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+}
+
+.circlePink {
+  width: 8px;
+  height: 8px;
+  background-color: #ffd2dd;
+  border-radius: 50%;
+}
+
+.circleBlue {
+    width: 8px;
+    height: 8px;
+    background-color: var(--main-color-blue);
+    border-radius: 50%;
+  }
+
+/*Chart Block*/
 .chartBlock {
   display: flex;
   flex-direction: column;
