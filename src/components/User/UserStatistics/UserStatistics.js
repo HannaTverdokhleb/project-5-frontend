@@ -10,9 +10,9 @@ import {
 } from 'recharts';
 
 const data = [
-  { name: 'Page A', uv: 4000, pv: 2400, amt: 2400 },
-  { name: 'Page B', uv: 3000, pv: 1398, amt: 2210 },
-  { name: 'Page B', uv: 3000, pv: 1398, amt: 2210 },
+  { name: 'To Do', month: 4000, day: 2400, amt: 2400 },
+  { name: 'In Progress', month: 3000, day: 1398, amt: 2210 },
+  { name: 'Done', month: 3000, day: 1398, amt: 2210 },
 ];
 
 export const StatisticsChart = () => {
@@ -33,8 +33,8 @@ export const StatisticsChart = () => {
       <YAxis />
       <Tooltip />
       <Legend />
-      <Bar dataKey="pv" fill="#8884d8" />
-      <Bar dataKey="uv" fill="#82ca9d" />
+      <Bar dataKey="day" fill="#8884d8" />
+      <Bar dataKey="month" fill="#82ca9d" />
     </BarChart>
   );
 };
