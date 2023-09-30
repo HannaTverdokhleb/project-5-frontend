@@ -46,19 +46,19 @@ export const Description = () => {
         </div>
         <picture>
           <source
-            srcset={`${imageDesktop} 1x, ${imageDesktop2x} 2x`}
+            srcSet={`${imageDesktop} 1x, ${imageDesktop2x} 2x`}
             media="(min-width: 1440px)"
             sizes="min-width: 604px"
           />
 
           <source
-            srcset={`${imageTablet} 1x, ${imageTablet2x} 2x`}
+            srcSet={`${imageTablet} 1x, ${imageTablet2x} 2x`}
             media="(min-width: 768px)"
             sizes="min-width: 704px"
           />
 
           <source
-            srcset={`${imageMobile} 1x, ${imageMobile2x} 2x`}
+            srcSet={`${imageMobile} 1x, ${imageMobile2x} 2x`}
             media="(max-width: 767px)"
             sizes="335px"
           />
@@ -90,19 +90,19 @@ export const Description = () => {
         </div>
         <picture>
           <source
-            srcset={`${imageDesktopTwo} 1x, ${imageDesktopTwo2x} 2x`}
+            srcSet={`${imageDesktopTwo} 1x, ${imageDesktopTwo2x} 2x`}
             media="(min-width: 1440px)"
             sizes="min-width: 604px"
           />
 
           <source
-            srcset={`${imageTabletTwo} 1x, ${imageTabletTwo2x} 2x`}
+            srcSet={`${imageTabletTwo} 1x, ${imageTabletTwo2x} 2x`}
             media="(min-width: 768px)"
             sizes="min-width: 704px"
           />
 
           <source
-            srcset={`${imageMobileTwo} 1x, ${imageMobileTwo2x} 2x`}
+            srcSet={`${imageMobileTwo} 1x, ${imageMobileTwo2x} 2x`}
             media="(max-width: 767px)"
             sizes="335px"
           />
@@ -129,19 +129,19 @@ export const Description = () => {
         </div>
         <picture>
           <source
-            srcset={`${imageDesktopThree} 1x, ${imageDesktopThree2x} 2x`}
+            srcSet={`${imageDesktopThree} 1x, ${imageDesktopThree2x} 2x`}
             media="(min-width: 1440px)"
             sizes="min-width: 604px"
           />
 
           <source
-            srcset={`${imageTabletThree} 1x, ${imageTabletThree2x} 2x`}
+            srcSet={`${imageTabletThree} 1x, ${imageTabletThree2x} 2x`}
             media="(min-width: 768px)"
             sizes="min-width: 704px"
           />
 
           <source
-            srcset={`${imageMobileThree} 1x, ${imageMobileThree2x} 2x`}
+            srcSet={`${imageMobileThree} 1x, ${imageMobileThree2x} 2x`}
             media="(max-width: 767px)"
             sizes="335px"
           />
