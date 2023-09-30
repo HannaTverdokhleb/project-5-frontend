@@ -10,12 +10,14 @@ import {
 } from 'recharts';
 import css from './UserStatistics.module.css';
 
+//data for stats chart 
 const data = [
   { name: 'To Do', month: 100, day: 60, amt: 100 },
   { name: 'In Progress', month: 100, day: 40, amt: 100 },
   { name: 'Done', month: 100, day: 80, amt: 100 },
 ];
 
+//gradient for chart
 const gradientPink = (
   <linearGradient id="barGradientPink" x1="0%" y1="0%" x2="0%" y2="100%">
     <stop offset="0%" stopColor="#ffffff" />
@@ -23,6 +25,7 @@ const gradientPink = (
   </linearGradient>
 );
 
+//gradient for chart
 const gradientBlue = (
   <linearGradient id="barGradientBlue" x1="0%" y1="0%" x2="0%" y2="100%">
     <stop offset="0%" stopColor="#ffffff" />
@@ -30,7 +33,7 @@ const gradientBlue = (
   </linearGradient>
 );
 
-//rounded bar
+//rounded bar for chart
 const RoundedBar = props => {
   const { x, y, width, height, fill } = props;
   const borderRadius = 6;
@@ -50,21 +53,20 @@ const RoundedBar = props => {
   );
 };
 
+//Stats chart
 export const StatisticsChart = () => {
   return (
     <div className={css.container}>
       <div className={css.textFilter}>
-
         <div className={css.circleTextBlock}>
-        <div className={css.circlePink}></div>
-        <p className={css.textBy}>By Day</p>
+          <div className={css.circlePink}></div>
+          <p className={css.textBy}>By Day</p>
         </div>
 
         <div className={css.circleTextBlock}>
-        <div className={css.circleBlue}></div>
-        <p className={css.textBy}>By Month</p>
+          <div className={css.circleBlue}></div>
+          <p className={css.textBy}>By Month</p>
         </div>
-
       </div>
       <div className={css.chartBlock}>
         <p className={css.tasks}>Tasks</p>

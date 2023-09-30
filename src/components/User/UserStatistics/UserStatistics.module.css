@@ -15,10 +15,10 @@
   gap: 14px;
 }
 
-.circleTextBlock{
-    display: flex;
-    align-items: center;
-    gap: 8px;
+.circleTextBlock {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .textBy {
@@ -35,11 +35,11 @@
 }
 
 .circleBlue {
-    width: 8px;
-    height: 8px;
-    background-color: var(--main-color-blue);
-    border-radius: 50%;
-  }
+  width: 8px;
+  height: 8px;
+  background-color: var(--main-color-blue);
+  border-radius: 50%;
+}
 
 /*Chart Block*/
 .chartBlock {
