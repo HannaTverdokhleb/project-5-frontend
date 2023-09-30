@@ -8,7 +8,6 @@ const CalendarPage = lazy(() => import('../pages/CalendarPage'));
 const StatisticsPage = lazy(() => import('../pages/StatisticsPage'));
 const Page404 = lazy(() => import('../pages/NotFoundPage/NotFoundPage'));
 
-
 export const App = () => {
   return (
     <Suspense fallback={<div>Loading...</div>}>

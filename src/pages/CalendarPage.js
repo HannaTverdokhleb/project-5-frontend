@@ -1,9 +1,12 @@
-
+import { Header } from 'components/User/Header/Header';
 
 const CalendarPage = () => {
-    return (
-        <div>Calendar</div>
-    )
-}
+  return (
+    <div>
+      <Header />
+      Calendar
+    </div>
+  );
+};
 
 export default CalendarPage;
