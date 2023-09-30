@@ -4,7 +4,7 @@ export const Header = () => {
   return (
     <header>
       <section>
-        <h1></h1>
+        <h1 className={css.title}>Zaglushka</h1>
       </section>
     </header>
   );

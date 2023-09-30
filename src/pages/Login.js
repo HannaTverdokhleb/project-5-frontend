@@ -1,9 +1,12 @@
-
+import { Header } from 'components/User/Header/Header';
 
 const LoginPage = () => {
-    return (
-        <div>Login</div>
-    )
-}
+  return (
+    <div>
+      <Header />
+      Login
+    </div>
+  );
+};
 
 export default LoginPage;
