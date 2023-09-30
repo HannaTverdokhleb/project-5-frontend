@@ -1,7 +1,5 @@
-// import BtnBackHome from 'components/Button/BtnBackHome/BtnBackHome';
+import { Link } from 'react-router-dom';
 import css from './NotFoundPage.module.css';
-
-
 
 export default function NotFoundPage() {
 
@@ -16,7 +14,7 @@ export default function NotFoundPage() {
       <p className={css.text}>
         We’re sorry, the page you requested could not be found. Please go back to the homepage.
       </p>
-      {/*} <BtnBackHome/>*/}
+      < Link to="/" className={css.back__button}>Back to home</Link>
     </div>
   )
 };
