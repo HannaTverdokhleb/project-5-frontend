@@ -21,16 +21,17 @@ export const StatisticsChart = () => {
       width={320}
       height={266}
       data={data}
-    //   margin={{
-    //     top: 5,
-    //     right: 30,
-    //     left: 20,
-    //     bottom: 5,
-    //   }}
+      //   margin={{
+      //     top: 5,
+      //     right: 30,
+      //     left: 20,
+      //     bottom: 5,
+      //   }}
       barSize={22}
       barGap={8}
       barCategoryGap="30px"
     >
+      <CartesianGrid vertical={false} />
       <CartesianGrid strokeDasharray="3 3" />
       <XAxis dataKey="name" />
       <YAxis />
