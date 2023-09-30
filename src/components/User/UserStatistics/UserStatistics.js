@@ -4,10 +4,11 @@ import {
   Bar,
   XAxis,
   YAxis,
-  Tooltip,
-  Legend,
+//   Tooltip,
+//   Legend,
   CartesianGrid,
 } from 'recharts';
+import css from './UserStatistics.module.css'
 
 const data = [
   { name: 'To Do', month: 100, day: 60, amt: 100 },
@@ -17,6 +18,7 @@ const data = [
 
 export const StatisticsChart = () => {
   return (
+    <div className={css.container}>
     <BarChart
       width={320}
       height={266}
@@ -42,5 +44,6 @@ export const StatisticsChart = () => {
       <Bar dataKey="day" fill="#FFD2DD" />
       <Bar dataKey="month" fill="#3E85F3" />
     </BarChart>
+    </div>
   );
 };
