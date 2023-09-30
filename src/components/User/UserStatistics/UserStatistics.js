@@ -10,9 +10,9 @@ import {
 } from 'recharts';
 
 const data = [
-  { name: 'To Do', month: 4000, day: 2400, amt: 2400 },
-  { name: 'In Progress', month: 3000, day: 1398, amt: 2210 },
-  { name: 'Done', month: 3000, day: 1398, amt: 2210 },
+  { name: 'To Do', month: 100, day: 60, amt: 100 },
+  { name: 'In Progress', month: 100, day: 40, amt: 100 },
+  { name: 'Done', month: 100, day: 80, amt: 100 },
 ];
 
 export const StatisticsChart = () => {
