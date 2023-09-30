@@ -16,6 +16,26 @@ const data = [
   { name: 'Done', month: 100, day: 80, amt: 100 },
 ];
 
+//rounded bar
+const RoundedBar = (props) => {
+    const { x, y, width, height, fill } = props;
+    const borderRadius = 6; // Adjust the border radius as needed
+  
+    return (
+      <g>
+        <rect
+          x={x}
+          y={y}
+          width={width}
+          height={height}
+          fill={fill}
+          rx={borderRadius}
+          ry={borderRadius}
+        />
+      </g>
+    );
+  };
+
 export const StatisticsChart = () => {
   return (
     <div className={css.container}>
@@ -41,8 +61,8 @@ export const StatisticsChart = () => {
       <YAxis />
       {/* <Tooltip /> */}
       {/* <Legend /> */}
-      <Bar dataKey="day" fill="#FFD2DD" />
-      <Bar dataKey="month" fill="#3E85F3" />
+      <Bar dataKey="day" fill="#FFD2DD" shape={<RoundedBar />}/>
+      <Bar dataKey="month" fill="#3E85F3" shape={<RoundedBar />}/>
     </BarChart>
     </div>
   );
