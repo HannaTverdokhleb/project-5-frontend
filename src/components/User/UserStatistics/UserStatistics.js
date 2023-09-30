@@ -27,6 +27,7 @@ export const StatisticsChart = () => {
         left: 20,
         bottom: 5,
       }}
+      barSize={22}
     >
       <CartesianGrid strokeDasharray="3 3" />
       <XAxis dataKey="name" />
