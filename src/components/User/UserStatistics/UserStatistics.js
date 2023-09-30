@@ -24,11 +24,11 @@ const gradientPink = (
 );
 
 const gradientBlue = (
-    <linearGradient id="barGradientBlue" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stopColor="#ffffff" />
-      <stop offset="100%" stopColor="#3E85F3" />
-    </linearGradient>
-  );
+  <linearGradient id="barGradientBlue" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%" stopColor="#ffffff" />
+    <stop offset="100%" stopColor="#3E85F3" />
+  </linearGradient>
+);
 
 //rounded bar
 const RoundedBar = props => {
@@ -57,13 +57,6 @@ export const StatisticsChart = () => {
         width={320}
         height={266}
         data={data}
-        //   margin={{
-        //     top: 5,
-        //     right: 30,
-        //     left: 20,
-        //     bottom: 5,
-        //   }}
-
         barSize={22}
         barGap={8}
         barCategoryGap="30px"
@@ -78,8 +71,16 @@ export const StatisticsChart = () => {
         <YAxis />
         {/* <Tooltip /> */}
         {/* <Legend /> */}
-        <Bar dataKey="day" fill="url(#barGradientPink)" shape={<RoundedBar />} />
-        <Bar dataKey="month" fill="url(#barGradientBlue)" shape={<RoundedBar />} />
+        <Bar
+          dataKey="day"
+          fill="url(#barGradientPink)"
+          shape={<RoundedBar />}
+        />
+        <Bar
+          dataKey="month"
+          fill="url(#barGradientBlue)"
+          shape={<RoundedBar />}
+        />
       </BarChart>
     </div>
   );
