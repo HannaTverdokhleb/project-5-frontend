@@ -33,8 +33,8 @@ export const StatisticsChart = () => {
       <YAxis />
       <Tooltip />
       <Legend />
-      <Bar dataKey="day" fill="#8884d8" />
-      <Bar dataKey="month" fill="#82ca9d" />
+      <Bar dataKey="day" fill="#FFD2DD" />
+      <Bar dataKey="month" fill="#3E85F3" />
     </BarChart>
   );
 };
