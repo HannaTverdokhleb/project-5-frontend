@@ -1,66 +1,213 @@
+// import { useDispatch } from 'react-redux';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import * as Yup from 'yup';
 import css from './LoginForm.module.css';
+// import { logIn } from 'redux/Auth/operations';
+
 import loginGoose from '../../images/desktopImages/loginPage/loginGoose_desk@1x.png';
 import loginGoosex2 from '../../images/desktopImages/loginPage/loginGoose_desk@2x.png';
 
+import gooseSvg from '../../images/right.svg';
+import errorsvg from '../../images/error.svg';
+import successsvg from '../../images/success.svg';
+
 export const LoginForm = () => {
+  const initialValues = {
+    email: '',
+    password: '',
+  };
+
+  const validationLoginSchema = Yup.object().shape({
+    email: Yup.string()
+      .email('This is an ERROR email')
+      .required('Email is required'),
+    password: Yup.string()
+      .min(6, 'Your password can not be so short')
+      .max(16, 'Your password can not be so long')
+      .required('Password is required'),
+  });
+
+  // const dispatch = useDispatch();
+
+  const handleSubmit = (value, { resetForm }) => {
+    console.log(value);
+    // dispatch(logIn(value));
+    resetForm();
+  };
+
   return (
     <div className={css.div_container}>
       <div className={css.div_container_flex}>
         <picture className={css.logo_goose}>
           <source
             className={css.source}
-            srcset={`${loginGoose} 1x, ${loginGoosex2} 2x`}
-            media="(min-width: 1440px)"
+            srcSet={`${loginGoose} 1x, ${loginGoosex2} 2x`}
           />
-          <img src={loginGoose} alt="rocket" />
+          <img srcSet={loginGoose} alt="rocket" />
         </picture>
+
         <div className={css.div_container_form}>
           <div className={css.div_container_formik}>
             <h2 className={css.title}>Log In</h2>
-            <form className={css.form} action="#" autocomplete="off">
-              <div className={css.form_div}>
-                <label htmlFor="email" className={css.form_label}>
-                  <span>Email</span>
-                  <div className={css.form_input_div}>
-                    <input
-                      className={css.form_input}
-                      name="email"
-                      type="email"
-                      placeholder="nadiia@gmail.com"
-                    />
+
+            <Formik
+              initialValues={initialValues}
+              onSubmit={handleSubmit}
+              validationSchema={validationLoginSchema}
+            >
+              {({ errors, touched }) => (
+                <Form className={css.form} action="#" autoComplete="off">
+                  <div className={css.form_div}>
+                    <label htmlFor="email" className={css.form_label}>
+                      <span
+                        className={`${css.form_input_email} ${
+                          touched.email && errors.email ? css.error : ''
+                        } ${touched.email && !errors.email ? css.success : ''}`}
+                        aria-invalid={
+                          touched.email && errors.email ? 'true' : 'false'
+                        }
+                        data-valid={
+                          touched.email && !errors.email ? 'true' : 'false'
+                        }
+                      >
+                        Email
+                      </span>
+                      <div className={css.form_input_div}>
+                        <Field
+                          className={`${css.form_input} ${
+                            touched.email && errors.email ? css.error : ''
+                          } ${
+                            touched.email && !errors.email ? css.success : ''
+                          }`}
+                          name="email"
+                          type="email"
+                          placeholder="nadiia@gmail.com"
+                          autoComplete="email"
+                          aria-invalid={
+                            touched.email && errors.email ? 'true' : 'false'
+                          }
+                          data-valid={
+                            touched.email && !errors.email ? 'true' : 'false'
+                          }
+                        />
+                        {touched.email && errors.email && (
+                          <img
+                            className={css.errorIcon}
+                            style={{ width: '24px' }}
+                            src={errorsvg}
+                            alt="goose"
+                          />
+                        )}
+                        {touched.email && !errors.email && (
+                          <img
+                            className={css.successIcon}
+                            style={{ width: '24px' }}
+                            src={successsvg}
+                            alt="goose"
+                          />
+                        )}
+                      </div>
+
+                      {touched.email && !errors.email && (
+                        <div className={css.success}>
+                          This is an CORRECT email
+                        </div>
+                      )}
+                      <ErrorMessage
+                        name="email"
+                        render={message => (
+                          <div className={css.error}>{message}</div>
+                        )}
+                      />
+                    </label>
+
+                    <label htmlFor="password" className={css.form_label_tw}>
+                      <span
+                        className={`${css.form_input_email} ${
+                          touched.password && errors.password ? css.error : ''
+                        } ${
+                          touched.password && !errors.password
+                            ? css.success
+                            : ''
+                        }`}
+                        aria-invalid={
+                          touched.password && errors.password ? 'true' : 'false'
+                        }
+                        data-valid={
+                          touched.password && !errors.password
+                            ? 'true'
+                            : 'false'
+                        }
+                      >
+                        Password
+                      </span>
+                      <div className={css.form_input_div}>
+                        <Field
+                          className={`${css.form_input} ${
+                            touched.password && errors.password ? css.error : ''
+                          } ${
+                            touched.password && !errors.password
+                              ? css.success
+                              : ''
+                          }`}
+                          name="password"
+                          type="password"
+                          placeholder="●●●●●●●"
+                          autoComplete="password"
+                          aria-invalid={
+                            touched.password && errors.password
+                              ? 'true'
+                              : 'false'
+                          }
+                          data-valid={
+                            touched.password && !errors.password
+                              ? 'true'
+                              : 'false'
+                          }
+                        />
+                        {touched.password && errors.password && (
+                          <img
+                            className={css.errorIconn}
+                            style={{ width: '24px' }}
+                            src={errorsvg}
+                            alt="goose"
+                          />
+                        )}
+                        {touched.password && !errors.password && (
+                          <img
+                            className={css.successIconn}
+                            style={{ width: '24px' }}
+                            src={successsvg}
+                            alt="goose"
+                          />
+                        )}
+                      </div>
+                      {touched.password && !errors.password && (
+                        <div className={css.success}>
+                          This is an CORRECT password
+                        </div>
+                      )}
+                      <ErrorMessage
+                        name="password"
+                        render={message => (
+                          <div className={css.error}>{message}</div>
+                        )}
+                      />
+                    </label>
+
+                    <button className={css.button} type="submit">
+                      Log In
+                      <img
+                        style={{ width: '20px' }}
+                        src={gooseSvg}
+                        alt="goose"
+                      />
+                    </button>
                   </div>
-                </label>
-                <label htmlFor="password" className={css.form_label}>
-                  <span>Password</span>
-                  <div className={css.form_input_div}>
-                    <input
-                      className={css.form_input}
-                      name="password"
-                      type="password"
-                      placeholder="●●●●●●●"
-                    />
-                  </div>
-                </label>
-                <button className={css.button} type="submit">
-                  Log In
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 20 20"
-                    fill="none"
-                  >
-                    <path
-                      d="M12.5 2.5H13.5C14.9001 2.5 15.6002 2.5 16.135 2.77248C16.6054 3.01217 16.9878 3.39462 17.2275 3.86502C17.5 4.3998 17.5 5.09987 17.5 6.5V13.5C17.5 14.9001 17.5 15.6002 17.2275 16.135C16.9878 16.6054 16.6054 16.9878 16.135 17.2275C15.6002 17.5 14.9001 17.5 13.5 17.5H12.5M8.33333 5.83333L12.5 10M12.5 10L8.33333 14.1667M12.5 10L2.5 10"
-                      stroke="white"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                </button>
-              </div>
-            </form>
+                </Form>
+              )}
+            </Formik>
+
             <a
               className={css.google}
               href="https://goose-track-backend-54zr.onrender.com/auth/google"
@@ -71,7 +218,7 @@ export const LoginForm = () => {
           <div className={css.register}>
             <a
               className={css.signup}
-              href="goose-track-backend-54zr.onrender.com/register"
+              href="http://localhost:3000/project-5-frontend/register"
             >
               Sign up
             </a>
