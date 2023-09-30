@@ -31,12 +31,14 @@ export const StatisticsChart = () => {
       barGap={8}
       barCategoryGap="30px"
     >
+      <CartesianGrid stroke="#E3F3FF" />
       <CartesianGrid vertical={false} />
-      <CartesianGrid strokeDasharray="3 3" />
+      {/* <CartesianGrid strokeDasharray="3 3" /> */}
+
       <XAxis dataKey="name" />
       <YAxis />
-      <Tooltip />
-      <Legend />
+      {/* <Tooltip /> */}
+      {/* <Legend /> */}
       <Bar dataKey="day" fill="#FFD2DD" />
       <Bar dataKey="month" fill="#3E85F3" />
     </BarChart>
