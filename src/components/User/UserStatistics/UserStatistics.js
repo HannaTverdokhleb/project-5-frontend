@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   BarChart,
   Bar,
@@ -8,7 +8,29 @@ import {
   //   Legend,
   CartesianGrid,
 } from 'recharts';
+
+import DatePicker from "react-datepicker";
+
+import "react-datepicker/dist/react-datepicker.css";
+
 import css from './UserStatistics.module.css';
+
+
+export const CalendarDropdown = () => {
+    const [date, setDate] = useState(new Date());
+
+    const handleCalendarClose = () => console.log("Calendar closed");
+    const handleCalendarOpen = () => console.log("Calendar opened");
+  
+    return (
+      <DatePicker
+        selected={date}
+        onChange={(date) => setDate(date)}
+        onCalendarClose={handleCalendarClose}
+        onCalendarOpen={handleCalendarOpen}
+      />
+    );
+  };
 
 //data for stats chart 
 const data = [
