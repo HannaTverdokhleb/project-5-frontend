@@ -1,7 +1,9 @@
+import { namePageReducer } from './reducer';
+
 const { configureStore } = require('@reduxjs/toolkit');
 
-export const srore = configureStore({
+export const store = configureStore({
   reducer: {
-    namePage: {},
+    currentPage: namePageReducer,
   },
 });
