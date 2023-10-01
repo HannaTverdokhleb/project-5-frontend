@@ -128,9 +128,9 @@
 .logo_goose {
   display: none;
   position: absolute;
-  width: 368px;
-  bottom: 14%;
-  right: 60px;
+  width: 400px;
+  bottom: 0px;
+  left: -5%;
 }
 @media screen and (min-width: 1440px) {
   .logo_goose {
@@ -305,23 +305,5 @@
 @media screen and (min-width: 768px) {
   .register {
     margin-top: 24px;
-  }
-}
-.signup {
-  color: var(--main-color-blue);
-  text-shadow: 0px 9.399999618530273px 57.6875px rgba(0, 0, 0, 0.04),
-    0px 47px 355px rgba(0, 0, 0, 0.07);
-  font-family: Inter;
-  font-size: 12px;
-  line-height: 14px;
-  font-style: normal;
-  font-weight: 600;
-  text-decoration-line: underline;
-}
-
-@media screen and (min-width: 768px) {
-  .signup {
-    line-height: 24px;
-    font-size: 18px;
   }
 }
