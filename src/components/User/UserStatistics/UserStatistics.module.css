@@ -62,5 +62,32 @@
 .textChart {
   color: #343434;
   font-family: Inter, sans-serif;
-  font-size: 14px;
+  font-size: 12px;
+}
+
+/*Styles from 768px*/
+@media screen and (min-width: 768px) {
+  /*General container*/
+  .container {
+    gap: 48px;
+    padding: 140px 32px 224px 32px;
+  }
+
+  /*ByDay/Month Filter*/
+  .textFilter {
+    font-size: 16px;
+    gap: 20px;
+  }
+
+  /*Chart Block*/
+  .chartBlock {
+    gap: 12px;
+    padding: 32px;
+    border-radius: 29px;
+  }
+  .textChart {
+    color: #343434;
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+  }
 }
