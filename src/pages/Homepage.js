@@ -7,7 +7,7 @@ const Homepage = () => {
     <>
       <HeroSection />
       <Description />
-      <TitleH2/>
+      <TitleH2 />
       <ReviewsSlider />
     </>
   );
