@@ -4,6 +4,8 @@
 
 .success {
   color: #3cbc81;
+
+  /* margin-left: auto; */
 }
 
 .form_input.error {
@@ -12,6 +14,38 @@
 
 .form_input.success {
   border: 1px solid #3cbc81;
+}
+.successIcon_ss {
+  position: absolute;
+  right: 18px;
+  bottom: 368px;
+  width: 24px;
+}
+@media screen and (min-width: 768px) {
+  .successIcon_ss {
+    bottom: 401px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .successIcon_ss {
+    bottom: 396px;
+  }
+}
+.errorIcon_er {
+  position: absolute;
+  right: 18px;
+  bottom: 367px;
+  width: 24px;
+}
+@media screen and (min-width: 768px) {
+  .errorIcon_er {
+    bottom: 401px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .errorIcon_er {
+    bottom: 396px;
+  }
 }
 .successIcon {
   position: absolute;
@@ -128,9 +162,9 @@
 .logo_goose {
   display: none;
   position: absolute;
-  width: 368px;
-  bottom: 14%;
-  right: 60px;
+  width: 400px;
+  bottom: 0px;
+  left: -5%;
 }
 @media screen and (min-width: 1440px) {
   .logo_goose {
@@ -210,6 +244,9 @@
   display: flex;
   justify-content: space-between;
 }
+/* .form_input_email {
+  margin-bottom: 8px;
+} */
 .form_input {
   position: relative;
   font-family: inherit;
@@ -224,6 +261,7 @@
   border-radius: 8px;
   border: 1px solid rgba(220, 227, 229, 0.6);
   background: var(--bcg-color-white);
+  font-size: 12px;
 }
 
 @media screen and (min-width: 768px) {
@@ -304,23 +342,5 @@
 @media screen and (min-width: 768px) {
   .register {
     margin-top: 24px;
-  }
-}
-.signup {
-  color: var(--main-color-blue);
-  text-shadow: 0px 9.399999618530273px 57.6875px rgba(0, 0, 0, 0.04),
-    0px 47px 355px rgba(0, 0, 0, 0.07);
-  font-family: Inter;
-  font-size: 12px;
-  line-height: 14px;
-  font-style: normal;
-  font-weight: 600;
-  text-decoration-line: underline;
-}
-
-@media screen and (min-width: 768px) {
-  .signup {
-    line-height: 24px;
-    font-size: 18px;
   }
 }

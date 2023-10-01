@@ -1,36 +1,42 @@
-import { useDispatch } from 'react-redux';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
-import css from './LoginForm.module.css';
-import { logIn } from 'redux/Auth/operations';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { Formik, Field, Form, ErrorMessage } from 'formik';
+import * as yup from 'yup';
+import css from './RegisterForm.module.css';
+import { register } from 'redux/Auth/operations';
 import { selectErrorMessage } from 'redux/Auth/selectors';
 
-import loginGoose from '../../images/desktopImages/loginPage/loginGoose_desk@1x.png';
-import loginGoosex2 from '../../images/desktopImages/loginPage/loginGoose_desk@2x.png';
+import registerGoose from '../../images/desktopImages/signUpPage/elements_desk@1x.png';
+import registerGoosex2 from '../../images/desktopImages/signUpPage/elements_desk@2x.png';
 
 import gooseSvg from '../../images/right.svg';
 import errorsvg from '../../images/error.svg';
 import successsvg from '../../images/success.svg';
 import AuthNavigate from 'components/User/AuthNavigate/AuthNavigate';
 
-export const LoginForm = () => {
+// const validationLoginSchema = yup.object().shape({
+//   // email: Yup.string()
+//   //   .email('Email is not valid')
+//   //   .required('Email is required'),
+//   password: Yup.string()
+//     .min(6, 'Your password can not be so short')
+//     .max(16, 'Your password can not be so long')
+//     .required('Password is required'),
+// });
+
+export const RegisterForm = () => {
   const dispatch = useDispatch();
   const errorMessage = useSelector(selectErrorMessage);
 
   const initialValues = {
+    name: '',
     email: '',
     password: '',
   };
 
-  const validationLoginSchema = Yup.object().shape({
-    // email: Yup.string()
-    //   .email('Email is not valid')
-    //   .required('Email is required'),
-    password: Yup.string()
-      .min(6, 'Your password can not be so short')
-      .max(16, 'Your password can not be so long')
-      .required('Password is required'),
+  const validationLoginSchema = yup.object().shape({
+    name: yup.string().max(16).required(),
+    email: yup.string().email().required(),
+    password: yup.string().min(6).max(16).required(),
   });
 
   function validateEmail(value) {
@@ -47,9 +53,10 @@ export const LoginForm = () => {
     return error;
   }
 
-  const handleSubmit = ({ email, password }, { resetForm }) => {
+  const handleSubmit = ({ name, email, password }, { resetForm }) => {
     dispatch(
-      logIn({
+      register({
+        name,
         email,
         password,
       })
@@ -63,14 +70,14 @@ export const LoginForm = () => {
         <picture className={css.logo_goose}>
           <source
             className={css.source}
-            srcSet={`${loginGoose} 1x, ${loginGoosex2} 2x`}
+            srcSet={`${registerGoose} 1x, ${registerGoosex2} 2x`}
           />
-          <img srcSet={loginGoose} alt="rocket" />
+          <img srcSet={registerGoose} alt="goose" />
         </picture>
 
         <div className={css.div_container_form}>
           <div className={css.div_container_formik}>
-            <h2 className={css.title}>Log In</h2>
+            <h2 className={css.title}>Sign Up</h2>
 
             <Formik
               initialValues={initialValues}
@@ -80,6 +87,70 @@ export const LoginForm = () => {
               {({ errors, touched }) => (
                 <Form className={css.form} action="#" autoComplete="off">
                   <div className={css.form_div}>
+                    <label htmlFor="email" className={css.form_label}>
+                      <span
+                        // style={{
+                        //   alignItems: 'flex-start',
+                        // }}
+                        className={`${css.form_input_email} ${
+                          touched.name && errors.name ? css.error : ''
+                        } ${touched.name && !errors.name ? css.success : ''}`}
+                        aria-invalid={
+                          touched.name && errors.name ? 'true' : 'false'
+                        }
+                        data-valid={
+                          touched.name && !errors.name ? 'true' : 'false'
+                        }
+                      >
+                        Name
+                      </span>
+                      <div className={css.form_input_div}>
+                        <Field
+                          className={`${css.form_input} 
+                          ${touched.name && errors.name ? css.error : ''} ${
+                            touched.name && !errors.name ? css.success : ''
+                          }
+                          `}
+                          name="name"
+                          type="name"
+                          placeholder="Enter your name"
+                          autoComplete="name"
+                          aria-invalid={
+                            touched.name && errors.name ? 'true' : 'false'
+                          }
+                          data-valid={
+                            touched.name && !errors.name ? 'true' : 'false'
+                          }
+                        />
+                        {touched.name && errors.name && (
+                          <img
+                            className={css.errorIcon_er}
+                            style={{ width: '24px' }}
+                            src={errorsvg}
+                            alt="goose"
+                          />
+                        )}
+                        {touched.name && !errors.name && (
+                          <img
+                            className={css.successIcon_ss}
+                            style={{ width: '24px' }}
+                            src={successsvg}
+                            alt="goose"
+                          />
+                        )}
+                      </div>
+
+                      {touched.name && !errors.name && (
+                        <div className={css.success}>Name is valid</div>
+                      )}
+                      <ErrorMessage
+                        name="name"
+                        render={message => (
+                          <div className={css.error}>{message}</div>
+                        )}
+                      />
+                    </label>
+
                     <label htmlFor="email" className={css.form_label}>
                       <span
                         className={`${css.form_input_email} ${
@@ -103,7 +174,7 @@ export const LoginForm = () => {
                           }`}
                           name="email"
                           type="email"
-                          placeholder="nadiia@gmail.com"
+                          placeholder="Enter email"
                           autoComplete="email"
                           aria-invalid={
                             touched.email && errors.email ? 'true' : 'false'
@@ -173,7 +244,7 @@ export const LoginForm = () => {
                           }`}
                           name="password"
                           type="password"
-                          placeholder="●●●●●●●"
+                          placeholder="Enter password"
                           autoComplete="password"
                           aria-invalid={
                             touched.password && errors.password
@@ -215,7 +286,7 @@ export const LoginForm = () => {
                     </label>
                     {errorMessage && <p>{errorMessage}</p>}
                     <button className={css.button} type="submit">
-                      Log In
+                      Sign Up
                       <img
                         style={{ width: '20px' }}
                         src={gooseSvg}
@@ -235,7 +306,7 @@ export const LoginForm = () => {
             </a>
           </div>
           <div className={css.register}>
-            <AuthNavigate authLink={'/register'} linkText={'Sign Up'} />
+            <AuthNavigate authLink={'/login'} linkText={'Log In'} />
           </div>
         </div>
       </div>
