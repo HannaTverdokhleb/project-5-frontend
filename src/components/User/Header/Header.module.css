@@ -3,3 +3,18 @@
   font-family: 'Inter';
   font-size: 32px;
 }
+
+@media screen and (min-width: 335px) {
+  .title {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .title {
+    display: block;
+    color: --main-color-black;
+    font-family: 'Inter';
+    font-size: 32px;
+  }
+}
