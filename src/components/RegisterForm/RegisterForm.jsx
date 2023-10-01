@@ -301,7 +301,8 @@ export const RegisterForm = () => {
               Click me to authorize with Google!
             </a>
           </div>
-          <div className={css.registerr}>
+
+          <div className={css.register}>
             <AuthNavigate authLink={'/login'} linkText={'Log In'} />
           </div>
         </div>
