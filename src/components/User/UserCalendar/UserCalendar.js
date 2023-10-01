@@ -1,20 +1,21 @@
-import React, { useState } from 'react';
+import React, { forwardRef, useState } from 'react';
 import DatePicker from 'react-datepicker';
 
 import 'react-datepicker/dist/react-datepicker.css';
+import css from './UserCalendar.module.css';
 
 export const CalendarDropdown = () => {
-  const [date, setDate] = useState(new Date());
-
-  const handleCalendarClose = () => console.log('Calendar closed');
-  const handleCalendarOpen = () => console.log('Calendar opened');
-
-  return (
-    <DatePicker
-      selected={date}
-      onChange={date => setDate(date)}
-      onCalendarClose={handleCalendarClose}
-      onCalendarOpen={handleCalendarOpen}
-    />
-  );
+    const [startDate, setStartDate] = useState(new Date());
+    const ExampleCustomInput = forwardRef(({ value, onClick }, ref) => (
+      <button className="example-custom-input" onClick={onClick} ref={ref}>
+        {value}
+      </button>
+    ));
+    return (
+      <DatePicker
+        selected={startDate}
+        onChange={(date) => setStartDate(date)}
+        customInput={<ExampleCustomInput />}
+      />
+    );
 };
