@@ -1,9 +1,6 @@
-import { Header } from 'components/User/Header/Header';
-import { useDispatch } from 'react-redux';
-import { currentPage } from 'redux/actions';
+import Header from 'components/User/Header/Header';
+
 const StatisticsPage = () => {
-  const dispatch = useDispatch();
-  dispatch(currentPage('Statistics'));
   return (
     <div>
       <Header />
