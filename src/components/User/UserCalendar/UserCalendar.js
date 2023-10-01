@@ -5,17 +5,18 @@ import 'react-datepicker/dist/react-datepicker.css';
 import css from './UserCalendar.module.css';
 
 export const CalendarDropdown = () => {
-    const [startDate, setStartDate] = useState(new Date());
-    const ExampleCustomInput = forwardRef(({ value, onClick }, ref) => (
-      <button className="example-custom-input" onClick={onClick} ref={ref}>
-        {value}
-      </button>
-    ));
-    return (
-      <DatePicker
-        selected={startDate}
-        onChange={(date) => setStartDate(date)}
-        customInput={<ExampleCustomInput />}
-      />
-    );
+  const [startDate, setStartDate] = useState(new Date());
+  const CustomInput = forwardRef(({ value, onClick }, ref) => (
+    <button className={css.customInput} onClick={onClick} ref={ref}>
+      {value}
+    </button>
+  ));
+
+  return (
+    <DatePicker
+      selected={startDate}
+      onChange={date => setStartDate(date)}
+      customInput={<CustomInput />}
+    />
+  );
 };
