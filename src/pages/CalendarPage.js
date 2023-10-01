@@ -1,16 +1,15 @@
 import { Header } from 'components/User/Header/Header';
 import { useDispatch } from 'react-redux';
 import { currentPage } from 'redux/actions';
-
-const AccountPage = () => {
+const CalendarPage = () => {
   const dispatch = useDispatch();
-  dispatch(currentPage('User Profile'));
+  dispatch(currentPage('Calendar'));
   return (
     <div>
-      Account
       <Header />
+      Calendar
     </div>
   );
 };
 
-export default AccountPage;
+export default CalendarPage;
