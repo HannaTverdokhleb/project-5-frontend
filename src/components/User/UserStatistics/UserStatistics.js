@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   BarChart,
   Bar,
@@ -56,6 +56,36 @@ const RoundedBar = props => {
 
 //Stats chart
 export const StatisticsChart = () => {
+  const [chartWidth, setChartWidth] = useState(320); // Initial width
+  const [chartHeight, setChartHeight] = useState(266); // Initial height
+
+  // Update chart dimensions based on screen width
+  useEffect(() => {
+    const updateDimensions = () => {
+      const screenWidth = window.innerWidth;
+      if (screenWidth < 375) {
+        setChartWidth(280); 
+        setChartHeight(330); 
+      } else if (screenWidth >= 768 && screenWidth < 1440) {
+        setChartWidth(580); 
+        setChartHeight(360); 
+      } else if (screenWidth > 1440) {
+        setChartWidth(780); 
+        setChartHeight(350); 
+      }
+    };
+
+    // Event listener to window resize
+    window.addEventListener('resize', updateDimensions);
+
+    // Initial dimensions
+    updateDimensions();
+
+    // Clean up event listener on component unmount
+    return () => {
+      window.removeEventListener('resize', updateDimensions);
+    };
+  }, []);
   return (
     <div className={css.container}>
       <div className={css.textFilter}>
@@ -73,8 +103,8 @@ export const StatisticsChart = () => {
         <p className={css.tasks}>Tasks</p>
         <BarChart
           className={css.textChart}
-          width={320}
-          height={266}
+          width={chartWidth}
+          height={chartHeight}
           data={data}
           barSize={22}
           barGap={8}

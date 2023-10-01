@@ -91,3 +91,11 @@
     font-size: 14px;
   }
 }
+
+/*Styles from 768px*/
+@media screen and (min-width: 768px) {
+  /*General container*/
+  .container {
+    padding: 134px 114px 104px 114px;
+  }
+}
