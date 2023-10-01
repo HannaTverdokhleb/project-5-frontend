@@ -1,10 +1,6 @@
-import { Header } from 'components/User/Header/Header';
-import { useDispatch } from 'react-redux';
-import { currentPage } from 'redux/actions';
+import Header from 'components/User/Header/Header';
 
 const AccountPage = () => {
-  const dispatch = useDispatch();
-  dispatch(currentPage('User Profile'));
   return (
     <div>
       Account
