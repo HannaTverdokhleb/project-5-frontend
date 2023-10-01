@@ -86,7 +86,7 @@ const FeedbackForm = ({ onClose }) => {
                 type="button"
                 onClick={handleEdit}
               >
-                <BtnEdit style={{ width: 24, height: 24 }} />
+                <BtnEdit className={css.BtnEdit} />
               </button>
 
               <button
@@ -94,7 +94,7 @@ const FeedbackForm = ({ onClose }) => {
                 type="button"
                 onClick={handleDelete}
               >
-                <BtnTrash style={{ width: 24, height: 24 }} />
+                <BtnTrash className={css.BtnTrash} />
               </button>
             </div>
           </div>
