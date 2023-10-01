@@ -224,7 +224,6 @@
   border-radius: 8px;
   border: 1px solid rgba(220, 227, 229, 0.6);
   background: var(--bcg-color-white);
-  font-size: 12px;
 }
 
 @media screen and (min-width: 768px) {

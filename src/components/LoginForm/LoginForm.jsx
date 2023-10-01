@@ -54,7 +54,7 @@ export const LoginForm = () => {
         password,
       })
     );
-    // resetForm();
+    resetForm();
   };
 
   return (
