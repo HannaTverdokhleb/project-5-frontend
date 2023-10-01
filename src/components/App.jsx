@@ -1,8 +1,3 @@
-// import FeedbackForm from './Feedback/FeedBackForm/FeedbackForm';
-// export const App = () => {
-//   return <FeedbackForm />;
-// };
-
 import { lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 const Homepage = lazy(() => import('../pages/HomePage/Homepage'));
