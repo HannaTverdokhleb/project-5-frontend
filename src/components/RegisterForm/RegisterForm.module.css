@@ -297,13 +297,13 @@
     font-size: 18px;
   }
 }
-.registerr {
+.register {
   margin-top: 18px;
   margin-right: auto;
   margin-left: auto;
 }
 @media screen and (min-width: 768px) {
-  .registerr {
+  .register {
     margin-top: 24px;
   }
 }
