@@ -7,6 +7,13 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import {
+  addReview,
+  deleteReview,
+  updateReview,
+} from '../../../redux/reviews/reviewsOperations';
+import { selectOwnReviews } from '../../../redux/reviews/reviewsSelectors';
+
 import { ReactComponent as IconClose } from '../../../images/x-close.svg';
 import { ReactComponent as BtnEdit } from '../../../images/pencil-01.svg';
 import { ReactComponent as BtnTrash } from '../../../images/trash-2.svg';
@@ -34,10 +41,6 @@ const rateStyled = {
   inactiveFillColor: '#CEC9C1',
 };
 
-const handleEdit = () => {};
-
-const handleDelete = () => {};
-
 const FeedbackForm = ({ onClose }) => {
   const initialValues = {
     review: '',
@@ -46,13 +49,22 @@ const FeedbackForm = ({ onClose }) => {
 
   const [action, setAction] = useState('0');
 
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
+  const ownReview = useSelector(selectOwnReviews);
   const [newRating, setNewRating] = useState(0);
 
   const handleSubmit = (values, actions) => {
     console.log(values);
     console.log(actions);
+  };
+
+  const handleEdit = () => {};
+
+  const handleDelete = () => {
+    Notify.info('Your review has been delete.');
+    dispatch(deleteReview(ownReview._id));
+    onClose();
   };
 
   return (
