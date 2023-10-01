@@ -1,13 +1,13 @@
 import { RegisterForm } from 'components/RegisterForm/RegisterForm';
 import AuthNavigate from 'components/User/AuthNavigate/AuthNavigate';
 
-const RegisterPage = () => {
+const LoginPage = () => {
   return (
     <div>
       <RegisterForm />
-      <AuthNavigate authLink={'/register'} linkText={'Sign up'} />
+      <AuthNavigate authLink={'/login'} linkText={'Log In'} />
     </div>
   );
 };
 
-export default RegisterPage;
+export default LoginPage;

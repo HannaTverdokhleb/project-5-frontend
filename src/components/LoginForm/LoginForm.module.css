@@ -100,7 +100,6 @@
   flex-direction: column;
   align-items: center;
   padding: 0px 20px;
-  font-size: 12px;
 }
 .div_container_formik {
   width: 230px;
@@ -115,12 +114,12 @@
 }
 @media screen and (min-width: 375px) {
   .div_container_formik {
-    width: 300px;
+    width: 287px;
   }
 }
 @media screen and (min-width: 768px) {
   .div_container_formik {
-    width: 480px;
+    width: 400px;
     gap: 40px;
     padding: 40px;
   }
@@ -215,7 +214,7 @@
   position: relative;
   font-family: inherit;
   width: 100%;
-  padding: 14px 44px 14px 14px;
+  padding: 14px 0px 14px 14px;
   color: var(--text-main-text);
   font-weight: 400;
   line-height: 18px;
@@ -224,8 +223,7 @@
   font-style: normal;
   border-radius: 8px;
   border: 1px solid rgba(220, 227, 229, 0.6);
-  background: #fff;
-  font-size: 12px;
+  background: var(--bcg-color-white);
 }
 
 @media screen and (min-width: 768px) {

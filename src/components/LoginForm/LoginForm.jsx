@@ -6,13 +6,13 @@ import { logIn } from 'redux/Auth/operations';
 import { useSelector } from 'react-redux';
 import { selectErrorMessage } from 'redux/Auth/selectors';
 
-
 import loginGoose from '../../images/desktopImages/loginPage/loginGoose_desk@1x.png';
 import loginGoosex2 from '../../images/desktopImages/loginPage/loginGoose_desk@2x.png';
 
 import gooseSvg from '../../images/right.svg';
 import errorsvg from '../../images/error.svg';
 import successsvg from '../../images/success.svg';
+import AuthNavigate from 'components/User/AuthNavigate/AuthNavigate';
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
@@ -37,7 +37,11 @@ export const LoginForm = () => {
     let error;
     if (!value) {
       error = 'Email is required';
-    } else if (!/^[a-z].+([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z]+[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/.test(value)) {
+    } else if (
+      !/^[a-z].+([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z]+[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/.test(
+        value
+      )
+    ) {
       error = 'Email is not valid';
     }
     return error;
@@ -50,7 +54,7 @@ export const LoginForm = () => {
         password,
       })
     );
-    // resetForm();
+    resetForm();
   };
 
   return (
@@ -128,9 +132,7 @@ export const LoginForm = () => {
                       </div>
 
                       {touched.email && !errors.email && (
-                        <div className={css.success}>
-                          Email is valid
-                        </div>
+                        <div className={css.success}>Email is valid</div>
                       )}
                       <ErrorMessage
                         name="email"
@@ -202,9 +204,7 @@ export const LoginForm = () => {
                         )}
                       </div>
                       {touched.password && !errors.password && (
-                        <div className={css.success}>
-                          Password is valid
-                        </div>
+                        <div className={css.success}>Password is valid</div>
                       )}
                       <ErrorMessage
                         name="password"
@@ -235,12 +235,7 @@ export const LoginForm = () => {
             </a>
           </div>
           <div className={css.register}>
-            <a
-              className={css.signup}
-              href="http://localhost:3000/project-5-frontend/register"
-            >
-              Sign up
-            </a>
+            <AuthNavigate authLink={'/register'} linkText={'Sign Up'} />
           </div>
         </div>
       </div>

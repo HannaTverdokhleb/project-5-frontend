@@ -149,11 +149,12 @@
   height: 30px;
   border: none;
   border-radius: 50%;
-
+  stroke: #3e85f3;
   cursor: pointer;
 
   &:hover,
   &:focus {
+    stroke: #ffffff;
     background-color: #3e85f3;
   }
 }
@@ -168,9 +169,10 @@
   border-radius: 50%;
   cursor: pointer;
   background-color: #ea3d6533;
-
+  stroke: #ea3d65;
   &:hover,
   &:focus {
+    stroke: #ffffff;
     background-color: #ea3d65;
   }
 }
@@ -186,14 +188,4 @@
   align-items: baseline;
   margin-top: 20px;
   margin-bottom: 8px;
-}
-
-.BtnEdit {
-  width: 24px;
-  height: 24px;
-}
-
-.BtnTrash {
-  width: 24px;
-  height: 24px;
 }

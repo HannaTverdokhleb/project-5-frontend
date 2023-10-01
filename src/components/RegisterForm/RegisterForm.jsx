@@ -89,6 +89,9 @@ export const RegisterForm = () => {
                   <div className={css.form_div}>
                     <label htmlFor="email" className={css.form_label}>
                       <span
+                        // style={{
+                        //   alignItems: 'flex-start',
+                        // }}
                         className={`${css.form_input_email} ${
                           touched.name && errors.name ? css.error : ''
                         } ${touched.name && !errors.name ? css.success : ''}`}
@@ -103,9 +106,11 @@ export const RegisterForm = () => {
                       </span>
                       <div className={css.form_input_div}>
                         <Field
-                          className={`${css.form_input} ${
-                            touched.name && errors.name ? css.error : ''
-                          } ${touched.name && !errors.name ? css.success : ''}`}
+                          className={`${css.form_input} 
+                          ${touched.name && errors.name ? css.error : ''} ${
+                            touched.name && !errors.name ? css.success : ''
+                          }
+                          `}
                           name="name"
                           type="name"
                           placeholder="Enter your name"
@@ -116,11 +121,10 @@ export const RegisterForm = () => {
                           data-valid={
                             touched.name && !errors.name ? 'true' : 'false'
                           }
-                          validate={validateEmail}
                         />
                         {touched.name && errors.name && (
                           <img
-                            className={css.errorIcon}
+                            className={css.errorIcon_er}
                             style={{ width: '24px' }}
                             src={errorsvg}
                             alt="goose"
@@ -128,7 +132,7 @@ export const RegisterForm = () => {
                         )}
                         {touched.name && !errors.name && (
                           <img
-                            className={css.successIcon}
+                            className={css.successIcon_ss}
                             style={{ width: '24px' }}
                             src={successsvg}
                             alt="goose"
@@ -301,7 +305,6 @@ export const RegisterForm = () => {
               Click me to authorize with Google!
             </a>
           </div>
-
           <div className={css.register}>
             <AuthNavigate authLink={'/login'} linkText={'Log In'} />
           </div>
