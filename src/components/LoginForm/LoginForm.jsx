@@ -37,7 +37,7 @@ export const LoginForm = () => {
     let error;
     if (!value) {
       error = 'Email is required';
-    } else if (!/^([a-zA-Z0-9_.+-])+@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/.test(value)) {
+    } else if (!/^[a-z].+([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z]+[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/.test(value)) {
       error = 'Email is not valid';
     }
     return error;

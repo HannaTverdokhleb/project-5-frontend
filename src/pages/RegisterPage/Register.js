@@ -3,6 +3,7 @@ import { register } from 'redux/Auth/operations';
 import React from 'react';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as yup from 'yup';
+import AuthNavigate from 'components/User/AuthNavigate/AuthNavigate';
 
 
 const schema = yup.object().shape({
@@ -57,6 +58,7 @@ const RegisterPage = () => {
         <button type="submit">Sign Up</button>
       </Form>
     </Formik>
+    <AuthNavigate authLink={'/login'} linkText={'Log In'} />
   </div>
   )
 };
