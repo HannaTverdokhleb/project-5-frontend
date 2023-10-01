@@ -56,8 +56,11 @@ const RoundedBar = props => {
 
 //Stats chart
 export const StatisticsChart = () => {
-  const [chartWidth, setChartWidth] = useState(320); // Initial width
-  const [chartHeight, setChartHeight] = useState(266); // Initial height
+  const [chartWidth, setChartWidth] = useState(280); 
+  const [chartHeight, setChartHeight] = useState(266); 
+  const [barSize, setBarSize] = useState(22); 
+  const [barGap, setBarGap] = useState(8); 
+  const [barCategoryGap, setBarCategoryGap] = useState(30); 
 
   // Update chart dimensions based on screen width
   useEffect(() => {
@@ -65,13 +68,22 @@ export const StatisticsChart = () => {
       const screenWidth = window.innerWidth;
       if (screenWidth < 375) {
         setChartWidth(280); 
-        setChartHeight(330); 
+        setChartHeight(330);
+        setBarSize(22) 
+        setBarGap(8)
+        setBarCategoryGap(30)
       } else if (screenWidth >= 768 && screenWidth < 1440) {
         setChartWidth(580); 
         setChartHeight(360); 
+        setBarSize(27)
+        setBarGap(14)
+        setBarCategoryGap(130)
       } else if (screenWidth > 1440) {
         setChartWidth(780); 
         setChartHeight(350); 
+        setBarSize(27)
+        setBarGap(14)
+        setBarCategoryGap(170)
       }
     };
 
@@ -106,9 +118,9 @@ export const StatisticsChart = () => {
           width={chartWidth}
           height={chartHeight}
           data={data}
-          barSize={22}
-          barGap={8}
-          barCategoryGap="30px"
+          barSize={barSize}
+          barGap={barGap}
+          barCategoryGap={barCategoryGap}
         >
           <defs>{gradientPink}</defs>
           <defs>{gradientBlue}</defs>
