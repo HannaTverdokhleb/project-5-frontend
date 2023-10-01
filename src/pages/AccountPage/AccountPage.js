@@ -4,7 +4,7 @@ import { currentPage } from 'redux/actions';
 
 const AccountPage = () => {
   const dispatch = useDispatch();
-  dispatch(currentPage('Account'));
+  dispatch(currentPage('User Profile'));
   return (
     <div>
       Account

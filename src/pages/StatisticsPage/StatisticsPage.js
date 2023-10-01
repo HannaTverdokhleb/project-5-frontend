@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { currentPage } from 'redux/actions';
 const StatisticsPage = () => {
   const dispatch = useDispatch();
-  dispatch(currentPage('Calendar'));
+  dispatch(currentPage('Statistics'));
   return (
     <div>
       <Header />

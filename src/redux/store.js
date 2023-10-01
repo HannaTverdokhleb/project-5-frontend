@@ -1,17 +1,3 @@
-<<<<<<< Updated upstream
-import { namePageReducer } from './reducer';
-
-=======
-<<<<<<< HEAD
->>>>>>> Stashed changes
-const { configureStore } = require('@reduxjs/toolkit');
-
-export const store = configureStore({
-  reducer: {
-    currentPage: namePageReducer,
-  },
-});
-=======
 import { configureStore } from '@reduxjs/toolkit';
 import {
   persistStore,
@@ -26,6 +12,7 @@ import {
 import storage from 'redux-persist/lib/storage';
 
 import { authReducer } from './Auth/AuthSlice';
+import { namePageReducer } from './reducer';
 import { reviewsReducer } from './reviews/reviewsSlice';
 
 const authPersistConfig = {
@@ -38,7 +25,7 @@ export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
     reviews: reviewsReducer,
-    // tasks: tasksReducer,
+    currentPage: namePageReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
@@ -50,4 +37,3 @@ export const store = configureStore({
 });
 
 export const persistor = persistStore(store);
->>>>>>> 1eafb27311cf4d1be0b30807191dac703054d964
