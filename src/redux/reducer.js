@@ -8,6 +8,5 @@ const namePageInitialState = {
 export const namePageReducer = createReducer(namePageInitialState, {
   [currentPage]: (state, action) => {
     state.namePage = action.payload.namePage;
-    // console.log(action);
   },
 });

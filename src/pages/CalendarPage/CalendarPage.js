@@ -13,8 +13,8 @@ const CalendarPage = () => {
   return (
     <MainLayout>
       <Sidebar />
+      <Header />
       <div className={style.innerWrapper}>
-        <Header />
         <UserCalendar />
       </div>
     </MainLayout>
