@@ -138,6 +138,13 @@
   border: none;
   background-color: transparent;
   cursor: pointer;
+
+  stroke: black;
+  transition: stroke 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  &:hover,
+  &:focus {
+    stroke: #2b78ef;
+  }
 }
 
 .editBtn {
@@ -149,11 +156,12 @@
   height: 30px;
   border: none;
   border-radius: 50%;
-
+  stroke: #3e85f3;
   cursor: pointer;
 
   &:hover,
   &:focus {
+    stroke: #ffffff;
     background-color: #3e85f3;
   }
 }
@@ -167,10 +175,12 @@
   border: none;
   border-radius: 50%;
   cursor: pointer;
+  stroke: #ea3d65;
   background-color: #ea3d6533;
 
   &:hover,
   &:focus {
+    stroke: #ffffff;
     background-color: #ea3d65;
   }
 }
