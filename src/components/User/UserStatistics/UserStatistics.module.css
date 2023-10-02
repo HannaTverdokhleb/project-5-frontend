@@ -1,0 +1,101 @@
+/*General container*/
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 120px 20px 135px 20px;
+  background-color: var(--bcg-color-white);
+}
+
+/*ByDay/Month Filter*/
+.textFilter {
+  display: flex;
+  gap: 14px;
+}
+
+.circleTextBlock {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.textBy {
+  color: #343434;
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+}
+
+.circlePink {
+  width: 8px;
+  height: 8px;
+  background-color: #ffd2dd;
+  border-radius: 50%;
+}
+
+.circleBlue {
+  width: 8px;
+  height: 8px;
+  background-color: var(--main-color-blue);
+  border-radius: 50%;
+}
+
+/*Chart Block*/
+.chartBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 40px 14px;
+  border-radius: 20px;
+  border: 1px solid var(--tab-default-light);
+}
+
+.tasks {
+  margin-left: 30px;
+  color: #343434;
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.textChart {
+  color: #343434;
+  font-family: Inter, sans-serif;
+  font-size: 12px;
+}
+
+/*Styles from 768px*/
+@media screen and (min-width: 768px) {
+  /*General container*/
+  .container {
+    gap: 48px;
+    padding: 140px 32px 224px 32px;
+  }
+
+  /*ByDay/Month Filter*/
+  .textFilter {
+    font-size: 16px;
+    gap: 20px;
+  }
+
+  /*Chart Block*/
+  .chartBlock {
+    gap: 12px;
+    padding: 32px;
+    border-radius: 29px;
+  }
+  .textChart {
+    color: #343434;
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+  }
+}
+
+/*Styles from 768px*/
+@media screen and (min-width: 768px) {
+  /*General container*/
+  .container {
+    padding: 134px 114px 104px 114px;
+  }
+}
