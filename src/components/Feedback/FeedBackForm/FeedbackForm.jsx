@@ -13,7 +13,7 @@ import {
   updateReview,
 } from '../../../redux/reviews/reviewsOperations';
 import { selectOwnReviews } from '../../../redux/reviews/reviewsSelectors';
-import { changeRating } from '../../../redux/reviews/reviewsSlice';
+// import { changeRating } from '../../../redux/reviews/reviewsSlice';
 
 import { ReactComponent as IconClose } from '../../../images/x-close.svg';
 import { ReactComponent as BtnEdit } from '../../../images/pencil-01.svg';
@@ -51,7 +51,9 @@ const FeedbackForm = ({ onClose }) => {
   const dispatch = useDispatch();
 
   const ownReview = useSelector(selectOwnReviews);
-  const [newRating, setNewRating] = useState(changeRating);
+  const [newRating, setNewRating] = useState(
+    ownReview.rating || initialValues.rating
+  );
 
   useEffect(() => {
     if (ownReview?._id) {
