@@ -1,13 +1,13 @@
-import { Header } from 'components/User/Header/Header';
-import { useDispatch } from 'react-redux';
-import { currentPage } from 'redux/actions';
+import { useOutletContext } from 'react-router-dom';
+
+
 const AccountPage = () => {
-  const dispatch = useDispatch();
-  dispatch(currentPage('User Profile'));
+  const [user] = useOutletContext();
+  console.log(user); // ТУТ ВСЯ ІНФА ПРО ЮЗЕРА, ЯКЩО ТРЕБА
+
   return (
-    <div>
+    <div className="accountPage">
       Account
-      <Header />
     </div>
   );
 };

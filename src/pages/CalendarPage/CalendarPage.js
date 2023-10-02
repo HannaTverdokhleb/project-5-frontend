@@ -1,14 +1,12 @@
-import { Header } from 'components/User/Header/Header';
-import { useDispatch } from 'react-redux';
-import { currentPage } from 'redux/actions';
+import { useOutletContext } from 'react-router-dom';
 
 
 const CalendarPage = () => {
-  const dispatch = useDispatch();
-  dispatch(currentPage('Calendar'));
+  const [user] = useOutletContext();
+  console.log(user); // ТУТ ВСЯ ІНФА ПРО ЮЗЕРА, ЯКЩО ТРЕБА
+
   return (
-    <div>
-      <Header />
+    <div className="calendarPage">
       Calendar
     </div>
   );
