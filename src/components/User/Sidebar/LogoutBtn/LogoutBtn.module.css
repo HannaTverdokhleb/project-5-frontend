@@ -1,0 +1,85 @@
+.logout__btn{
+    display: flex;
+    align-items: center;
+    border-radius: 16px;
+    background-color: #3E85F3; /*var(--button-background-primary: #3e85f3);*/
+    box-shadow: 4px 2px 16px 0px rgba(136, 165, 191, 0.48);/*var(--button-shadow-hover: rgba(136, 165, 191, 0.48));*/
+ 
+    padding: 14px 28.5px;
+    margin-right: auto;
+    margin-bottom: auto;
+    min-width: 141px;
+    border: none;
+    cursor: pointer;
+
+    color: #FFF;/*var(--button-text-color-primary: #ffffff);*/
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.286;
+    letter-spacing: -0.28px;
+}
+
+@media screen and (min-width: 768px) {
+    .logout__btn {
+        font-size: 18px;
+        line-height: 1.333;
+        letter-spacing: -0.36px;
+        padding: 16px 23px;
+    }
+}
+
+.logout__btn:hover,
+.logout__btn:hover{
+    background-color: #2B78EF;/*var(--button-background-hover: #2b78ef);*/
+    box-shadow: 4px 2px 16px 0px rgba(136, 165, 191, 0.48);/*var(--button-shadow-hover: rgba(136, 165, 191, 0.48));*/
+}
+
+
+.logout__icon{
+width: 18px;
+height: 18px;
+margin-left: 6px;
+}
+
+@media screen and (min-width: 768px) {
+    .logout__icon {
+        width: 20px;
+        height: 20px;
+        margin-left: 11px;
+    }
+}
+
+/*  light  --button-text-color-primary: #ffffff;
+--button-text-color-tertiary: #111111;
+  --button-background-primary: #3e85f3;
+  --button-background-secondary: #e3f3ff;
+  --button-background-hover: #2b78ef;
+  --button-shadow-hover: rgba(136, 165, 191, 0.48);
+dark
+--button-background-primary: #3e85f3;
+ --button-text-color-primary: #ffffff;
+   --button-text-color-secondary: #ffffff;
+   --button-text-color-tertiary: #111111;*/
+
+/*
+    background-color: var(--accent-color);
+    color: var(--second-text-color);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.15);
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+  
+   
+    align-items: center;
+  
+
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover,
+    &:focus {
+        background-color: #188CE8;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+        border-radius: 4px;
+    }
+}*/
