@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 import css from './Header.module.css';
 import ThemeToggler from '../ThemeToggler/ThemeToggler';
 
-export const Header = () => {
+const Header = () => {
   const namePage = useSelector(state => state.currentPage.namePage);
   return (
     <header>
@@ -13,3 +13,6 @@ export const Header = () => {
     </header>
   );
 };
+
+
+export default Header;

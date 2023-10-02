@@ -1,15 +1,14 @@
+import { Outlet } from "react-router-dom";
 
 
-const MainLayout = ({children}) => {
+const MainLayout = () => {
     return (
         <section>
-            <div style={{display: 'flex'}}>
-                {children}
+            <div className="mainLayout" style={{display: 'flex'}}>
+                <Outlet />
             </div>
         </section>
     )
 }
 
 export default MainLayout;
-
-
