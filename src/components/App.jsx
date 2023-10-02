@@ -1,4 +1,4 @@
-import ThemeTogler from "./User/ThemeToggler/ThemeToggler";
+// import ThemeTogler from "./User/ThemeToggler/ThemeToggler";
 import { lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 const Homepage = lazy(() => import('../pages/HomePage/Homepage'));
