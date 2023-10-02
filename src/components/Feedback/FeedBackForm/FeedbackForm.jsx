@@ -7,6 +7,14 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import {
+  addReview,
+  deleteReview,
+  updateReview,
+} from '../../../redux/reviews/reviewsOperations';
+import { selectOwnReviews } from '../../../redux/reviews/reviewsSelectors';
+// import { changeRating } from '../../../redux/reviews/reviewsSlice';
+
 import { ReactComponent as IconClose } from '../../../images/x-close.svg';
 import { ReactComponent as BtnEdit } from '../../../images/pencil-01.svg';
 import { ReactComponent as BtnTrash } from '../../../images/trash-2.svg';
@@ -15,13 +23,10 @@ import css from './FeedbackForm.module.css';
 
 const ReviewSchema = Yup.object().shape({
   review: Yup.string()
-    .min(10, 'Review should be more than 10 characters.')
+    .min(10, 'Please Enter more than 10 characters.')
     .max(300, 'This review is too long, max. 300 characters.')
     .required('Review is required'),
-  raiting: Yup.number()
-    .min(1, 'Must be more than 1 characters')
-    .max(5, 'Must be less than 5 characters')
-    .required(),
+  rating: Yup.number().min(1).max(5).required(),
 });
 
 const rateIcon = (
@@ -34,104 +39,163 @@ const rateStyled = {
   inactiveFillColor: '#CEC9C1',
 };
 
-const handleEdit = () => {};
-
-const handleDelete = () => {};
-
 const FeedbackForm = ({ onClose }) => {
   const initialValues = {
     review: '',
     rating: 4,
   };
 
+  const [isEditActive, setIsEditActive] = useState(false);
   const [action, setAction] = useState('0');
 
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  const [newRating, setNewRating] = useState(0);
+  const ownReview = useSelector(selectOwnReviews);
+  const [newRating, setNewRating] = useState(
+    ownReview.rating || initialValues.rating
+  );
+
+  useEffect(() => {
+    if (ownReview?._id) {
+      setAction('edit');
+    } else {
+    }
+  }, [dispatch, ownReview]);
 
   const handleSubmit = (values, actions) => {
-    console.log(values);
-    console.log(actions);
+    // setAction('edit');
+    if (action === 'edit') {
+      const { review } = values;
+      Notify.info('Your review has been edited.');
+      dispatch(updateReview({ review, rating: newRating }))
+        .then(data => {
+          if (data.error) {
+            throw new Error(data.payload);
+          }
+          onClose();
+        })
+        .catch(error => {
+          Notify.failure('Something went wrong.');
+          console.log(error.message);
+        });
+    } else {
+      const { review } = values;
+      Notify.success('Thank you, your review has been added.');
+      dispatch(addReview({ review, rating: newRating }))
+        .then(data => {
+          if (data.error) {
+            throw new Error(data.payload);
+          }
+          onClose();
+        })
+        .catch(error => {
+          Notify.failure('Something went wrong.');
+          console.log(error.message);
+        });
+    }
+    actions.resetForm();
+    if (ownReview.rating) {
+      onClose();
+    }
+  };
+
+  const handleEdit = () => {
+    setIsEditActive(!isEditActive);
+  };
+
+  const handleDelete = () => {
+    Notify.info('Your review has been delete.');
+    dispatch(deleteReview(ownReview._id));
+    onClose();
   };
 
   return (
-    <div className={css.formContainer}>
-      <Formik
-        initialValues={initialValues}
-        onSubmit={handleSubmit}
-        validationSchema={ReviewSchema}
-      >
-        <Form>
-          <label className={css.formLabel} name="rating">
-            Rating
-          </label>
-          <Rating
-            name="rating"
-            component="input"
-            value={newRating}
-            itemStyles={rateStyled}
-            style={{ maxWidth: 110, gap: 4, marginBottom: '20px' }}
-            onChange={value => {
-              setNewRating(value);
-            }}
-          />
-          <div className={css.editBtnWrapper}>
-            <label className={css.formLabel} htmlFor="review">
-              Review
+    <Formik
+      initialValues={initialValues || ownReview}
+      onSubmit={handleSubmit}
+      validationSchema={ReviewSchema}
+    >
+      {({ values }) => (
+        <div className={css.formContainer}>
+          <Form>
+            <label className={css.formLabel} name="rating">
+              Rating
             </label>
-            <div className={css.editButtons}>
-              <button
-                className={css.editBtn}
-                type="button"
-                onClick={handleEdit}
-              >
-                <BtnEdit className={css.BtnEdit} />
-              </button>
+            <Rating
+              name="rating"
+              component="input"
+              value={newRating}
+              itemStyles={rateStyled}
+              style={{ maxWidth: 110, gap: 4, marginBottom: '20px' }}
+              onChange={value => {
+                setNewRating(value);
+              }}
+              readOnly={Boolean(ownReview.rating) && !isEditActive}
+            />
+            <div className={css.editBtnWrapper}>
+              <label className={css.formLabel} htmlFor="review">
+                Review
+              </label>
+              <div className={css.editButtons}>
+                <button
+                  className={css.editBtn}
+                  type="button"
+                  onClick={handleEdit}
+                >
+                  <BtnEdit className={css.BtnEdit} />
+                </button>
 
-              <button
-                className={css.deleteBtn}
-                type="button"
-                onClick={handleDelete}
-              >
-                <BtnTrash className={css.BtnTrash} />
-              </button>
+                <button
+                  className={css.deleteBtn}
+                  type="button"
+                  onClick={handleDelete}
+                >
+                  <BtnTrash className={css.BtnTrash} />
+                </button>
+              </div>
             </div>
-          </div>
 
-          <Field
-            className={css.formInput}
-            type="text"
-            name="review"
-            placeholder="Enter text"
-            component="textarea"
-          ></Field>
-          <ErrorMessage
-            className={css.formErrorMessage}
-            name="review"
-            component="div"
-          />
+            <Field
+              className={css.formInput}
+              type="text"
+              name="review"
+              id="review"
+              placeholder="Enter text"
+              component="textarea"
+              disabled={!isEditActive && Boolean(ownReview.review)}
+            ></Field>
+            <ErrorMessage
+              className={css.formErrorMessage}
+              name="review"
+              component="div"
+            />
 
-          <div className={css.formMainButtons}>
-            <button className={css.submitBtn} type="submit">
-              {action === 'edit' ? 'Edit' : 'Save'}
+            {(!Boolean(ownReview.review) || isEditActive) && (
+              <div className={css.formMainButtons}>
+                <button className={css.submitBtn} type="submit">
+                  {action === 'edit' ? 'Edit' : 'Save'}
+                </button>
+                <button
+                  className={css.cancelBtn}
+                  type="button"
+                  onClick={onClose}
+                >
+                  Cancel
+                </button>
+              </div>
+            )}
+            <button
+              className={css.cancelCrossBtn}
+              type="button"
+              aria-label="close button"
+              onClick={onClose}
+            >
+              <IconClose style={{ width: 24, height: 24 }} />
             </button>
-            <button className={css.cancelBtn} type="button" onClick={onClose}>
-              Cancel
-            </button>
-          </div>
-
-          <button
-            className={css.cancelCrossBtn}
-            type="button"
-            aria-label="close button"
-            onClick={onClose}
-          >
-            <IconClose style={{ width: 24, height: 24 }} />
-          </button>
-        </Form>
-      </Formik>
-    </div>
+          </Form>
+        </div>
+      )}
+    </Formik>
   );
 };
 

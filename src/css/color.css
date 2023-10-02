@@ -1,39 +1,57 @@
 :root {
-    /*main colors*/
-    --main-color-black: #13151a;
-    --main-color-blue: #3e85f3;
-  
-    /*background - light theme*/
-    --bcg-color-white: #ffffff;
-    --bcg-color-light-grey: #f7f6f9;
-    --bcg-color-blue: #dcebf7;
-  
-    /*background - dark theme*/
-    --bcg-color-dark-grey: #21222C;
-  
-     /*gradients*/
-     --gradient-pink: linear-gradient(to top, rgba(255, 210, 221, 1), rgba(255, 210, 221, 0));
-     --gradient-pink: linear-gradient(to top, rgba(62, 133, 243, 1), rgba(62, 133, 243, 0));
-  
-     /*Fonts*/
-     --text-main-title: #171820;
-     --text-main-text: #111111;
-     --text-main-sidebar-light: #999999;
-     --text-main-sidebar-dark: #585A5D;
-  
-     /*Inputs*/
-     --input-state-error: #E74A3B;
-     --input-state-success: #3CBC81;
-  
-     /*Badges*/
-     --task-state-low: #72C2F8;
-     --task-state-medium: #F3B249;
-     --task-state-high: #EA3D65;
-  
-     /*Button*/
-     --btn-state-hover: #2B78EF;
-  
-     /*Tabs - Light Theme*/
-     --tab-default-light: #E3F3FF;
-     --tab-active-light: #CAE8FF;
-  }
+  /*main colors*/
+  --main-color-black: #13151a;
+  --main-color-blue: #3e85f3;
+
+  /*background - light theme*/
+  --bcg-color-white: #ffffff;
+  --bcg-color-light-grey: #f7f6f9;
+  --bcg-color-blue: #dcebf7;
+
+  /*background - dark theme*/
+  --bcg-color-dark-grey: #21222c;
+
+  /*gradients*/
+  --gradient-pink: linear-gradient(
+    to top,
+    rgba(255, 210, 221, 1),
+    rgba(255, 210, 221, 0)
+  );
+  --gradient-pink: linear-gradient(
+    to top,
+    rgba(62, 133, 243, 1),
+    rgba(62, 133, 243, 0)
+  );
+
+  /*Fonts*/
+  --text-main-title: #171820;
+  --text-main-text: #111111;
+  --text-main-sidebar-light: #999999;
+  --text-main-sidebar-dark: #585a5d;
+
+  /*Inputs*/
+  --input-state-error: #e74a3b;
+  --input-state-success: #3cbc81;
+
+  /*Badges*/
+  --task-state-low: #72c2f8;
+  --task-state-medium: #f3b249;
+  --task-state-high: #ea3d65;
+
+  /*Button*/
+  --btn-state-hover: #2b78ef;
+
+  /*Tabs - Light Theme*/
+  --tab-default-light: #e3f3ff;
+  --tab-active-light: #cae8ff;
+}
+
+body[data-theme='light'] {
+  --main-bg-color: #ffffff;
+  --main-bg-color-button: #3e85f3;
+}
+
+body[data-theme='dark'] {
+  --main-bg-color: #13151a;
+  --main-bgColor-button: #3e85f3;
+}
