@@ -10,7 +10,7 @@ const MainLayout = () => {
     return (
         <section className="mainLayout">
             <div className="mainLayoutContainer">
-                {/* Тут буде сайдбар */}
+                {/* тут буде сайдбар */}
                 <Header />
                 <Outlet context={[user]} />{/* це контент сторінки */}
             </div>

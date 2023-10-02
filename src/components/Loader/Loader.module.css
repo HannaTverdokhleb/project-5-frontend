@@ -14,7 +14,7 @@
     position: fixed;
     left: 50%;
     top: 50%;
-    background: #000;
+    background: var(--main-color-blue);
     border-radius: 50%;
     animation: spin 2s infinite linear;
 }
