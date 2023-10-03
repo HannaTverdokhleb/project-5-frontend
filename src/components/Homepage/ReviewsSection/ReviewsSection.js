@@ -1,7 +1,7 @@
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 // import Swiper core and required modules
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
@@ -24,12 +24,21 @@ const SlideDetails = () => {
   const reviews = useSelector(selectContacts);
   console.log(reviews)
 
+  const [state, setState] = useState({
+    name: '',
+    rating: '',
+    comment: '',
+  });
+
+  const { name, rating, comment } = state;
+
   useEffect(() => {
     // Fetch reviews when the component mounts
     dispatch(fetchReviews())
       .then(response => response.json())
       .then(result => {
-        dispatch(fetchReviews(result));
+        const { name, rating, comment } = result; // Update this line to match your API response structure
+        setState({ name, rating, comment });
       })
       .catch(error => {
         dispatch(fetchReviews(error));
@@ -38,16 +47,14 @@ const SlideDetails = () => {
 
   return (
     <div className={css.slideContainer}>
-      {reviews.map((review, _id) => (
-        <div className={css.slideAuthor} key={review._id}>
-          <img className={css.picture} src={image} alt="Description" />
-          <div className={css.authorDetails}>
-            <h3>{review.name}</h3>
-            <div>{review.rating}</div>
-          </div>
-          <p className={css.mainText}>{review.comment}</p>
+      <div className={css.slideAuthor}>
+        <img className={css.picture} src={image} alt="Description" />
+        <div className={css.authorDetails}>
+          <h3>{name}</h3>
+          <div>{rating}</div>
         </div>
-      ))}
+        <p className={css.mainText}>{comment}</p>
+      </div>
     </div>
   );
 };
