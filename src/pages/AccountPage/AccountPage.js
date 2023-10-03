@@ -1,10 +1,12 @@
-import { useOutletContext } from 'react-router-dom';
+import UserForm from '../../components/UserForm/UserForm';
+// import css from './AccountPage.module.css';
 
 const AccountPage = () => {
-  const [user] = useOutletContext();
-  console.log(user); // ТУТ ВСЯ ІНФА ПРО ЮЗЕРА, ЯКЩО ТРЕБА
-
-  return <div className="accountPage">Account</div>;
+  return (
+    <div>
+      <UserForm />
+    </div>
+  );
 };
 
 export default AccountPage;

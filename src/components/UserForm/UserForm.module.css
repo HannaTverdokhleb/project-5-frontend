@@ -1,0 +1,72 @@
+.userLabel {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: calc(18 / 14);
+  color: blue;
+  height: auto;
+}
+
+.userInput {
+  box-sizing: border-box;
+  width: 299px;
+  height: 42px;
+  margin-bottom: 18px;
+  padding: 14px 18px;
+  padding-right: 28px;
+  border: 1px solid black;
+  border-radius: 8px;
+  background: transparent;
+  font-style: normal;
+  font-family: 'Inter';
+
+  font-weight: 600;
+  font-size: 16px;
+  line-height: calc(18 / 16);
+  color: black;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 24px;
+    width: 354px;
+    height: 46px;
+    font-size: 16px;
+    line-height: calc(18 / 16);
+  }
+  &:focus {
+    border-color: #3e85f3;
+    outline: none;
+  }
+}
+.submitBtn {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  padding: 0;
+  width: 195px;
+  height: 46px;
+  border-radius: 16px;
+  border: none;
+  cursor: pointer;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: calc(18 / 14);
+  background: #3e85f3;
+  color: #ffffff;
+  cursor: pointer;
+  @media screen and (min-width: 768px) {
+    width: 262px;
+    height: 48px;
+    margin-top: 22px;
+    margin-bottom: 60px;
+  }
+  @media screen and (min-width: 1440px) {
+  }
+  &:hover {
+    border: 1px solid #42b8cc;
+    background-color: #2b78ef;
+  }
+}
