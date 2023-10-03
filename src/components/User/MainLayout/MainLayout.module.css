@@ -1,0 +1,18 @@
+
+@import '../../../css/variables.css';
+
+.mainLayoutContainer * {
+    box-sizing: border-box;
+}
+
+.mainLayoutContainer {
+    display: flex;
+    min-height: 100vh;
+}
+.mainLayout {
+    background-color: var(--background-color-primary);
+}
+.pageWrapper {
+    width: 100%;
+    padding: 0 32px 32px 321px;
+}
