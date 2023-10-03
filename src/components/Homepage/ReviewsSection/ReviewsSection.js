@@ -1,7 +1,7 @@
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 
 // import Swiper core and required modules
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
@@ -12,28 +12,45 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import css from './ReviewsSection.module.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectContacts } from 'redux/reviews/reviewsSelectors';
+import { fetchReviews } from 'redux/reviews/reviewsOperations';
 
 //data to change from Back End API
 const image = 'images/mobileImages/mainPage/avatar.jpg';
 
-//Slide Detail Component
-const SlideDetails = () =>{
-    return (
-        <div className={css.slideContainer}>
-        <div className={css.slideAuthor}>
+const SlideDetails = () => {
+  const dispatch = useDispatch();
+  const reviews = useSelector(selectContacts);
+  console.log(reviews)
+
+  useEffect(() => {
+    // Fetch reviews when the component mounts
+    dispatch(fetchReviews())
+      .then(response => response.json())
+      .then(result => {
+        dispatch(fetchReviews(result));
+      })
+      .catch(error => {
+        dispatch(fetchReviews(error));
+      });
+  }, [dispatch]);
+
+  return (
+    <div className={css.slideContainer}>
+      {reviews.map((review, _id) => (
+        <div className={css.slideAuthor} key={review._id}>
           <img className={css.picture} src={image} alt="Description" />
           <div className={css.authorDetails}>
-            <h3>Olena Doe</h3>
-            <div>★★★★★</div>
+            <h3>{review.name}</h3>
+            <div>{review.rating}</div>
           </div>
+          <p className={css.mainText}>{review.comment}</p>
         </div>
-        <p className={css.mainText}>
-          GooseTrack is impressive, the calendar view and filter options make
-          it easy to stay organized and focused. Highly recommended.
-        </p>
-      </div>
-    );
-}
+      ))}
+    </div>
+  );
+};
 
 //Slider Component
 export const ReviewsSlider = () => {
@@ -50,7 +67,6 @@ export const ReviewsSlider = () => {
       // when window width is >= 768px
       768: {
         slidesPerView: 1,
-
       },
       // when window width is >= 1200px
       1440: {
@@ -81,9 +97,6 @@ export const ReviewsSlider = () => {
   );
 };
 
-
 export const TitleH2 = () => {
-  return (
-    <h2 className={css.titleH2}>Reviews</h2>
-  )
-}
+  return <h2 className={css.titleH2}>Reviews</h2>;
+};
