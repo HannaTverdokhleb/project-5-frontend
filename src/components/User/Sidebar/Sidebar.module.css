@@ -1,12 +1,12 @@
 @import '../../../css/variables.css';
 
+
 .sidebar{
-    position: fixed;
+    position: fixed; /*for button*/
     left: 0px;
     top: 0px;
     display: flex;
     flex-direction: column;
-    position: relative; /*for button*/
     z-index: 999;
    /* background-color: whitesmoke;/*тимчасово для тесту*/
     background-color:  var(--background-color-secondary);/* #FFF - колір згідно ТЗ*/
@@ -38,6 +38,7 @@
     .sidebar {
         max-width: 289px;
         padding: 24px 32px;
+        height: 100%;
     }
 }
 

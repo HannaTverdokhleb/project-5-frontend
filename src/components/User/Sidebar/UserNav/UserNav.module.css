@@ -1,19 +1,23 @@
+.sidebarNav {
+    flex: 1 1 auto;
+}
 .nav_container{
     width: 100%;
     max-width: 185px;
-    margin-bottom: 424px;
+    
+    /* margin-bottom: 424px; */
 }
 
 @media screen and (min-width: 768px) {
-    .nav_container {
+    /* .nav_container {
         margin-bottom: 563px;
-    }
+    } */
 }
 
 @media screen and (min-width: 990px) {
-    .nav_container {
+    /* .nav_container {
         margin-bottom: 439px;
-    }
+    } */
 }
 
 .nav__item{
@@ -31,7 +35,7 @@
 }
 
 .nav__item:last-child{
-margin-bottom: 0;
+    margin-bottom: 0;
 }
 
 .nav__link{

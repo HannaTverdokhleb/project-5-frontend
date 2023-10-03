@@ -7,7 +7,7 @@ const CalendarPage = () => {
   dispatch(currentPage('Calendar'));
   const [user] = useOutletContext();
   console.log(user); // ТУТ ВСЯ ІНФА ПРО ЮЗЕРА, ЯКЩО ТРЕБА
-
+  
   return <div className="calendarPage">Calendar</div>;
 };
 
