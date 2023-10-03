@@ -68,7 +68,7 @@
     }
 }
 
-@media screen and (min-width: 1439px) {
+@media screen and (min-width: 991px) {
     .close__btn {
         display: none;
     }
