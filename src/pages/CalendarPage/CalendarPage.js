@@ -1,26 +1,14 @@
-// import MainLayout from 'components/User/MainLayout/MainLayout';
-// import Sidebar from 'components/User/Sidebar/Sidebar';
-// import UserCalendar from 'components/User/UserCalendar/UserCalendar';
-// import style from './CalendarPage.module.css';
-import { Header } from 'components/User/Header/Header';
+import { useOutletContext } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { currentPage } from 'redux/actions';
+
 const CalendarPage = () => {
   const dispatch = useDispatch();
   dispatch(currentPage('Calendar'));
-  return (
-    // <MainLayout>
-    //   <Sidebar />
-    //   <div className={style.innerWrapper}>
-    //
-    //     <UserCalendar />
-    //   </div>
-    // </MainLayout>
-    <div>
-      <Header />
-      Calendar
-    </div>
-  );
+  const [user] = useOutletContext();
+  console.log(user); // ТУТ ВСЯ ІНФА ПРО ЮЗЕРА, ЯКЩО ТРЕБА
+
+  return <div className="calendarPage">Calendar</div>;
 };
 
 export default CalendarPage;

@@ -1,15 +1,14 @@
-import { Header } from 'components/User/Header/Header';
+import { useOutletContext } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { currentPage } from 'redux/actions';
+
 const StatisticsPage = () => {
+  const [user] = useOutletContext();
+  console.log(user); // ТУТ ВСЯ ІНФА ПРО ЮЗЕРА, ЯКЩО ТРЕБА
   const dispatch = useDispatch();
-  dispatch(currentPage('User Profile'));
-  return (
-    <div>
-      <Header />
-      Statistics
-    </div>
-  );
+  dispatch(currentPage('Statistics'));
+
+  return <div className="statisticsPage">Statistics</div>;
 };
 
 export default StatisticsPage;
