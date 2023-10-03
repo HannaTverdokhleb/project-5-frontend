@@ -1,15 +1,21 @@
+import { Outlet } from "react-router-dom";
+import { useSelector } from 'react-redux';
+import { selectUser } from 'redux/Auth/selectors';
+import { Header } from 'components/User/Header/Header';
 
 
-const MainLayout = ({children}) => {
+const MainLayout = () => {
+    const user = useSelector(selectUser);
+
     return (
-        <section>
-            <div style={{display: 'flex'}}>
-                {children}
+        <section className="mainLayout">
+            <div className="mainLayoutContainer">
+                {/* тут буде сайдбар */}
+                <Header />
+                <Outlet context={[user]} />{/* це контент сторінки */}
             </div>
         </section>
     )
 }
 
 export default MainLayout;
-
-
