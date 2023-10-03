@@ -43,7 +43,7 @@ export const handleUpdateReviewFulfilled = (state, { payload }) => {
 };
 
 export const handleLogoutFulfilled = (state, { payload }) => {
-  state.reviews = payload.reviews;
+  // state.reviews = payload.reviews;
   state.ownReview = {};
   state.error = null;
   state.isLoading = false;
