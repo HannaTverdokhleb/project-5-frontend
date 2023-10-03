@@ -1,115 +1,45 @@
 .error {
   color: #e74a3b;
 }
-
 .success {
   color: #3cbc81;
-
-  /* margin-left: auto; */
 }
-
 .form_input.error {
   border: 1px solid #e74a3b;
 }
-
 .form_input.success {
   border: 1px solid #3cbc81;
 }
 .successIcon_ss {
   position: absolute;
   right: 18px;
-  bottom: 368px;
   width: 24px;
-}
-@media screen and (min-width: 768px) {
-  .successIcon_ss {
-    bottom: 401px;
-  }
-}
-@media screen and (min-width: 1440px) {
-  .successIcon_ss {
-    bottom: 396px;
-  }
 }
 .errorIcon_er {
   position: absolute;
   right: 18px;
-  bottom: 367px;
   width: 24px;
-}
-@media screen and (min-width: 768px) {
-  .errorIcon_er {
-    bottom: 401px;
-  }
-}
-@media screen and (min-width: 1440px) {
-  .errorIcon_er {
-    bottom: 396px;
-  }
 }
 .successIcon {
   position: absolute;
   right: 18px;
-  bottom: 254px;
   width: 24px;
-}
-@media screen and (min-width: 768px) {
-  .successIcon {
-    bottom: 273px;
-  }
-}
-@media screen and (min-width: 1440px) {
-  .successIcon {
-    bottom: 269px;
-  }
 }
 .errorIcon {
   position: absolute;
   right: 18px;
-  bottom: 254px;
   width: 24px;
 }
-@media screen and (min-width: 768px) {
-  .errorIcon {
-    bottom: 273px;
-  }
-}
-@media screen and (min-width: 1440px) {
-  .errorIcon {
-    bottom: 269px;
-  }
-}
+
 .successIconn {
   position: absolute;
   right: 18px;
-  bottom: 138px;
   width: 24px;
-}
-@media screen and (min-width: 768px) {
-  .successIconn {
-    bottom: 143px;
-  }
-}
-@media screen and (min-width: 1440px) {
-  .successIconn {
-    bottom: 142px;
-  }
 }
 .errorIconn {
   position: absolute;
   right: 18px;
-  bottom: 138px;
   width: 24px;
-}
-@media screen and (min-width: 768px) {
-  .errorIconn {
-    bottom: 146px;
-  }
-}
-@media screen and (min-width: 1440px) {
-  .errorIconn {
-    bottom: 142px;
-  }
 }
 
 .div_container {
@@ -120,14 +50,15 @@
   align-items: center;
   background-color: var(--bcg-color-blue);
 }
-
-.div_container_flex {
+label {
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 1440px;
-  height: 100%;
+  padding-bottom: 15px;
+}
+label p {
+  position: absolute;
+  bottom: 0;
+  height: 15px;
+  padding-left: 15px;
 }
 .div_container_form {
   display: flex;
@@ -193,6 +124,7 @@
   display: flex;
   flex-direction: column;
   width: 100%;
+  margin-bottom: 30px;
 }
 
 .form_div {
@@ -205,13 +137,13 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 8px;
+  gap: 7px;
   width: 100%;
   color: var(--text-main-text);
   font-size: 12px;
   font-weight: 600;
   line-height: normal;
-  margin-bottom: 18px;
+  margin-bottom: 10px;
 }
 @media screen and (min-width: 768px) {
   .form_label {
@@ -243,10 +175,12 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
+  position: relative;
 }
-/* .form_input_email {
-  margin-bottom: 8px;
-} */
+.form_input_div img {
+  top: 50%;
+  transform: translateY(-50%);
+}
 .form_input {
   position: relative;
   font-family: inherit;
@@ -272,7 +206,7 @@
 }
 
 .button {
-  margin-top: 48px;
+  margin-top: 20px;
   display: flex;
   width: 100%;
   padding: 16px;
