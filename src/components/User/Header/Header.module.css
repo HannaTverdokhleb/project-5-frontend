@@ -1,3 +1,8 @@
+.header {
+  display: flex;
+  flex-direction: row;
+}
+
 .title {
   color: --main-color-black;
   font-family: 'Inter';
@@ -10,6 +15,15 @@
 }
 
 .burgerIcon:active {
+  color: #3e85f3;
+}
+.textCalendarHeader {
+  font-weight: 600;
+  font-family: 'Inter';
+  font-size: 14px;
+  line-height: 18px;
+}
+.textColor {
   color: #3e85f3;
 }
 

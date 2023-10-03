@@ -9,7 +9,7 @@ export const Header = () => {
   const namePage = useSelector(state => state.currentPage.namePage);
 
   return (
-    <header>
+    <header className={css.header}>
       <button
         type="button"
         className={css.burgerButton}
@@ -26,7 +26,10 @@ export const Header = () => {
               alt="Goose"
               className={css.calendarGoose}
             />
-            <p>Let go of the past and focus on the present!</p>
+            <p className={css.textCalendarHeader}>
+              <span className={css.textColor}>Let go</span> of the past and
+              focus on the present!
+            </p>
           </div>
         )}
       </section>
