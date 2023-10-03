@@ -12,8 +12,8 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import css from './ReviewsSection.module.css';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectContacts } from 'redux/reviews/reviewsSelectors';
+import { useDispatch } from 'react-redux'; //useSelector
+// import { selectContacts } from 'redux/reviews/reviewsSelectors';
 import { fetchReviews } from 'redux/reviews/reviewsOperations';
 
 //data to change from Back End API
@@ -28,7 +28,7 @@ const SlideDetails = () => {
   });
 
   const dispatch = useDispatch();
-  const reviews = useSelector(selectContacts);
+  // const reviews = useSelector(selectContacts);
 
   useEffect(() => {
    
