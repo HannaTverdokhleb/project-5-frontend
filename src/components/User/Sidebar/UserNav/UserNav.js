@@ -8,7 +8,7 @@ function UserNav() {
 
   
     return (
-        <nav>
+        <nav className={css.sidebarNav}>
             <ul className={css.nav_container}>
                 <li className={css.nav__item}>
                     <NavLink className={({ isActive }) => `${css['nav__link']}  ${isActive ? css['active'] : ''}`} to="/account">
