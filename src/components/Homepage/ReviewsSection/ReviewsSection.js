@@ -20,9 +20,6 @@ import { fetchReviews } from 'redux/reviews/reviewsOperations';
 const image = 'images/mobileImages/mainPage/avatar.jpg';
 
 const SlideDetails = () => {
-  const dispatch = useDispatch();
-  const reviews = useSelector(selectContacts);
-  console.log(reviews)
 
   const [state, setState] = useState({
     name: '',
@@ -30,17 +27,19 @@ const SlideDetails = () => {
     comment: '',
   });
 
-  const { name, rating, comment } = state;
+  const dispatch = useDispatch();
+  const reviews = useSelector(selectContacts);
 
   useEffect(() => {
-    // Fetch reviews when the component mounts
+   
     dispatch(fetchReviews())
-      .then(response => response.json())
-      .then(result => {
-        const { name, rating, comment } = result; // Update this line to match your API response structure
+      .then((response) => response.json())
+      .then((result) => {
+       
+        const { name, rating, comment } = result; 
         setState({ name, rating, comment });
       })
-      .catch(error => {
+      .catch((error) => {
         dispatch(fetchReviews(error));
       });
   }, [dispatch]);
@@ -50,14 +49,15 @@ const SlideDetails = () => {
       <div className={css.slideAuthor}>
         <img className={css.picture} src={image} alt="Description" />
         <div className={css.authorDetails}>
-          <h3>{name}</h3>
-          <div>{rating}</div>
+          <h3>{state.name}</h3>
+          <div>{state.rating}</div>
         </div>
-        <p className={css.mainText}>{comment}</p>
+        <p className={css.mainText}>{state.comment}</p>
       </div>
     </div>
   );
 };
+
 
 //Slider Component
 export const ReviewsSlider = () => {
