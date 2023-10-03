@@ -25,6 +25,10 @@
     height: 34px;
     display: block;
   }
+
+  .calendar {
+    display: none;
+  }
 }
 
 @media screen and (min-width: 1440px) {
@@ -37,4 +41,12 @@
   .burgerButton {
     display: none;
   }
+  .calendar {
+    display: block;
+  }
+}
+
+.calendarGoose {
+  width: 64px;
+  height: 60px;
 }
