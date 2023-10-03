@@ -1,28 +1,48 @@
-.container{
-   /* position: fixed;
+@import '../../../css/variables.css';
+
+.sidebar{
+    position: fixed;
     left: 0px;
     top: 0px;
     display: flex;
-    flex-direction: column;*/
+    flex-direction: column;
     position: relative; /*for button*/
     z-index: 999;
-    background-color: lightcyan;
+   /* background-color: whitesmoke;/*тимчасово для тесту*/
+    background-color:  var(--background-color-secondary);/* #FFF - колір згідно ТЗ*/
     padding: 24px 20px;
     height: 100%;
     max-width: 225px;
     width: 100%;
-    /* transform: translateX(-100%); має з`явитись по кліку на бургер меню*/
 }
 
+
+/* transform: translateX(-100%);не видимий sideBar має з`явитись по кліку на бургер меню*/
+@media screen and (max-width: 991px) {
+    .sidebar {
+        transform: translateX(-100%);
+        transition-duration: 1000ms;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .sidebar.openSidebar {
+        transform: translateX(0);
+        /*відкриття sideBar*/
+        transition-duration: 1000ms;
+    }
+}
+
+
 @media screen and (min-width: 768px) {
-    .container {
+    .sidebar {
         max-width: 289px;
         padding: 24px 32px;
     }
 }
 
 @media screen and (min-width: 1439px) {
-    .container {
+    .sidebar {
         padding: 24px;
     }
 }
@@ -36,7 +56,7 @@
     right: 20px;
     top: 29.5px;
     padding: 0;
-   /* background-color: #fff; /* var(--btn-close-color);*/
+    background-color: var(--background-color-secondary);/*#ffffff*/
     cursor: pointer;
 }
 
@@ -56,13 +76,13 @@
 .close__icon {
     width: 24px;
     height: 24px;
-    background-color: #fff; /* var(--background-color-secondary: #ffffff);*/
-    color: #343434; /* var(--button-text-color-secondary);*/
+    background-color: var(--background-color-secondary); /* #ffffff);*/
+    color: var(--button-text-color-secondary);/*#343434;*/
     transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .close__icon:hover {
-    color: #3e85f3; /*var(--user-nav-item-hover-color: #3e85f3);*/
+    color: var(--user-nav-item-hover-color);/*#3e85f3*/
 }
 
 .aside__title {
@@ -70,7 +90,7 @@
     font-weight: 600;
     font-size: 12px;
     margin-bottom: 24px;
-    color: rgba(52, 52, 52, 0.50);/*--text-color-quaternary: rgba(52, 52, 52, 0.5);*/
+    color: var(--text-color-quaternary);/* rgba(52, 52, 52, 0.5)*/
 }
 
 @media screen and (min-width: 768px) {
@@ -108,7 +128,7 @@
 }
 
 .logo__title{
-    color: #3E85F3;/*var(--sidebar-logo-title-color: #3e85f3);*/
+    color: var(--sidebar-logo-title-color); /*#3e85f3*/
     text-shadow: 0px 9.399999618530273px 57.6875px rgba(0, 0, 0, 0.04), 0px 47px 355px rgba(0, 0, 0, 0.07);
     font-family: Inter;
     font-size: 16px;
@@ -117,7 +137,7 @@
 }
 
 .logo__change{
-    color: #3E85F3;/*var(--sidebar-logo-title-color: #3e85f3);*/
+    color: var(--sidebar-logo-title-color); /* #3e85f3*/
     font-family: Inter;
     font-size: 16px;
     font-weight: 700;
@@ -140,6 +160,15 @@
         line-height: 1;
     }
 }
+
+
+
+
+
+
+
+
+
 
 
 
