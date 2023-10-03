@@ -4,9 +4,26 @@
   font-size: 32px;
 }
 
+.burgerIcon {
+  width: 34px;
+  height: 34px;
+}
+
+.burgerIcon:active {
+  color: #3e85f3;
+}
+
 @media screen and (min-width: 335px) {
   .title {
     display: none;
+  }
+  .burgerButton {
+    background: none;
+    border: 0ch;
+    padding: 0%;
+    width: 34px;
+    height: 34px;
+    display: block;
   }
 }
 
@@ -16,5 +33,8 @@
     color: --main-color-black;
     font-family: 'Inter';
     font-size: 32px;
+  }
+  .burgerButton {
+    display: none;
   }
 }
