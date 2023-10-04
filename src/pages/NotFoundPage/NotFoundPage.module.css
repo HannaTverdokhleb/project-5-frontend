@@ -1,3 +1,5 @@
+@import '../../css/variables.css'; 
+
 .container {
     display: flex;
     justify-content: center;
@@ -7,7 +9,8 @@
     margin-left: auto;
     padding-left: 10px;
     padding-right: 10px;
-    height: 100vh;   
+    height: 100vh;
+    background-color: var(--background-color-primary);/* #F7F6F9;*/
 }
 
 @media screen and (min-width: 375px) {
@@ -22,6 +25,15 @@
     .container {
         width: 503px;
     }
+}
+
+.background{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top:0;
+    bottom: 0;
+    background-color:var(--background-color-primary); /* #F7F6F9;*/
 }
 
 .not__found__box {
@@ -81,7 +93,7 @@
     font-size: 100px;
     font-weight: 700;
     line-height: 1.5;
-    color: var(--main-color-blue);
+    color: #3E85F3;
     text-shadow: 0px 9.399999618530273px 57.6875px rgba(0, 0, 0, 0.04), 0px 47px 355px rgba(0, 0, 0, 0.07);
 }
 
@@ -99,7 +111,7 @@
     margin-bottom: 24px;
     font-size: 14px;
     line-height: 1.286;
-    color: rgba(17, 17, 17, 0.70);
+    color:var(--text-color-404);/* rgba(17, 17, 17, 0.70);*/
 }
 
 @media screen and (min-width: 768px) {
@@ -110,6 +122,7 @@
 }
 
 .back__button {
+    display: inline-block;
     max-width: 153px;
     margin-right: auto;
     margin-left: auto;
@@ -121,10 +134,9 @@
     border-radius: 16px;
     box-shadow: 4px 2px 16px 0px rgba(136, 165, 191, 0.48);
     border: none;
-    background-color: var(--main-color-blue);
-    color: #FFF;
-    /* var(--bcg-color-white); */
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    background-color: var(--button-background-primary); /*#3E85F3;*/
+    color: var(--button-text-color-primary); /*#ffffff*/
+    transition: background-color 250ms var(--transition-cubic); /*cubic-bezier(0.4, 0, 0.2, 1);*/
     cursor: pointer;
 }
 
@@ -144,15 +156,5 @@
 }
 
 
-/* .theme-light {
-  background: var(--bcg-color-white);
-  color: rgba(17, 17, 17, 0.70);
-} */
 
-
-
-/*  theme:dark {
-    background-color: var(--text-main-title);  #171820;
-    color: rgba(255, 255, 255, 0.70);
-} */
 

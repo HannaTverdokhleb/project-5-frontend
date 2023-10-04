@@ -11,7 +11,7 @@ const MainLayout = () => {
   return (
     <section className={css.mainLayout}>
       <div className={css.mainLayoutContainer}>
-        {/* <SideBar /> */}
+        <SideBar />
         <div className={css.pageWrapper}>
           <Header />
           <Outlet context={[user]} />

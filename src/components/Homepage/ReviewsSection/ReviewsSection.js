@@ -1,7 +1,7 @@
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 // import Swiper core and required modules
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
@@ -12,28 +12,52 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import css from './ReviewsSection.module.css';
+import { useDispatch } from 'react-redux'; //useSelector
+// import { selectContacts } from 'redux/reviews/reviewsSelectors';
+import { fetchReviews } from 'redux/reviews/reviewsOperations';
 
 //data to change from Back End API
 const image = 'images/mobileImages/mainPage/avatar.jpg';
 
-//Slide Detail Component
-const SlideDetails = () =>{
-    return (
-        <div className={css.slideContainer}>
-        <div className={css.slideAuthor}>
-          <img className={css.picture} src={image} alt="Description" />
-          <div className={css.authorDetails}>
-            <h3>Olena Doe</h3>
-            <div>★★★★★</div>
-          </div>
+const SlideDetails = () => {
+
+  const [state, setState] = useState({
+    name: '',
+    rating: '',
+    comment: '',
+  });
+
+  const dispatch = useDispatch();
+  // const reviews = useSelector(selectContacts);
+
+  useEffect(() => {
+   
+    dispatch(fetchReviews())
+      .then((response) => response.json())
+      .then((result) => {
+       
+        const { name, rating, comment } = result; 
+        setState({ name, rating, comment });
+      })
+      .catch((error) => {
+        dispatch(fetchReviews(error));
+      });
+  }, [dispatch]);
+
+  return (
+    <div className={css.slideContainer}>
+      <div className={css.slideAuthor}>
+        <img className={css.picture} src={image} alt="Description" />
+        <div className={css.authorDetails}>
+          <h3>{state.name}</h3>
+          <div>{state.rating}</div>
         </div>
-        <p className={css.mainText}>
-          GooseTrack is impressive, the calendar view and filter options make
-          it easy to stay organized and focused. Highly recommended.
-        </p>
+        <p className={css.mainText}>{state.comment}</p>
       </div>
-    );
-}
+    </div>
+  );
+};
+
 
 //Slider Component
 export const ReviewsSlider = () => {
@@ -50,7 +74,6 @@ export const ReviewsSlider = () => {
       // when window width is >= 768px
       768: {
         slidesPerView: 1,
-
       },
       // when window width is >= 1200px
       1440: {
@@ -81,9 +104,6 @@ export const ReviewsSlider = () => {
   );
 };
 
-
 export const TitleH2 = () => {
-  return (
-    <h2 className={css.titleH2}>Reviews</h2>
-  )
-}
+  return <h2 className={css.titleH2}>Reviews</h2>;
+};

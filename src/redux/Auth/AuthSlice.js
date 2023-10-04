@@ -27,6 +27,10 @@ const handleFulfilled = (state, action) => {
   state.error = null;
 }
 
+const heandleLogOut = (state, _) => {
+  state = initialState;
+}
+
 const authSlice = createSlice({
   name: 'auth',
   initialState,
@@ -52,13 +56,9 @@ const authSlice = createSlice({
       state.isRefreshing = false;
     },
 
-    [logOut.fulfilled](state) {
-      state.user = {};
-      state.isLoggedIn = false;
-      state.isRefreshing = false;
-      state.isLoading = false;
-      state.error = null;
-    },
+    [logOut.fulfilled]:heandleLogOut,
+    [logOut.rejected]:heandleLogOut,
+    [logOut.pending]:heandleLogOut,
   },
 });
 

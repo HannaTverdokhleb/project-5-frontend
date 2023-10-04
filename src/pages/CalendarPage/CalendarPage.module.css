@@ -1,3 +1,5 @@
-.innerWrapper {
-    background: green;
+.pageWrapper {
+    border-radius: 16px;
+    background: #fff;
+    padding: 40px 18px;
 }

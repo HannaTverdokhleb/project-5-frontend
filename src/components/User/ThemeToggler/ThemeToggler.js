@@ -2,6 +2,11 @@ import { useEffect, useState } from 'react';
 import css from './ThemeToggler.module.css';
 import moonSvg from 'images/moon.svg';
 import sunSvg from 'images/sun.svg';
+import axios from 'axios';
+
+const changeUserTheme = async theme => {
+  await axios.patch('/users/theme', { theme });
+};
 
 const ThemeToggler = () => {
   const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
@@ -9,6 +14,7 @@ const ThemeToggler = () => {
   useEffect(() => {
     document.body.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);
+    changeUserTheme(theme).then();
   }, [theme]);
 
   const toggleTheme = () => {
@@ -16,14 +22,14 @@ const ThemeToggler = () => {
   };
 
   return (
-    <button className={css.buttonTheme} type="button" onClick={toggleTheme}>
+    <button className={css.ThemeButton} type="button" onClick={toggleTheme}>
       {theme === 'light' ? (
         <>
-          <img src={moonSvg} alt="Місяць" />
+          <img className={css.ThemeIcon} src={moonSvg} alt="Місяць" />
         </>
       ) : (
         <>
-          <img src={sunSvg} alt="Сонце" />
+          <img className={css.ThemeIcon} src={sunSvg} alt="Сонце" />
         </>
       )}
     </button>

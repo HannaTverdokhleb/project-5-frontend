@@ -1,14 +1,18 @@
-.buttonTheme {
+.ThemeIcon {
   width: 24px;
   height: 24px;
-  cursor: pointer;
-  border: none;
-  background-color: transparent;
 }
 
 @media screen and (min-width: 768px) {
-  .buttonTheme {
+  .ThemeIcon {
     width: 32px;
     height: 32px;
   }
+}
+
+.ThemeButton {
+  padding: 0px;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
 }

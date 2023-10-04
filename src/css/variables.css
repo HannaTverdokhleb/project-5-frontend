@@ -41,6 +41,8 @@ body[data-theme='light'] {
   --text-color-fifth: #111111;
   --text-color-sixth: #343434;
   --error-text-color: #e74a3b;
+  --text-color-404:rgba(17, 17, 17, 0.70);
+
 
   --button-text-color-primary: #ffffff;
   --button-text-color-secondary: #343434;
@@ -190,6 +192,7 @@ body[data-theme='dark'] {
   --text-color-fifth: rgba(250, 250, 250, 0.3);
   --text-color-sixth: rgba(250, 250, 250, 0.3);
   --error-text-color: #e74a3b;
+  --text-color-404: #ffffff;
 
   --button-text-color-primary: #ffffff;
   --button-text-color-secondary: #ffffff;
