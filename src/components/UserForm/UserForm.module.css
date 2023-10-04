@@ -2,7 +2,7 @@
 
 .userContainer {
   box-sizing: border-box;
-  max-width: 335px;
+  width: 335px;
   padding: 59px 18px 40px 18px;
   /* display: flex;
   flex-direction: column; */
@@ -10,18 +10,18 @@
   align-items: center;
   margin-left: auto;
   margin-right: auto;
-  width: 100%;
   height: 100%;
   background-color: var(--background-color-secondary);
   border-radius: 16px;
+  outline: 2px solid red;
 
   @media screen and (min-width: 768px) {
-    max-width: 704px;
+    width: 704px;
     padding: 184px 175px 40px 175px;
   }
 
   @media screen and (min-width: 1440px) {
-    max-width: 1087px;
+    width: 1087px;
     padding: 204px 165px 60px 165px;
   }
 }
@@ -31,7 +31,33 @@
   flex-direction: column;
 
   @media screen and (min-width: 1440px) {
+    flex-direction: column;
+  }
+}
+.inputPrimaryWrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  @media screen and (min-width: 1440px) {
     flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 88px;
+  }
+}
+
+.inputFirstWrapper {
+  max-width: 299px;
+
+  @media screen and (min-width: 768px) {
+    width: 354px;
+  }
+}
+
+.inputSecondWrapper {
+  max-width: 299px;
+
+  @media screen and (min-width: 768px) {
+    width: 354px;
   }
 }
 
@@ -47,7 +73,7 @@
 
 .userInput {
   box-sizing: border-box;
-  max-width: 299px;
+  width: 100%;
   height: 42px;
   margin-bottom: 18px;
   padding: 14px 18px;
@@ -66,11 +92,12 @@
 
   @media screen and (min-width: 768px) {
     margin-bottom: 24px;
-    max-width: 354px;
+    width: 354px;
     height: 46px;
     font-size: 16px;
     line-height: calc(18 / 16);
   }
+
   &:focus {
     border: 1px solid var(--input-border-color-secondary);
   }

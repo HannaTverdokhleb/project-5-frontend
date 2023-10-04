@@ -38,64 +38,66 @@ const UserForm = () => {
       >
         <div className={css.userContainer}>
           <Form className={css.userForm}>
-            <div className={css.inputFirstWrapper}>
-              <label className={css.userLabel} htmlFor="name">
-                User Name
-              </label>
-              <Field
-                className={css.userInput}
-                type="text"
-                name="name"
-                id="name"
-                placeholder="Enter your name"
-              ></Field>
-              <ErrorMessage name="name" component="div" />
+            <div className={css.inputPrimaryWrapper}>
+              <div className={css.inputFirstWrapper}>
+                <label className={css.userLabel} htmlFor="name">
+                  User Name
+                </label>
+                <Field
+                  className={css.userInput}
+                  type="text"
+                  name="name"
+                  id="name"
+                  placeholder="Enter your name"
+                ></Field>
+                <ErrorMessage name="name" component="div" />
 
-              <label className={css.userLabel} htmlFor="birthday">
-                Birthday
-              </label>
-              <Field
-                className={css.userInput}
-                type="text"
-                name="birthday"
-                id="birthday"
-                placeholder="Enter your birthday"
-              ></Field>
+                <label className={css.userLabel} htmlFor="birthday">
+                  Birthday
+                </label>
+                <Field
+                  className={css.userInput}
+                  type="text"
+                  name="birthday"
+                  id="birthday"
+                  placeholder="Enter your birthday"
+                ></Field>
 
-              <label className={css.userLabel} htmlFor="email">
-                Email
-              </label>
-              <Field
-                className={css.userInput}
-                type="email"
-                name="email"
-                id="email"
-                placeholder="Enter your name"
-              ></Field>
-            </div>
+                <label className={css.userLabel} htmlFor="email">
+                  Email
+                </label>
+                <Field
+                  className={css.userInput}
+                  type="email"
+                  name="email"
+                  id="email"
+                  placeholder="Enter your name"
+                ></Field>
+              </div>
 
-            <div className={css.inputFirstWrapper}>
-              <label className={css.userLabel} htmlFor="name">
-                Phone
-              </label>
-              <Field
-                className={css.userInput}
-                type="tel"
-                name="phone"
-                id="phone"
-                placeholder="+380"
-              ></Field>
+              <div className={css.inputSecondWrapper}>
+                <label className={css.userLabel} htmlFor="name">
+                  Phone
+                </label>
+                <Field
+                  className={css.userInput}
+                  type="tel"
+                  name="phone"
+                  id="phone"
+                  placeholder="+380"
+                ></Field>
 
-              <label className={css.userLabel} htmlFor="skype">
-                Skype
-              </label>
-              <Field
-                className={css.userInput}
-                type="text"
-                name="skype"
-                id="skype"
-                placeholder="Enter your Skype"
-              ></Field>
+                <label className={css.userLabel} htmlFor="skype">
+                  Skype
+                </label>
+                <Field
+                  className={css.userInput}
+                  type="text"
+                  name="skype"
+                  id="skype"
+                  placeholder="Enter your Skype"
+                ></Field>
+              </div>
             </div>
 
             <button className={css.submitBtn} type="submit">
