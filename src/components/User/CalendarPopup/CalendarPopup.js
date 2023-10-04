@@ -1,6 +1,6 @@
 import React, { forwardRef, useState } from 'react';
 import DatePicker from 'react-datepicker';
-import { getYear, getMonth } from 'date-fns'; // Import getYear and getMonth
+import { getMonth } from 'date-fns'; // Import getYear and getMonth
 
 import 'react-datepicker/dist/react-datepicker.css';
 import css from './CalendarPopup.module.css';
@@ -38,7 +38,7 @@ export const CalendarDropdown = () => {
     'December',
   ];
 
-  const years = []; // Declare the years array with the desired range of years
+  // const years = [];
 
   return (
     <DatePicker
@@ -48,7 +48,7 @@ export const CalendarDropdown = () => {
       fixedHeight={css.fixedHeight}
       calendarClassName={css.calendar}
       renderDayContents={renderDayContents}
-      dateFormat="MM-dd-yyyy" // Correct date format
+      dateFormat="MM-dd-yyyy" 
       renderCustomHeader={({
         date,
         changeYear,
@@ -62,17 +62,6 @@ export const CalendarDropdown = () => {
           <button className={css.headerMonth} onClick={decreaseMonth} disabled={prevMonthButtonDisabled}>
             {'<'}
           </button>
-          
-          <select className={css.headerMonth}
-            value={getYear(date)}
-            onChange={({ target: { value } }) => changeYear(value)}
-          >
-            {years.map(option => (
-              <option key={option} value={option}>
-                {option}
-              </option>
-            ))}
-          </select>
 
           <select className={css.headerMonth}
             value={months[getMonth(date)]}
