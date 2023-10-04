@@ -13,13 +13,13 @@
 .userName {
   color: var(--text-color-secondary);
   font-family: 'Inter Bold';
-  font-size: 14px;
+  font-size: 20px;
   font-style: normal;
   font-weight: 700;
   line-height: 18px;
 
   @media screen and (min-width: 768px) {
-    font-size: 18px;
+    font-size: 30px;
   }
 }
 .userAvatar {
@@ -32,7 +32,7 @@
   color: var(--text-color-secondary);
   background-color: var(--background-color-quaternary);
   font-family: 'Inter Bold';
-  font-size: 14px;
+  font-size: 20px;
   font-style: normal;
   font-weight: 700;
   line-height: 18px;
@@ -40,7 +40,7 @@
   @media screen and (min-width: 768px) {
     width: 44px;
     height: 44px;
-    font-size: 18px;
+    font-size: 30px;
   }
 }
 

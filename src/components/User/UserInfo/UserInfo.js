@@ -8,7 +8,6 @@ const UserInfo = () => {
   return (
     <div className={css.userInfoWrapper}>
       <p className={css.userName}>{user.name}</p>
-
       {user.avatarURL ? (
         <img
           src={`${user.avatarURL}`}
