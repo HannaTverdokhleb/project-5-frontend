@@ -3,6 +3,7 @@
   justify-content: space-between;
   flex-direction: row;
   margin-top: 40px;
+  align-items: center;
 }
 
 .title {
@@ -59,6 +60,16 @@
 
   .calendar {
     display: none;
+  }
+  .feedbackButton {
+    width: 97px;
+    height: 32px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .feedbackButton {
+    width: 130px;
+    height: 42px;
   }
 }
 
