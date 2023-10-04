@@ -1,5 +1,6 @@
 .header {
   display: flex;
+  justify-content: space-between;
   flex-direction: row;
   margin-top: 40px;
 }
@@ -16,7 +17,7 @@
 }
 
 .burgerIcon:active {
-  color: #3e85f3;
+  color: var(--background-color-quaternary);
 }
 .textCalendarHeader {
   color: var(--add-task-input-text-color);
@@ -27,7 +28,20 @@
   line-height: 18px;
 }
 .textColor {
-  color: #3e85f3;
+  color: var(--background-color-quaternary);
+}
+
+.feedbackButton {
+  border: 0;
+  border-radius: 14px;
+  padding: 0;
+  width: 130px;
+  height: 42px;
+  background-color: var(--background-color-quaternary);
+  font-family: 'Inter';
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--button-text-color-primary);
 }
 
 @media screen and (min-width: 335px) {
