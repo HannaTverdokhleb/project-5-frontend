@@ -16,7 +16,7 @@ const UserInfo = () => {
           className={css.userAvatarImg}
         />
       ) : (
-        <div className={css.userAvatar}></div>
+        <p className={css.userAvatar}>{user.name.slice(0, 1)}</p>
       )}
     </div>
   );

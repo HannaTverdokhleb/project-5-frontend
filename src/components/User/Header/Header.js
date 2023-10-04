@@ -19,9 +19,9 @@ export const Header = () => {
         <RxHamburgerMenu className={css.burgerIcon} />
       </button>
       <section>{<h1 className={css.title}>{namePage}</h1>}</section>
-      <section>
-        <UserInfo></UserInfo>
+      <section className={css.info}>
         <ThemeToggler></ThemeToggler>
+        <UserInfo></UserInfo>
       </section>
     </header>
   );
