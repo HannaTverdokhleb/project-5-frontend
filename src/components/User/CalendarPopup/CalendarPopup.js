@@ -48,7 +48,7 @@ export const CalendarDropdown = () => {
       fixedHeight={css.fixedHeight}
       calendarClassName={css.calendar}
       renderDayContents={renderDayContents}
-      dateFormat="MM-dd-yyyy" 
+      dateFormat="d MMMM yyyy"
       renderCustomHeader={({
         date,
         changeMonth,
