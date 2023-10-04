@@ -27,6 +27,7 @@ export const CalendarDropdown = () => {
       fixedHeight={css.fixedHeight}
       calendarClassName={css.calendar}
       renderDayContents={renderDayContents}
+      dateFormat="mm-dd-yyyy"
     />
   );
 };
