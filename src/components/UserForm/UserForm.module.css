@@ -1,21 +1,59 @@
+@import '../../css/variables.css';
+
+.userContainer {
+  box-sizing: border-box;
+  max-width: 335px;
+  padding: 59px 18px 40px 18px;
+  /* display: flex;
+  flex-direction: column; */
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  height: 100%;
+  background-color: var(--background-color-secondary);
+  border-radius: 16px;
+
+  @media screen and (min-width: 768px) {
+    max-width: 704px;
+    padding: 184px 175px 40px 175px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    max-width: 1087px;
+    padding: 204px 165px 60px 165px;
+  }
+}
+
+.userForm {
+  display: flex;
+  flex-direction: column;
+
+  @media screen and (min-width: 1440px) {
+    flex-direction: row;
+  }
+}
+
 .userLabel {
   font-family: 'Inter';
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: calc(18 / 14);
-  color: blue;
-  height: auto;
+  color: var(--text-color-primary);
+  /* height: auto; */
 }
 
 .userInput {
   box-sizing: border-box;
-  width: 299px;
+  max-width: 299px;
   height: 42px;
   margin-bottom: 18px;
   padding: 14px 18px;
   padding-right: 28px;
-  border: 1px solid black;
+  border: 1px solid var(--input-border-color-primary);
+
   border-radius: 8px;
   background: transparent;
   font-style: normal;
@@ -28,23 +66,23 @@
 
   @media screen and (min-width: 768px) {
     margin-bottom: 24px;
-    width: 354px;
+    max-width: 354px;
     height: 46px;
     font-size: 16px;
     line-height: calc(18 / 16);
   }
   &:focus {
-    border-color: #3e85f3;
-    outline: none;
+    border: 1px solid var(--input-border-color-secondary);
   }
 }
+
 .submitBtn {
+  box-sizing: border-box;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 40px;
-  margin-bottom: 40px;
   padding: 0;
-  width: 195px;
+
+  max-width: 195px;
   height: 46px;
   border-radius: 16px;
   border: none;
@@ -57,44 +95,13 @@
   background: #3e85f3;
   color: #ffffff;
   cursor: pointer;
+
   @media screen and (min-width: 768px) {
     width: 262px;
     height: 48px;
-    margin-top: 22px;
-    margin-bottom: 60px;
   }
-  @media screen and (min-width: 1440px) {
-  }
+
   &:hover {
-    border: 1px solid #42b8cc;
     background-color: #2b78ef;
-  }
-}
-
-.userForm {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  /* @media screen and (min-width: 768px) {
-    position: unset;
-  } */
-}
-
-.userContainer {
-  max-width: 335px;
-  padding: 59px 18px 40px 18px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-  height: 100%;
-  background: white;
-  border-radius: 16px;
-  outline: 1px solid red;
-
-  @media screen and (min-width: 768px) {
-    max-width: 704px;
   }
 }
