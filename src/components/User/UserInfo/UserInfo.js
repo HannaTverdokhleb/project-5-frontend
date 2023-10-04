@@ -4,7 +4,7 @@ import css from './UserInfo.module.css';
 
 const UserInfo = () => {
   const user = useSelector(selectUser);
-  console.log(user);
+  // console.log(user);
   return (
     <div className={css.userInfoWrapper}>
       <p className={css.userName}>{user.name}</p>
@@ -15,7 +15,7 @@ const UserInfo = () => {
           className={css.userAvatarImg}
         />
       ) : (
-        <p className={css.userAvatar}>{user.name.slice(0, 1)}</p>
+        <p className={css.userAvatar}>{user.name ? user.name.slice(0, 1) : "A"}</p>
       )}
     </div>
   );
