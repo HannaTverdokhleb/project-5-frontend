@@ -12,3 +12,6 @@
     text-transform: uppercase;
   }
   
+  .fixedHeight{
+    height: 354px;
+  }

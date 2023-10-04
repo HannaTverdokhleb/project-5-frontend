@@ -1,8 +1,10 @@
 import React, { forwardRef, useState } from 'react';
 import DatePicker from 'react-datepicker';
 
-import 'react-datepicker/dist/react-datepicker.css';
+import "react-datepicker/dist/react-datepicker.css";
+
 import css from './CalendarPopup.module.css';
+
 
 export const CalendarDropdown = () => {
   const [startDate, setStartDate] = useState(new Date());
@@ -17,6 +19,7 @@ export const CalendarDropdown = () => {
       selected={startDate}
       onChange={date => setStartDate(date)}
       customInput={<CustomInput />}
+      fixedHeight={css.fixedHeight}
     />
   );
 };
