@@ -1,17 +1,23 @@
+
 @import '../../../css/variables.css';
 
 .mainLayoutContainer * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 .mainLayoutContainer {
-  display: flex;
-  min-height: 100vh;
+    display: flex;
+    min-height: 100vh;
 }
 .mainLayout {
-  background-color: var(--background-color-primary);
+    background-color: var(--background-color-primary);
 }
 .pageWrapper {
-  width: 100%;
-  padding: 0 32px 32px 321px;
+    width: 100%;
+    padding: 0 32px 32px 321px;
+}
+@media(max-width: 991px) {
+    .pageWrapper {
+        padding-left: 31px;
+    }
 }

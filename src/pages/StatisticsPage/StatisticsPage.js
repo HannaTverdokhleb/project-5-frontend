@@ -1,6 +1,8 @@
 import { useOutletContext } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { currentPage } from 'redux/actions';
+import { StatisticsChart } from 'components/User/UserStatistics/UserStatistics';
+import { CalendarDropdown } from 'components/User/CalendarPopup/CalendarPopup';
 
 const StatisticsPage = () => {
   const [user] = useOutletContext();
@@ -8,7 +10,12 @@ const StatisticsPage = () => {
   const dispatch = useDispatch();
   dispatch(currentPage('Statistics'));
 
-  return <div className="statisticsPage">Statistics</div>;
+  return (
+    <div>
+      <CalendarDropdown />
+      <StatisticsChart />
+    </div>
+  );
 };
 
 export default StatisticsPage;
