@@ -18,6 +18,7 @@ export const Header = () => {
         <RxHamburgerMenu className={css.burgerIcon} />
       </button>
       <section>
+        <h1 className={css.title}>{namePage}</h1>
         {namePage === 'Calendar' && (
           <div className={css.calendar}>
             <img
