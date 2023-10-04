@@ -1,11 +1,16 @@
 import { useOutletContext } from 'react-router-dom';
+import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { currentPage } from 'redux/actions';
 import css from './CalendarPage.module.css';
 
 const CalendarPage = () => {
   const dispatch = useDispatch();
-  dispatch(currentPage('Calendar'));
+
+  useEffect(() => {
+    dispatch(currentPage('Calendar'));
+  }, [dispatch]);
+
   const [user] = useOutletContext();
   console.log(user); // ТУТ ВСЯ ІНФА ПРО ЮЗЕРА, ЯКЩО ТРЕБА
   
