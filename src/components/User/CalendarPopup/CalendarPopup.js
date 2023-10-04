@@ -1,23 +1,44 @@
 import React, { forwardRef, useState } from 'react';
 import DatePicker from 'react-datepicker';
+import { getYear, getMonth } from 'date-fns'; // Import getYear and getMonth
 
-import "react-datepicker/dist/react-datepicker.css";
-
+import 'react-datepicker/dist/react-datepicker.css';
 import css from './CalendarPopup.module.css';
-
 
 export const CalendarDropdown = () => {
   const [startDate, setStartDate] = useState(new Date());
+
   const renderDayContents = (day, date) => {
     const tooltipText = `Tooltip for date: ${date}`;
-    return <span className={css.tooltipText} title={tooltipText}>{date.getDate()}</span>;
+    return (
+      <span className={css.tooltipText} title={tooltipText}>
+        {date.getDate()}
+      </span>
+    );
   };
+
   const CustomInput = forwardRef(({ value, onClick }, ref) => (
     <button className={css.customInput} onClick={onClick} ref={ref}>
       {value}
     </button>
-    
   ));
+
+  const months = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+  ];
+
+  const years = []; // Declare the years array with the desired range of years
 
   return (
     <DatePicker
@@ -27,7 +48,50 @@ export const CalendarDropdown = () => {
       fixedHeight={css.fixedHeight}
       calendarClassName={css.calendar}
       renderDayContents={renderDayContents}
-      dateFormat="mm-dd-yyyy"
+      dateFormat="MM-dd-yyyy" // Correct date format
+      renderCustomHeader={({
+        date,
+        changeYear,
+        changeMonth,
+        decreaseMonth,
+        increaseMonth,
+        prevMonthButtonDisabled,
+        nextMonthButtonDisabled,
+      }) => (
+        <div class={css.headerMonth} style={{ margin: 10, display: 'flex', justifyContent: 'center' }}>
+          <button className={css.headerMonth} onClick={decreaseMonth} disabled={prevMonthButtonDisabled}>
+            {'<'}
+          </button>
+          
+          <select className={css.headerMonth}
+            value={getYear(date)}
+            onChange={({ target: { value } }) => changeYear(value)}
+          >
+            {years.map(option => (
+              <option key={option} value={option}>
+                {option}
+              </option>
+            ))}
+          </select>
+
+          <select className={css.headerMonth}
+            value={months[getMonth(date)]}
+            onChange={({ target: { value } }) =>
+              changeMonth(months.indexOf(value))
+            }
+          >
+            {months.map(option => (
+              <option key={option} value={option}>
+                {option}
+              </option>
+            ))}
+          </select>
+
+          <button className={css.headerMonth} onClick={increaseMonth} disabled={nextMonthButtonDisabled}>
+            {'>'}
+          </button>
+        </div>
+      )}
     />
   );
 };

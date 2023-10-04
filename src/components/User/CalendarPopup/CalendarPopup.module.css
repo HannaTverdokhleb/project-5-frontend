@@ -27,3 +27,12 @@
   .tooltipText{
     color: #fff;
   }
+
+  .headerMonth{
+    background-color: var(--main-color-blue);
+    border: none;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+  }
