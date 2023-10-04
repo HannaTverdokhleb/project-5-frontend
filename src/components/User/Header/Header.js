@@ -4,6 +4,7 @@ import { RxHamburgerMenu } from 'react-icons/rx';
 import gooseUrl1x from 'images/desktopImages/header/header_desk@1x.png';
 import gooseUrl2x from 'images/desktopImages/header/header_desk@2x.png';
 import ThemeToggler from '../ThemeToggler/ThemeToggler';
+import UserInfo from '../UserInfo/UserInfo';
 
 export const Header = () => {
   const namePage = useSelector(state => state.currentPage.namePage);
@@ -36,8 +37,9 @@ export const Header = () => {
           </div>
         )}
       </section>
-      <section>
+      <section className={css.info}>
         <ThemeToggler></ThemeToggler>
+        <UserInfo></UserInfo>
       </section>
     </header>
   );

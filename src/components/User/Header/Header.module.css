@@ -67,3 +67,12 @@
   width: 64px;
   height: 60px;
 }
+
+.info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  @media screen and (min-width: 768px) {
+    gap: 14px;
+  }
+}
