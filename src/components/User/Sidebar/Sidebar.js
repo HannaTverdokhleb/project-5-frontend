@@ -1,20 +1,13 @@
-import React, { useState } from 'react';
 import UserNav from './UserNav/UserNav';
 import LogoutBtn from './LogoutBtn/LogoutBtn';
 import { RxCross1 } from 'react-icons/rx';
 import logoSidebar from 'images/logoSidebar.png';
 import css from './Sidebar.module.css';
 
-export default function SideBar() {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleSidebar = () => {
-    setIsOpen(!isOpen);
-    console.log('isOpen:', isOpen);
-  };
+export default function SideBar({toggleSidebar, isOpenSidebar}) {
 
   return (
-    <aside className={`${css.sidebar} ${isOpen ? css.openSidebar : ''}`}>
+    <aside className={`${css.sidebar} ${isOpenSidebar ? css.openSidebar : ''}`}>
       <button
         className={css.close__btn}
         onClick={toggleSidebar}
@@ -41,4 +34,5 @@ export default function SideBar() {
       <LogoutBtn />
     </aside>
   );
-}
+};
+
