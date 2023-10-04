@@ -1,7 +1,5 @@
-import { lazy, Suspense, useEffect } from 'react';
-import { useDispatch } from "react-redux";
+import { lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { refreshUser } from 'redux/Auth/operations';
 import { PrivateRoute } from './PrivateRoute';
 import { RestrictedRoute } from './RestrictedRoute';
 import Loader from 'components/Loader/Loader';
@@ -16,11 +14,6 @@ const Page404 = lazy(() => import('../pages/NotFoundPage/NotFoundPage'));
 
 export const App = () => {
 
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(refreshUser());
-  }, [dispatch]);
 
   return (
     <Suspense fallback={<Loader />}>
