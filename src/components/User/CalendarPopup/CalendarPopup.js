@@ -20,7 +20,7 @@ export const CalendarDropdown = () => {
       onChange={date => setStartDate(date)}
       customInput={<CustomInput />}
       fixedHeight={css.fixedHeight}
-     
+      calendarClassName={css.calendar}
     />
   );
 };
