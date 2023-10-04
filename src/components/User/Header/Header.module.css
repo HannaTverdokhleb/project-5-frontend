@@ -1,10 +1,11 @@
 .header {
   display: flex;
   flex-direction: row;
+  margin-top: 40px;
 }
 
 .title {
-  color: --main-color-black;
+  color: var(--add-task-input-text-color);
   font-family: 'Inter';
   font-size: 32px;
 }
@@ -18,6 +19,8 @@
   color: #3e85f3;
 }
 .textCalendarHeader {
+  color: var(--add-task-input-text-color);
+  margin-top: 8px;
   font-weight: 600;
   font-family: 'Inter';
   font-size: 14px;
@@ -56,7 +59,7 @@
     display: none;
   }
   .calendar {
-    display: block;
+    display: flex;
   }
 }
 

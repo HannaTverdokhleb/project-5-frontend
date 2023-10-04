@@ -18,7 +18,6 @@ export const Header = () => {
         <RxHamburgerMenu className={css.burgerIcon} />
       </button>
       <section>
-        {<h1 className={css.title}>{namePage}</h1>}
         {namePage === 'Calendar' && (
           <div className={css.calendar}>
             <img
@@ -26,10 +25,13 @@ export const Header = () => {
               alt="Goose"
               className={css.calendarGoose}
             />
-            <p className={css.textCalendarHeader}>
-              <span className={css.textColor}>Let go</span> of the past and
-              focus on the present!
-            </p>
+            <div>
+              <h1 className={css.title}>{namePage}</h1>
+              <p className={css.textCalendarHeader}>
+                <span className={css.textColor}>Let go</span> of the past and
+                focus on the present!
+              </p>
+            </div>
           </div>
         )}
       </section>
