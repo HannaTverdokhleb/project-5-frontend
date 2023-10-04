@@ -15,12 +15,11 @@ import css from './ReviewsSection.module.css';
 import { useDispatch } from 'react-redux'; //useSelector
 // import { selectContacts } from 'redux/reviews/reviewsSelectors';
 import { fetchReviews } from 'redux/reviews/reviewsOperations';
+import image from 'images/mobileImages/mainPage/avatar.jpg';
 
 //data to change from Back End API
-const image = 'images/mobileImages/mainPage/avatar.jpg';
 
 const SlideDetails = () => {
-
   const [state, setState] = useState({
     name: '',
     rating: '',
