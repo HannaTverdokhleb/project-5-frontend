@@ -6,20 +6,20 @@ import gooseUrl2x from 'images/desktopImages/header/header_desk@2x.png';
 import ThemeToggler from '../ThemeToggler/ThemeToggler';
 import UserInfo from '../UserInfo/UserInfo';
 
-export const Header = ({toggleSidebar}) => {
+export const Header = ({ toggleSidebar }) => {
   const namePage = useSelector(state => state.currentPage.namePage);
 
   return (
     <header className={css.header}>
-      <button
-        type="button"
-        className={css.burgerButton}
-        aria-label="open close burger menu"
-        onClick={toggleSidebar}
-      >
-        <RxHamburgerMenu className={css.burgerIcon} />
-      </button>
       <section>
+        <button
+          type="button"
+          className={css.burgerButton}
+          aria-label="open close burger menu"
+          onClick={toggleSidebar}
+        >
+          <RxHamburgerMenu className={css.burgerIcon} />
+        </button>
         <h1 className={css.title}>{namePage}</h1>
         {namePage === 'Calendar' && (
           <div className={css.calendar}>
@@ -39,6 +39,9 @@ export const Header = ({toggleSidebar}) => {
         )}
       </section>
       <section className={css.info}>
+        <button type="button" className={css.feedbackButton}>
+          Feedback
+        </button>
         <ThemeToggler></ThemeToggler>
         <UserInfo></UserInfo>
       </section>
