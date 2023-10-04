@@ -4,7 +4,8 @@ import Notiflix from 'notiflix';
 
 axios.defaults.baseURL = 'https://goose-track-backend-54zr.onrender.com';
 
-const setAuthHeader = token => {
+
+export const setAuthHeader = token => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
   localStorage.setItem('TOKEN', token);
 };
