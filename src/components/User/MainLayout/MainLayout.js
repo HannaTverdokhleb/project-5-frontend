@@ -4,16 +4,25 @@ import { selectUser } from 'redux/Auth/selectors';
 import { Header } from 'components/User/Header/Header';
 import SideBar from '../Sidebar/Sidebar';
 import css from './MainLayout.module.css';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { refreshUser } from 'redux/Auth/operations';
 
 const MainLayout = () => {
-  const user = useSelector(selectUser);
-
+  
   const [isOpenSidebar, setIsOpen] = useState(true);
 
   const toggleSidebar = () => {
     setIsOpen(!isOpenSidebar)
   };
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
+
+  const user = useSelector(selectUser);
 
   return (
     <section className={css.mainLayout}>
