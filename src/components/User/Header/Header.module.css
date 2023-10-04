@@ -19,10 +19,7 @@
   color: #3e85f3;
 }
 .textCalendarHeader {
-<<<<<<< Updated upstream
   color: var(--add-task-input-text-color);
-=======
->>>>>>> Stashed changes
   margin-top: 8px;
   font-weight: 600;
   font-family: 'Inter';
