@@ -51,14 +51,13 @@ export const CalendarDropdown = () => {
       dateFormat="MM-dd-yyyy" 
       renderCustomHeader={({
         date,
-        changeYear,
         changeMonth,
         decreaseMonth,
         increaseMonth,
         prevMonthButtonDisabled,
         nextMonthButtonDisabled,
       }) => (
-        <div class={css.headerMonth} style={{ margin: 10, display: 'flex', justifyContent: 'center' }}>
+        <div className={css.headerMonth} style={{ margin: 10, display: 'flex', justifyContent: 'center' }}>
           <button className={css.headerMonth} onClick={decreaseMonth} disabled={prevMonthButtonDisabled}>
             {'<'}
           </button>
