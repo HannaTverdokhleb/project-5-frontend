@@ -6,7 +6,7 @@ import gooseUrl2x from 'images/desktopImages/header/header_desk@2x.png';
 import ThemeToggler from '../ThemeToggler/ThemeToggler';
 import UserInfo from '../UserInfo/UserInfo';
 
-export const Header = () => {
+export const Header = ({toggleSidebar}) => {
   const namePage = useSelector(state => state.currentPage.namePage);
 
   return (
@@ -15,6 +15,7 @@ export const Header = () => {
         type="button"
         className={css.burgerButton}
         aria-label="open close burger menu"
+        onClick={toggleSidebar}
       >
         <RxHamburgerMenu className={css.burgerIcon} />
       </button>
