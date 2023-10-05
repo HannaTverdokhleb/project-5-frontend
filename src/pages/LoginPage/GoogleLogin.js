@@ -9,7 +9,8 @@ const GoogleLoginPage = () => {
 
   useEffect(() => {
     setAuthHeader(token);
-    navigate('/calendar');
+    // TODO: fix later
+    window.location.reload();
   }, [navigate, token]);
 
   return (
