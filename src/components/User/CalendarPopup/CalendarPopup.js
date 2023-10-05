@@ -1,6 +1,6 @@
 import React, { forwardRef, useState } from 'react';
 import DatePicker from 'react-datepicker';
-import { getMonth } from 'date-fns'; // Import getYear and getMonth
+// import { getMonth } from 'date-fns'; // Import getYear and getMonth
 
 import 'react-datepicker/dist/react-datepicker.css';
 import css from './CalendarPopup.module.css';
@@ -23,20 +23,20 @@ export const CalendarDropdown = () => {
     </button>
   ));
 
-  const months = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December',
-  ];
+  // const months = [
+  //   'January',
+  //   'February',
+  //   'March',
+  //   'April',
+  //   'May',
+  //   'June',
+  //   'July',
+  //   'August',
+  //   'September',
+  //   'October',
+  //   'November',
+  //   'December',
+  // ];
 
   return (
     <DatePicker
