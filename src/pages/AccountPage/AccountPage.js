@@ -1,3 +1,5 @@
+import UserForm from '../../components/UserForm/UserForm';
+
 import { useOutletContext } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
@@ -13,7 +15,11 @@ const AccountPage = () => {
   const [user] = useOutletContext();
   console.log(user); // ТУТ ВСЯ ІНФА ПРО ЮЗЕРА, ЯКЩО ТРЕБА
 
-  return <div className="accountPage">Account</div>;
+  return (
+    <div className="accountPage">
+      <UserForm />
+    </div>
+  );
 };
 
 export default AccountPage;
