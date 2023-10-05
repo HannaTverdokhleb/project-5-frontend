@@ -1,8 +1,13 @@
 import { Link } from 'react-router-dom';
 import css from './NotFoundPage.module.css';
+import { useEffect } from 'react';
 
 export default function NotFoundPage() {
-
+  
+  useEffect(() => { 
+    const theme = localStorage.getItem('theme'); 
+    document.body.setAttribute('data-theme', theme || 'light'); 
+  }, []);
 
   return (
     <div className={css.background}>
