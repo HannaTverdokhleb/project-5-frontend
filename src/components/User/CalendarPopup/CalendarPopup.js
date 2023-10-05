@@ -38,10 +38,9 @@ export const CalendarDropdown = () => {
     'December',
   ];
 
-  // const years = [];
-
   return (
     <DatePicker
+      showPopperArrow={false}
       selected={startDate}
       onChange={date => setStartDate(date)}
       customInput={<CustomInput />}
@@ -57,12 +56,20 @@ export const CalendarDropdown = () => {
         prevMonthButtonDisabled,
         nextMonthButtonDisabled,
       }) => (
-        <div className={css.headerMonth} style={{ margin: 10, display: 'flex', justifyContent: 'center' }}>
-          <button className={css.headerMonth} onClick={decreaseMonth} disabled={prevMonthButtonDisabled}>
+        <div
+          className={css.headerMonth}
+          style={{ margin: 10, display: 'flex', justifyContent: 'center' }}
+        >
+          <button
+            className={css.headerMonth}
+            onClick={decreaseMonth}
+            disabled={prevMonthButtonDisabled}
+          >
             {'<'}
           </button>
 
-          <select className={css.headerMonth}
+          <select
+            className={css.headerMonth}
             value={months[getMonth(date)]}
             onChange={({ target: { value } }) =>
               changeMonth(months.indexOf(value))
@@ -75,7 +82,11 @@ export const CalendarDropdown = () => {
             ))}
           </select>
 
-          <button className={css.headerMonth} onClick={increaseMonth} disabled={nextMonthButtonDisabled}>
+          <button
+            className={css.headerMonth}
+            onClick={increaseMonth}
+            disabled={nextMonthButtonDisabled}
+          >
             {'>'}
           </button>
         </div>
