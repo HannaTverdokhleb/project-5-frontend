@@ -7,13 +7,14 @@ import css from './MainLayout.module.css';
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { refreshUser } from 'redux/Auth/operations';
+import Loader from '../../Loader/Loader';
 
 const MainLayout = () => {
-  
+
   const [isOpenSidebar, setIsOpen] = useState(true);
 
   const toggleSidebar = () => {
-    setIsOpen(!isOpenSidebar)
+    setIsOpen(!isOpenSidebar);
   };
 
   const dispatch = useDispatch();
@@ -24,12 +25,16 @@ const MainLayout = () => {
 
   const user = useSelector(selectUser);
 
+  if (!user) {
+    return <Loader />;
+  }
+
   return (
     <section className={css.mainLayout}>
       <div className={css.mainLayoutContainer}>
         <SideBar isOpenSidebar={isOpenSidebar} toggleSidebar={toggleSidebar} />
         <div className={css.pageWrapper}>
-          <Header  isOpenSidebar={isOpenSidebar} toggleSidebar={toggleSidebar}/>
+          <Header isOpenSidebar={isOpenSidebar} toggleSidebar={toggleSidebar} />
           <Outlet context={[user]} />
           {/* це контент сторінки */}
         </div>
