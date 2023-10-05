@@ -18,18 +18,18 @@ const ThemeToggler = () => {
 
   const toggleTheme = () => {
     setTheme(theme === 'light' ? 'dark' : 'light');
-    changeUserTheme(theme).then();
+    changeUserTheme(theme === 'light' ? 'dark' : 'light').then();
   };
 
   return (
-    <button className={css.ThemeButton} type="button" onClick={toggleTheme}>
+    <button className={css.ThemeButton} type='button' onClick={toggleTheme}>
       {theme === 'light' ? (
         <>
-          <img className={css.ThemeIcon} src={moonSvg} alt="Місяць" />
+          <img className={css.ThemeIcon} src={moonSvg} alt='Місяць' />
         </>
       ) : (
         <>
-          <img className={css.ThemeIcon} src={sunSvg} alt="Сонце" />
+          <img className={css.ThemeIcon} src={sunSvg} alt='Сонце' />
         </>
       )}
     </button>
