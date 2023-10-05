@@ -1,7 +1,7 @@
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import React, { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 // import Swiper core and required modules
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
@@ -12,46 +12,22 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import css from './ReviewsSection.module.css';
-import { useDispatch } from 'react-redux'; //useSelector
-// import { selectContacts } from 'redux/reviews/reviewsSelectors';
+import imageDummy from 'images/mobileImages/mainPage/avatar.jpg';
+
+import { useDispatch, useSelector } from 'react-redux';
 import { fetchReviews } from 'redux/reviews/reviewsOperations';
-import image from 'images/mobileImages/mainPage/avatar.jpg';
+import { selectReviews } from 'redux/reviews/reviewsSelectors';
 
-//data to change from Back End API
-
-const SlideDetails = () => {
-  const [state, setState] = useState({
-    name: '',
-    rating: '',
-    comment: '',
-  });
-
-  const dispatch = useDispatch();
-  // const reviews = useSelector(selectContacts);
-
-  useEffect(() => {
-   
-    dispatch(fetchReviews())
-      .then((response) => response.json())
-      .then((result) => {
-       
-        const { name, rating, comment } = result; 
-        setState({ name, rating, comment });
-      })
-      .catch((error) => {
-        dispatch(fetchReviews(error));
-      });
-  }, [dispatch]);
-
+const SlideDetails = ({ image, name, rating, comment }) => {
   return (
     <div className={css.slideContainer}>
       <div className={css.slideAuthor}>
         <img className={css.picture} src={image} alt="Description" />
         <div className={css.authorDetails}>
-          <h3>{state.name}</h3>
-          <div>{state.rating}</div>
+          <h3>{name}</h3>
+          <div>{rating}</div>
         </div>
-        <p className={css.mainText}>{state.comment}</p>
+        <p className={css.mainText}>{comment}</p>
       </div>
     </div>
   );
@@ -82,24 +58,29 @@ export const ReviewsSlider = () => {
     },
   };
 
+  const dispatch = useDispatch();
+  const reviews = useSelector(selectReviews);
+
+  useEffect(() => {
+    dispatch(fetchReviews());
+  }, [dispatch]);
+
   return (
-    <Swiper {...swiperParams} className={css.container}>
-      <SwiperSlide>
-        <SlideDetails />
-      </SwiperSlide>
-
-      <SwiperSlide>
-        <SlideDetails />
-      </SwiperSlide>
-
-      <SwiperSlide>
-        <SlideDetails />
-      </SwiperSlide>
-
-      <SwiperSlide>
-        <SlideDetails />
-      </SwiperSlide>
-    </Swiper>
+    <>
+    {reviews.length > 0 && 
+      <Swiper {...swiperParams} className={css.container}>
+        {reviews.map(({_id, comment, rating, owner}) => {
+          const name = (owner && owner.name) ? owner.name : 'Unknown';
+          const avatar = (owner && owner.avatarURL) ? owner.avatarURL : imageDummy;
+          return (
+            <SwiperSlide key={_id}>
+              <SlideDetails comment={comment} rating={rating} name={name} image={avatar} />
+            </SwiperSlide>
+          )
+        })}
+      </Swiper>
+    }
+    </>
   );
 };
 
