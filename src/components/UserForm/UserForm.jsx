@@ -34,9 +34,10 @@ const UserForm = () => {
       <Formik
         initialValues={initialValues}
         onSubmit={handleSubmit}
-        // validationSchema={userSchema}
+        validationSchema={userSchema}
       >
         <div className={css.userContainer}>
+          <div className={css.avatarFrame}>A</div>
           <Form className={css.userForm}>
             <div className={css.inputPrimaryWrapper}>
               <div className={css.inputFirstWrapper}>

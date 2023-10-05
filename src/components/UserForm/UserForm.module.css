@@ -33,6 +33,13 @@
   @media screen and (min-width: 1440px) {
     flex-direction: column;
   }
+
+  .avatarFrame {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background-color: #3e85f3;
+  }
 }
 .inputPrimaryWrapper {
   width: 100%;
