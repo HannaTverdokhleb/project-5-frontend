@@ -1,11 +1,14 @@
 @import '../../css/variables.css';
 
 .userContainer {
+  @media screen and (max-width: 767px) {
+    position: relative;
+  }
   box-sizing: border-box;
   width: 335px;
   padding: 59px 18px 40px 18px;
-  /* display: flex;
-  flex-direction: column; */
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-left: auto;
@@ -13,34 +16,99 @@
   height: 100%;
   background-color: var(--background-color-secondary);
   border-radius: 16px;
-  outline: 2px solid red;
 
   @media screen and (min-width: 768px) {
     width: 704px;
-    padding: 184px 175px 40px 175px;
+    padding: 40px 175px 40px 175px;
   }
 
   @media screen and (min-width: 1440px) {
     width: 1087px;
-    padding: 204px 165px 60px 165px;
+    padding: 60px 165px 60px 165px;
   }
 }
 
 .userForm {
+  box-sizing: borded-box;
   display: flex;
   flex-direction: column;
+  width: 100%;
 
   @media screen and (min-width: 1440px) {
     flex-direction: column;
   }
+}
 
-  .avatarFrame {
-    width: 72px;
-    height: 72px;
-    border-radius: 50%;
-    background-color: #3e85f3;
+.avatarContainer {
+  position: absolute;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* left: calc((100%-50vw) / 2); */
+  top: -36px;
+  width: 72px;
+  height: 72px;
+  border: 2px solid #3e85f3;
+  border-radius: 50%;
+  background: #ffffff;
+
+  @media screen and (min-width: 768px) {
+    position: relative;
+    margin-bottom: 20px;
+    width: 124px;
+    height: 124px;
+  }
+  @media screen and (min-width: 1440px) {
+    margin-bottom: 20px;
   }
 }
+
+.plusInBorder {
+  position: absolute;
+  top: 55px;
+  left: 50px;
+  width: 14px;
+  height: 14px;
+  background-color: #2b78ef;
+  border-radius: 50%;
+  @media screen and (min-width: 768px) {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.avatarUserName {
+  margin-bottom: 4px;
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: calc(18 / 14);
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 8px;
+    color: #343434;
+    font-size: 18px;
+    line-height: 1;
+  }
+}
+
+.avatarUserType {
+  margin-bottom: 40px;
+  color: #343434;
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: calc(14 / 12);
+
+  @media screen and (min-width: 768px) {
+    font-size: 14px;
+    line-height: calc(18 / 14);
+  }
+}
+
 .inputPrimaryWrapper {
   width: 100%;
   display: flex;
@@ -48,6 +116,7 @@
   @media screen and (min-width: 1440px) {
     flex-direction: row;
     justify-content: space-between;
+
     margin-bottom: 88px;
   }
 }
@@ -111,12 +180,10 @@
 }
 
 .submitBtn {
-  box-sizing: border-box;
-  margin-left: auto;
-  margin-right: auto;
+  align-self: center;
   padding: 0;
 
-  max-width: 195px;
+  width: 195px;
   height: 46px;
   border-radius: 16px;
   border: none;

@@ -37,7 +37,13 @@ const UserForm = () => {
         validationSchema={userSchema}
       >
         <div className={css.userContainer}>
-          <div className={css.avatarFrame}>A</div>
+          <div className={css.avatarContainer}>
+            <label htmlFor="userImgUrl"></label>
+            <div className={css.plusInBorder}></div>A
+          </div>
+          <h2 className={css.avatarUserName}>Nadiia Doe</h2>
+          <p className={css.avatarUserType}>User</p>
+
           <Form className={css.userForm}>
             <div className={css.inputPrimaryWrapper}>
               <div className={css.inputFirstWrapper}>
