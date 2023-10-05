@@ -40,7 +40,7 @@ export const CalendarDropdown = () => {
 
   return (
     <DatePicker
-    calendarStartDay={1}
+      calendarStartDay={1}
       showPopperArrow={false}
       selected={startDate}
       onChange={date => setStartDate(date)}
