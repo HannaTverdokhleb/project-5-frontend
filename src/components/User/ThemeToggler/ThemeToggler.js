@@ -14,11 +14,11 @@ const ThemeToggler = () => {
   useEffect(() => {
     document.body.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);
-    changeUserTheme(theme).then();
   }, [theme]);
 
   const toggleTheme = () => {
     setTheme(theme === 'light' ? 'dark' : 'light');
+    changeUserTheme(theme).then();
   };
 
   return (
