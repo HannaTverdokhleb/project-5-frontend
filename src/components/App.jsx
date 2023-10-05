@@ -9,12 +9,10 @@ const MainLayout = lazy(() => import('components/User/MainLayout/MainLayout'));
 const Page404 = lazy(() => import('../pages/NotFoundPage/NotFoundPage'));
 
 export const App = () => {
-
-
   return (
     <Suspense fallback={<Loader />}>
       <Routes>
-        {Object.values(routes.restricted).map(route =>
+        {Object.values(routes.restricted).map(route => (
           <Route
             key={route.key}
             path={route.path}
@@ -24,10 +22,10 @@ export const App = () => {
                 component={route.component}
               /> // /calendar/month/
             }
-          />,
-        )}
-        <Route path='/' element={<MainLayout />}>
-          {Object.values(routes.private).map(route =>
+          />
+        ))}
+        <Route path="/" element={<MainLayout />}>
+          {Object.values(routes.private).map(route => (
             <Route
               key={route.key}
               path={route.path}
@@ -37,10 +35,10 @@ export const App = () => {
                   component={route.component}
                 />
               }
-            />,
-          )}
+            />
+          ))}
         </Route>
-        <Route path='*' element={<Page404 />} />
+        <Route path="*" element={<Page404 />} />
       </Routes>
     </Suspense>
   );
