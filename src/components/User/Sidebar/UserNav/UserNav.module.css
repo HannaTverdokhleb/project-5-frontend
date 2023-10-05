@@ -1,5 +1,6 @@
 .sidebarNav {
     flex: 1 1 auto;
+    padding-bottom: 30px;
 }
 .nav_container{
     width: 100%;

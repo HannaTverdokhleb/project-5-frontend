@@ -12,3 +12,27 @@
     text-transform: uppercase;
   }
   
+  .fixedHeight{
+    height: 280px;
+  }
+
+  .calendar{
+    background-color: var(--main-color-blue);
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    border: none;
+    border-radius: 16px;
+  }
+
+  .tooltipText{
+    color: #fff;
+  }
+
+  .headerMonth{
+    background-color: var(--main-color-blue);
+    border: none;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+  }

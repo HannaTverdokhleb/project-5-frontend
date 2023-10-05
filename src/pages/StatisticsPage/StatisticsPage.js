@@ -1,4 +1,5 @@
 import { useOutletContext } from 'react-router-dom';
+import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { currentPage } from 'redux/actions';
 import { StatisticsChart } from 'components/User/UserStatistics/UserStatistics';
@@ -8,7 +9,10 @@ const StatisticsPage = () => {
   const [user] = useOutletContext();
   console.log(user); // ТУТ ВСЯ ІНФА ПРО ЮЗЕРА, ЯКЩО ТРЕБА
   const dispatch = useDispatch();
-  dispatch(currentPage('Statistics'));
+
+  useEffect(() => {
+    dispatch(currentPage('Statistics'));
+  }, [dispatch]);
 
   return (
     <div>

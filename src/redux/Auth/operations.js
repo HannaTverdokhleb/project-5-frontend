@@ -1,10 +1,11 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import Notiflix from 'notiflix';
 
 axios.defaults.baseURL = 'https://goose-track-backend-54zr.onrender.com';
 
 
-const setAuthHeader = token => {
+export const setAuthHeader = token => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
   localStorage.setItem('TOKEN', token);
 };
@@ -22,7 +23,7 @@ export const register = createAsyncThunk(
 
       const res_login = await axios.post('/auth/login', {
         email: credentials.email,
-        password: credentials.password
+        password: credentials.password,
       });
       const token = res_login.data.data.token;
       setAuthHeader(token);
@@ -32,9 +33,23 @@ export const register = createAsyncThunk(
 
       return {
         token,
-        user
+        user,
       };
-    } catch(error) {
+    } catch (error) {
+      if (error.response && error.response.status === 409) {
+        Notiflix.Notify.failure(`Provided email already exists`, {
+          width: '400px',
+          timeout: 3000,
+          position: 'top-right',
+        });
+      } else if (error.response && error.response.status === 400) {
+        Notiflix.Notify.failure(`Bad request: Invalid request body`, {
+          width: '400px',
+          timeout: 3000,
+          position: 'top-right',
+        });
+      }
+      // return thunkAPI.rejectWithValue(error.response.data.message);
       return thunkAPI.rejectWithValue(error.response.data.message);
     }
   }
@@ -51,9 +66,9 @@ export const logIn = createAsyncThunk(
       const user = res_current.data.data;
       return {
         token,
-        user
+        user,
       };
-    } catch(error) {
+    } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data.message);
     }
   }
@@ -63,9 +78,8 @@ export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
   try {
     await axios.post('/auth/logout');
     clearAuthHeader();
-    localStorage.removeItem('TOKEN');
   } catch (error) {
-    return thunkAPI.rejectWithValue(error.message);
+    return thunkAPI.rejectWithValue(error.response.data.message);
   }
 });
 
