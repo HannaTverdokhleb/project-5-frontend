@@ -1,4 +1,3 @@
-import { useOutletContext } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { currentPage } from 'redux/actions';
@@ -11,9 +10,6 @@ const CalendarPage = () => {
     dispatch(currentPage('Calendar'));
   }, [dispatch]);
 
-  const [user] = useOutletContext();
-  console.log(user); // ТУТ ВСЯ ІНФА ПРО ЮЗЕРА, ЯКЩО ТРЕБА
-  
   return (
 		<div className={css.pageWrapper}>
         <div className="calendarPage">Calendar</div>
