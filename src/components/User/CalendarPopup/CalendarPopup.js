@@ -49,49 +49,49 @@ export const CalendarDropdown = () => {
       calendarClassName={css.calendar}
       renderDayContents={renderDayContents}
       dateFormat="d MMMM yyyy"
-      renderCustomHeader={({
-        date,
-        changeMonth,
-        decreaseMonth,
-        increaseMonth,
-        prevMonthButtonDisabled,
-        nextMonthButtonDisabled,
-      }) => (
-        <div
-          className={css.headerMonth}
-          style={{ margin: 10, display: 'flex', justifyContent: 'center' }}
-        >
-          <button
-            className={css.headerMonth}
-            onClick={decreaseMonth}
-            disabled={prevMonthButtonDisabled}
-          >
-            {'<'}
-          </button>
+    //   renderCustomHeader={({
+    //     date,
+    //     changeMonth,
+    //     decreaseMonth,
+    //     increaseMonth,
+    //     prevMonthButtonDisabled,
+    //     nextMonthButtonDisabled,
+    //   }) => (
+    //     <div
+    //       className={css.headerMonth}
+    //       style={{ margin: 10, display: 'flex', justifyContent: 'center' }}
+    //     >
+    //       <button
+    //         className={css.headerMonth}
+    //         onClick={decreaseMonth}
+    //         disabled={prevMonthButtonDisabled}
+    //       >
+    //         {'<'}
+    //       </button>
 
-          <select
-            className={css.headerMonth}
-            value={months[getMonth(date)]}
-            onChange={({ target: { value } }) =>
-              changeMonth(months.indexOf(value))
-            }
-          >
-            {months.map(option => (
-              <option key={option} value={option}>
-                {option}
-              </option>
-            ))}
-          </select>
+    //       <select
+    //         className={css.headerMonth}
+    //         value={months[getMonth(date)]}
+    //         onChange={({ target: { value } }) =>
+    //           changeMonth(months.indexOf(value))
+    //         }
+    //       >
+    //         {months.map(option => (
+    //           <option key={option} value={option}>
+    //             {option}
+    //           </option>
+    //         ))}
+    //       </select>
 
-          <button
-            className={css.headerMonth}
-            onClick={increaseMonth}
-            disabled={nextMonthButtonDisabled}
-          >
-            {'>'}
-          </button>
-        </div>
-      )}
+    //       <button
+    //         className={css.headerMonth}
+    //         onClick={increaseMonth}
+    //         disabled={nextMonthButtonDisabled}
+    //       >
+    //         {'>'}
+    //       </button>
+    //     </div>
+    //   )}
     />
   );
 };
