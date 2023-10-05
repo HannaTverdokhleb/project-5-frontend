@@ -3,9 +3,7 @@ import { register, logIn, logOut, refreshUser } from './operations';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 const initialState = {
-  user: {
-    theme: "light",
-  },
+  user: {},
   isLoggedIn: false,
   isRefreshing: false,
   isLoading: false,
