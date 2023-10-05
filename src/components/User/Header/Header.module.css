@@ -65,8 +65,14 @@
     width: 97px;
     height: 32px;
   }
+  .header {
+    margin-bottom: 64px;
+  }
 }
 @media screen and (min-width: 768px) {
+  .header {
+    margin-top: 24px;
+  }
   .feedbackButton {
     width: 130px;
     height: 42px;
@@ -74,6 +80,9 @@
 }
 
 @media screen and (min-width: 1440px) {
+  .header {
+    margin-bottom: 32px;
+  }
   .title {
     display: block;
     color: --main-color-black;
