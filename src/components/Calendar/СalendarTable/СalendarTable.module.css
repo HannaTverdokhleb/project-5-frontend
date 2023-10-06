@@ -1,0 +1,56 @@
+.container {
+  width: 335px;
+  height: 470px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1px;
+  list-style: none;
+  border-radius: 8px;
+  border: 1px solid var(--login-register-field-hover);
+}
+
+.element {
+  position: relative;
+  flex-basis: calc((100% - 6px) / 7);
+  height: calc((470px - 4px) / 5);
+
+  display: flex;
+  align-items: center;
+
+  background-color: var(--background-color-secondary);
+}
+
+.textDays {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.textTask {
+    padding: 10px;
+  position: absolute;
+  width: calc(100% - 25%);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    width: 704px;
+    height: 720px;
+  }
+  .element {
+    height: calc((720px - 4px) / 5);
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .container {
+    width: 1087px;
+    height: 625px;
+  }
+  .element {
+    height: calc((625px - 4px) / 5);
+  }
+}
