@@ -4,7 +4,7 @@ import { Modal } from '../Modal/Modal';
 import AddButton from './addButton';
 import EditButton from './editButton';
 
-const Popup = ({ isOpen , onClose, onSubmit, task }) => {
+const Popup = ({ isOpen, onClose, onSubmit, task }) => {
   const [formData, setFormData] = useState({
     title: '',
     start: '',

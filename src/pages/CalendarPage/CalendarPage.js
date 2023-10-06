@@ -2,7 +2,6 @@ import { useOutletContext } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { currentPage } from 'redux/actions';
 import css from './CalendarPage.module.css';
-import Popup from 'components/Popup/Popup';
 
 const CalendarPage = () => {
   const dispatch = useDispatch();
@@ -67,7 +66,6 @@ const CalendarPage = () => {
         Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
         officia deserunt mollit anim id est laborum."
       </p>
-      <Popup />
     </div>
   );};
 
