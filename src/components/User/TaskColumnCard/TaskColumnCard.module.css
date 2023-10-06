@@ -1,0 +1,117 @@
+@import "../../../css/variables.css";
+
+.cardWrapper {
+	position: relative;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	
+	padding: 14px 14px 18px 14px;
+
+	max-width: 299px;
+	/* max-height: 112px; */
+	height: 108px;
+
+	background-color: var(--background-color-primary);
+	border-radius: 8px;
+	border: var(--task-item-border)
+}
+
+.taskDescription {
+	align-self: flex-start;
+
+	max-width: 272px;
+	/* max-height: 16px;
+	height: 16px; */
+	
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+
+	color: var(--text-color-primary);
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 1.29; /* 128.571% */
+	} 
+
+.cardFooter {
+/* position: relative; */
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+}
+
+.infoBox {
+	display: flex;
+	align-items: flex-end;
+	gap: 8px;
+}
+
+.infoBoxAvatar {
+
+	width: 32px;
+	height: 32px;
+
+	border-radius: 50%;
+	border: var(--task-avatar-border);
+}
+
+.infoBoxTaskPriority {
+	display: flex;
+	padding: 4px 12px;
+	justify-content: center;
+	align-items: center;
+
+	border-radius: 4px;
+
+	color: #F7F6F9;
+	background-color: var(--status-background-second);
+
+	font-size: 10px;
+	font-weight: 600;
+	line-height: 1.2; /* 120% */
+}
+
+.dropdownTransferMenu {
+	position: absolute;
+	/* top: 100%;
+  right: 100%; */
+
+	/* display: none; */
+
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
+
+	padding: 20px 24px;
+
+	border-radius: 8px;
+	box-shadow: 0px 4px 16px 0px rgba(17, 17, 17, 0.10);
+
+	background-color: var(--background-color-secondary);
+	
+	/* z-index: 9999; */
+
+  /* bottom: 0; */
+  /* right: 0; */
+  /* transform: translate(100%, 100%); */
+
+
+}
+
+@media screen and (min-width: 768px) {
+	.cardWrapper {
+		
+		padding: 14px 14px 18px 14px;
+
+		max-width: 300px;
+		/* max-height: 112px; */
+		height: 112px;
+
+		background-color: var(--background-color-primary);
+		border-radius: 8px;
+		border: var(--task-item-border)
+	}
+
+}

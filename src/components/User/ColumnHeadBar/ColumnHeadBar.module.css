@@ -1,0 +1,34 @@
+@import "../../../css/variables.css";
+
+.columnHeadBar {
+	display: flex;
+	justify-content: space-between;
+
+	color: var(--text-color-primary);
+
+	font-size: 20px;
+	font-weight: 700;
+	line-height: 1.2; /* 120% */
+}
+
+.buttonIconAddTask {
+	margin: 0;
+	padding: 0;
+	border: none;
+	border-radius: 50%;
+
+	outline: none;
+
+	color: inherit;
+	background: none;
+	
+	font: inherit;
+	
+}
+.buttonIconAddTask:hover,
+.buttonIconAddTask:focus {
+	
+	cursor: pointer;	
+	color: var(--icon-color-primary);
+	
+}
