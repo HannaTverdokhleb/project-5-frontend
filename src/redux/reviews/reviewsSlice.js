@@ -1,23 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
-import {
-  addReview,
-  deleteReview,
-  fetchOwnReviews,
-  fetchReviews,
-  updateReview,
-} from './reviewsOperations';
-import {
-  handleFulfilled,
-  handlePending,
-  handleRejected,
-  handlefetchOwnReviewsFulfilled,
-  handleAddReviewFulfilled,
-  handleDeleteReviewFulfilled,
-  handleUpdateReviewFulfilled,
-  handleLogoutFulfilled,
-} from './reviewsHandlers';
-
-import { logOut } from 'redux/Auth/operations';
+import { addReview, deleteReview, fetchOwnReviews, fetchReviews, updateReview } from './reviewsOperations';
+import { handleFulfilled, handlePending, handleRejected, handlefetchOwnReviewsFulfilled, handleAddReviewFulfilled, handleDeleteReviewFulfilled, handleUpdateReviewFulfilled } from './reviewsHandlers';
 
 const initialState = {
   reviews: [],
@@ -55,9 +38,6 @@ const reviewsSlice = createSlice({
       .addCase(updateReview.pending, handlePending)
       .addCase(updateReview.fulfilled, handleUpdateReviewFulfilled)
       .addCase(updateReview.rejected, handleRejected)
-
-      .addCase(logOut.fulfilled, handleLogoutFulfilled)
-      .addCase(logOut.rejected, handleRejected);
   },
 });
 

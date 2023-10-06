@@ -3,10 +3,9 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import css from './LoginForm.module.css';
 import { logIn } from 'redux/Auth/operations';
-import {  selectIsLoading } from 'redux/Auth/selectors';
+import { selectIsLoading } from 'redux/Auth/selectors';
 import Loader from 'components/Loader/Loader';
-
-
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 import gooseSvg from '../../images/right.svg';
 import errorsvg from '../../images/error.svg';
@@ -14,7 +13,6 @@ import successsvg from '../../images/success.svg';
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
-  // const errorMessage = useSelector(selectErrorMessage);
   const isLoading = useSelector(selectIsLoading);
 
   const initialValues = {
@@ -23,9 +21,6 @@ export const LoginForm = () => {
   };
 
   const validationLoginSchema = Yup.object().shape({
-    // email: Yup.string()
-    //   .email('Email is not valid')
-    //   .required('Email is required'),
     password: Yup.string()
       .min(6, 'Your password can not be so short')
       .max(16, 'Your password can not be so long')
@@ -46,13 +41,27 @@ export const LoginForm = () => {
     return error;
   }
 
+  const notify_config = {
+    width: '320px',
+    timeout: 4000,
+    position: 'top-right',
+  }
+
   const handleSubmit = ({ email, password }, { resetForm }) => {
-    dispatch(
-      logIn({
-        email,
-        password,
-      })
-    );
+    dispatch(logIn({
+      email,
+      password,
+    }))
+    .then(response => {
+      if (response.type === 'auth/login/rejected') {
+        Notify.failure(response.payload, notify_config);
+      } else if (response.type === 'auth/login/fulfilled') {
+        Notify.success('Login successful', notify_config);
+      }
+    })
+    .catch((error) => {
+      Notify.failure(error.message, notify_config);
+    });
   };
 
   return (

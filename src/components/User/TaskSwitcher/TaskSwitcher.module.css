@@ -1,0 +1,75 @@
+.boxTasKSwitcher{
+    width: 115px;
+    height: 70px;
+    display: flex;
+    flex-direction: column;
+    padding: 14px;
+    justify-content: center;
+    border: var(--border-sort-task);
+
+    align-items: center;
+    border-radius: 8px;
+    background: var(--feedback-background-primary); /*#ffffff;*/
+    box-shadow: 0px 4px 16px 0px rgba(17, 17, 17, 0.10);
+}
+
+@media screen and (min-width: 768px) {
+    .boxTasKSwitcher {
+        width: 147px;
+        height: 90px;
+        padding: 20px 24px;      
+    }
+}
+
+.btnTaskSwitcher{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    padding: 0;
+    margin-bottom: 14px;
+    background-color:  var(--feedback-background-primary); /*#ffffff;*/;
+    border:  none;
+    border-radius: 4px;
+    cursor: pointer;
+
+    color:var(--feedback-text-secondary);/* #343434;*/
+    font-family: Inter;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.1667;
+    transition: background-color 1000ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.btnTaskSwitcher:hover{
+ background-color: var(--user-nav-item-bg-active);
+ box-shadow: 4px 2px 16px 0px var(--button-shadow-hover);
+ border-radius: 4px;
+}
+
+.btnTaskSwitcher:last-child{
+margin-bottom: 0;
+}
+
+@media screen and (min-width: 768px) {
+    .btnTaskSwitcher {
+    font-size: 14px;
+    line-height: 1.286;
+    }
+}
+
+.taskSwitcherIcon{
+    width: 14px;
+    height: 14px;
+}
+
+/*.taskSwitcherIcon:hover{
+    position: relative;
+    left: 5px;
+}*/
+
+@media screen and (min-width: 768px) {
+    .taskSwitcherIcon {
+        width: 16px;
+        height: 16px;
+    }
+}

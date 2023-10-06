@@ -1,0 +1,14 @@
+@import "../../../css/variables.css";
+
+.columnTasksList {
+	display: flex;
+	flex-direction: column;
+	gap: 18px;
+
+	height:500px;
+
+
+
+	/* overflow-y: scroll; */
+	 overflow-y: auto;
+}
