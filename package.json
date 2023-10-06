@@ -4,6 +4,9 @@
   "private": true,
   "homepage": "https://hannatverdokhleb.github.io/project-5-frontend/",
   "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.14.12",
     "@reduxjs/toolkit": "^1.9.6",
     "@smastrom/react-rating": "^1.3.2",
     "@testing-library/jest-dom": "^5.16.3",
