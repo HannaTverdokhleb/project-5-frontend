@@ -108,6 +108,7 @@ body[data-theme='light'] {
   --add-task-cancel-button-hover-color: #cccccc;
   --toast-main-color: #fff;
   --toast-background-color: #72c2f8;
+  --border-sort-task: 1px solid #fff;
 
   --loader-gradient: linear-gradient(
     rgba(220, 235, 247, 0.56),
@@ -266,6 +267,7 @@ body[data-theme='dark'] {
   --add-task-button-border: none;
   --task-item-border: 1px solid rgba(255, 255, 255, 0.15);
   --task-avatar-border: 1.8px solid #3e85f3;
+  --border-sort-task: 1px solid rgba(255, 255, 255, 0.15);
 
   --vertical-scrollbar-track-color: #2d3037;
   --vertical-scrollbar-thumb-color: #171820;
