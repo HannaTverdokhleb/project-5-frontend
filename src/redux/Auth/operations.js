@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import Notiflix from 'notiflix';
 
 axios.defaults.baseURL = 'https://goose-track-backend-54zr.onrender.com';
 
@@ -10,10 +9,20 @@ export const setAuthHeader = token => {
   localStorage.setItem('TOKEN', token);
 };
 
+export const checkAuthHeader = () => {
+  const token = localStorage.getItem('TOKEN');
+  if (token) {
+    axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+    return true;
+  }
+  return false;
+}
+
 const clearAuthHeader = () => {
   axios.defaults.headers.common.Authorization = '';
   localStorage.removeItem('TOKEN');
 };
+
 
 export const register = createAsyncThunk(
   'auth/register',
@@ -31,25 +40,8 @@ export const register = createAsyncThunk(
       const res_current = await axios.get('/users/current');
       const user = res_current.data.data;
 
-      return {
-        token,
-        user,
-      };
+      return { user };
     } catch (error) {
-      if (error.response && error.response.status === 409) {
-        Notiflix.Notify.failure(`Provided email already exists`, {
-          width: '400px',
-          timeout: 3000,
-          position: 'top-right',
-        });
-      } else if (error.response && error.response.status === 400) {
-        Notiflix.Notify.failure(`Bad request: Invalid request body`, {
-          width: '400px',
-          timeout: 3000,
-          position: 'top-right',
-        });
-      }
-      // return thunkAPI.rejectWithValue(error.response.data.message);
       return thunkAPI.rejectWithValue(error.response.data.message);
     }
   }
@@ -64,10 +56,7 @@ export const logIn = createAsyncThunk(
       setAuthHeader(token);
       const res_current = await axios.get('/users/current');
       const user = res_current.data.data;
-      return {
-        token,
-        user,
-      };
+      return { user };
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data.message);
     }
@@ -78,6 +67,7 @@ export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
   try {
     await axios.post('/auth/logout');
     clearAuthHeader();
+    return true;
   } catch (error) {
     return thunkAPI.rejectWithValue(error.response.data.message);
   }
@@ -86,16 +76,81 @@ export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
 export const refreshUser = createAsyncThunk(
   'auth/refresh',
   async (_, thunkAPI) => {
-    const savedToken = localStorage.getItem('TOKEN');
-    if (savedToken === null) {
-      return thunkAPI.rejectWithValue('Unable to fetch user');
-    }
     try {
-      setAuthHeader(savedToken);
-      const res = await axios.get('/users/current');
-      return res.data.data;
+      if (checkAuthHeader()) {
+        const res = await axios.get('/users/current');
+        return res.data.data;
+      }
+      return thunkAPI.rejectWithValue('You are not logged in');
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error.response.data.message);
+    }
+  }
+);
+
+
+
+export const editUser = createAsyncThunk(
+  'user/edit',
+  async (userInfo, thunkAPI) => {
+    try {
+      if (checkAuthHeader()) {
+        const res = await axios.put('/users/edit', userInfo);
+        return res.data.data;
+      }
+      return thunkAPI.rejectWithValue('You are not logged in');
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response.data.message);
+    }
+  }
+);
+
+export const patchTheme = createAsyncThunk(
+  'user/patchTheme',
+  async (theme, thunkAPI) => {
+    try {
+      if (checkAuthHeader()) {
+        await axios.patch('/users/theme', { theme });
+        localStorage.setItem('theme', theme);
+        return theme;
+      }
+      return thunkAPI.rejectWithValue('You are not logged in');
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response.data.message);
+    }
+  }
+);
+
+export const patchPassword = createAsyncThunk(
+  'user/patchPassword',
+  async (password, thunkAPI) => {
+    try {
+      if (checkAuthHeader()) {
+        await axios.patch('/users/password', { password });
+        return true;
+      }
+      return thunkAPI.rejectWithValue('You are not logged in');
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response.data.message);
+    }
+  }
+);
+
+export const patchAvatar = createAsyncThunk(
+  'user/patchAvatar',
+  async (avatar, thunkAPI) => {
+    try {
+      if (checkAuthHeader()) {
+        const res = await axios.patch('/users/avatar', { avatar }, {
+          headers: {
+            'content-type': 'multipart/form-data',
+          }
+        });
+        return res.data.data.avatarURL;
+      }
+      return thunkAPI.rejectWithValue('You are not logged in');
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response.data.message);
     }
   }
 );
