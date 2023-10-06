@@ -1,5 +1,31 @@
 .pageWrapper {
-    border-radius: 16px;
-    background: #fff;
-    padding: 40px 18px;
+  width: 335px;
+  height: 534px;
+
+  margin: 0 auto;
+  padding: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items: center;
+  gap: 10px;
+
+  border-radius: 16px;
+  /* background-color: var(--login-register-field-hover); */
+
+}
+
+@media screen and (min-width: 768px) {
+  .pageWrapper {
+    width: 704px;
+    height: calc(720px + 5px + 46px);
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .pageWrapper {
+    width: 1087px;
+     height: calc(625px + 5px + 46px);
+  }
 }
