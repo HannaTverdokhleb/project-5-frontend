@@ -13,9 +13,6 @@ const CalendarPage = () => {
     dispatch(currentPage('Calendar'));
   }, [dispatch]);
 
-  const [user] = useOutletContext();
-  console.log(user); // ТУТ ВСЯ ІНФА ПРО ЮЗЕРА, ЯКЩО ТРЕБА
-
   return (
     <div className={css.pageWrapper}>
       <div className={css.titleWrapper}>
