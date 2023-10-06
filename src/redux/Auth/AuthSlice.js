@@ -1,14 +1,26 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { register, logIn, logOut, refreshUser } from './operations';
-import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import {
+  register, logIn, logOut, refreshUser,
+  editUser, patchTheme, patchPassword, patchAvatar,
+} from './operations';
 
 const initialState = {
-  user: {},
+  user: {
+    name: null,
+    phone: null,
+    birthday: null,
+    skype: null,
+    email: null,
+    reviews: null,
+    tasks: null,
+    avatarURL: null,
+    theme: 'light',
+  },
   isLoggedIn: false,
-  isRefreshing: false,
   isLoading: false,
   error: null,
 };
+
 
 const handlePending = state => {
   state.isLoading = true;
@@ -21,21 +33,10 @@ const handleRejected = (state, action) => {
   state.error = action.payload;
 };
 
-// const handleFulfilled = (state, action) => {
-//   state.user = action.payload.user;
-//   state.isLoggedIn = true;
-//   state.isLoading = false;
-//   state.error = null;
-// }
 const handleRejectedLogin = (state, action) => {
   state.isLoading = false;
   state.isLoggedIn = false;
   state.error = action.payload;
-  Notify.failure(`Email or password incorrect`, {
-    width: '320px',
-    timeout: 3000,
-    position: 'top-right',
-  });
 };
 
 const handleFulfilledLogin = (state, action) => {
@@ -43,11 +44,6 @@ const handleFulfilledLogin = (state, action) => {
   state.isLoggedIn = true;
   state.isLoading = false;
   state.error = null;
-  Notify.success(`Login successful`, {
-    width: '320px',
-    timeout: 3000,
-    position: 'top-right',
-  });
 };
 
 const handleFulfilledRegistration = (state, action) => {
@@ -55,51 +51,83 @@ const handleFulfilledRegistration = (state, action) => {
   state.isLoggedIn = true;
   state.isLoading = false;
   state.error = null;
-  Notify.success(`Registration successful`, {
-    width: '320px',
-    timeout: 3000,
-    position: 'top-right',
-  });
 };
 
-const heandleLogOut = state => {
-  state.user = {};
-  state.isLoggedIn = false;
-  state.isRefreshing = false;
+const handleFulfilledRefresh = (state, action) => {
+  state.user = action.payload;
+  state.isLoggedIn = true;
   state.isLoading = false;
   state.error = null;
 };
+
+const handleLogOut = state => {
+  state.user = {};
+  state.isLoggedIn = false;
+  state.isLoading = false;
+  state.error = null;
+};
+
+const handleRejectedUser = (state, action) => {
+  state.isLoading = false;
+  state.error = action.payload;
+};
+
 
 const authSlice = createSlice({
   name: 'auth',
   initialState,
   extraReducers: {
     [register.pending]: handlePending,
-    [logIn.pending]: handlePending,
-
     [register.rejected]: handleRejected,
-    [logIn.rejected]: handleRejectedLogin,
-
     [register.fulfilled]: handleFulfilledRegistration,
+
+    [logIn.pending]: handlePending,
+    [logIn.rejected]: handleRejectedLogin,
     [logIn.fulfilled]: handleFulfilledLogin,
 
-    [refreshUser.pending](state) {
-      state.isRefreshing = true;
-    },
-    [refreshUser.fulfilled](state, action) {
-      state.user = action.payload;
-      state.isLoggedIn = true;
-      state.isRefreshing = false;
-    },
-    [refreshUser.rejected](state) {
-      state.isRefreshing = false;
-    },
+    [refreshUser.pending]: handlePending,
+    [refreshUser.rejected]: handleRejected,
+    [refreshUser.fulfilled]: handleFulfilledRefresh,
 
-    [logOut.fulfilled]: heandleLogOut,
-    [logOut.rejected]: heandleLogOut,
-    [logOut.pending](state) {
-      state.isLoading = true;
+    [logOut.pending]: handlePending,
+    [logOut.rejected]: handleLogOut,
+    [logOut.fulfilled]: handleLogOut,
+
+
+
+    [editUser.fulfilled](state, action) {
+      state.user = { ...state.user, ...action.payload };
+      state.isLoading = false;
+      state.error = null;
     },
+    [editUser.pending]: handlePending,
+    [editUser.rejected]: handleRejectedUser,
+
+
+    [patchTheme.fulfilled](state, action) {
+      state.user.theme = action.payload;
+      state.isLoading = false;
+      state.error = null;
+    },
+    [patchTheme.pending]: handlePending,
+    [patchTheme.rejected]: handleRejectedUser,
+
+
+    [patchPassword.fulfilled](state, action) {
+        state.isLoading = false;
+        state.error = null;
+    },
+    [patchPassword.pending]: handlePending,
+    [patchPassword.rejected]: handleRejectedUser,
+
+
+    [patchAvatar.fulfilled](state, action) {
+        state.user.avatarURL = action.payload;
+        state.isLoading = false;
+        state.error = null;
+    },
+    [patchAvatar.pending]: handlePending,
+    [patchAvatar.rejected]: handleRejectedUser,
   },
 });
 

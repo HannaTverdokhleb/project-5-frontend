@@ -5,24 +5,15 @@ import css from './RegisterForm.module.css';
 import { register } from 'redux/Auth/operations';
 import { selectIsLoading } from 'redux/Auth/selectors';
 import Loader from 'components/Loader/Loader';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 import gooseSvg from '../../images/right.svg';
 import errorsvg from '../../images/error.svg';
 import successsvg from '../../images/success.svg';
 
-// const validationLoginSchema = yup.object().shape({
-//   email: yup.string()
-//     .email('Email is not valid')
-//     .required('Email is required'),
-//   password: yup.string()
-//     .min(6, 'Your password can not be so short')
-//     .max(16, 'Your password can not be so long')
-//     .required('Password is required'),
-// });
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
-  // const errorMessage = useSelector(selectErrorMessage);
   const isLoading = useSelector(selectIsLoading);
 
   const initialValues = {
@@ -58,15 +49,28 @@ export const RegisterForm = () => {
     return error;
   }
 
+  const notify_config = {
+    width: '320px',
+    timeout: 4000,
+    position: 'top-right',
+  }
+
   const handleSubmit = ({ name, email, password }, { resetForm }) => {
-    dispatch(
-      register({
-        name,
-        email,
-        password,
-      })
-    );
-    resetForm();
+    dispatch(register({
+      name,
+      email,
+      password,
+    }))
+    .then(response => {
+      if (response.type === 'auth/register/rejected') {
+        Notify.failure(response.payload, notify_config);
+      } else if (response.type === 'auth/register/fulfilled') {
+        Notify.success('Registration successful', notify_config);
+      }
+    })
+    .catch((error) => {
+      Notify.failure(error.message, notify_config);
+    });
   };
 
   return (

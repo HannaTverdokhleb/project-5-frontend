@@ -11,8 +11,8 @@ export const handleRejected = (state, { payload }) => {
   state.error = payload;
 };
 
-export const handleFulfilled = (state, { payload }) => {
-  state.reviews = payload.reviews;
+export const handleFulfilled = (state, action) => {
+  state.reviews = [ ...action.payload ];
   state.isLoading = false;
   state.error = null;
 };
@@ -24,8 +24,7 @@ export const handlefetchOwnReviewsFulfilled = (state, { payload }) => {
 };
 
 export const handleAddReviewFulfilled = (state, { payload }) => {
-  state.reviews.push(payload.ownReview);
-  state.ownReview = payload.review;
+  state.ownReview = payload;
   state.isLoading = false;
   state.error = null;
 };
@@ -37,14 +36,7 @@ export const handleDeleteReviewFulfilled = (state, _) => {
 };
 
 export const handleUpdateReviewFulfilled = (state, { payload }) => {
-  state.ownReview = payload.review;
+  state.ownReview = payload;
   state.isLoading = false;
   state.error = null;
-};
-
-export const handleLogoutFulfilled = (state, { payload }) => {
-  // state.reviews = payload.reviews;
-  state.ownReview = {};
-  state.error = null;
-  state.isLoading = false;
 };

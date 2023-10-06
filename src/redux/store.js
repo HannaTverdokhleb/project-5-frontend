@@ -1,14 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { authReducer } from './Auth/AuthSlice';
-import { namePageReducer } from './reducer';
+import { tasksReducer } from './Tasks/TasksSlice';
 import { reviewsReducer } from './reviews/reviewsSlice';
-import { userReducer } from './User/UserSlice';
+import { namePageReducer } from './reducer';
 
 
 export const store = configureStore({
   reducer: {
     auth: authReducer,
-    user: userReducer,
+    tasks: tasksReducer,
     reviews: reviewsReducer,
     currentPage: namePageReducer,
   },

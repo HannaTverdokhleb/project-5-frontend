@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink } from 'react-router-dom';
 import { ReactComponent as UserIcon } from 'images/user-sideBar.svg';
 import { ReactComponent as CalendarIcon } from 'images/calendar-side-bar.svg';
 import { BsBarChart as StatIcon } from 'react-icons/bs';
