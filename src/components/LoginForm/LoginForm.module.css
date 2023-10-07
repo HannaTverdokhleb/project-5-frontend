@@ -237,43 +237,7 @@ label p {
     letter-spacing: -0.36px;
   }
 }
-
-.google {
-  display: flex;
-  width: 100%;
-  padding: 16px 0px;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  border-radius: 16px;
-  border: 1px solid rgb(220, 227, 229);
-  background: var(--bcg-color-white);
-  box-shadow: rgba(136, 165, 191, 0.48) 4px 2px 16px;
-  color: var(--text-main-text);
-  font-family: Inter;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 18px;
-  letter-spacing: -0.28px;
-}
-@media screen and (min-width: 375px) {
-  .google {
-    font-size: 14px;
-  }
-}
-@media screen and (min-width: 768px) {
-  .google {
-    font-size: 18px;
-  }
-}
-.login {
-  margin-top: 18px;
-  margin-right: auto;
-  margin-left: auto;
-}
-@media screen and (min-width: 768px) {
-  .login {
-    margin-top: 24px;
-  }
+button:hover {
+  background-color: #2b78ef;
+  box-shadow: rgba(136, 165, 191, 0.48);
 }
