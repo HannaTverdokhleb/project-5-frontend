@@ -41,9 +41,6 @@ export const Header = ({ toggleSidebar }) => {
       </section>
       <section className={css.info}>
         <AddFeedbackBtn />
-        {/* <button type="button" className={css.feedbackButton}>
-          Feedback
-        </button> */}
         <ThemeToggler></ThemeToggler>
         <UserInfo></UserInfo>
       </section>

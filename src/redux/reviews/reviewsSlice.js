@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { addReview, deleteReview, fetchOwnReviews, fetchReviews, updateReview } from './reviewsOperations';
-import { handleFulfilled, handlePending, handleRejected, handlefetchOwnReviewsFulfilled, handleAddReviewFulfilled, handleDeleteReviewFulfilled, handleUpdateReviewFulfilled } from './reviewsHandlers';
+import { addReview, deleteReview, fetchOwnReview, fetchReviews, updateReview } from './reviewsOperations';
+import { handleFulfilled, handlePending, handleRejected, handlefetchOwnReviewFulfilled, handleAddReviewFulfilled, handleDeleteReviewFulfilled, handleUpdateReviewFulfilled } from './reviewsHandlers';
 
 const initialState = {
   reviews: [],
@@ -23,9 +23,9 @@ const reviewsSlice = createSlice({
       .addCase(fetchReviews.fulfilled, handleFulfilled)
       .addCase(fetchReviews.rejected, handleRejected)
 
-      .addCase(fetchOwnReviews.pending, handlePending)
-      .addCase(fetchOwnReviews.fulfilled, handlefetchOwnReviewsFulfilled)
-      .addCase(fetchOwnReviews.rejected, handleRejected)
+      .addCase(fetchOwnReview.pending, handlePending)
+      .addCase(fetchOwnReview.fulfilled, handlefetchOwnReviewFulfilled)
+      .addCase(fetchOwnReview.rejected, handleRejected)
 
       .addCase(addReview.pending, handlePending)
       .addCase(addReview.fulfilled, handleAddReviewFulfilled)
