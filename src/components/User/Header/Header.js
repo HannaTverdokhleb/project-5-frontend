@@ -5,6 +5,7 @@ import gooseUrl1x from 'images/desktopImages/header/header_desk@1x.png';
 import gooseUrl2x from 'images/desktopImages/header/header_desk@2x.png';
 import ThemeToggler from '../ThemeToggler/ThemeToggler';
 import UserInfo from '../UserInfo/UserInfo';
+import AddFeedbackBtn from 'components/Feedback/AddFeedbackBtn/AddFeedbackBtn';
 
 export const Header = ({ toggleSidebar }) => {
   const namePage = useSelector(state => state.currentPage.namePage);
@@ -39,9 +40,10 @@ export const Header = ({ toggleSidebar }) => {
         )}
       </section>
       <section className={css.info}>
-        <button type="button" className={css.feedbackButton}>
+        <AddFeedbackBtn />
+        {/* <button type="button" className={css.feedbackButton}>
           Feedback
-        </button>
+        </button> */}
         <ThemeToggler></ThemeToggler>
         <UserInfo></UserInfo>
       </section>
