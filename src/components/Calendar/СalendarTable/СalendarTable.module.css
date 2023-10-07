@@ -20,6 +20,10 @@
   background-color: var(--background-color-secondary);
 }
 
+.elementLink {
+  cursor: pointer;
+}
+
 .textDays {
   position: absolute;
   right: 10px;
@@ -27,7 +31,7 @@
 }
 
 .textTask {
-    padding: 10px;
+  padding: 10px;
   position: absolute;
   width: calc(100% - 25%);
   white-space: nowrap;
@@ -40,6 +44,7 @@
     width: 704px;
     height: 720px;
   }
+
   .element {
     height: calc((720px - 4px) / 5);
   }
@@ -50,6 +55,7 @@
     width: 1087px;
     height: 625px;
   }
+
   .element {
     height: calc((625px - 4px) / 5);
   }

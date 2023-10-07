@@ -1,4 +1,9 @@
 import css from './СalendarTable.module.css';
+import { useNavigate } from 'react-router-dom';
+import { routes } from '../../../configs/routes';
+import moment from 'moment/moment';
+import classNames from 'classnames';
+
 const firstDateMonth = '1-4-2023';
 const tasks = [
   {
@@ -49,15 +54,32 @@ let Calendar = firstDateMonth => {
 
 export const CalendarTable = () => {
   const CalendarTable = Calendar(firstDateMonth);
+  const navigate = useNavigate();
+
+  const handleDayClick = (dayValue) => {
+    const currentMonth = moment().format('YYYY-MM');
+    const day = /^\d$/.test(dayValue) ? `0${dayValue}` : dayValue;
+
+    navigate(`${routes.private.day.path.replace(':day', `${currentMonth}-${day}`)}`);
+  };
 
   return (
     <ul className={css.container}>
-      {CalendarTable.map((element, i) => (
-        <li key={i} className={css.element}>
-          <p className={css.textDays}>{element.dayValue}</p>
-          <div className={css.textTask}>{element.textTask}</div>
-        </li>
-      ))}
+      {CalendarTable.map((element, i) => {
+        return (
+          <li key={i}
+              className={classNames(css.element, {
+                [css.elementLink]: element.dayValue,
+              })}
+              onClick={() => {
+                element.dayValue && handleDayClick(element.dayValue);
+                return false;
+              }}>
+            <p className={css.textDays}>{element.dayValue}</p>
+            <div className={css.textTask}>{element.textTask}</div>
+          </li>
+        );
+      })}
     </ul>
   );
 };
