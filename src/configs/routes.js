@@ -46,6 +46,18 @@ export const routes = {
       redirectTo: PRIVATE_REDIRECT,
       key: 'account-page',
     },
+    month: {
+      path: '/calendar/month/:date', // YYYY-MM
+      component: <CalendarPage />,
+      redirectTo: PRIVATE_REDIRECT,
+      key: 'month-page',
+    },
+    day: {
+      path: '/calendar/day/:day', // YYYY-MM-DD
+      component: <CalendarPage />,
+      redirectTo: PRIVATE_REDIRECT,
+      key: 'day-page',
+    },
     calendar: {
       path: '/calendar',
       component: <CalendarPage />,
