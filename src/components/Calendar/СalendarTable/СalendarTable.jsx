@@ -47,7 +47,7 @@ let Calendar = firstDateMonth => {
   return table;
 };
 
-export const СalendarTable = () => {
+export const CalendarTable = () => {
   const CalendarTable = Calendar(firstDateMonth);
 
   return (

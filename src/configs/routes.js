@@ -47,7 +47,7 @@ export const routes = {
       key: 'account-page',
     },
     month: {
-      path: '/calendar/month/:date', // YYYY-MM
+      path: '/calendar/month/:month', // YYYY-MM
       component: <CalendarPage />,
       redirectTo: PRIVATE_REDIRECT,
       key: 'month-page',
