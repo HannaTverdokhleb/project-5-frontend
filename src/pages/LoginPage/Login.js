@@ -4,15 +4,17 @@ import css from './Login.module.css';
 import loginGoose from '../../images/desktopImages/loginPage/loginGoose_desk@1x.png';
 import loginGoosex2 from '../../images/desktopImages/loginPage/loginGoose_desk@2x.png';
 import logo from '../../images/logoSidebar.png';
+import { Link } from 'react-router-dom';
 
 const LoginPage = () => {
   return (
     <section className={css.form_section}>
       <div className={css.div_container}>
-        <div className={css.logo}>
+        <Link to="/"
+        className={css.logo}>
         <img className={css.logoImage} src={logo} alt="logo" />
         <p className={css.logoText}>G<span className={css.logoTextItalic}>oo</span>seTrack</p>
-        </div>
+        </Link>
         <picture className={css.logo_goose}>
           <source
             className={css.source}
