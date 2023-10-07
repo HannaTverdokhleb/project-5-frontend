@@ -1,10 +1,9 @@
 import css from './СalendarTable.module.css';
 import { useNavigate } from 'react-router-dom';
 import { routes } from '../../../configs/routes';
-import moment from 'moment/moment';
 import classNames from 'classnames';
+import moment from 'moment';
 
-const firstDateMonth = '1-4-2023';
 const tasks = [
   {
     dayValue: 1,
@@ -21,7 +20,7 @@ const tasks = [
 ];
 
 let Calendar = firstDateMonth => {
-  const day = Number(firstDateMonth.split('-')[0]);
+  const day = 1;
   const month = Number(firstDateMonth.split('-')[1]) - 1; //номер місяця з 0
   const year = Number(firstDateMonth.split('-')[2]);
 
@@ -52,15 +51,15 @@ let Calendar = firstDateMonth => {
   return table;
 };
 
-export const CalendarTable = () => {
+export const CalendarTable = ({ month }) => {
+  const firstDateMonth = moment(month).format('DD-MM-YYYY');
   const CalendarTable = Calendar(firstDateMonth);
   const navigate = useNavigate();
 
   const handleDayClick = (dayValue) => {
-    const currentMonth = moment().format('YYYY-MM');
     const day = /^\d$/.test(dayValue) ? `0${dayValue}` : dayValue;
 
-    navigate(`${routes.private.day.path.replace(':day', `${currentMonth}-${day}`)}`);
+    navigate(`${routes.private.day.path.replace(':day', `${month}-${day}`)}`);
   };
 
   return (
