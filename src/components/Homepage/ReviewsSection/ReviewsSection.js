@@ -18,7 +18,31 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchReviews } from 'redux/reviews/reviewsOperations';
 import { selectReviews } from 'redux/reviews/reviewsSelectors';
 
+export const StarRating = ({ rating }) => {
+  // Ensure that the rating is within the range of 0 to 5
+  const sanitizedRating = Math.min(Math.max(rating, 0), 5);
+
+  const renderStars = () => {
+    const stars = [];
+    for (let i = 0; i < 5; i++) {
+      const isFilled = i < sanitizedRating;
+      stars.push(
+        <span
+          key={i}
+          className={`star ${isFilled ? 'star-filled' : 'star-empty'}`}
+        ></span>
+      );
+    }
+    return stars;
+  };
+
+  return <div className="star-rating">{renderStars()}</div>;
+};
+
+
 const SlideDetails = ({ image, name, rating, comment }) => {
+  // Stars
+
   return (
     <div className={css.slideContainer}>
       <div className={css.slideAuthor}>
@@ -26,8 +50,9 @@ const SlideDetails = ({ image, name, rating, comment }) => {
         <div className={css.authorDetails}>
           <h3>{name}</h3>
           <div>{rating}</div>
+          <div><StarRating rating={rating} /></div> 
+          <p className={css.mainText}>{comment}</p>
         </div>
-        <p className={css.mainText}>{comment}</p>
       </div>
     </div>
   );
@@ -67,19 +92,25 @@ export const ReviewsSlider = () => {
 
   return (
     <>
-    {reviews.length > 0 && 
-      <Swiper {...swiperParams} className={css.container}>
-        {reviews.map(({_id, comment, rating, owner}) => {
-          const name = (owner && owner.name) ? owner.name : 'Unknown';
-          const avatar = (owner && owner.avatarURL) ? owner.avatarURL : imageDummy;
-          return (
-            <SwiperSlide key={_id}>
-              <SlideDetails comment={comment} rating={rating} name={name} image={avatar} />
-            </SwiperSlide>
-          )
-        })}
-      </Swiper>
-    }
+      {reviews.length > 0 && (
+        <Swiper {...swiperParams} className={css.container}>
+          {reviews.map(({ _id, comment, rating, owner }) => {
+            const name = owner && owner.name ? owner.name : 'Unknown';
+            const avatar =
+              owner && owner.avatarURL ? owner.avatarURL : imageDummy;
+            return (
+              <SwiperSlide key={_id}>
+                <SlideDetails
+                  comment={comment}
+                  rating={<StarRating/>}
+                  name={name}
+                  image={avatar}
+                />
+              </SwiperSlide>
+            );
+          })}
+        </Swiper>
+      )}
     </>
   );
 };
