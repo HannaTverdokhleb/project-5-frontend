@@ -14,7 +14,7 @@ const initialState = {
     reviews: null,
     tasks: null,
     avatarURL: null,
-    theme: 'light',
+    theme: null,
   },
   isLoggedIn: false,
   isLoading: false,
