@@ -6,6 +6,7 @@ import Loader from 'components/Loader/Loader';
 import { routes } from '../configs/routes';
 import { useDispatch } from 'react-redux';
 import { logOut, refreshUser } from '../redux/Auth/operations';
+import { setUserTheme } from './User/ThemeToggler/ThemeToggler';
 
 const MainLayout = lazy(() => import('components/User/MainLayout/MainLayout'));
 const Page404 = lazy(() => import('../pages/NotFoundPage/NotFoundPage'));
@@ -18,7 +19,10 @@ function GlobalWrapper() {
 
   useEffect(() => {
     dispatch(refreshUser())
-      .then(() => {
+      .then(response => {
+          const { theme } = response.payload;
+          theme && setUserTheme(theme);
+
           setIsLoading(false);
           setIsLoggedIn(true);
         },

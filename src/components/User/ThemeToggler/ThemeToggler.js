@@ -8,12 +8,16 @@ const changeUserTheme = async theme => {
   await axios.patch('/users/theme', { theme });
 };
 
+export function setUserTheme(theme) {
+  document.body.setAttribute('data-theme', theme);
+  localStorage.setItem('theme', theme);
+}
+
 const ThemeToggler = () => {
   const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
 
   useEffect(() => {
-    document.body.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
+    setUserTheme(theme);
   }, [theme]);
 
   const toggleTheme = () => {
