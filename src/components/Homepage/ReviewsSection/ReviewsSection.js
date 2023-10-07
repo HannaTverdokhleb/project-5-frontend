@@ -19,38 +19,26 @@ import { fetchReviews } from 'redux/reviews/reviewsOperations';
 import { selectReviews } from 'redux/reviews/reviewsSelectors';
 
 export const StarRating = ({ rating }) => {
+  // Ensure that the rating is within the range of 0 to 5
+  const sanitizedRating = Math.min(Math.max(rating, 0), 5);
 
-  const emptyStarImage = '../../../images/star-empty.svg';
-const filledStarImage = '../../../images/star.svg';
-  // Logic to render star icons based on the rating
   const renderStars = () => {
     const stars = [];
     for (let i = 0; i < 5; i++) {
-      if (i < rating) {
-        // Render a filled star with background image
-        stars.push(
-          <span
-            key={i}
-            className="star star-filled"
-            style={{ backgroundImage: `url(${filledStarImage})` }}
-          ></span>
-        );
-      } else {
-        // Render an empty star with background image
-        stars.push(
-          <span
-            key={i}
-            className="star star-empty"
-            style={{ backgroundImage: `url(${emptyStarImage})` }}
-          ></span>
-        );
-      }
+      const isFilled = i < sanitizedRating;
+      stars.push(
+        <span
+          key={i}
+          className={`star ${isFilled ? 'star-filled' : 'star-empty'}`}
+        ></span>
+      );
     }
     return stars;
   };
 
   return <div className="star-rating">{renderStars()}</div>;
 };
+
 
 const SlideDetails = ({ image, name, rating, comment }) => {
   // Stars
@@ -62,13 +50,14 @@ const SlideDetails = ({ image, name, rating, comment }) => {
         <div className={css.authorDetails}>
           <h3>{name}</h3>
           <div>{rating}</div>
-          <div><StarRating /></div>
+          <div><StarRating rating={rating} /></div> 
           <p className={css.mainText}>{comment}</p>
         </div>
       </div>
     </div>
   );
 };
+
 
 //Slider Component
 export const ReviewsSlider = () => {
