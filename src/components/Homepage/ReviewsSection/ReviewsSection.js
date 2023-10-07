@@ -26,8 +26,9 @@ const SlideDetails = ({ image, name, rating, comment }) => {
         <div className={css.authorDetails}>
           <h3>{name}</h3>
           <div>{rating}</div>
-        </div>
+        
         <p className={css.mainText}>{comment}</p>
+        </div>
       </div>
     </div>
   );
