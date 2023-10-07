@@ -25,7 +25,7 @@ function ChosenDay({ day }) {
 
 function ChosenMonth({ month }) {
   const navigate = useNavigate();
-  const isValidFormat = /^\d{4}-(0?[1-9]|1[012])$/.test(month);
+  const isValidFormat = /^\d{4}-(0[1-9]|1[012])$/.test(month);
 
   useEffect(() => {
     !isValidFormat && navigate(`${routes.private.calendar.path}`);
@@ -35,7 +35,7 @@ function ChosenMonth({ month }) {
     <>
       <div style={{ color: 'red' }}>{month}</div>
       <CalendarTitle />
-      <CalendarTable />
+      <CalendarTable month={month} />
     </>
   );
 }
