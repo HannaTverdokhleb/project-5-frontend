@@ -113,7 +113,7 @@ export const ReviewsSlider = () => {
               <SwiperSlide key={_id}>
                 <SlideDetails
                   comment={comment}
-                  rating={rating}
+                  rating={<StarRating/>}
                   name={name}
                   image={avatar}
                 />
