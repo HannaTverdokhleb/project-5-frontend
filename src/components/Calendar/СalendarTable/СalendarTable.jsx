@@ -3,28 +3,22 @@ import { useNavigate } from 'react-router-dom';
 import { routes } from '../../../configs/routes';
 import classNames from 'classnames';
 import moment from 'moment';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getTasks } from '../../../redux/Tasks/operations';
+import { selectTasks } from '../../../redux/Tasks/selectors';
 
-const tasks = [
-  {
-    dayValue: 1,
-    text: 'Learn how to stady',
-  },
-  {
-    dayValue: 15,
-    text: 'Create a work',
-  },
-  {
-    dayValue: 20,
-    text: 'Create new letter',
-  },
-];
+// TODO: refactoring this all та зроби окремий компонент на відображення дня!
+let fillCalendar = (firstDateMonth, allTasks) => {
+  // TODO: filter tasks by current month та зроби з allTask
+  const tasks = allTasks.map(task => ({ dayValue: +moment(task.date).format('DD'), text: task.title }));
 
-let Calendar = firstDateMonth => {
-  const day = 1;
+  // TODO: use moment
   const month = Number(firstDateMonth.split('-')[1]) - 1; //номер місяця з 0
   const year = Number(firstDateMonth.split('-')[2]);
 
-  const date = new Date(year, month, day);
+  // TODO: use moment
+  const date = new Date(year, month, 1);
   const dayOfWeek = Number(date.getDay()); //номер дня неділі (1 понеділок)
   const lastDayOfMonth = new Date(year, month + 1, 0).getDate();
 
@@ -52,9 +46,15 @@ let Calendar = firstDateMonth => {
 };
 
 export const CalendarTable = ({ month }) => {
-  const firstDateMonth = moment(month).format('DD-MM-YYYY');
-  const CalendarTable = Calendar(firstDateMonth);
+  const date = moment(month).format('DD-MM-YYYY');
+  const tasks = useSelector(selectTasks);
+  const CalendarTable = fillCalendar(date, tasks);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getTasks());
+  }, [dispatch]);
 
   const handleDayClick = (dayValue) => {
     const day = /^\d$/.test(dayValue) ? `0${dayValue}` : dayValue;
