@@ -10,7 +10,7 @@ export const getTasks = createAsyncThunk(
   'tasks/get',
   async (_, thunkAPI) => {
     try {
-      const res = await axios.get('/tasks/');
+      const res = await axios.get('/tasks');
       return res.data.data;
     } catch (error) {
         return thunkAPI.rejectWithValue(error.response.data.message);
