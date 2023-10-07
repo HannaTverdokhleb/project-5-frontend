@@ -18,7 +18,43 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchReviews } from 'redux/reviews/reviewsOperations';
 import { selectReviews } from 'redux/reviews/reviewsSelectors';
 
+export const StarRating = ({ rating }) => {
+
+  const emptyStarImage = '../../../images/star-empty.svg';
+const filledStarImage = '../../../images/star.svg';
+  // Logic to render star icons based on the rating
+  const renderStars = () => {
+    const stars = [];
+    for (let i = 0; i < 5; i++) {
+      if (i < rating) {
+        // Render a filled star with background image
+        stars.push(
+          <span
+            key={i}
+            className="star star-filled"
+            style={{ backgroundImage: `url(${filledStarImage})` }}
+          ></span>
+        );
+      } else {
+        // Render an empty star with background image
+        stars.push(
+          <span
+            key={i}
+            className="star star-empty"
+            style={{ backgroundImage: `url(${emptyStarImage})` }}
+          ></span>
+        );
+      }
+    }
+    return stars;
+  };
+
+  return <div className="star-rating">{renderStars()}</div>;
+};
+
 const SlideDetails = ({ image, name, rating, comment }) => {
+  // Stars
+
   return (
     <div className={css.slideContainer}>
       <div className={css.slideAuthor}>
@@ -26,14 +62,13 @@ const SlideDetails = ({ image, name, rating, comment }) => {
         <div className={css.authorDetails}>
           <h3>{name}</h3>
           <div>{rating}</div>
-        
-        <p className={css.mainText}>{comment}</p>
+          <div><StarRating /></div>
+          <p className={css.mainText}>{comment}</p>
         </div>
       </div>
     </div>
   );
 };
-
 
 //Slider Component
 export const ReviewsSlider = () => {
@@ -68,19 +103,25 @@ export const ReviewsSlider = () => {
 
   return (
     <>
-    {reviews.length > 0 && 
-      <Swiper {...swiperParams} className={css.container}>
-        {reviews.map(({_id, comment, rating, owner}) => {
-          const name = (owner && owner.name) ? owner.name : 'Unknown';
-          const avatar = (owner && owner.avatarURL) ? owner.avatarURL : imageDummy;
-          return (
-            <SwiperSlide key={_id}>
-              <SlideDetails comment={comment} rating={rating} name={name} image={avatar} />
-            </SwiperSlide>
-          )
-        })}
-      </Swiper>
-    }
+      {reviews.length > 0 && (
+        <Swiper {...swiperParams} className={css.container}>
+          {reviews.map(({ _id, comment, rating, owner }) => {
+            const name = owner && owner.name ? owner.name : 'Unknown';
+            const avatar =
+              owner && owner.avatarURL ? owner.avatarURL : imageDummy;
+            return (
+              <SwiperSlide key={_id}>
+                <SlideDetails
+                  comment={comment}
+                  rating={rating}
+                  name={name}
+                  image={avatar}
+                />
+              </SwiperSlide>
+            );
+          })}
+        </Swiper>
+      )}
     </>
   );
 };
