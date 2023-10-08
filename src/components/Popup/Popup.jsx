@@ -1,17 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import styles from './Popup.module.css';
-import { createTask, editTask, getTasks } from './redux/tasks/operations';
-import { selectTasks, selectIsLoading, selectErrorMessage } from './redux/tasks/selectors';
+import { createTask, editTask, getTasks } from '../../redux/Tasks/operations';
 import AddButton from './addButton';
 import EditButton from './editButton';
 import { Modal } from 'components/Modal/Modal';
 
 const Popup = ({ isOpen, onClose, task }) => {
   const dispatch = useDispatch();
-  const myTasks = useSelector(selectTasks);
-  const isLoadingTasks = useSelector(selectIsLoading);
-  const tasksError = useSelector(selectErrorMessage);
 
   const initialFormData = {
     title: '',
@@ -22,6 +18,7 @@ const Popup = ({ isOpen, onClose, task }) => {
 
   const [formData, setFormData] = useState(initialFormData);
   const [selectedPriority, setSelectedPriority] = useState('low');
+  const [isTaskCreated, setIsTaskCreated] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -39,18 +36,17 @@ const Popup = ({ isOpen, onClose, task }) => {
     }));
   };
 
-  const handleSubmit = async () => {
-    try {
-      if (task) {
-        await dispatch(editTask({ _id: task._id, ...formData }));
-      } else {
-        await dispatch(createTask(formData));
-      }
-      onClose();
-      dispatch(getTasks());
-    } catch (error) {
-      console.error('saving error:', error);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (task) {
+      dispatch(editTask({ _id: task._id, ...formData }));
+    } else {
+      dispatch(createTask(formData));
+      setIsTaskCreated(true);
+      setFormData(initialFormData); // Очищаємо форму після створення таски
     }
+    onClose();
+    dispatch(getTasks());
   };
 
   const priorities = ['Low', 'Medium', 'High'];
@@ -80,7 +76,7 @@ const Popup = ({ isOpen, onClose, task }) => {
   return (
     <Modal>
       <div className={`${styles.popupContainer} ${isOpen ? styles.open : ''}`}>
-        <div className={styles.popup}>
+        <form className={styles.popup}>
           <div className={styles.closeButton} onClick={onClose}></div>
           <div className={styles.formGroup}>
             <label htmlFor="title" className={styles.label}>
@@ -153,12 +149,15 @@ const Popup = ({ isOpen, onClose, task }) => {
             </div>
           </div>
           <div className={styles.buttonGroup}>
-            {task ? <EditButton onClick={handleSubmit} /> : <AddButton onClick={handleSubmit} />}
+            {task ? <EditButton /> : <AddButton />}
             <button className={styles.cancelButton} onClick={onClose}>
               Cancel
             </button>
           </div>
-        </div>
+          {isTaskCreated && (
+            <div className={styles.successMessage}>Task created successfully!</div>
+          )}
+        </form>
       </div>
     </Modal>
   );
