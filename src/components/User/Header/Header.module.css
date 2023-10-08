@@ -79,6 +79,12 @@
   }
 }
 
+@media screen and (min-width: 992px) {
+  .burgerButton {
+    display: none;
+  }
+}
+
 @media screen and (min-width: 1440px) {
   .header {
     margin-bottom: 32px;
@@ -89,9 +95,7 @@
     font-family: 'Inter';
     font-size: 32px;
   }
-  .burgerButton {
-    display: none;
-  }
+
   .calendar {
     display: flex;
   }
