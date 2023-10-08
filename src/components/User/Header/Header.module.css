@@ -15,6 +15,7 @@
 .burgerIcon {
   width: 34px;
   height: 34px;
+  color: var(--button-text-color-secondary);
 }
 
 .burgerIcon:active {
@@ -53,8 +54,8 @@
     background: none;
     border: 0ch;
     padding: 0%;
-    width: 34px;
-    height: 34px;
+    width: 24px;
+    height: 24px;
     display: block;
   }
 
@@ -76,6 +77,11 @@
   .feedbackButton {
     width: 130px;
     height: 42px;
+  }
+  .burgerButton {
+    width: 34px;
+    height: 34px;
+    padding: 0%;
   }
 }
 
