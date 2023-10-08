@@ -99,7 +99,7 @@ const UserForm = () => {
                 {user.avatarURL ?
                   <img src={user.avatarURL} alt="avatar" width="120" height="120" className={css.avatarImage} />
                   :
-                  <div className={css.avatarDefault}><AiOutlineUser className={css.avatarImage} style={{width: 120, height: 120, color: 'white'}} /></div>
+                  <AiOutlineUser className={css.avatarImage} style={{width: 120, height: 120, color: '#3e85f3'}} />
                 }
                 
                 <div className={css.plusInBorder}><span>+</span></div>
