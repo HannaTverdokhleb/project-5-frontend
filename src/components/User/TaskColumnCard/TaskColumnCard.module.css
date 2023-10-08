@@ -58,16 +58,16 @@
 }
 
 .infoBoxTaskPriority {
+	/* text-align: center; */
 	display: flex;
-	padding: 4px 12px;
 	justify-content: center;
 	align-items: center;
+	padding: 4px 12px;
 
 	border-radius: 4px;
 
 	color: #F7F6F9;
-	background-color: var(--status-background-second);
-
+	
 	font-size: 10px;
 	font-weight: 600;
 	line-height: 1.2; /* 120% */
@@ -96,8 +96,6 @@
   /* bottom: 0; */
   /* right: 0; */
   /* transform: translate(100%, 100%); */
-
-
 }
 
 @media screen and (min-width: 768px) {
@@ -113,5 +111,16 @@
 		border-radius: 8px;
 		border: var(--task-item-border)
 	}
+}
 
+.low {
+  background-color: var(--status-background-first);
+}
+
+.medium {
+  background-color: var(--status-background-second);
+}
+
+.high {
+  background-color: var(--status-background-third);
 }
