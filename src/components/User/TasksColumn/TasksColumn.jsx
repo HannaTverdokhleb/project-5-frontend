@@ -4,18 +4,19 @@ import ColumnHeadBar from '../ColumnHeadBar/ColumnHeadBar';
 import ColumnTasksList from '../ColumnTasksList/ColumnTasksList';
 
 import css from './TasksColumn.module.css';
-import Popup from 'components/Popup/Popup';
+// import Popup from 'components/Popup/Popup';
 
 const TasksColumn = ({ tasks, headBarName, catId }) => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   const openPopup = () => {
+    console.log(isPopupOpen);
     setIsPopupOpen(true);
   };
 
-  const closePopup = () => {
-    setIsPopupOpen(false);
-  };
+  // const closePopup = () => {
+  //   setIsPopupOpen(false);
+  // };
 
   return (
     <div className={css.tasksColumnWrapper}>
