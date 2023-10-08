@@ -18,6 +18,14 @@
     border-radius: 50%;
     animation: spin 2s infinite linear;
 }
+.absolute .loader {
+    position: absolute;
+}
+.absolute .loader i {
+    width: 25px;
+    height: 25px;
+    position: absolute;
+}
 @keyframes spin {
     0% {
         opacity: 1;
