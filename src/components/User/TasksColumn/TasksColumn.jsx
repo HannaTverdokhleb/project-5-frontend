@@ -24,8 +24,8 @@ const TasksColumn = ({ tasks, headBarName, catId }) => {
         catId={catId}
         onOpenPopup={openPopup}
       />
-      <ColumnTasksList tasks={tasks} />
-      <ButtonAddTask />
+      <ColumnTasksList tasks={tasks} onOpenPopup={openPopup} />
+      <ButtonAddTask catId={catId} onOpenPopup={openPopup} />
       {/* <Popup isOpen={isPopupOpen} onClose={closePopup()} /> */}
     </div>
   );
