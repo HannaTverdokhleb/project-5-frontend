@@ -8,10 +8,12 @@ import { CalendarTable } from 'components/Calendar/СalendarTable/СalendarTable
 import { useNavigate, useParams } from 'react-router-dom';
 import moment from 'moment';
 import { routes } from '../../configs/routes';
+import TasksColumnsList from 'components/User/TasksColumnsList/TasksColumnsList';
 
 function ChosenDay({ day }) {
   const navigate = useNavigate();
-  const isValidFormat = /^\d{4}-(0?[1-9]|1[012])-(0?[1-9]|[12][0-9]|3[01])$/.test(day);
+  const isValidFormat =
+    /^\d{4}-(0?[1-9]|1[012])-(0?[1-9]|[12][0-9]|3[01])$/.test(day);
 
   useEffect(() => {
     !isValidFormat && navigate(`${routes.private.calendar.path}`);
@@ -19,7 +21,24 @@ function ChosenDay({ day }) {
 
   // TODO: return your component
   return (
-    <div style={{ color: 'red' }}>{day}</div>
+    // <div style={{ color: 'red',  }}>{day}</div>
+    <>
+      <div
+        style={{
+          color: 'red',
+          width: '100%',
+          height: '114px',
+          marginBottom: '16px',
+          borderRadius: '16px',
+          textAlign: 'center',
+
+          outline: '1px solid blue',
+        }}
+      >
+        {day}
+      </div>
+      <TasksColumnsList />
+    </>
   );
 }
 
@@ -47,7 +66,9 @@ const CalendarPage = () => {
   const currentMonth = moment().format('YYYY-MM');
 
   useEffect(() => {
-    !month && !day && navigate(`${routes.private.month.path.replace(':month', currentMonth)}`);
+    !month &&
+      !day &&
+      navigate(`${routes.private.month.path.replace(':month', currentMonth)}`);
     dispatch(currentPage('Calendar'));
   }, [currentMonth, day, dispatch, month, navigate]);
 
