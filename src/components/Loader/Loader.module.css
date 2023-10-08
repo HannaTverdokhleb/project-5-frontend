@@ -5,7 +5,7 @@
     bottom: 0;
     left: 0;
     z-index: 98;
-    background: #fff;
+    background: var(--background-color-secondary);
 }
 .loader i {
     transform: translate(-50%, -50%);

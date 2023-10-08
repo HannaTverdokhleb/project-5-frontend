@@ -4,14 +4,13 @@
 .avatarContainerLoader {
   overflow: hidden;
   position: absolute;
+  border-radius: 50%;
+  overflow: hidden;
   left: -3px;
   right: -3px;
   top: -3px;
   bottom: -3px;
 }
-
-
-
 .userContainer {
   box-sizing: border-box;
   padding: 59px 18px 0px 18px;
