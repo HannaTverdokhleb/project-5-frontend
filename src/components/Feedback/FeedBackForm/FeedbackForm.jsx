@@ -15,7 +15,7 @@ import {
 } from 'redux/reviews/reviewsOperations';
 import { selectOwnReviews, selectReviewLoading } from 'redux/reviews/reviewsSelectors';
 
-import { ReactComponent as IconClose } from 'images/x-close.svg';
+import { RxCross1 } from 'react-icons/rx';
 import { ReactComponent as BtnEdit } from 'images/pencil-01.svg';
 import { ReactComponent as BtnTrash } from 'images/trash-2.svg';
 
@@ -192,7 +192,7 @@ const FeedbackForm = ({ onClose }) => {
               aria-label="close button"
               onClick={onClose}
             >
-              <IconClose style={{ width: 24, height: 24 }} />
+              <RxCross1  className={css.iconClose} style={{ width: 24, height: 24 }} />
             </button>
           </Form>
         </div>

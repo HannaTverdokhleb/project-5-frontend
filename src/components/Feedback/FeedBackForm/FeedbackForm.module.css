@@ -1,14 +1,13 @@
+@import '/src/css/variables.css';
 .formContainer {
   box-sizing: border-box;
   position: relative;
   text-align: left;
   padding: 28px 20px;
   border-radius: 8px;
-  border: 1px solid rgba(220, 227, 229, 0.8);
-
+  border: 1px solid var(--modal-border-color);/* rgba(220, 227, 229, 0.8);*/
   width: 335px;
-
-  background-color: var(--bcg-color-white);
+  background-color: var(--feedback-background-primary);
   box-shadow: 0px 4px 57px 0px rgba(17, 17, 17, 0.05);
 
   @media screen and (min-width: 768px) {
@@ -18,7 +17,7 @@
 }
 
 .formLabel {
-  color: rgba(52, 52, 52, 0.8);
+  color:  var(--text-color-label-feedback);
   font-family: Inter;
   display: block;
   margin-bottom: 8px;
@@ -36,10 +35,10 @@
   font-weight: 600;
   font-size: 14px;
   line-height: calc((18 / 14) * 100%);
-  color: #343434;
-  background-color: #f6f6f6;
+  color: var(--text-color-secondary);
+  background-color: var(--feedback-background-secondary);
   border-radius: 8px;
-  border: none;
+  border: 1px solid var(--input-border-color-tertiary);
 
   @media screen and (min-width: 768px) {
     width: 404px;
@@ -50,7 +49,7 @@
 
   &::placeholder {
     opacity: 1;
-    color: rgba(52, 52, 52, 0.8);
+    color: var(--feedback-text-secondary);
     font-weight: 600;
     font-size: 14px;
   }
@@ -58,7 +57,7 @@
 
 .formErrorMessage {
   margin-left: 18px;
-  color: #da1414;
+  color: #EA3D65;
   max-width: 240px;
   font-size: 12px;
   font-weight: 500;
@@ -78,8 +77,8 @@
 }
 
 .submitBtn {
-  color: var(--bcg-color-white);
-  background-color: var(--main-color-blue);
+  color: var(--button-text-color-primary);
+  background-color: var(--button-background-primary);
   text-transform: none;
   width: 144px;
   height: 42px;
@@ -91,7 +90,7 @@
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   &:hover,
   &:focus {
-    background-color: #2b78ef;
+    background-color: var(--button-background-hover);
   }
   &:disabled {
     cursor: not-allowed;
@@ -104,8 +103,8 @@
 }
 
 .cancelBtn {
-  color: #343434;
-  background-color: #e5edfa;
+  color: var(--button-text-color-secondary);
+  background-color: var(--button-backgroung-cancel);
   text-transform: none;
   width: 144px;
   height: 42px;
@@ -114,10 +113,12 @@
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  &:hover,
-  &:focus {
-    color: #2b78ef;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+&:hover,
+  &:focus{
+    background-color: var(--button-background-cancel-hover);
+
   }
 
   @media screen and (min-width: 768px) {
@@ -136,12 +137,14 @@
   border: none;
   background-color: transparent;
   cursor: pointer;
-
-  stroke: black;
   transition: stroke 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.iconClose{
+  color: var(--button-text-color--quaternary);
   &:hover,
-  &:focus {
-    stroke: #2b78ef;
+    &:focus {
+      color: var(--button-background-hover);
   }
 }
 
@@ -149,18 +152,18 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #e3f3ff;
+  background-color: var(--button--backround-edit);
   width: 30px;
   height: 30px;
   border: none;
   border-radius: 50%;
-  stroke: #3e85f3;
+  stroke: var(--icon-color-primary);
   cursor: pointer;
 
   &:hover,
   &:focus {
-    stroke: #ffffff;
-    background-color: #3e85f3;
+    stroke: var(--button-text-color-primary);
+    background-color: var(--button-background-hover);
   }
 }
 
@@ -200,12 +203,13 @@
   width: 24px;
   height: 24px;
 }
+
 .BtnEdit path {
-  stroke: #3E85F3;
+  stroke: var(--icon-color-primary);
 }
 .editBtn:focus path,
 .editBtn:hover path {
-  stroke: #fff;
+  stroke: var(--button-text-color-primary);
 }
 
 .BtnTrash {
