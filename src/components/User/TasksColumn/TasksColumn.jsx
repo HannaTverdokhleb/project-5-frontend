@@ -2,11 +2,12 @@ import { useState } from 'react';
 import ButtonAddTask from '../ButtonAddTask/ButtonAddTask';
 import ColumnHeadBar from '../ColumnHeadBar/ColumnHeadBar';
 import ColumnTasksList from '../ColumnTasksList/ColumnTasksList';
+import Popup from 'components/Popup/Popup';
 
 import css from './TasksColumn.module.css';
 // import Popup from 'components/Popup/Popup';
 
-const TasksColumn = ({ tasks, headBarName, catId }) => {
+const TasksColumn = ({ task, headBarName, catId }) => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [selectedTask, setSelectedTask] = useState(null);
 
@@ -16,9 +17,9 @@ const TasksColumn = ({ tasks, headBarName, catId }) => {
     setIsPopupOpen(true);
   };
 
-  // const closePopup = () => {
-  //   setIsPopupOpen(false);
-  // };
+  const closePopup = () => {
+    setIsPopupOpen(false);
+  };
 
   const handleTask = task => {
     setSelectedTask(task); // Зберігайте обрану задачу в стані
@@ -33,7 +34,7 @@ const TasksColumn = ({ tasks, headBarName, catId }) => {
         openPopup={openPopup}
       />
       <ColumnTasksList
-        tasks={tasks}
+        // tasks={tasks}
         openPopup={openPopup}
         handleTask={handleTask}
       />
