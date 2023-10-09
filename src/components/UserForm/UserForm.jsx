@@ -9,6 +9,7 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import Loader from 'components/Loader/Loader';
 import { AiOutlineUser } from 'react-icons/ai';
 import { useState } from 'react';
+import SetPasswordBtn from 'components/PasswordForm/SetPasswordBtn';
 
 
 const userSchema = Yup.object().shape({
@@ -46,6 +47,8 @@ const UserForm = () => {
     phone: user.phone ? '+' + user.phone : '',
     skype: user.skype || '',
   };
+
+  const isGoogleAccount = /\w.+@gmail.com$/.test(user?.email)
 
   const handleSubmit = values => {
     setIsLoadingForm(true);
@@ -90,18 +93,18 @@ const UserForm = () => {
         <div className={css.userContainer}>
 
           <div className={css.avatarContainer}>
-            {!isLoadingAva ? 
+            {!isLoadingAva ?
               <>
                 <label className={css.avararLabel}>
                   <input type="file" name="ava" onChange={handleFile} className={css.avatarInput} title="Add new image!"/>
                 </label>
-                
+
                 {user.avatarURL ?
                   <img src={user.avatarURL} alt="avatar" width="120" height="120" className={css.avatarImage} />
                   :
                   <AiOutlineUser className={css.avatarImage} style={{width: 120, height: 120, color: '#3e85f3'}} />
                 }
-                
+
                 <div className={css.plusInBorder}><span>+</span></div>
               </> :
               <div className={css.avatarContainerLoader}><Loader absolute={true} /></div>
@@ -138,7 +141,7 @@ const UserForm = () => {
                     <ErrorMessage name="birthday" component="div" />
                   </label>
                 <label className={css.userLabel}>
-                  Email
+                  Email {isGoogleAccount && <SetPasswordBtn />}
                   <Field
                     className={css.userInput}
                     type="email"
