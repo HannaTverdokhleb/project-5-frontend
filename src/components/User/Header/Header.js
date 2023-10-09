@@ -1,8 +1,8 @@
 import { useSelector } from 'react-redux';
 import css from './Header.module.css';
 import { RxHamburgerMenu } from 'react-icons/rx';
-import gooseUrl1x from 'images/desktopImages/header/header_desk@1x.png';
-import gooseUrl2x from 'images/desktopImages/header/header_desk@2x.png';
+// import gooseUrl1x from 'images/desktopImages/header/header_desk@1x.png';
+// import gooseUrl2x from 'images/desktopImages/header/header_desk@2x.png';
 import ThemeToggler from '../ThemeToggler/ThemeToggler';
 import UserInfo from '../UserInfo/UserInfo';
 import AddFeedbackBtn from 'components/Feedback/AddFeedbackBtn/AddFeedbackBtn';
@@ -32,7 +32,7 @@ export const Header = ({ toggleSidebar }) => {
           <RxHamburgerMenu className={css.burgerIcon} />
         </button>
 
-        {namePage === 'Calendar' && taskDoneInProgress() === 'true' ? (
+        {/* {namePage === 'Calendar' && taskDoneInProgress() === 'true' ? (
           <div className={css.calendar}>
             <img
               srcSet={`${gooseUrl1x} 1x, ${gooseUrl2x} 2x`}
@@ -47,9 +47,9 @@ export const Header = ({ toggleSidebar }) => {
               </p>
             </div>
           </div>
-        ) : (
-          <h1 className={css.title}>{namePage}</h1>
-        )}
+        ) : ()} */}
+        <h1 className={css.title}>{namePage}</h1>
+        
       </section>
       <section className={css.info}>
         <AddFeedbackBtn />
