@@ -1,12 +1,10 @@
 .pageWrapper {
   width: 335px;
   height: 534px;
-    /* min-height: 80vh; */
-     outline: 1px solid red;
+  /* min-height: 80vh; */
+  /* outline: 1px solid red;*/
 
-  
-
-  /* margin: 0 auto; */
+  margin: 0 0 8px 0;
   padding: 0;
 
   display: flex;
@@ -30,9 +28,9 @@
 @media screen and (min-width: 1440px) {
   .pageWrapper {
     width: 1087px;
-     /* height: calc(625px + 5px + 46px); */
-     /* height: calc(568px + 16px + 48px + 42px + 34px); */
-     /* min-height: 80vh;
-     outline: 1px solid red */
+    /* height: calc(625px + 5px + 46px); */
+    /* height: calc(568px + 16px + 48px + 42px + 34px); */
+    /* min-height: 80vh;
+    outline: 1px solid red */
   }
 }
