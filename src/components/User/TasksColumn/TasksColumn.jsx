@@ -36,7 +36,7 @@ const TasksColumn = ({ tasks, headBarName, catId }) => {
       />
       <ButtonAddTask catId={catId} openPopup={openPopup} />
       {isPopupOpen && (
-        <Popup isOpen={isPopupOpen} onClose={closePopup} task={selectedTask} catId={catId}/>
+        <Popup isOpen={isPopupOpen} onClose={closePopup} task={selectedTask} category={catId}/>
       )}
     </div>
   );
