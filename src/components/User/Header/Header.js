@@ -9,7 +9,17 @@ import AddFeedbackBtn from 'components/Feedback/AddFeedbackBtn/AddFeedbackBtn';
 
 export const Header = ({ toggleSidebar }) => {
   const namePage = useSelector(state => state.currentPage.namePage);
+  const tasks = useSelector(state => state.tasks.tasks);
 
+  const taskDoneInProgress = () => {
+    tasks.map(objTask => {
+      const dataCategory = objTask.data.find(
+        data => data.category === 'to-do' || 'in-progress'
+      );
+      return dataCategory;
+    });
+  };
+  console.log(taskDoneInProgress());
   return (
     <header className={css.header}>
       <section>
@@ -21,8 +31,8 @@ export const Header = ({ toggleSidebar }) => {
         >
           <RxHamburgerMenu className={css.burgerIcon} />
         </button>
-        <h1 className={css.title}>{namePage}</h1>
-        {namePage === 'Calendar' && (
+
+        {namePage === 'Calendar' && taskDoneInProgress() === 'true' ? (
           <div className={css.calendar}>
             <img
               srcSet={`${gooseUrl1x} 1x, ${gooseUrl2x} 2x`}
@@ -37,6 +47,8 @@ export const Header = ({ toggleSidebar }) => {
               </p>
             </div>
           </div>
+        ) : (
+          <h1 className={css.title}>{namePage}</h1>
         )}
       </section>
       <section className={css.info}>
