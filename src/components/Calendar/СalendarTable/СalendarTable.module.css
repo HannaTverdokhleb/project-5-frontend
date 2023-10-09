@@ -31,29 +31,54 @@
 }
 
 .textTask {
-  padding: 10px;
+  padding: 6px 10px;
   position: absolute;
-  width: calc(100% - 25%);
+  width: calc(100% - 16px);
   white-space: nowrap;
+  border-radius: 8px;
   overflow: hidden;
   text-overflow: ellipsis;
+  font-family: 'Inter';
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.textTask[data-priority='low'] {
+  background-color: #ceeefd;
+  color: #3e85f3;
+}
+.textTask[data-priority='medium'] {
+  background-color: #fcf0d4;
+  color: #f3b249;
+}
+.textTask[data-priority='high'] {
+  background-color: #ffd2dd;
+  color: #ea3d65;
 }
 
 @media screen and (min-width: 768px) {
-  .container {
+  .container[data='36'] {
     width: 704px;
     height: 720px;
   }
-
+  .container[data='43'] {
+    width: 704px;
+    height: 864px;
+  }
   .element {
     height: calc((720px - 4px) / 5);
   }
 }
 
 @media screen and (min-width: 1440px) {
-  .container {
+  .container[data='36'] {
     width: 1087px;
     height: 625px;
+  }
+
+  .container[data='43'] {
+    width: 1087px;
+    height: 900px;
   }
 
   .element {
