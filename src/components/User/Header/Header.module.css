@@ -89,17 +89,17 @@
   .burgerButton {
     display: none;
   }
-}
-
-@media screen and (min-width: 1440px) {
-  .header {
-    margin-bottom: 32px;
-  }
   .title {
     display: block;
     color: --main-color-black;
     font-family: 'Inter';
     font-size: 32px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .header {
+    margin-bottom: 32px;
   }
 
   .calendar {
