@@ -5,6 +5,7 @@
   flex-wrap: wrap;
   gap: 1px;
   list-style: none;
+  overflow: hidden;
   border-radius: 8px;
   border: 1px solid var(--login-register-field-hover);
 }
@@ -28,6 +29,23 @@
   position: absolute;
   right: 10px;
   top: 10px;
+}
+
+.textDays[isCurrent='true'] {
+  border-radius: 8px;
+  background: #3e85f3;
+  display: inline-flex;
+  padding: 4px 6px;
+  flex-direction: column;
+  align-items: flex-start;
+  display: flex;
+  color: #fff;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 18px;
+  text-transform: uppercase;
 }
 
 .textTask {

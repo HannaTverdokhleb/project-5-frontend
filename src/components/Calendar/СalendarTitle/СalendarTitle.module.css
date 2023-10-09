@@ -10,6 +10,8 @@
   flex-basis: auto;
   justify-content: space-around;
   gap: 1px;
+
+  overflow: hidden;
   border-radius: 8px;
   border: 1px solid var(--login-register-field-hover);
 }
@@ -27,12 +29,16 @@
 
   color: var(--feedback-text-secondary);
   font-family: Inter;
-  font-size: 16px;
+  font-size: 0px;
   font-weight: 600;
   line-height: 18px;
   letter-spacing: 0em;
 
   text-align: center;
+}
+
+.textTitle::first-letter{
+  font-size: 16px;
 }
 
 .container li:nth-last-child(-n + 2) .textTitle {
@@ -42,6 +48,9 @@
 @media screen and (min-width: 768px) {
   .container {
     width: 704px;
+  }
+  .textTitle {
+    font-size: 16px;
   }
 }
 

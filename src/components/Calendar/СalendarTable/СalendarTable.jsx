@@ -16,11 +16,11 @@ const dateFormat = firstDateMonth => {
   const currentMonth = Number(moment(firstDateMonth, 'DD-MM-YYYY').month()) + 1;
 
   return { dayOfWeek, lastDayOfMonth, currentMonth };
-};  
+};
 //
 
 let fillCalendar = (firstDateMonth, allTasks) => {
-  firstDateMonth = '01-10-2023'; // це для тестування
+  // firstDateMonth = '01-10-2023'; // це для тестування
 
   const { dayOfWeek, lastDayOfMonth, currentMonth } =
     dateFormat(firstDateMonth);
@@ -85,9 +85,9 @@ export const CalendarTable = ({ month }) => {
   const lastNumberOfTable = CalendarTable[0].lastNumberOfTable;
 
   return (
-  
     <ul className={css.container} data={lastNumberOfTable}>
       {CalendarTable.map((element, i) => {
+        let isCurrent = element.dayValue === moment().date() ? 'true' : 'false';
         return (
           <li
             key={i}
@@ -99,7 +99,9 @@ export const CalendarTable = ({ month }) => {
               return false;
             }}
           >
-            <p className={css.textDays}>{element.dayValue}</p>
+            <div className={css.textDays} isCurrent={isCurrent}>
+              {element.dayValue}
+            </div>
             <div className={css.textTask} data-priority={element.priority}>
               {element.textTask}
             </div>
