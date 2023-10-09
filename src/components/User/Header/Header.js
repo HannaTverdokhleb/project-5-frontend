@@ -15,7 +15,7 @@ export const Header = ({ toggleSidebar }) => {
     if (tasks) {
       tasks.map(objTask => {
         const dataCategory = objTask.data.find(
-          data => data.category === 'to-do' || 'in-progress'
+          data => data.category === 'toDo' || 'inProgress'
         );
         return dataCategory;
       });
