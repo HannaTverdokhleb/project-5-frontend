@@ -9,17 +9,17 @@ import AddFeedbackBtn from 'components/Feedback/AddFeedbackBtn/AddFeedbackBtn';
 
 export const Header = ({ toggleSidebar }) => {
   const namePage = useSelector(state => state.currentPage.namePage);
-  const tasks = useSelector(state => state.tasks.tasks);
+  // const tasks = useSelector(state => state.tasks.tasks);
 
-  const taskDoneInProgress = () => {
-    tasks.map(objTask => {
-      const dataCategory = objTask.data.find(
-        data => data.category === 'to-do' || 'in-progress'
-      );
-      return dataCategory;
-    });
-  };
-  console.log(taskDoneInProgress());
+  // const taskDoneInProgress = () => {
+  //   tasks.map(objTask => {
+  //     const dataCategory = objTask.data.find(
+  //       data => data.category === 'to-do' || 'in-progress'
+  //     );
+  //     return dataCategory;
+  //   });
+  // };
+  // console.log(taskDoneInProgress());
   return (
     <header className={css.header}>
       <section>
