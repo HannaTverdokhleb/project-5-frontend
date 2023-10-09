@@ -29,7 +29,9 @@ const TasksColumnsList = ({ day }) => {
 
   //TODO Підставити відфільтрований список в фільтр по категоріям
   const tasksByCategory = categories.reduce((acc, category) => {
-    acc[category] = tasks.filter(task => task.category === category);
+    acc[category] = filteredAndSortedTasks.filter(
+      task => task.category === category
+    );
     return acc;
   }, {});
 
