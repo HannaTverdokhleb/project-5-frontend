@@ -15,6 +15,7 @@
 .burgerIcon {
   width: 34px;
   height: 34px;
+  color: var(--button-text-color-secondary);
 }
 
 .burgerIcon:active {
@@ -53,8 +54,8 @@
     background: none;
     border: 0ch;
     padding: 0%;
-    width: 34px;
-    height: 34px;
+    width: 24px;
+    height: 24px;
     display: block;
   }
 
@@ -77,6 +78,17 @@
     width: 130px;
     height: 42px;
   }
+  .burgerButton {
+    width: 34px;
+    height: 34px;
+    padding: 0%;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .burgerButton {
+    display: none;
+  }
 }
 
 @media screen and (min-width: 1440px) {
@@ -89,9 +101,7 @@
     font-family: 'Inter';
     font-size: 32px;
   }
-  .burgerButton {
-    display: none;
-  }
+
   .calendar {
     display: flex;
   }

@@ -42,11 +42,15 @@ body[data-theme='light'] {
   --text-color-sixth: #343434;
   --error-text-color: #e74a3b;
   --text-color-404:rgba(17, 17, 17, 0.70);
+  --text-color-label-feedback:rgba(52, 52, 52, 0.80);
 
 
   --button-text-color-primary: #ffffff;
   --button-text-color-secondary: #343434;
   --button-text-color-tertiary: #111111;
+  --button-text-color--quaternary: #111111;
+
+  --button-border-color:rgba(220, 227, 229, 0.50);
 
   --toggle-month-day-text-color-first: #3e85f3;
   --toggle-month-day-text-color-second: #3e85f3;
@@ -58,8 +62,13 @@ body[data-theme='light'] {
   --button-background-secondary: #e3f3ff;
   --button-background-hover: #2b78ef;
   --button-shadow-hover: rgba(136, 165, 191, 0.48);
+  --button-backgroung-cancel: #e5edfa;
+  --button-background-cancel-hover:#e3f3ff;
+  --button--backround-edit:#E3F3FF;
 
   --icon-color-primary: #3e85f3;
+  --icon-paginator-state:#DCE3E5;
+  --icon-paginator-active: #343434;
 
   --transition-cubic: 250ms cubic-bezier(0.4, 0, 0.2, 1);
   --theme-transition-cubic: 1s cubic-bezier(0.4, 0, 0.2, 1);
@@ -67,6 +76,7 @@ body[data-theme='light'] {
   --input-border-color-primary: #1111111a;
   --input-border-color-secondary: #111;
   --input-placeholder-color: #11111126;
+  --input-border-color-tertiary: none;
 
   --sidebar-logo-title-color: #3e85f3;
   --user-nav-item-hover-color: #3e85f3;
@@ -194,10 +204,14 @@ body[data-theme='dark'] {
   --text-color-sixth: rgba(250, 250, 250, 0.3);
   --error-text-color: #e74a3b;
   --text-color-404: #ffffff;
+  --text-color-label-feedback:rgba(250, 250, 250, 0.30);
 
   --button-text-color-primary: #ffffff;
   --button-text-color-secondary: #ffffff;
   --button-text-color-tertiary: #111111;
+  --button-text-color--quaternary: #ffffff;
+
+  --button-border-color: rgba(255, 255, 255, 0.15);
 
   --toggle-month-day-text-color-first: #ffffff;
   --toggle-month-day-text-color-second: #3e85f3;
@@ -209,8 +223,13 @@ body[data-theme='dark'] {
   --button-background-secondary: #21222c;
   --button-background-hover: #2b78ef;
   --button-shadow-hover: rgba(136, 165, 191, 0.48);
+  --button-backgroung-cancel:#21222C;
+  --button-background-cancel-hover: #3e85f3;
+  --button--backround-edit:#353647;
 
   --icon-color-primary: #3e85f3;
+  --icon-paginator-state: rgba(255, 255, 255, 0.15);
+  --icon-paginator-active:#FFFFFF;
 
   --transition-cubic: 250ms cubic-bezier(0.4, 0, 0.2, 1);
   --theme-transition-cubic: 1s cubic-bezier(0.4, 0, 0.2, 1);
@@ -218,6 +237,7 @@ body[data-theme='dark'] {
   --input-border-color-primary: #ffffff26;
   --input-border-color-secondary: #fff;
   --input-placeholder-color: #fafafa4d;
+  --input-border-color-tertiary:rgba(255, 255, 255, 0.15);
 
   --sidebar-logo-title-color: #e3f3ff;
   --user-nav-item-hover-color: #fff;

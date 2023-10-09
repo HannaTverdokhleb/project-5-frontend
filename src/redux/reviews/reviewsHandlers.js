@@ -17,8 +17,8 @@ export const handleFulfilled = (state, action) => {
   state.error = null;
 };
 
-export const handlefetchOwnReviewsFulfilled = (state, { payload }) => {
-  state.ownReview = payload.review;
+export const handlefetchOwnReviewFulfilled = (state, action) => {
+  state.ownReview = action.payload || {};
   state.isLoading = false;
   state.error = null;
 };

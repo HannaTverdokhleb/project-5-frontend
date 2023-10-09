@@ -18,12 +18,12 @@ export const fetchReviews = createAsyncThunk(
   }
 );
 
-export const fetchOwnReviews = createAsyncThunk(
+export const fetchOwnReview = createAsyncThunk(
   'reviews/own',
   async (_, thunkAPI) => {
     try {
       const res = await axios.get('/reviews/own');
-      return res.data;
+      return res.data.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data.message);
     }

@@ -29,9 +29,7 @@
 .formInput {
   resize: none;
   padding: 12px 0 12px 14px;
-  width: 295px;
   box-sizing: border-box;
-  height: 127px;
   font-weight: 600;
   font-size: 14px;
   line-height: calc((18 / 14) * 100%);
@@ -146,49 +144,6 @@
     &:focus {
       color: var(--button-background-hover);
   }
-}
-
-.editBtn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--button--backround-edit);
-  width: 30px;
-  height: 30px;
-  border: none;
-  border-radius: 50%;
-  stroke: var(--icon-color-primary);
-  cursor: pointer;
-
-  &:hover,
-  &:focus {
-    stroke: var(--button-text-color-primary);
-    background-color: var(--button-background-hover);
-  }
-}
-
-.deleteBtn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 30px;
-  height: 30px;
-  border: none;
-  border-radius: 50%;
-  cursor: pointer;
-  stroke: #ea3d65;
-  background-color: #ea3d6533;
-
-  &:hover,
-  &:focus {
-    stroke: #ffffff;
-    background-color: #ea3d65;
-  }
-}
-
-.editButtons {
-  display: flex;
-  gap: 8px;
 }
 
 .editBtnWrapper {

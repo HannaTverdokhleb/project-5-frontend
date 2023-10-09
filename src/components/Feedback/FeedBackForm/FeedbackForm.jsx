@@ -3,6 +3,7 @@ import * as Yup from 'yup';
 import { Rating } from '@smastrom/react-rating';
 import '@smastrom/react-rating/style.css';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import Loader from 'components/Loader/Loader';
 
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -11,18 +12,17 @@ import {
   addReview,
   deleteReview,
   updateReview,
-} from '../../../redux/reviews/reviewsOperations';
-import { selectOwnReviews } from '../../../redux/reviews/reviewsSelectors';
-// import { changeRating } from '../../../redux/reviews/reviewsSlice';
+} from 'redux/reviews/reviewsOperations';
+import { selectOwnReviews, selectReviewLoading } from 'redux/reviews/reviewsSelectors';
 
-import { ReactComponent as IconClose } from '../../../images/x-close.svg';
-import { ReactComponent as BtnEdit } from '../../../images/pencil-01.svg';
-import { ReactComponent as BtnTrash } from '../../../images/trash-2.svg';
+import { RxCross1 } from 'react-icons/rx';
+import { ReactComponent as BtnEdit } from 'images/pencil-01.svg';
+import { ReactComponent as BtnTrash } from 'images/trash-2.svg';
 
 import css from './FeedbackForm.module.css';
 
 const ReviewSchema = Yup.object().shape({
-  review: Yup.string()
+  comment: Yup.string()
     .min(10, 'Please Enter more than 10 characters.')
     .max(300, 'This review is too long, max. 300 characters.')
     .required('Review is required'),
@@ -40,62 +40,54 @@ const rateStyled = {
 };
 
 const FeedbackForm = ({ onClose }) => {
-  const initialValues = {
-    review: '',
-    rating: 4,
-  };
-
-  const [isEditActive, setIsEditActive] = useState(false);
-  const [action, setAction] = useState('0');
-
   const dispatch = useDispatch();
 
   const ownReview = useSelector(selectOwnReviews);
-  const [newRating, setNewRating] = useState(
-    ownReview.rating || initialValues.rating
-  );
+  const isLoading = useSelector(selectReviewLoading);
+
+  const initialValues = {
+    comment: ownReview.comment || '',
+    rating: ownReview.rating || 4,
+  };
+
+  const [isEditActive, setIsEditActive] = useState(false);
+  const [newRating, setNewRating] = useState(4);
+  const isEditable = Boolean(ownReview.comment);
 
   useEffect(() => {
-    if (ownReview?._id) {
-      setAction('edit');
-    } else {
-    }
-  }, [dispatch, ownReview]);
+    setNewRating(ownReview.rating || 4)
+  }, [ownReview]);
 
-  const handleSubmit = (values, actions) => {
-    // setAction('edit');
-    if (action === 'edit') {
-      const { review } = values;
-      Notify.info('Your review has been edited.');
-      dispatch(updateReview({ review, rating: newRating }))
+  const handleSubmit = (values, _) => {
+    const { comment } = values;
+    if (isEditable) {
+      dispatch(updateReview({ comment, rating: newRating }))
         .then(data => {
-          if (data.error) {
-            throw new Error(data.payload);
+          if (data.type === 'reviews/updateReview/fulfilled') {
+            Notify.info('Your review has been edited.');
+          } else if (data.type === 'reviews/updateReview/rejected') {
+            Notify.failure('Something went wrong, ' + data.payload);
           }
           onClose();
         })
         .catch(error => {
-          Notify.failure('Something went wrong.');
-          console.log(error.message);
+          Notify.failure('Something went wrong, ' + error.message);
+          onClose();
         });
     } else {
-      const { review } = values;
-      Notify.success('Thank you, your review has been added.');
-      dispatch(addReview({ review, rating: newRating }))
+      dispatch(addReview({ comment, rating: newRating }))
         .then(data => {
-          if (data.error) {
-            throw new Error(data.payload);
+          if (data.type === 'reviews/addReview/fulfilled') {
+            Notify.success('Thank you, your review has been added.');
+          } else if (data.type === 'reviews/addReview/rejected') {
+            Notify.failure('Something went wrong, ' + data.payload);
           }
           onClose();
         })
         .catch(error => {
-          Notify.failure('Something went wrong.');
-          console.log(error.message);
+          Notify.failure('Something went wrong, ' + error.message);
+          onClose();
         });
-    }
-    actions.resetForm();
-    if (ownReview.rating) {
-      onClose();
     }
   };
 
@@ -104,14 +96,18 @@ const FeedbackForm = ({ onClose }) => {
   };
 
   const handleDelete = () => {
-    Notify.info('Your review has been delete.');
+    Notify.info('Your review has been deleted.');
     dispatch(deleteReview(ownReview._id));
     onClose();
   };
 
+  if (isLoading) {
+    return <Loader />
+  }
+
   return (
     <Formik
-      initialValues={initialValues || ownReview}
+      initialValues={initialValues}
       onSubmit={handleSubmit}
       validationSchema={ReviewSchema}
     >
@@ -122,6 +118,7 @@ const FeedbackForm = ({ onClose }) => {
               Rating
             </label>
             <Rating
+              isRequired
               name="rating"
               component="input"
               value={newRating}
@@ -130,50 +127,55 @@ const FeedbackForm = ({ onClose }) => {
               onChange={value => {
                 setNewRating(value);
               }}
-              readOnly={Boolean(ownReview.rating) && !isEditActive}
+              readOnly={isEditable && !isEditActive}
             />
             <div className={css.editBtnWrapper}>
-              <label className={css.formLabel} htmlFor="review">
+              <label className={css.formLabel} htmlFor="comment">
                 Review
               </label>
-              <div className={css.editButtons}>
-                <button
-                  className={css.editBtn}
-                  type="button"
-                  onClick={handleEdit}
-                >
-                  <BtnEdit className={css.BtnEdit} />
-                </button>
 
-                <button
-                  className={css.deleteBtn}
-                  type="button"
-                  onClick={handleDelete}
-                >
-                  <BtnTrash className={css.BtnTrash} />
-                </button>
-              </div>
+              {(isEditable || isEditActive) && (
+                <div className={css.editButtons}>
+                  <button
+                    className={css.editBtn}
+                    type="button"
+                    onClick={handleEdit}
+                  >
+                    <BtnEdit className={css.BtnEdit} />
+                  </button>
+
+                  <button
+                    className={css.deleteBtn}
+                    type="button"
+                    onClick={handleDelete}
+                  >
+                    <BtnTrash className={css.BtnTrash} />
+                  </button>
+                </div>
+              )}
             </div>
 
-            <Field
-              className={css.formInput}
-              type="text"
-              name="review"
-              id="review"
-              placeholder="Enter text"
-              component="textarea"
-              disabled={!isEditActive && Boolean(ownReview.review)}
-            ></Field>
-            <ErrorMessage
-              className={css.formErrorMessage}
-              name="review"
-              component="div"
-            />
+            <div className={css.formInputWrap}>
+              <Field
+                className={css.formInput}
+                type="text"
+                name="comment"
+                id="comment"
+                placeholder="Enter text"
+                component="textarea"
+                disabled={!isEditActive && isEditable}
+              ></Field>
+              <ErrorMessage
+                className={css.formErrorMessage}
+                name="comment"
+                component="div"
+              />
+            </div>
 
-            {(!Boolean(ownReview.review) || isEditActive) && (
+            {(!isEditable || isEditActive) && (
               <div className={css.formMainButtons}>
                 <button className={css.submitBtn} type="submit">
-                  {action === 'edit' ? 'Edit' : 'Save'}
+                  {isEditable ? 'Edit' : 'Save'}
                 </button>
                 <button
                   className={css.cancelBtn}
@@ -190,7 +192,7 @@ const FeedbackForm = ({ onClose }) => {
               aria-label="close button"
               onClick={onClose}
             >
-              <IconClose style={{ width: 24, height: 24 }} />
+              <RxCross1  className={css.iconClose} style={{ width: 24, height: 24 }} />
             </button>
           </Form>
         </div>

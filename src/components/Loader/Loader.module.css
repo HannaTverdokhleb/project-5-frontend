@@ -5,7 +5,7 @@
     bottom: 0;
     left: 0;
     z-index: 98;
-    background: #fff;
+    background: var(--background-color-secondary);
 }
 .loader i {
     transform: translate(-50%, -50%);
@@ -17,6 +17,14 @@
     background: var(--main-color-blue);
     border-radius: 50%;
     animation: spin 2s infinite linear;
+}
+.absolute .loader {
+    position: absolute;
+}
+.absolute .loader i {
+    width: 25px;
+    height: 25px;
+    position: absolute;
 }
 @keyframes spin {
     0% {

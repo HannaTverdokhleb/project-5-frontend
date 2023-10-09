@@ -1,11 +1,5 @@
 @import '/src/css/variables.css';
 
-
-.navigation {
-    display: flex;
-    justify-content: center;
-}
-
 .periodBtnLeft,
 .periodBtnRight {
     text-align: center;
@@ -44,26 +38,11 @@ border-radius: 8px 0px 0px 8px;
 border-right: 1px solid rgba(62, 133, 243, 0.20);
 }
 
-
+.periodBtnLeft:hover,
+.periodBtnRight:hover,
 .active{
 background-color: var(--toggle-month-day-background-first);/* #CAE8FF;*/
 color: var(--toggle-month-day-text-color-first);
 }
 
 
-/* --toggle-month-day-text-color-first: #3e85f3;
- --toggle-month-day-text-color-second: #3e85f3;
-
- --toggle-month-day-background-first: #cae8ff;
- --toggle-month-day-background-second: #e3f3ff;
-
- --toggle-month-day-text-color-first: #ffffff;
- --toggle-month-day-text-color-second: #3e85f3;
-
- --toggle-month-day-background-first: #3e85f3;
- --toggle-month-day-background-second: #e3f3ff; #21222C;
- 
- --toggle-month-day-text-color-not-active: #3E85F3;
- --toggle-month-day-background-not-active: #21222C;
- 
- */

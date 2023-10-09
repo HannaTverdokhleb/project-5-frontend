@@ -237,7 +237,7 @@ label p {
     letter-spacing: -0.36px;
   }
 }
-button:hover {
+.button:hover {
   background-color: #2b78ef;
   box-shadow: rgba(136, 165, 191, 0.48);
 }
