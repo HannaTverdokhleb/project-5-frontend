@@ -6,9 +6,22 @@
 
 	color: var(--text-color-primary);
 
+	font:inherit;
 	font-size: 20px;
 	font-weight: 700;
 	line-height: 1.2; /* 120% */
+}
+
+.columnTitle{
+	color: var(--text-color-primary);
+text-align: center;
+font-family: Inter;
+font-size: 18px;
+font-weight: 700;
+line-height: 1.11;
+/* font-size: 20px;
+font-weight: 700;
+line-height: 1.2; */
 }
 
 .buttonIconAddTask {
@@ -31,4 +44,11 @@
 	cursor: pointer;	
 	color: var(--icon-color-primary);
 	
+}
+
+@media screen and (min-width: 768px) {
+	.columnTitle {	
+	font-size: 20px;
+	line-height: 1.2;
+	}
 }

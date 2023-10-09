@@ -55,13 +55,6 @@
 margin-bottom: 0;
 }
 
-@media screen and (min-width: 768px) {
-    .btnTaskSwitcher {
-    font-size: 14px;
-    line-height: 1.286;
-    }
-}
-
 .taskSwitcherIcon{
     width: 14px;
     height: 14px;
@@ -76,5 +69,10 @@ margin-bottom: 0;
     .taskSwitcherIcon {
         width: 16px;
         height: 16px;
+    }
+
+    .btnTaskSwitcher {
+    font-size: 14px;
+    line-height: 1.286;
     }
 }
