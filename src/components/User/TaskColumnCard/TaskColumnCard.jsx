@@ -3,7 +3,12 @@ import avatar from '../../../images/desktopImages/header/header_desk@1x.png';
 
 import TaskToolbar from '../TaskToolbar/TaskToolbar';
 
-const TaskColumnCard = ({ task, user: { avatarURL, name }, onOpenPopup }) => {
+const TaskColumnCard = ({
+  task,
+  user: { avatarURL, name },
+  openPopup,
+  handleTask,
+}) => {
   return (
     <div className={css.cardWrapper}>
       <p className={css.taskDescription}>{task.title}</p>
@@ -20,7 +25,11 @@ const TaskColumnCard = ({ task, user: { avatarURL, name }, onOpenPopup }) => {
             )}`}
           </span>
         </div>
-        <TaskToolbar onOpenPopup={onOpenPopup} task={task} />
+        <TaskToolbar
+          openPopup={openPopup}
+          task={task}
+          handleTask={handleTask}
+        />
       </div>
     </div>
   );

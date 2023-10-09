@@ -68,7 +68,7 @@ const Popup = ({ isOpen, onClose, task }) => {
       setFormData(task);
       setSelectedPriority(task.priority.toLowerCase());
     } else {
-      setFormData(initialFormData);
+      // setFormData(initialFormData);
       setSelectedPriority('low');
     }
   }, [task]);
@@ -76,7 +76,7 @@ const Popup = ({ isOpen, onClose, task }) => {
   return (
     <Modal>
       <div className={`${styles.popupContainer} ${isOpen ? styles.open : ''}`}>
-        <form className={styles.popup}>
+        <form className={styles.popup} onSubmit={handleSubmit}>
           <div className={styles.closeButton} onClick={onClose}></div>
           <div className={styles.formGroup}>
             <label htmlFor="title" className={styles.label}>
