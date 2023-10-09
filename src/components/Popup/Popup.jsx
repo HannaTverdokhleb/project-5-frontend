@@ -5,16 +5,24 @@ import { createTask, editTask, getTasks } from '../../redux/Tasks/operations';
 import AddButton from './addButton';
 import EditButton from './editButton';
 import { Modal } from 'components/Modal/Modal';
+import { useDate } from '../../hooks/DateContext'
 
-const Popup = ({ isOpen, onClose, task }) => {
+const Popup = ({ isOpen, onClose, task, catId }) => {
   const dispatch = useDispatch();
+  const date = useDate();
 
   const initialFormData = {
     title: '',
     start: '',
     end: '',
     priority: 'low',
+    date: date,
+    category: catId,
   };
+
+  if (task) { 
+    initialFormData.category = task.category
+  }
 
   const [formData, setFormData] = useState(initialFormData);
   const [selectedPriority, setSelectedPriority] = useState('low');
@@ -39,11 +47,11 @@ const Popup = ({ isOpen, onClose, task }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (task) {
-      dispatch(editTask({ _id: task._id, ...formData }));
+      dispatch(editTask({ _id: task._id, ...formData, date: date }));
     } else {
       dispatch(createTask(formData));
       setIsTaskCreated(true);
-      setFormData(initialFormData); // Очищаємо форму після створення таски
+      setFormData(initialFormData);
     }
     onClose();
     dispatch(getTasks());

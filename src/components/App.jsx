@@ -7,6 +7,7 @@ import { routes } from '../configs/routes';
 import { useDispatch } from 'react-redux';
 import { logOut, refreshUser } from '../redux/Auth/operations';
 import { setUserTheme } from './User/ThemeToggler/ThemeToggler';
+import { DateProvider } from '../hooks/DateContext';
 
 const MainLayout = lazy(() => import('components/User/MainLayout/MainLayout'));
 const Page404 = lazy(() => import('../pages/NotFoundPage/NotFoundPage'));
@@ -70,7 +71,9 @@ function GlobalWrapper() {
 export const App = () => {
   return (
     <Suspense fallback={<Loader />}>
-      <GlobalWrapper />
+      <DateProvider>
+        <GlobalWrapper />
+      </DateProvider>
     </Suspense>
   );
 };
