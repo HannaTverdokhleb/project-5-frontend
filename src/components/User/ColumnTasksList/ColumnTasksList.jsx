@@ -3,13 +3,18 @@ import TaskColumnCard from '../TaskColumnCard/TaskColumnCard';
 import css from './ColumnTasksList.module.css';
 import { useSelector } from 'react-redux';
 
-const ColumnTasksList = ({ tasks, onOpenPopup }) => {
+const ColumnTasksList = ({ tasks, openPopup, handleTask }) => {
   const user = useSelector(selectUser);
   return (
     <ul className={css.columnTasksList}>
       {tasks.map(task => (
         <li key={task._id}>
-          <TaskColumnCard task={task} user={user} onOpenPopup={onOpenPopup} />
+          <TaskColumnCard
+            task={task}
+            user={user}
+            openPopup={openPopup}
+            handleTask={handleTask}
+          />
         </li>
       ))}
     </ul>

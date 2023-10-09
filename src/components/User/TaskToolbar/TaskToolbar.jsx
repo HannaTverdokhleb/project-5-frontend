@@ -7,7 +7,7 @@ import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { useEffect } from 'react';
 
-const TaskToolbar = ({ onOpenPopup, task }) => {
+const TaskToolbar = ({ openPopup, task, handleTask }) => {
   const [isOpen, setIsOpen] = useState(false);
   const dispatch = useDispatch();
 
@@ -58,7 +58,7 @@ const TaskToolbar = ({ onOpenPopup, task }) => {
           className={css.buttonIconOptions}
           type="button"
           aria-label="Edit button"
-          onClick={onOpenPopup}
+          onClick={() => handleTask(task)}
         >
           <FiEdit2 size="16px" />
         </button>

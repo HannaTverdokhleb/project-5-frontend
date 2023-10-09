@@ -1,9 +1,9 @@
 import css from './ButtonAddTask.module.css';
 import { FiPlus } from 'react-icons/fi';
 
-const ButtonAddTask = ({ catId, onOpenPopup }) => {
+const ButtonAddTask = ({ catId, openPopup }) => {
   return (
-    <button className={css.buttonAddTask} type="button" onClick={onOpenPopup}>
+    <button className={css.buttonAddTask} type="button" onClick={openPopup}>
       <FiPlus size="24" />
       Add Task
     </button>
