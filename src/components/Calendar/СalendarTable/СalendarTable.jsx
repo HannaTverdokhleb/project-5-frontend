@@ -16,7 +16,8 @@ const dateFormat = firstDateMonth => {
   const currentMonth = Number(moment(firstDateMonth, 'DD-MM-YYYY').month()) + 1;
 
   return { dayOfWeek, lastDayOfMonth, currentMonth };
-};
+};  
+//
 
 let fillCalendar = (firstDateMonth, allTasks) => {
   firstDateMonth = '01-10-2023'; // це для тестування
