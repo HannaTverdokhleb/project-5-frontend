@@ -8,9 +8,11 @@ import css from './TasksColumn.module.css';
 
 const TasksColumn = ({ tasks, headBarName, catId }) => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [selectedTask, setSelectedTask] = useState(null);
 
-  const openPopup = () => {
-    console.log(isPopupOpen);
+
+ const openPopup = task => {
+
     setIsPopupOpen(true);
   };
 
@@ -18,16 +20,27 @@ const TasksColumn = ({ tasks, headBarName, catId }) => {
   //   setIsPopupOpen(false);
   // };
 
+  const handleTask = task => {
+    setSelectedTask(task); // Зберігайте обрану задачу в стані
+    openPopup();
+  };
+
   return (
     <div className={css.tasksColumnWrapper}>
       <ColumnHeadBar
         headBarName={headBarName}
         catId={catId}
-        onOpenPopup={openPopup}
+        openPopup={openPopup}
       />
-      <ColumnTasksList tasks={tasks} onOpenPopup={openPopup} />
-      <ButtonAddTask catId={catId} onOpenPopup={openPopup} />
-      {/* <Popup isOpen={isPopupOpen} onClose={closePopup()} /> */}
+      <ColumnTasksList
+        tasks={tasks}
+        openPopup={openPopup}
+        handleTask={handleTask}
+      />
+      <ButtonAddTask catId={catId} openPopup={openPopup} />
+      {isPopupOpen && (
+        <Popup isOpen={isPopupOpen} onClose={closePopup} task={selectedTask} />
+      )}
     </div>
   );
 };
