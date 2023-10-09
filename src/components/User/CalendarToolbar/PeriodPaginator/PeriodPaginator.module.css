@@ -1,0 +1,47 @@
+@import '/src/css/variables.css';
+
+.paginatorBox{
+display: flex;
+}
+
+.btnLeft,
+.btnRight{
+    display: flex;
+    justify-content: center;
+    padding: 7px 10px;
+    align-items: center;
+    border: 1px solid var(--button-border-color);
+    background-color: var(--background-color-secondary);
+    color: var(--icon-paginator-state);
+}
+
+.btnLeft:hover,
+.btnLeft:focus,
+.btnRight:hover,
+.btnRight:focus{
+color: var(--icon-paginator-active);
+}
+
+
+.btnLeft{
+border-radius: 8px 0px 0px 8px;
+}
+
+.btnRight{
+border-radius: 0px 8px 8px 0px;
+}
+
+.iconPaginator{
+    width: 16px;
+    height: 16px;
+}
+
+
+@media screen and (min-width: 768px) {
+    .iconPaginator {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+

@@ -50,6 +50,8 @@ body[data-theme='light'] {
   --button-text-color-tertiary: #111111;
   --button-text-color--quaternary: #111111;
 
+  --button-border-color:rgba(220, 227, 229, 0.50);
+
   --toggle-month-day-text-color-first: #3e85f3;
   --toggle-month-day-text-color-second: #3e85f3;
 
@@ -65,6 +67,8 @@ body[data-theme='light'] {
   --button--backround-edit:#E3F3FF;
 
   --icon-color-primary: #3e85f3;
+  --icon-paginator-state:#DCE3E5;
+  --icon-paginator-active: #343434;
 
   --transition-cubic: 250ms cubic-bezier(0.4, 0, 0.2, 1);
   --theme-transition-cubic: 1s cubic-bezier(0.4, 0, 0.2, 1);
@@ -207,6 +211,8 @@ body[data-theme='dark'] {
   --button-text-color-tertiary: #111111;
   --button-text-color--quaternary: #ffffff;
 
+  --button-border-color: rgba(255, 255, 255, 0.15);
+
   --toggle-month-day-text-color-first: #ffffff;
   --toggle-month-day-text-color-second: #3e85f3;
 
@@ -222,6 +228,8 @@ body[data-theme='dark'] {
   --button--backround-edit:#353647;
 
   --icon-color-primary: #3e85f3;
+  --icon-paginator-state: rgba(255, 255, 255, 0.15);
+  --icon-paginator-active:#FFFFFF;
 
   --transition-cubic: 250ms cubic-bezier(0.4, 0, 0.2, 1);
   --theme-transition-cubic: 1s cubic-bezier(0.4, 0, 0.2, 1);
