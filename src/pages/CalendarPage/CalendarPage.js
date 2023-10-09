@@ -16,8 +16,13 @@ import 'react-datepicker/dist/react-datepicker.css';
 function CalendarPicker({ month }) {
   const navigate = useNavigate();
 
-  const handleChange = (date) => {
-    navigate(`${routes.private.month.path.replace(':month', moment(date).format('YYYY-MM'))}`);
+  const handleChange = date => {
+    navigate(
+      `${routes.private.month.path.replace(
+        ':month',
+        moment(date).format('YYYY-MM')
+      )}`
+    );
   };
 
   const CustomInput = forwardRef(({ value, onClick }, ref) => (
@@ -26,16 +31,18 @@ function CalendarPicker({ month }) {
     </button>
   ));
 
-  return <DatePicker
-    calendarStartDay={1}
-    showPopperArrow={false}
-    selected={new Date(month)}
-    onChange={handleChange}
-    customInput={<CustomInput />}
-    fixedHeight={cssPopup.fixedHeight}
-    calendarClassName={cssPopup.calendar}
-    dateFormat='MMMM yyyy'
-  />;
+  return (
+    <DatePicker
+      calendarStartDay={1}
+      showPopperArrow={false}
+      selected={new Date(month)}
+      onChange={handleChange}
+      customInput={<CustomInput />}
+      fixedHeight={cssPopup.fixedHeight}
+      calendarClassName={cssPopup.calendar}
+      dateFormat="MMMM yyyy"
+    />
+  );
 }
 
 function ChosenDay({ day }) {
@@ -65,7 +72,7 @@ function ChosenDay({ day }) {
       >
         {day}
       </div>
-      <TasksColumnsList />
+      <TasksColumnsList day={day} />
     </>
   );
 }
@@ -80,12 +87,17 @@ function ChosenMonth({ month }) {
 
   return (
     <>
-      <div className={css.pageWrapper}><CalendarPicker month={month} /></div>
-      <div className={css.pageWrapper}><CalendarTitle /></div>
-      <div className={css.pageWrapper}><CalendarTable month={month} /></div>
+      <div className={css.pageWrapper}>
+        <CalendarPicker month={month} />
+      </div>
+      <div className={css.pageWrapper}>
+        <CalendarTitle />
+      </div>
+      <div className={css.pageWrapper}>
+        <CalendarTable month={month} />
+      </div>
     </>
-  )
-    ;
+  );
 }
 
 const CalendarPage = () => {
@@ -96,8 +108,8 @@ const CalendarPage = () => {
 
   useEffect(() => {
     !month &&
-    !day &&
-    navigate(`${routes.private.month.path.replace(':month', currentMonth)}`);
+      !day &&
+      navigate(`${routes.private.month.path.replace(':month', currentMonth)}`);
     dispatch(currentPage('Calendar'));
   }, [currentMonth, day, dispatch, month, navigate]);
 

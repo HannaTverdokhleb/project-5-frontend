@@ -5,8 +5,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectTasks } from 'redux/Tasks/selectors';
 import { useEffect } from 'react';
 import { getTasks } from 'redux/Tasks/operations';
+import moment from 'moment';
 
-const TasksColumnsList = () => {
+const TasksColumnsList = ({ day }) => {
   const categories = ['to-do', 'in-progress', 'done'];
   const columnTitles = ['To do', 'In progress', 'Done'];
 
@@ -17,8 +18,20 @@ const TasksColumnsList = () => {
     dispatch(getTasks());
   }, [dispatch]);
 
+  const filterTasksByDate = (tasks, targetDate) => {
+    return tasks.filter(task => {
+      const taskDate = moment(task.date).format('YYYY-MM-DD');
+      return taskDate === targetDate;
+    });
+  };
+
+  const filteredAndSortedTasks = filterTasksByDate(tasks, day);
+
+  //TODO Підставити відфільтрований список в фільтр по категоріям
   const tasksByCategory = categories.reduce((acc, category) => {
-    acc[category] = tasks.filter(task => task.category === category);
+    acc[category] = filteredAndSortedTasks.filter(
+      task => task.category === category
+    );
     return acc;
   }, {});
 
