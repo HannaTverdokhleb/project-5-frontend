@@ -1,19 +1,15 @@
+import css from './TasksColumn.module.css';
 import { useState } from 'react';
 import ButtonAddTask from '../ButtonAddTask/ButtonAddTask';
 import ColumnHeadBar from '../ColumnHeadBar/ColumnHeadBar';
 import ColumnTasksList from '../ColumnTasksList/ColumnTasksList';
 import Popup from 'components/Popup/Popup';
 
-import css from './TasksColumn.module.css';
-// import Popup from 'components/Popup/Popup';
-
-const TasksColumn = ({ task, headBarName, catId }) => {
+const TasksColumn = ({ tasks, headBarName, catId }) => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [selectedTask, setSelectedTask] = useState(null);
 
-
- const openPopup = task => {
-
+  const openPopup = task => {
     setIsPopupOpen(true);
   };
 
@@ -34,7 +30,7 @@ const TasksColumn = ({ task, headBarName, catId }) => {
         openPopup={openPopup}
       />
       <ColumnTasksList
-        // tasks={tasks}
+        tasks={tasks}
         openPopup={openPopup}
         handleTask={handleTask}
       />
