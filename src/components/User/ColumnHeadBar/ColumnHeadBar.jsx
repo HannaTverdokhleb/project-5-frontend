@@ -5,7 +5,7 @@ import { FiPlusCircle } from 'react-icons/fi';
 const ColumnHeadBar = ({ headBarName, catId, openPopup }) => {
   return (
     <div className={css.columnHeadBar}>
-      <h3>{headBarName}</h3>
+      <h3 className={css.columnTitle}>{headBarName}</h3>
       <button
         className={css.buttonIconAddTask}
         type="button"
