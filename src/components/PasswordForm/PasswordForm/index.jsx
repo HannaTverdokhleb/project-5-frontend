@@ -2,15 +2,15 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import '@smastrom/react-rating/style.css';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-import Loader from 'components/Loader/Loader';
+// import Loader from 'components/Loader/Loader';
 
-import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+// import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 
 import {
   patchPassword,
 } from 'redux/Auth/operations';
-import { selectOwnReviews, selectReviewLoading } from 'redux/reviews/reviewsSelectors';
+// import { selectOwnReviews, selectReviewLoading } from 'redux/reviews/reviewsSelectors';
 
 import { RxCross1 } from 'react-icons/rx';
 
