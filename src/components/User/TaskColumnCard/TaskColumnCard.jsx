@@ -3,24 +3,24 @@ import avatar from '../../../images/desktopImages/header/header_desk@1x.png';
 
 import TaskToolbar from '../TaskToolbar/TaskToolbar';
 
-const TaskColumnCard = props => {
-  //props => taskDescription, avatar, priority
+const TaskColumnCard = ({ task, user: { avatarURL, name }, onOpenPopup }) => {
   return (
     <div className={css.cardWrapper}>
-      <p className={css.taskDescription}>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque sed
-        laborum voluptate.
-      </p>
+      <p className={css.taskDescription}>{task.title}</p>
       <div className={css.cardFooter}>
         <div className={css.infoBox}>
           <img
             className={css.infoBoxAvatar}
-            src={avatar}
-            alt="The avatar of the task performer"
+            src={avatarURL || avatar}
+            alt={name}
           />
-          <span className={css.infoBoxTaskPriority}>Medium</span>
+          <span className={`${css.infoBoxTaskPriority} ${css[task.priority]}`}>
+            {`${task.priority.charAt(0).toUpperCase()}${task.priority.slice(
+              1
+            )}`}
+          </span>
         </div>
-        <TaskToolbar />
+        <TaskToolbar onOpenPopup={onOpenPopup} task={task} />
       </div>
     </div>
   );

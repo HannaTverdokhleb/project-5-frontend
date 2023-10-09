@@ -19,8 +19,8 @@ import { fetchReviews } from 'redux/reviews/reviewsOperations';
 import { selectReviews } from 'redux/reviews/reviewsSelectors';
 
 export const StarRating = ({ rating }) => {
-  // Ensure that the rating is within the range of 0 to 5
-  const sanitizedRating = Math.min(Math.max(rating, 0), 5);
+  // Ensure that the rating is within the range of 1 to 5
+  const sanitizedRating = Math.min(Math.max(rating, 1), 5);
 
   const renderStars = () => {
     const stars = [];

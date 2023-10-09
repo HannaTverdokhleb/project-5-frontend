@@ -2,11 +2,15 @@ import css from './ColumnHeadBar.module.css';
 
 import { FiPlusCircle } from 'react-icons/fi';
 
-const ColumnHeadBar = props => {
+const ColumnHeadBar = ({ headBarName, catId, onOpenPopup }) => {
   return (
     <div className={css.columnHeadBar}>
-      <span>{props.headBarName}</span>
-      <button className={css.buttonIconAddTask} type="button">
+      <h3>{headBarName}</h3>
+      <button
+        className={css.buttonIconAddTask}
+        type="button"
+        onClick={onOpenPopup}
+      >
         <FiPlusCircle />
       </button>
     </div>

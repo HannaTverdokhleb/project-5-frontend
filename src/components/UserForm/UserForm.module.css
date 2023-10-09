@@ -1,12 +1,19 @@
 @import '../../css/variables.css';
 
+
+.avatarContainerLoader {
+  overflow: hidden;
+  position: absolute;
+  border-radius: 50%;
+  overflow: hidden;
+  left: -3px;
+  right: -3px;
+  top: -3px;
+  bottom: -3px;
+}
 .userContainer {
-  @media screen and (max-width: 767px) {
-    position: relative;
-  }
   box-sizing: border-box;
-  width: 335px;
-  padding: 59px 18px 40px 18px;
+  padding: 59px 18px 0px 18px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -16,88 +23,146 @@
   height: 100%;
   background-color: var(--background-color-secondary);
   border-radius: 16px;
-
-  @media screen and (min-width: 768px) {
-    width: 704px;
-    padding: 40px 175px 40px 175px;
+  @media screen and (max-width: 767px) {
+    position: relative;
+    margin-top: 95px;
   }
-
+  @media screen and (min-width: 768px) {
+    padding: 40px;
+  }
   @media screen and (min-width: 1440px) {
-    width: 1087px;
-    padding: 60px 165px 60px 165px;
+    padding: 60px;
   }
 }
 
 .userForm {
-  box-sizing: borded-box;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   width: 100%;
-
+  position: relative;
+  max-width: 758px;
   @media screen and (min-width: 1440px) {
     flex-direction: column;
   }
+  @media screen and (max-width: 767px) {
+    transform: translateY(-40px);
+    max-width: 358px;
+    margin: 0 auto;
+    justify-content: center;
+  }
 }
-
-.avatarContainer {
-  position: absolute;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* left: calc((100%-50vw) / 2); */
-  top: -36px;
+@media (max-width: 1440px) {
+  .userForm {
+    max-width: 358px;
+    margin: 0 auto;
+    justify-content: center;
+  }
+}
+.avararLabel,
+.avatarInput {
+  display: block;
+  border-radius: 50%;
+  opacity: 0;
   width: 72px;
   height: 72px;
-  border: 2px solid #3e85f3;
-  border-radius: 50%;
-  background: #ffffff;
-
+  cursor: pointer;
+  z-index: 2;
+  position: relative;
+  color: var(--feedback-text-primary);
   @media screen and (min-width: 768px) {
-    position: relative;
+    width: 124px;
+    height: 124px;
+  }
+}
+.avatarContainer {
+  position: relative;
+  cursor: pointer;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  @media screen and (min-width: 768px) {
     margin-bottom: 20px;
     width: 124px;
     height: 124px;
   }
+  @media screen and (max-width: 767px) {
+    transform: translateY(-90px);
+    margin-bottom: 18px;
+  }
   @media screen and (min-width: 1440px) {
     margin-bottom: 20px;
   }
 }
-
-.plusInBorder {
+.avatarContainer:hover .plusInBorder {
+  color: #3E85F3;
+  background-color: #fff;
+  border-color: #3E85F3;
+}
+.avatarImage {
   position: absolute;
-  top: 55px;
-  left: 50px;
-  width: 14px;
-  height: 14px;
+  top: 0px;
+  left: 0px;
+  border-radius: 50%;
+  width: 100%;
+  z-index: 1;
+  border: 3px solid #3E85F3;
+  background-color: var(--background-color-secondary);
+}
+.plusInBorder {
+  transform: translate(77px, -23px);
+  /* position: absolute; */
+  /* top: 55px;
+  left: 50px; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  color: #fff;
+  border: 1px solid transparent;
+  width: 13px;
+  height: 13px;
   background-color: #2b78ef;
   border-radius: 50%;
+  position: relative;
+  z-index: 3;
+  transition: all linear 0.3s;
   @media screen and (min-width: 768px) {
     width: 24px;
     height: 24px;
+  }
+  @media screen and (max-width: 767px) {
+    font-size: 20px;
+    transform: translate(47px, -12px);
+  }
+  & span {
+    padding-bottom: 6px;
   }
 }
 
 .avatarUserName {
   margin-bottom: 4px;
-  font-family: Inter;
+  font-family: 'Inter';
   font-size: 14px;
   font-style: normal;
   font-weight: 700;
   line-height: calc(18 / 14);
-
+  color: var(--login-register-text-color);
   @media screen and (min-width: 768px) {
     margin-bottom: 8px;
-    color: #343434;
     font-size: 18px;
     line-height: 1;
+  }
+  @media screen and (max-width: 767px) {
+    transform: translateY(-90px);
   }
 }
 
 .avatarUserType {
   margin-bottom: 40px;
   color: #343434;
-  font-family: Inter;
+  font-family: 'Inter';
   font-size: 12px;
   font-style: normal;
   font-weight: 600;
@@ -107,13 +172,17 @@
     font-size: 14px;
     line-height: calc(18 / 14);
   }
+  @media screen and (max-width: 767px) {
+    transform: translateY(-90px);
+    margin-bottom: 0;
+  }
 }
 
 .inputPrimaryWrapper {
   width: 100%;
   display: flex;
   flex-direction: column;
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1441px) {
     flex-direction: row;
     justify-content: space-between;
 
@@ -122,18 +191,18 @@
 }
 
 .inputFirstWrapper {
-  max-width: 299px;
+  max-width: 100%;
 
   @media screen and (min-width: 768px) {
-    width: 354px;
+    max-width: 354px;
   }
 }
 
 .inputSecondWrapper {
-  max-width: 299px;
+  max-width: 100%;
 
   @media screen and (min-width: 768px) {
-    width: 354px;
+    max-width: 354px;
   }
 }
 
@@ -144,31 +213,37 @@
   font-size: 14px;
   line-height: calc(18 / 14);
   color: var(--text-color-primary);
-  /* height: auto; */
+  display: block;
+  position: relative;
+}
+.userLabel div {
+  color: red;
+  position: absolute;
+  bottom: 4px;
+  left: 18px;
+  white-space: nowrap;
 }
 
 .userInput {
   box-sizing: border-box;
   width: 100%;
   height: 42px;
-  margin-bottom: 18px;
+  margin: 8px 0 18px;
   padding: 14px 18px;
   padding-right: 28px;
   border: 1px solid var(--input-border-color-primary);
-
   border-radius: 8px;
   background: transparent;
   font-style: normal;
   font-family: 'Inter';
-
   font-weight: 600;
   font-size: 16px;
   line-height: calc(18 / 16);
-  color: black;
+  color: var(--login-register-text-color);
 
   @media screen and (min-width: 768px) {
     margin-bottom: 24px;
-    width: 354px;
+    /* width: 354px; */
     height: 46px;
     font-size: 16px;
     line-height: calc(18 / 16);
@@ -182,7 +257,6 @@
 .submitBtn {
   align-self: center;
   padding: 0;
-
   width: 195px;
   height: 46px;
   border-radius: 16px;
@@ -205,4 +279,14 @@
   &:hover {
     background-color: #2b78ef;
   }
+}
+
+
+.avatarContainerLoader {
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
 }
