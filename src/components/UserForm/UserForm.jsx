@@ -34,11 +34,14 @@ const UserForm = () => {
   const user = useSelector(selectUser);
   const [isLoadingAva, setIsLoadingAva] = useState(false);
   const [isLoadingForm, setIsLoadingForm] = useState(false);
+  const [isDisabled, setIsDisabled] = useState(true);
 
   let birthday = '';
   if (user.birthday) {
     birthday = moment(user.birthday).format('YYYY-MM-DD');
   }
+  let dateMax = moment().format('YYYY-MM-DD');
+  let dateMin = '1900-01-01';
 
   const initialValues = {
     name: user.name || '',
@@ -50,16 +53,21 @@ const UserForm = () => {
 
   const isGoogleAccount = /\w.+@gmail.com$/.test(user?.email)
 
+  const handleChange = () => {
+    setIsDisabled(false);
+  }
+
   const handleSubmit = values => {
     setIsLoadingForm(true);
     dispatch(editUser(values))
     .then(data => {
       setIsLoadingForm(false);
       if (data.type === 'user/edit/fulfilled') {
-        Notify.info('Your profile has been updated successfully.');
+        Notify.success('Your profile has been updated successfully.');
       } else if (data.type === 'user/edit/rejected') {
         Notify.failure('Something went wrong, ' + data.payload);
       }
+      setIsDisabled(true);
     })
     .catch(error => {
       Notify.failure('Something went wrong, ' + error.message);
@@ -73,7 +81,7 @@ const UserForm = () => {
     .then(data => {
       setIsLoadingAva(false);
       if (data.type === 'user/patchAvatar/fulfilled') {
-        Notify.info('Your avatar has been updated successfully.');
+        Notify.success('Your avatar has been updated successfully.');
       } else if (data.type === 'user/patchAvatar/rejected') {
         Notify.failure('Something went wrong, try again or upload another image.');
       }
@@ -97,6 +105,7 @@ const UserForm = () => {
               <>
                 <label className={css.avararLabel}>
                   <input type="file" name="ava" onChange={handleFile} className={css.avatarInput} title="Add new image!"/>
+                  <div className={css.plusInBorder}><span>+</span></div>
                 </label>
 
                 {user.avatarURL ?
@@ -104,8 +113,6 @@ const UserForm = () => {
                   :
                   <AiOutlineUser className={css.avatarImage} style={{width: 120, height: 120, color: '#3e85f3'}} />
                 }
-
-                <div className={css.plusInBorder}><span>+</span></div>
               </> :
               <div className={css.avatarContainerLoader}><Loader absolute={true} /></div>
             }
@@ -125,6 +132,7 @@ const UserForm = () => {
                       name="name"
                       id="name"
                       placeholder="Enter your name"
+                      onKeyUp={handleChange}
                     ></Field>
                     <ErrorMessage name="name" component="div" />
                   </label>
@@ -134,9 +142,12 @@ const UserForm = () => {
                       className={css.userInput}
                       type="date"
                       name="birthday"
+                      max={dateMax}
+                      min={dateMin}
                       id="birthday"
                       placeholder="Enter your birthday"
                       lang="en-US"
+                      onKeyUp={handleChange}
                     ></Field>
                     <ErrorMessage name="birthday" component="div" />
                   </label>
@@ -148,6 +159,7 @@ const UserForm = () => {
                     name="email"
                     id="email"
                     placeholder="Enter your name"
+                    onKeyUp={handleChange}
                   ></Field>
                   <ErrorMessage name="email" component="div" />
                 </label>
@@ -160,6 +172,7 @@ const UserForm = () => {
                     type="tel"
                     name="phone"
                     placeholder="+380"
+                    onKeyUp={handleChange}
                   ></Field>
                   <ErrorMessage name="phone" component="div" />
                 </label>
@@ -170,12 +183,13 @@ const UserForm = () => {
                     type="text"
                     name="skype"
                     placeholder="Enter your Skype"
+                    onKeyUp={handleChange}
                   ></Field>
                   <ErrorMessage name="skype" component="div" />
                 </label>
               </div>
             </div>
-            <button className={css.submitBtn} type="submit">
+            <button disabled={isDisabled ? true : ''} className={css.submitBtn} type="submit">
               Save Changes
             </button>
 

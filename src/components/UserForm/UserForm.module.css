@@ -63,17 +63,20 @@
 .avatarInput {
   display: block;
   border-radius: 50%;
-  opacity: 0;
   width: 72px;
   height: 72px;
   cursor: pointer;
   z-index: 2;
   position: relative;
+  font-size: 0;
   color: var(--feedback-text-primary);
   @media screen and (min-width: 768px) {
     width: 124px;
     height: 124px;
   }
+}
+.avatarInput {
+  opacity: 0;
 }
 .avatarContainer {
   position: relative;
@@ -108,6 +111,7 @@
   width: 100%;
   z-index: 1;
   border: 3px solid #3E85F3;
+  font-size: 0;
   background-color: var(--background-color-secondary);
 }
 .plusInBorder {
@@ -253,7 +257,9 @@
     border: 1px solid var(--input-border-color-secondary);
   }
 }
-
+.userInput::placeholder {
+  color: var(--login-register-text-color);
+}
 .submitBtn {
   align-self: center;
   padding: 0;
@@ -280,7 +286,9 @@
     background-color: #2b78ef;
   }
 }
-
+.submitBtn[disabled] {
+  opacity: 0.6;
+}
 
 .avatarContainerLoader {
   overflow: hidden;
