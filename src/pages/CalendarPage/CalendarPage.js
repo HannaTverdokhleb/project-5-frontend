@@ -62,7 +62,7 @@ function CalendarPicker({ month }) {
         calendarClassName={cssPopup.calendar}
         dateFormat='MMMM yyyy'
       />
-      <PeriodPaginator
+      <PeriodPaginator 
         leftClick={leftClick}
         rightClick={rightClick} />
     </div>
@@ -114,11 +114,7 @@ function ChosenMonth({ month }) {
     <>
       <div className={css.pageWrapper}>
         <CalendarPicker month={month} />
-      </div>
-      <div className={css.pageWrapper}>
         <CalendarTitle />
-      </div>
-      <div className={css.pageWrapper}>
         <CalendarTable month={month} />
       </div>
     </>

@@ -216,7 +216,7 @@
   font-weight: 400;
   font-size: 14px;
   line-height: calc(18 / 14);
-  color: var(--text-color-primary);
+  color: var(--feedback-text-primary);
   display: block;
   position: relative;
 }

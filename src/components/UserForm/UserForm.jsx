@@ -111,7 +111,7 @@ const UserForm = () => {
                 {user.avatarURL ?
                   <img src={user.avatarURL} alt="avatar" width="120" height="120" className={css.avatarImage} />
                   :
-                  <AiOutlineUser className={css.avatarImage} style={{width: 120, height: 120, color: '#3e85f3'}} />
+                  <AiOutlineUser className={css.avatarImage} style={{width: 120, height: 120, color: '#3E85F32E', padding: '36px'}} />
                 }
               </> :
               <div className={css.avatarContainerLoader}><Loader absolute={true} /></div>
@@ -121,7 +121,7 @@ const UserForm = () => {
           <h2 className={css.avatarUserName}>{user.name || 'User'}</h2>
           <p className={css.avatarUserType}>User</p>
 
-          <Form className={css.userForm} autoComplete='on'>
+          <Form className={css.userForm} autoComplete="off">
             <div className={css.inputPrimaryWrapper}>
               <div className={css.inputFirstWrapper}>
                 <label className={css.userLabel}>
