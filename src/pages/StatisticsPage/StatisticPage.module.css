@@ -1,28 +1,28 @@
 @import '/src/css/variables.css';
 
-.boxToolbar{
+.boxToolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.calendarToolbar {
+  margin-bottom: 24px;
+}
+
+@media screen and (min-width: 768px) {
+  .calendarToolbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 18px;
+  }
 }
 
-.calendarToolbar{
-margin-bottom: 24px;
-}
-
-@media screen and (min-width: 768px){
-.calendarToolbar{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-}
-
-@media screen and (min-width: 768px){
-.boxToolbar{
+@media screen and (min-width: 768px) {
+  .boxToolbar {
     gap: 8px;
     margin-bottom: 0;
+  }
 }
-};
 
