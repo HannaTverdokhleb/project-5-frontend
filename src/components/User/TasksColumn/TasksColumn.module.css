@@ -2,7 +2,8 @@
 @import '../../../css/variables.css';
 
 .tasksColumnWrapper {
-	outline: 1px solid thistle;
+	position: relative;
+	
 	display: flex;
 	flex-direction: column;
 	/* align-items: flex-start; */

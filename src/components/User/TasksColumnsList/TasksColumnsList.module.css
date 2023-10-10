@@ -21,15 +21,22 @@ max-width: 1087px;
 }
 
 .tasksColumnsList  {
+	outline: 1px solid red;
+
+
 	display: flex;
 	gap: 27px;
 	/* justify-content: space-between; */
-	height: 100%;
+	height: 100dvh;
 	min-width: 100%;
+
+	border-radius: 8px;;
 
 	overflow-x: scroll;
 
 	background-color: var(--background-color-primary);
+
+	transition: height 0.2 linear;
 }
 
 @media screen and (min-width: 1024px) {
