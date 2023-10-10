@@ -3,17 +3,20 @@
 .columnTasksList {
 	display: flex;
 	flex-direction: column;
-	gap: 18px;
-
-	/* height:500px; */
-	/* max-height:500px; */
 	height: 100%;
-	outline: 1px solid green;
-
 	border-radius: 8px;
-
-
-
-	/* overflow-y: scroll; */
-	 overflow-y: auto;
+	overflow-y: auto;
+	scrollbar-width: thin;          /* "auto" или "thin" */
+  	scrollbar-color: #E7E5E5 #E7E5E5;   /* цвет бегунка и зоны отслеживания */
+}
+.columnTasksList::-webkit-scrollbar {
+	width: 8px;               /* ширина всей полосы прокрутки */
+  }
+.columnTasksList::-webkit-scrollbar-track {
+	background: #F2F2F2;      /* цвет зоны отслеживания */
+}
+.columnTasksList::-webkit-scrollbar-thumb {
+	background: #E7E5E5;;    /* цвет бегунка */
+	border-radius: 12px;       /* округлось бегунка */
+	border: 3px solid #E7E5E5;  /* отступ вокруг бегунка */
 }

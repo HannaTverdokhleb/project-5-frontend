@@ -47,6 +47,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  scrollbar-width: thin;          /* "auto" или "thin" */
+  scrollbar-color: #E7E5E5 #E7E5E5;   /* цвет бегунка и зоны отслеживания */
 }
 
 code {
@@ -57,4 +59,18 @@ code {
 .dark {
   color: var(--main-color-blue);
   background-color: var(--bcg-color-dark-grey);
+}
+/*  SCROLL   */
+body::-webkit-scrollbar {
+  width: 10px;               /* ширина всей полосы прокрутки */
+}
+
+body::-webkit-scrollbar-track {
+  background: #F2F2F2;      /* цвет зоны отслеживания */
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #E7E5E5;;    /* цвет бегунка */
+  border-radius: 12px;       /* округлось бегунка */
+  border: 3px solid #E7E5E5;  /* отступ вокруг бегунка */
 }
