@@ -85,12 +85,12 @@ export const CalendarTable = ({ month }) => {
   };
 
   const lastNumberOfTable = CalendarTable[0].lastNumberOfTable;
+  let curDate = moment().format('DD-MM-YYYY');
 
   return (
     <ul className={css.container} data={lastNumberOfTable}>
       {CalendarTable.map((element, i) => {
         let curDateCell = moment([curYear, curMonth, element.dayValue]).format('DD-MM-YYYY');
-        let curDate = moment().format('DD-MM-YYYY');
         let isCurrent = curDate === curDateCell ? 'true' : 'false';
 
         return (
