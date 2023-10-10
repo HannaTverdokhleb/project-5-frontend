@@ -1,5 +1,5 @@
 import css from './TaskColumnCard.module.css';
-import avatar from '../../../images/desktopImages/header/header_desk@1x.png';
+// import avatar from '../../../images/desktopImages/header/header_desk@1x.png';
 
 import TaskToolbar from '../TaskToolbar/TaskToolbar';
 
