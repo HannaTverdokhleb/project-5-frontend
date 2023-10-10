@@ -54,12 +54,31 @@
 }
 
 .infoBoxAvatar {
+	display: flex;
+  justify-content: center;
+  align-items: center;
 
 	width: 32px;
 	height: 32px;
 
 	border-radius: 50%;
-	border: var(--task-avatar-border);
+	border: 1.8px solid var(--task-avatar-border);
+
+}
+
+.infoBoxTextAvatar {
+ 	display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  color: var(--text-color-secondary);
+  background-color: var(--background-color-quaternary);
+  font-family: 'Inter';
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
 }
 
 .infoBoxTaskPriority {
