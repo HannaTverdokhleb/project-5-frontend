@@ -12,6 +12,7 @@ import { routes } from '../../configs/routes';
 import TasksColumnsList from 'components/User/TasksColumnsList/TasksColumnsList';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import PeriodPaginator from '../../components/User/CalendarToolbar/PeriodPaginator/PeriodPaginator';
 
 function CalendarPicker({ month }) {
   const navigate = useNavigate();
@@ -20,8 +21,26 @@ function CalendarPicker({ month }) {
     navigate(
       `${routes.private.month.path.replace(
         ':month',
-        moment(date).format('YYYY-MM')
-      )}`
+        moment(date).format('YYYY-MM'),
+      )}`,
+    );
+  };
+
+  const leftClick = () => {
+    navigate(
+      `${routes.private.month.path.replace(
+        ':month',
+        moment(month).subtract(1, 'month').format('YYYY-MM'),
+      )}`,
+    );
+  };
+
+  const rightClick = () => {
+    navigate(
+      `${routes.private.month.path.replace(
+        ':month',
+        moment(month).add(1, 'month').format('YYYY-MM'),
+      )}`,
     );
   };
 
@@ -32,16 +51,22 @@ function CalendarPicker({ month }) {
   ));
 
   return (
-    <DatePicker
-      calendarStartDay={1}
-      showPopperArrow={false}
-      selected={new Date(month)}
-      onChange={handleChange}
-      customInput={<CustomInput />}
-      fixedHeight={cssPopup.fixedHeight}
-      calendarClassName={cssPopup.calendar}
-      dateFormat="MMMM yyyy"
-    />
+    <div className={css.picker}>
+      <DatePicker
+        calendarStartDay={1}
+        showPopperArrow={false}
+        selected={new Date(month)}
+        onChange={handleChange}
+        customInput={<CustomInput />}
+        fixedHeight={cssPopup.fixedHeight}
+        calendarClassName={cssPopup.calendar}
+        dateFormat='MMMM yyyy'
+      />
+      <PeriodPaginator
+        leftClick={leftClick}
+        rightClick={rightClick} />
+    </div>
+
   );
 }
 
@@ -108,8 +133,8 @@ const CalendarPage = () => {
 
   useEffect(() => {
     !month &&
-      !day &&
-      navigate(`${routes.private.month.path.replace(':month', currentMonth)}`);
+    !day &&
+    navigate(`${routes.private.month.path.replace(':month', currentMonth)}`);
     dispatch(currentPage('Calendar'));
   }, [currentMonth, day, dispatch, month, navigate]);
 

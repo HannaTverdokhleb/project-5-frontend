@@ -34,3 +34,11 @@
     outline: 1px solid red */
   }
 }
+
+.picker{
+  gap: 8px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 18px;
+}
