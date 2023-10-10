@@ -38,7 +38,18 @@
 	font-size: 14px;
 	font-weight: 500;
 	line-height: 1.29; /* 128.571% */
+
+	transition: max-width 0.3s ease-in-out;
 	} 
+
+.taskDescription:hover,
+.taskDescription:focus {
+  max-width: none;
+  white-space: normal;
+	/* overflow-y: auto; */
+	max-height: 36px;
+	
+}
 
 .cardFooter {
 /* position: relative; */
