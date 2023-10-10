@@ -1,8 +1,6 @@
 @import "../../../css/variables.css";
 
 .cardWrapper {
-	/* position: relative; */
-
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -10,23 +8,22 @@
 	padding: 14px 14px 18px 14px;
 
 	max-width: 299px;
-	/* max-height: 112px; */
-	height: 108px;
+	min-height: 108px;
 
 	background-color: var(--background-color-primary);
 	border-radius: 8px;
 	border: var(--task-item-border);
 
 	font: inherit;
-
 }
+
 
 .taskDescription {
 	align-self: flex-start;
 
 	max-width: 272px;
-	/* max-height: 16px;
-	height: 16px; */
+	/* max-height: 16px;*/
+	height: 16px; 
 	
 	white-space: nowrap;
 	overflow: hidden;
@@ -39,15 +36,16 @@
 	font-weight: 500;
 	line-height: 1.29; /* 128.571% */
 
-	transition: max-width 0.3s ease-in-out;
 	} 
 
 .taskDescription:hover,
 .taskDescription:focus {
-  max-width: none;
+	cursor: pointer;
+
+	height: fit-content;
+
   white-space: normal;
-	/* overflow-y: auto; */
-	max-height: 36px;
+	word-break: break-all;
 	
 }
 
@@ -78,7 +76,7 @@
 }
 
 .infoBoxTextAvatar {
- 	display: flex;
+	display: flex;
   justify-content: center;
   align-items: center;
   width: 32px;
@@ -93,7 +91,6 @@
 }
 
 .infoBoxTaskPriority {
-	/* text-align: center; */
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -128,29 +125,14 @@
 
 		max-width: 300px;
 		/* max-height: 112px; */
-		height: 112px;
-
-		background-color: var(--background-color-primary);
-		border-radius: 8px;
-		border: var(--task-item-border)
+		min-height: 112px;
 	}
 
+
 	.taskDescription {
-	align-self: flex-start;
 
-	max-width: 272px;
-	/* max-height: 16px;
-	height: 16px; */
+	max-width: 260px;
 	
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
-
-	color: var(--text-color-primary);
-	font-size: 14px;
-	font-weight: 500;
-	line-height: 1.29; /* 128.571% */
-
-
 	} 
+
 }
