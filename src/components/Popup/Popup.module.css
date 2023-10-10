@@ -2,7 +2,7 @@
 .popupContainer {
     position: relative;
     font-family: inherit;
-    background-color: #fff;
+    background-color: var(--background-color-secondary);
     margin: 0 auto;
     width: 396px;
     }
@@ -12,11 +12,10 @@
 }
     
 .closeButton{
-    content: url(../../images/x-close.svg);
+    color: var(--text-color-primary);
     position: absolute;
     top: 14px;
     right: 14px;
-    
     cursor: pointer;
 }
 
@@ -68,7 +67,8 @@ flex-direction: column;
 
 
 .timeInput {
-border: none;
+    position: relative;
+    border: none;
     border-radius: 8px;
     background: var(--add-task-input-background);
     width: 163px;
@@ -84,7 +84,14 @@ border: none;
 }
 
 input[type="time"]::-webkit-calendar-picker-indicator {
-    opacity: 0;
+    color: var(--text-color-primary);
+    display: block;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background: transparent;
 }
 
 
