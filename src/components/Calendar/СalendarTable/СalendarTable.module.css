@@ -31,7 +31,7 @@
   top: 10px;
 }
 
-.textDays[isCurrent='true'] {
+.textDays[isсurrent='true'] {
   border-radius: 8px;
   background: #3e85f3;
   display: inline-flex;

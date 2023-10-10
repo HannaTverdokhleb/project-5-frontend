@@ -66,6 +66,8 @@ let fillCalendar = (firstDateMonth, allTasks) => {
 
 export const CalendarTable = ({ month }) => {
   const date = moment(month).format('DD-MM-YYYY');
+  const curMonth = moment(month).format('MM')-1;
+  const curYear = moment(month).format('YYYY');
   const tasks = useSelector(selectTasks);
   const CalendarTable = fillCalendar(date, tasks);
 
@@ -87,7 +89,10 @@ export const CalendarTable = ({ month }) => {
   return (
     <ul className={css.container} data={lastNumberOfTable}>
       {CalendarTable.map((element, i) => {
-        let isCurrent = element.dayValue === moment().date() ? 'true' : 'false';
+        let curDateCell = moment([curYear, curMonth, element.dayValue]).format('DD-MM-YYYY');
+        let curDate = moment().format('DD-MM-YYYY');
+        let isCurrent = curDate === curDateCell ? 'true' : 'false';
+
         return (
           <li
             key={i}
@@ -99,7 +104,7 @@ export const CalendarTable = ({ month }) => {
               return false;
             }}
           >
-            <div className={css.textDays} isCurrent={isCurrent}>
+            <div className={css.textDays} isсurrent={isCurrent}>
               {element.dayValue}
             </div>
             <div className={css.textTask} data-priority={element.priority}>
