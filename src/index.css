@@ -74,3 +74,6 @@ body::-webkit-scrollbar-thumb {
   border-radius: 12px;       /* округлось бегунка */
   border: 3px solid #E7E5E5;  /* отступ вокруг бегунка */
 }
+.swiper-button-disabled {
+  opacity: 0.5;
+}

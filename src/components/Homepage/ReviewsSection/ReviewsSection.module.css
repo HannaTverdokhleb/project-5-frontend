@@ -1,5 +1,6 @@
 .container {
-  margin-top: 40px;
+  margin: 40px auto 64px;
+  padding: 0 20px;
 }
 .container * {
   box-sizing: border-box;
@@ -14,7 +15,6 @@
 
 .slideAuthor {
   display: flex;
-  margin-bottom: 24px;
   font-family: 'Inter', sans-serif;
   font-size: 18px;
   font-weight: 700;
@@ -25,10 +25,16 @@
 .authorDetails {
   padding-left: 18px;
 }
+.authorDetails h3 {
+  margin-bottom: 11px;
+  font-size: 18px;
+  line-height: 1;
+}
 
 .picture {
   width: 50px;
   height: 50px;
+  flex: 0 0 50px;
   background-color: #eaeaea;
   border-radius: 50%;
 }
@@ -39,6 +45,7 @@
   font-weight: 500;
   line-height: 18px;
   color: #595959;
+  min-height: 54px;
 }
 
 .titleH2 {
@@ -50,14 +57,6 @@
   font-weight: 700;
 }
 
-/* .star-filled {
-  background-image: url('../../../images/star-filled.png');
-}
-
-.star-empty {
-  background-image: url('../../../images/star.png');
-} */
-
 @media screen and (min-width: 768px) {
   .titleH2 {
     font-size: 40px;
@@ -66,9 +65,40 @@
 
 @media screen and (min-width: 992px) {
   .container {
-    margin: 50px auto 0;
     padding: 0 20px;
+    margin: 50px auto 118px;
     max-width: 1184px;
     width: 100%;
+  }
+}
+.swipperArrows {
+  margin-top: 32px;
+  display: flex;
+  justify-content: center;
+}
+.swipperArrows svg {
+  cursor: pointer;
+  transition: all ease 0.3s;
+}
+.swipperArrows svg:hover path {
+  fill: #3E85F3;
+}
+.swiper-button-disabled {
+  opacity: 0.6;
+}
+.swipperArrows svg:first-child {
+  margin-right: 22px;
+}
+@media (max-width: 1023px) {
+  .slideContainer {
+    margin: 0 auto;
+  }
+}
+@media (max-width: 767px) {
+  .slideContainer {
+    padding: 24px;
+  }
+  .mainText {
+    margin-left: -68px;
   }
 }
