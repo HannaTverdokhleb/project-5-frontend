@@ -13,20 +13,21 @@ const dateFormat = firstDateMonth => {
   const lastDayOfMonth = Number(
     moment(firstDateMonth, 'DD-MM-YYYY').endOf('month').format('DD')
   );
-  const currentMonth = Number(moment(firstDateMonth, 'DD-MM-YYYY').month()) + 1;
 
-  return { dayOfWeek, lastDayOfMonth, currentMonth };
+
+  return { dayOfWeek, lastDayOfMonth };
 };
 //
 
 let fillCalendar = (firstDateMonth, allTasks) => {
-  // firstDateMonth = '01-10-2023'; // це для тестування
 
-  const { dayOfWeek, lastDayOfMonth, currentMonth } =
+  const { dayOfWeek, lastDayOfMonth} =
     dateFormat(firstDateMonth);
 
   allTasks = allTasks.filter(
-    task => Number(moment(task.date, 'DD-MM-YYYY').month()) + 1 === currentMonth
+    task =>
+      moment(task.date, 'YYYY-MM-DD').format('MM-YYYY') ===
+      moment(firstDateMonth, 'DD-MM-YYYY').format('MM-YYYY')
   );
 
   const tasks = allTasks.map(task => ({
@@ -66,7 +67,7 @@ let fillCalendar = (firstDateMonth, allTasks) => {
 
 export const CalendarTable = ({ month }) => {
   const date = moment(month).format('DD-MM-YYYY');
-  const curMonth = moment(month).format('MM')-1;
+  const curMonth = moment(month).format('MM') - 1;
   const curYear = moment(month).format('YYYY');
   const tasks = useSelector(selectTasks);
   const CalendarTable = fillCalendar(date, tasks);
@@ -90,7 +91,9 @@ export const CalendarTable = ({ month }) => {
   return (
     <ul className={css.container} data={lastNumberOfTable}>
       {CalendarTable.map((element, i) => {
-        let curDateCell = moment([curYear, curMonth, element.dayValue]).format('DD-MM-YYYY');
+        let curDateCell = moment([curYear, curMonth, element.dayValue]).format(
+          'DD-MM-YYYY'
+        );
         let isCurrent = curDate === curDateCell ? 'true' : 'false';
 
         return (
