@@ -1,22 +1,16 @@
 import css from './TasksColumnsList.module.css';
 
 import TasksColumn from '../TasksColumn/TasksColumn';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { selectTasks } from 'redux/Tasks/selectors';
-import { useEffect } from 'react';
-import { getTasks } from 'redux/Tasks/operations';
+
 import moment from 'moment';
 
 const TasksColumnsList = ({ day }) => {
   const categories = ['to-do', 'in-progress', 'done'];
   const columnTitles = ['To do', 'In progress', 'Done'];
 
-  const dispatch = useDispatch();
   const tasks = useSelector(selectTasks);
-
-  useEffect(() => {
-    dispatch(getTasks());
-  }, [dispatch]);
 
   const filterTasksByDate = (tasks, targetDate) => {
     return tasks.filter(task => {

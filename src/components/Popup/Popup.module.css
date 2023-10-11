@@ -89,7 +89,6 @@ body[data-theme='dark'] .popup input {
   line-height: 1.28;
 }
 
-<<<<<<< Updated upstream
 
 input[type="time"]::-webkit-calendar-picker-indicator {
     color: var(--text-color-primary);
@@ -100,17 +99,8 @@ input[type="time"]::-webkit-calendar-picker-indicator {
     width: 100%;
     position: absolute;
     background: transparent;
-=======
-input[type='time']::-webkit-calendar-picker-indicator {
-  color: var(--text-color-primary);
-  display: block;
-  top: 0;
-  right: 0;
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  background: transparent;
->>>>>>> Stashed changes
+
+
 }
 
 .radioContainer {

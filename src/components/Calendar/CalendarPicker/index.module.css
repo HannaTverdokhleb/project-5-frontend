@@ -3,7 +3,6 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  margin-bottom: 18px;
 }
 
 .customInput {
@@ -19,6 +18,7 @@
   line-height: 1.286;
   font-weight: 700;
   text-transform: uppercase;
+  min-width: 170px;
 }
 
 @media screen and (min-width: 768px) {
@@ -52,4 +52,13 @@
   font-family: 'Inter', sans-serif;
   font-size: 16px;
   font-weight: 600;
+}
+
+@media (max-width: 480px) {
+  
+  .picker {
+    max-width: 100%;
+    width: 100%;
+    justify-content: space-between;
+  }
 }

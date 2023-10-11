@@ -3,9 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { routes } from '../../../configs/routes';
 import classNames from 'classnames';
 import moment from 'moment';
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { getTasks } from '../../../redux/Tasks/operations';
+import { useSelector } from 'react-redux';
 import { selectTasks } from '../../../redux/Tasks/selectors';
 
 const dateFormat = firstDateMonth => {
@@ -73,11 +71,6 @@ export const CalendarTable = ({ month }) => {
   const CalendarTable = fillCalendar(date, tasks);
 
   const navigate = useNavigate();
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getTasks());
-  }, [dispatch]);
 
   const handleDayClick = dayValue => {
     const day = /^\d$/.test(dayValue) ? `0${dayValue}` : dayValue;

@@ -10,18 +10,31 @@ import { CalendarTable } from 'components/Calendar/СalendarTable/СalendarTable
 import CalendarPicker from 'components/Calendar/CalendarPicker';
 import TasksColumnsList from 'components/User/TasksColumnsList/TasksColumnsList';
 import { getTasks } from '../../redux/Tasks/operations';
+import PeriodTypeSelect from 'components/User/CalendarToolbar/PeriodTypeSelect/PeriodTypeSelect';
+
 
 function ChosenDay({ day }) {
   const navigate = useNavigate();
   const isValidFormat =
-    /^\d{4}-(0?[1-9]|1[012])-(0?[1-9]|[12][0-9]|3[01])$/.test(day);
+    /^\d{4}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])$/.test(day);
 
   useEffect(() => {
     !isValidFormat && navigate(`${routes.private.calendar.path}`);
   }, [isValidFormat, navigate]);
 
+  if (!isValidFormat) {
+    return null;
+  }
+
   return (
-    <TasksColumnsList day={day} />
+      <div className={css.pageWrapper}>
+        <div className={css.toolbarWrapper}>
+          <CalendarPicker />
+          <PeriodTypeSelect />
+        </div>
+        <CalendarTitle />
+        <TasksColumnsList day={day} />
+      </div>
   );
 }
 
@@ -33,9 +46,16 @@ function ChosenMonth({ month }) {
     !isValidFormat && navigate(`${routes.private.calendar.path}`);
   }, [isValidFormat, navigate]);
 
+  if (!isValidFormat) {
+    return null;
+  }
+
   return (
     <div className={css.pageWrapper}>
-      <CalendarPicker month={month} />
+      <div className={css.toolbarWrapper} >
+        <CalendarPicker month={month} />
+        <PeriodTypeSelect />
+      </div>
       <CalendarTitle />
       <CalendarTable month={month} />
     </div>
