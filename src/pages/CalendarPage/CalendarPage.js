@@ -31,7 +31,7 @@ function ChosenDay({ day }) {
       <div className={css.pageWrapper}>
         <div className={css.toolbarWrapper}>
           <CalendarPicker />
-          <PeriodTypeSelect />
+          <PeriodTypeSelect day={day} />
         </div>
         <TaskWeek />
         <TasksColumnsList day={day} />
@@ -55,7 +55,7 @@ function ChosenMonth({ month }) {
     <div className={css.pageWrapper}>
       <div className={css.toolbarWrapper} >
         <CalendarPicker month={month} />
-        <PeriodTypeSelect />
+        <PeriodTypeSelect month={month} />
       </div>
       <CalendarTitle />
       <CalendarTable month={month} />

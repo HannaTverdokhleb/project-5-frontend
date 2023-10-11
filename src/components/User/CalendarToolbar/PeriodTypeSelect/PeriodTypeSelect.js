@@ -1,9 +1,9 @@
-import { NavLink, useParams } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import moment from 'moment';
 import css from './PeriodTypeSelect.module.css';
+import { routes } from 'configs/routes';
 
-export default function PeriodTypeSelect() {
-  const { day, month } = useParams();
+export default function PeriodTypeSelect({ day, month }) {
   const now = moment();
   let date;
   if (month) {
@@ -18,10 +18,10 @@ export default function PeriodTypeSelect() {
 
   return (
     <nav className={css.navigation}>
-      <NavLink to={'/calendar/month/' + date.format('YYYY-MM')}
+      <NavLink to={routes.private.month.path.replace(':month', date.format('YYYY-MM'))}
         className={({ isActive }) => `${css['periodBtnLeft']}  ${isActive ? css['active'] : ''}`} 
       >Month</NavLink>
-      <NavLink to={'/calendar/day/' + date.format('YYYY-MM-DD')}
+      <NavLink to={routes.private.day.path.replace(':day', date.format('YYYY-MM-DD'))}
         className={({ isActive }) => `${css['periodBtnRight']}  ${isActive ? css['active'] : ''}`} 
       >Day </NavLink>
     </nav>
