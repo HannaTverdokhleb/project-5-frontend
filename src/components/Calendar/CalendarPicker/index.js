@@ -39,26 +39,25 @@ export default function CalendarPicker({ month }) {
   };
 
   const CustomInput = forwardRef(({ value, onClick }, ref) => (
-    <button className={css.customInput} onClick={onClick} ref={ref}>
-      {value}
-    </button>
-  ));
-
-  return (
     <div className={css.picker}>
-      <DatePicker
-        showPopperArrow={false}
-        selected={new Date(`${month}-${moment().format('DD')}`)}
-        onChange={handleChange}
-        customInput={<CustomInput />}
-        fixedHeight={css.fixedHeight}
-        calendarClassName={css.calendar}
-        dateFormat='MMMM yyyy'
-      />
+      <button className={css.customInput} onClick={onClick} ref={ref}>
+        {value}
+      </button>
       <PeriodPaginator
         leftClick={leftClick}
         rightClick={rightClick} />
     </div>
+  ));
 
+  return (
+    <DatePicker
+      showPopperArrow={false}
+      selected={new Date(`${month}-${moment().format('DD')}`)}
+      onChange={handleChange}
+      customInput={<CustomInput />}
+      fixedHeight={css.fixedHeight}
+      calendarClassName={css.calendar}
+      dateFormat='MMMM yyyy'
+    />
   );
 }
