@@ -3,6 +3,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  font-family: 'Inter', sans-serif;
 }
 
 .header {
@@ -10,6 +11,15 @@
   justify-content: space-between;
   background-color: var(--main-color-blue);
   font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.dropdown {
+  gap: 4px;
+  display: flex;
+  background-color: var(--main-color-blue);
+  font-weight: 700;
+  align-items: center;
 }
 
 select {
@@ -19,6 +29,10 @@ select {
   border: none;
   color: #fff;
   background-color: var(--main-color-blue);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: '';
 }
 
 select:focus-visible {
@@ -27,7 +41,6 @@ select:focus-visible {
 
 .button {
   cursor: pointer;
-  font-size: 24px;
   border: none;
   color: #fff;
   background-color: var(--main-color-blue);
@@ -43,7 +56,6 @@ select:focus-visible {
   text-align: center;
   font-family: Inter, sans-serif;
   font-size: 14px;
-  line-height: 1.286;
   font-weight: 700;
   text-transform: uppercase;
   min-width: 170px;
@@ -110,7 +122,7 @@ div[tabindex='-1'] > .month:hover {
 }
 
 @media (max-width: 480px) {
-  
+
   .picker {
     max-width: 100%;
     width: 100%;
