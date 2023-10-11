@@ -15,8 +15,8 @@
 	flex-shrink: 0;
 
 	width: 335px;
-	min-height: 165px;
-	padding: 18px 18px 10px 18px;
+	min-height: 155px;
+	padding: 18px 18px 20px 18px;
 	
 	border-radius: 8px;
 	border: var(--task-item-border);
