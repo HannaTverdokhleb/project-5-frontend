@@ -1,27 +1,34 @@
 import { useSelector } from 'react-redux';
 import css from './Header.module.css';
 import { RxHamburgerMenu } from 'react-icons/rx';
-// import gooseUrl1x from 'images/desktopImages/header/header_desk@1x.png';
-// import gooseUrl2x from 'images/desktopImages/header/header_desk@2x.png';
+import gooseUrl1x from 'images/desktopImages/header/header_desk@1x.png';
+import gooseUrl2x from 'images/desktopImages/header/header_desk@2x.png';
 import ThemeToggler from '../ThemeToggler/ThemeToggler';
 import UserInfo from '../UserInfo/UserInfo';
 import AddFeedbackBtn from 'components/Feedback/AddFeedbackBtn/AddFeedbackBtn';
+import { useEffect, useState } from 'react';
 
 export const Header = ({ toggleSidebar }) => {
   const namePage = useSelector(state => state.currentPage.namePage);
-  // const tasks = useSelector(state => state.tasks.tasks);
+  const tasks = useSelector(state => state.tasks.tasks);
+  const [motivation, setMotivation] = useState('');
 
-  // const taskDoneInProgress = () => {
-  //   if (tasks) {
-  //     tasks.map(objTask => {
-  //       const dataCategory = objTask.data.find(
-  //         data => data.category === 'toDo' || 'inProgress'
-  //       );
-  //       return dataCategory;
-  //     });
-  //   }
-  //   return 'false';
-  // };
+  useEffect(() => {
+    const dataCategory = tasks.find(
+      objTask =>
+        objTask.category === 'to-do' || objTask.category === 'in-progress'
+    );
+    if (dataCategory) {
+      setMotivation(
+        <p className={css.textCalendarHeader}>
+          <span className={css.textColor}>Let go</span> of the past and focus on
+          the present!
+        </p>
+      );
+    } else {
+      setMotivation('');
+    }
+  }, [tasks]);
 
   return (
     <header className={css.header}>
@@ -34,7 +41,7 @@ export const Header = ({ toggleSidebar }) => {
         >
           <RxHamburgerMenu className={css.burgerIcon} />
         </button>
-        {/* {namePage === 'Calendar' && taskDoneInProgress() === 'true' ? (
+        {namePage === 'Calendar' && motivation ? (
           <div className={css.calendar}>
             <img
               srcSet={`${gooseUrl1x} 1x, ${gooseUrl2x} 2x`}
@@ -43,15 +50,12 @@ export const Header = ({ toggleSidebar }) => {
             />
             <div>
               <h1 className={css.title}>{namePage}</h1>
-              <p className={css.textCalendarHeader}>
-                <span className={css.textColor}>Let go</span> of the past and
-                focus on the present!
-              </p>
+              {motivation}
             </div>
           </div>
-        ) : ( */}
+        ) : (
           <h1 className={css.title}>{namePage}</h1>
-        {/* )} */}
+        )}
       </section>
       <section className={css.info}>
         <AddFeedbackBtn />

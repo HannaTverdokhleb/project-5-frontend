@@ -34,6 +34,10 @@
 	border-radius: 12px;
 }
 
+.tasksColumnsList li:not(:last-child) {
+	margin-bottom: 18px;
+}
+
 @media screen and (min-width: 1024px) {
 	.tasksColumnsList {
 		overflow-x: auto;

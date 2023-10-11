@@ -3,13 +3,8 @@
 .columnTasksList {
 	display: flex;
 	flex-direction: column;
-	gap: 18px;
-
-	/* height:500px; */
-	/* max-height:500px; */
 	height: 100%;
 	border-radius: 8px;
-
 	padding-right: 6px;
 
 	/* overflow-y: scroll; */
@@ -50,5 +45,4 @@
 		background-color: var(--vertical-scrollbar-thumb-color);
 		border-radius: 12px;
 	}
-
 }

@@ -1,53 +1,50 @@
+.container * {
+  box-sizing: border-box;
+}
 .container {
-  width: 335px;
-  height: 470px;
   display: flex;
   flex-wrap: wrap;
-  gap: 1px;
   list-style: none;
-  overflow: hidden;
   border-radius: 8px;
   border: 1px solid var(--login-register-field-hover);
-}
-
-.element {
-  position: relative;
-  flex-basis: calc((100% - 6px) / 7);
-  height: calc((470px - 4px) / 5);
-
-  display: flex;
-  align-items: center;
-
+  overflow: hidden;
   background-color: var(--background-color-secondary);
 }
-
+.element {
+  position: relative;
+  padding: 8px;
+  min-height: 125px;
+  flex-basis: calc(100% / 7);
+  display: flex;
+  align-items: center;
+  border-top: 1px solid #DCE3E5;
+  border-left: 1px solid #DCE3E5;
+}
+.element:nth-child(-n+7) {
+  border-top: transparent;
+}
+.element:nth-child(7n+1) {
+  border-left: transparent;
+}
 .elementLink {
   cursor: pointer;
 }
-
 .textDays {
   position: absolute;
-  right: 10px;
-  top: 10px;
-}
-
-.textDays[isсurrent='true'] {
-  border-radius: 8px;
-  background: #3e85f3;
-  display: inline-flex;
-  padding: 4px 6px;
-  flex-direction: column;
-  align-items: flex-start;
-  display: flex;
-  color: #fff;
-  font-family: Inter;
+  right: 14px;
+  top: 14px;
   font-size: 16px;
-  font-style: normal;
   font-weight: 700;
-  line-height: 18px;
-  text-transform: uppercase;
+  color: var(--add-task-input-text-color);
+  padding: 4px 8px;
+  border-radius: 8px;
+  background: transparent;
+  font-family: Inter;
 }
-
+.textDays[isсurrent='true'] {
+  background: #3e85f3;
+  color: #fff;
+}
 .textTask {
   padding: 6px 10px;
   position: absolute;
@@ -73,33 +70,18 @@
   background-color: #ffd2dd;
   color: #ea3d65;
 }
-
-@media screen and (min-width: 768px) {
-  .container[data='36'] {
-    width: 704px;
-    height: 720px;
-  }
-  .container[data='43'] {
-    width: 704px;
-    height: 864px;
-  }
+@media (max-width: 1099px) {
   .element {
-    height: calc((720px - 4px) / 5);
+    min-height: 145px;
   }
 }
-
-@media screen and (min-width: 1440px) {
-  .container[data='36'] {
-    width: 1087px;
-    height: 625px;
-  }
-
-  .container[data='43'] {
-    width: 1087px;
-    height: 900px;
-  }
-
+@media (max-width: 767px) {
   .element {
-    height: calc((625px - 4px) / 5);
+    min-height: 94px;
+  }
+  .textDays {
+    font-size: 12px;
+    right: 8px;
+    top: 8px;
   }
 }

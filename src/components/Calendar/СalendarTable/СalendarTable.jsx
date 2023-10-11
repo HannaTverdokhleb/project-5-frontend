@@ -89,33 +89,35 @@ export const CalendarTable = ({ month }) => {
   let curDate = moment().format('DD-MM-YYYY');
 
   return (
-    <ul className={css.container} data={lastNumberOfTable}>
-      {CalendarTable.map((element, i) => {
-        let curDateCell = moment([curYear, curMonth, element.dayValue]).format(
-          'DD-MM-YYYY'
-        );
-        let isCurrent = curDate === curDateCell ? 'true' : 'false';
+    <div className={css.calendarListWrapper}>
+      <ul className={css.container} data={lastNumberOfTable}>
+        {CalendarTable.map((element, i) => {
+          let curDateCell = moment([curYear, curMonth, element.dayValue]).format(
+            'DD-MM-YYYY'
+          );
+          let isCurrent = curDate === curDateCell ? 'true' : 'false';
 
-        return (
-          <li
-            key={i}
-            className={classNames(css.element, {
-              [css.elementLink]: element.dayValue,
-            })}
-            onClick={() => {
-              element.dayValue && handleDayClick(element.dayValue);
-              return false;
-            }}
-          >
-            <div className={css.textDays} isсurrent={isCurrent}>
-              {element.dayValue}
-            </div>
-            <div className={css.textTask} data-priority={element.priority}>
-              {element.textTask}
-            </div>
-          </li>
-        );
-      })}
-    </ul>
+          return (
+            <li
+              key={i}
+              className={classNames(css.element, {
+                [css.elementLink]: element.dayValue,
+              })}
+              onClick={() => {
+                element.dayValue && handleDayClick(element.dayValue);
+                return false;
+              }}
+            >
+              <div className={css.textDays} isсurrent={isCurrent}>
+                {element.dayValue}
+              </div>
+              <div className={css.textTask} data-priority={element.priority}>
+                {element.textTask}
+              </div>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
   );
 };

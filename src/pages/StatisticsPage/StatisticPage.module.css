@@ -1,28 +1,53 @@
 @import '/src/css/variables.css';
 
+.section {
+  background-color: var(--background-color-secondary);
+  padding: 130px 14px 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
 .boxToolbar {
+  position: absolute;
+  left: 200px;
+  top: 120px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 18px;
 }
-
-.calendarToolbar {
-  margin-bottom: 24px;
-}
-
-@media screen and (min-width: 768px) {
-  .calendarToolbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+@media (max-width:767px) {
+  .section {
+    padding-top: 30px;
   }
-}
-
-@media screen and (min-width: 768px) {
   .boxToolbar {
-    gap: 8px;
-    margin-bottom: 0;
+    position: static;
+    margin-bottom: 20px;
   }
 }
-
+.boxToolbar div:nth-child(2) {
+  position: absolute;
+  left: 192px;
+}
+@media (max-width:1080px) {
+  .boxToolbar {
+    left: 120px;
+  }
+}
+@media (max-width: 991px) {
+  .boxToolbar {
+    max-width: 320px;
+    justify-content: space-between;
+    display: flex;
+    width: 100%;
+  }
+  .boxToolbar div:nth-child(2) {
+    position: static;
+  }
+}
+@media (max-width:767px) {
+  .boxToolbar {
+    max-width: 100%;
+  }
+}

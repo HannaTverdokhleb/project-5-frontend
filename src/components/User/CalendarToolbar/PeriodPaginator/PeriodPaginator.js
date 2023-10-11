@@ -2,8 +2,9 @@ import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai';
 import css from './PeriodPaginator.module.css';
 
 
-export default function PeriodPaginator({ leftClick, rightClick }) {
-  return (<div className={css.paginatorBox}>
+export default function PeriodPaginator({ leftClick, rightClick, page }) {
+  return (
+  <div className={css.paginatorBox} id={page}>
     <button aria-label='Period calendar paginator button left'
             type='button'
             className={css.btnLeft}

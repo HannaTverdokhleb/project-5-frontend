@@ -77,7 +77,7 @@ export const LoginForm = () => {
             {({ errors, touched }) => (
               <Form className={css.form} action="#" autoComplete="off">
                 <div className={css.form_div}>
-                  <label htmlFor="email" className={css.form_label}>
+                  <label className={css.form_label}>
                     <span
                       className={`${css.form_input_email} ${
                         touched.email && errors.email ? css.error : ''
@@ -145,7 +145,7 @@ export const LoginForm = () => {
                     />
                   </label>
 
-                  <label htmlFor="password" className={css.form_label_tw}>
+                  <label className={css.form_label_tw}>
                     <span
                       className={`${css.form_input_email} ${
                         touched.password && errors.password

@@ -1,0 +1,55 @@
+.picker {
+  gap: 16px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.customInput {
+  background-color: var(--main-color-blue);
+  border: none;
+  border-radius: 8px;
+  padding: 6px 12px;
+  cursor: pointer;
+  color: #fff;
+  text-align: center;
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  line-height: 1.286;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+@media screen and (min-width: 768px) {
+  .customInput {
+    font-size: 16px;
+    line-height: 1.125;
+    padding: 8px 12px;
+  }
+}
+
+.fixedHeight {
+  height: 280px;
+}
+
+.calendar {
+  background-color: var(--main-color-blue);
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  border: none;
+  border-radius: 16px;
+}
+
+.tooltipText {
+  color: #fff;
+}
+
+.headerMonth {
+  background-color: var(--main-color-blue);
+  border: none;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+}
