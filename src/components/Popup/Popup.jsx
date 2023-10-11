@@ -43,6 +43,7 @@ const Popup = ({ isOpen, onClose, task, category }) => {
     e.preventDefault();
     if (task) {
       dispatch(editTask({ _id: task._id, ...formData, date: day, category }));
+      setFormData(initialFormData);
     } else {
       dispatch(createTask({...formData, date: day, category}));
       setIsTaskCreated(true);
@@ -71,7 +72,6 @@ const Popup = ({ isOpen, onClose, task, category }) => {
       setFormData(task);
       setSelectedPriority(task.priority.toLowerCase());
     } else {
-      // setFormData(initialFormData);
       setSelectedPriority('low');
     }
   }, [task]);

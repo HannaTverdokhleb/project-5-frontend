@@ -15,10 +15,11 @@ const TasksColumn = ({ tasks, headBarName, catId }) => {
 
   const closePopup = () => {
     setIsPopupOpen(false);
+    setSelectedTask(null);
   };
 
   const handleTask = task => {
-    setSelectedTask(task); // Зберігайте обрану задачу в стані
+    setSelectedTask(task);
     openPopup();
   };
 
