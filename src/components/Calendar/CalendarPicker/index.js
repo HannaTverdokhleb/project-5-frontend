@@ -11,12 +11,14 @@ import PeriodPaginator from '../../User/CalendarToolbar/PeriodPaginator/PeriodPa
 export default function CalendarPicker({ month }) {
   const navigate = useNavigate();
 
-  const setStyles = () => {
-    setTimeout(() => {
-      const month = document.getElementsByClassName('react-datepicker__month-container')[0];
-      const header = month.getElementsByClassName('react-datepicker__header')[0];
-      header.style.backgroundColor = '#3e85f3';
-      header.style.borderBottom = '1px solid #fff';
+  const setStyles = (e) => {
+    e.target.value !== undefined && setTimeout(() => {
+      const [month] = document.getElementsByClassName('react-datepicker__month-container');
+      const [header] = month.getElementsByClassName('react-datepicker__header');
+      if (header) {
+        header.style.backgroundColor = '#3e85f3';
+        header.style.borderBottom = '1px solid #fff';
+      }
     });
   };
 
