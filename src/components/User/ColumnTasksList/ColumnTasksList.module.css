@@ -5,18 +5,44 @@
 	flex-direction: column;
 	height: 100%;
 	border-radius: 8px;
+	padding-right: 6px;
+
+	/* overflow-y: scroll; */
 	overflow-y: auto;
-	scrollbar-width: thin;          /* "auto" или "thin" */
-  	scrollbar-color: #E7E5E5 #E7E5E5;   /* цвет бегунка и зоны отслеживания */
 }
+
 .columnTasksList::-webkit-scrollbar {
-	width: 8px;               /* ширина всей полосы прокрутки */
-  }
-.columnTasksList::-webkit-scrollbar-track {
-	background: #F2F2F2;      /* цвет зоны отслеживания */
+	width: 6px;
+	/* height: 6px; */
+	border-radius: 12px;
+	background: var(--vertical-scrollbar-track-color);
 }
+
+.columnTasksList::-webkit-scrollbar-track {
+	border-radius: 12px;
+}
+
 .columnTasksList::-webkit-scrollbar-thumb {
-	background: #E7E5E5;;    /* цвет бегунка */
-	border-radius: 12px;       /* округлось бегунка */
-	border: 3px solid #E7E5E5;  /* отступ вокруг бегунка */
+	width: 6px;
+	background-color: var(--vertical-scrollbar-thumb-color);
+	border-radius: 12px;
+}
+
+@media screen and (min-width: 768px) {
+	.columnTasksList::-webkit-scrollbar {
+		width: 8px;
+		/* height: 6px; */
+		border-radius: 12px;
+		background: var(--vertical-scrollbar-track-color);
+	}
+
+	.columnTasksList::-webkit-scrollbar-track {
+		border-radius: 12px;
+	}
+
+	.columnTasksList::-webkit-scrollbar-thumb {
+		width: 8px;
+		background-color: var(--vertical-scrollbar-thumb-color);
+		border-radius: 12px;
+	}
 }

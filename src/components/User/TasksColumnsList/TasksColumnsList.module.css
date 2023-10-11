@@ -1,34 +1,12 @@
 
 @import '../../../css/variables.css';
 
-.temporaryStub { /*REMOVE!!!!!!*/
-	display: flex;
-	justify-content: center;
-	align-items: center;
-
-	margin-bottom: 16px;
-
-max-width: 1087px;
-	/* min-width: 355px; */
-	width: 100%;
-	min-height: 134px;
-	/* height: 100%; */
-
-	outline: 2px solid red;
-
-		font-size: 48px;
-		font-weight: 600;
-}
-
 .tasksColumnsList  {
-	outline: 1px solid red;
-
-
 	display: flex;
 	gap: 27px;
 	/* justify-content: space-between; */
 	height: 100dvh;
-	min-width: 100%;
+	/* min-width: 100%; */
 
 	border-radius: 8px;;
 
@@ -38,14 +16,49 @@ max-width: 1087px;
 
 	transition: height 0.2 linear;
 }
+
+.tasksColumnsList::-webkit-scrollbar {
+	/* width: 6px; */
+	height: 12px;
+	border-radius: 12px;
+	background: var(--vertical-scrollbar-track-color);
+}
+
+.tasksColumnsList::-webkit-scrollbar-track {
+	border-radius: 12px;
+}
+
+.tasksColumnsList::-webkit-scrollbar-thumb {
+	height: 12px;
+	background-color: var(--vertical-scrollbar-thumb-color);
+	border-radius: 12px;
+}
+
 .tasksColumnsList li:not(:last-child) {
 	margin-bottom: 18px;
 }
+
 @media screen and (min-width: 1024px) {
 	.tasksColumnsList {
 		overflow-x: auto;
 	}
 
-}
+		.tasksColumnsList::-webkit-scrollbar {
+		/* width: 8px; */
+		height: 14px;
+		border-radius: 12px;
+		background: var(--vertical-scrollbar-track-color);
+	}
 
+	.tasksColumnsList::-webkit-scrollbar-track {
+		border-radius: 12px;
+	}
+
+	.tasksColumnsList::-webkit-scrollbar-thumb {
+		height: 14px;
+		background-color: var(--vertical-scrollbar-thumb-color);
+		border-radius: 12px;
+	}
+
+}
 

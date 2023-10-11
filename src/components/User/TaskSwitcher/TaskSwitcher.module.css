@@ -1,6 +1,8 @@
 .boxTasKSwitcher{
     position: absolute;
 
+    z-index: 1;
+
     width: 115px;
     height: 70px;
     display: flex;
