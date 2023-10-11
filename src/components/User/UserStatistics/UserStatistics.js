@@ -11,27 +11,23 @@ import {
 
 import css from './UserStatistics.module.css';
 import { CalendarDropdown } from '../CalendarPopup/CalendarPopup';
-
-//data for stats chart
-const data = [
-  { name: 'To Do', month: 100, day: 60, amt: 100 },
-  { name: 'In Progress', month: 100, day: 40, amt: 100 },
-  { name: 'Done', month: 100, day: 80, amt: 100 },
-];
+import { useDispatch, useSelector } from 'react-redux';
+import { selectTasks } from 'redux/Tasks/selectors';
+import { getTasks } from 'redux/Tasks/operations';
 
 //gradient for chart
 const gradientPink = (
-  <linearGradient id='barGradientPink' x1='0%' y1='0%' x2='0%' y2='100%'>
-    <stop offset='0%' stopColor='#ffffff' />
-    <stop offset='100%' stopColor='#FFD2DD' />
+  <linearGradient id="barGradientPink" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%" stopColor="#ffffff" />
+    <stop offset="100%" stopColor="#FFD2DD" />
   </linearGradient>
 );
 
 //gradient for chart
 const gradientBlue = (
-  <linearGradient id='barGradientBlue' x1='0%' y1='0%' x2='0%' y2='100%'>
-    <stop offset='0%' stopColor='#ffffff' />
-    <stop offset='100%' stopColor='#3E85F3' />
+  <linearGradient id="barGradientBlue" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%" stopColor="#ffffff" />
+    <stop offset="100%" stopColor="#3E85F3" />
   </linearGradient>
 );
 
@@ -64,8 +60,28 @@ export const StatisticsChart = ({ day, setDay }) => {
   const [barGap, setBarGap] = useState(8);
   const [barCategoryGap, setBarCategoryGap] = useState(30);
 
+  const dispatch = useDispatch();
+  const tasks = useSelector(selectTasks);
+
+  // useEffect(() => {
+  //   dispatch(getTasks());
+  // }, [dispatch]);
+
+  const allTasksByDay =
+    tasks.todoByDay + tasks.inprogressByDay + tasks.doneByDay;
+  const todoByDay = (tasks.todoByDay / allTasksByDay) * 100;
+  const inprogressByDay = (tasks.inprogressByDay / allTasksByDay) * 100;
+  const doneByDay = (tasks.doneByDay / allTasksByDay) * 100;
+
+  const data = [
+    { name: 'To Do', month: 100, day: todoByDay, amt: allTasksByDay },
+    { name: 'In Progress', month: 100, day: inprogressByDay, amt: allTasksByDay,},
+    { name: 'Done', month: 100, day: doneByDay, amt: allTasksByDay },
+  ];
+
   // Update chart dimensions based on screen width
   useEffect(() => {
+    dispatch(getTasks());
     const updateDimensions = () => {
       const screenWidth = window.innerWidth;
       if (screenWidth < 375) {
@@ -99,56 +115,60 @@ export const StatisticsChart = ({ day, setDay }) => {
     return () => {
       window.removeEventListener('resize', updateDimensions);
     };
-  }, []);
-  return (
-    <div className={css.container}>
-      <div className={css.header}>
-        <CalendarDropdown day={day} setDay={setDay} />
-        <div className={css.textFilter}>
-          <div className={css.circleTextBlock}>
-            <div className={css.circlePink}></div>
-            <p className={css.textBy}>By Day</p>
-          </div>
+  }, [dispatch]);
 
-          <div className={css.circleTextBlock}>
-            <div className={css.circleBlue}></div>
-            <p className={css.textBy}>By Month</p>
+  return (
+    <>
+      {console.log(tasks)}
+      <div className={css.container}>
+        <div className={css.header}>
+          <CalendarDropdown day={day} setDay={setDay} />
+          <div className={css.textFilter}>
+            <div className={css.circleTextBlock}>
+              <div className={css.circlePink}></div>
+              <p className={css.textBy}>By Day</p>
+            </div>
+
+            <div className={css.circleTextBlock}>
+              <div className={css.circleBlue}></div>
+              <p className={css.textBy}>By Month</p>
+            </div>
           </div>
         </div>
-      </div>
-      <div className={css.chartBlock}>
-        <p className={css.tasks}>Tasks</p>
-        <BarChart
-          className={css.textChart}
-          width={chartWidth}
-          height={chartHeight}
-          data={data}
-          barSize={barSize}
-          barGap={barGap}
-          barCategoryGap={barCategoryGap}
-        >
-          <defs>{gradientPink}</defs>
-          <defs>{gradientBlue}</defs>
-          <CartesianGrid stroke='#E3F3FF' />
-          <CartesianGrid vertical={false} />
-          {/* <CartesianGrid strokeDasharray="3 3" /> */}
+        <div className={css.chartBlock}>
+          <p className={css.tasks}>Tasks</p>
+          <BarChart
+            className={css.textChart}
+            width={chartWidth}
+            height={chartHeight}
+            data={data}
+            barSize={barSize}
+            barGap={barGap}
+            barCategoryGap={barCategoryGap}
+          >
+            <defs>{gradientPink}</defs>
+            <defs>{gradientBlue}</defs>
+            <CartesianGrid stroke="#E3F3FF" />
+            <CartesianGrid vertical={false} />
+            {/* <CartesianGrid strokeDasharray="3 3" /> */}
 
-          <XAxis dataKey='name' />
-          <YAxis />
-          {/* <Tooltip /> */}
-          {/* <Legend /> */}
-          <Bar
-            dataKey='day'
-            fill='url(#barGradientPink)'
-            shape={<RoundedBar />}
-          />
-          <Bar
-            dataKey='month'
-            fill='url(#barGradientBlue)'
-            shape={<RoundedBar />}
-          />
-        </BarChart>
+            <XAxis dataKey="name" />
+            <YAxis />
+            {/* <Tooltip /> */}
+            {/* <Legend /> */}
+            <Bar
+              dataKey="day"
+              fill="url(#barGradientPink)"
+              shape={<RoundedBar />}
+            />
+            <Bar
+              dataKey="month"
+              fill="url(#barGradientBlue)"
+              shape={<RoundedBar />}
+            />
+          </BarChart>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
