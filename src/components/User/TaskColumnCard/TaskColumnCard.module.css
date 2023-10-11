@@ -1,8 +1,6 @@
 @import "../../../css/variables.css";
 
 .cardWrapper {
-	position: relative;
-
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -10,23 +8,21 @@
 	padding: 14px 14px 18px 14px;
 
 	max-width: 299px;
-	/* max-height: 112px; */
-	height: 108px;
+	min-height: 108px;
 
 	background-color: var(--background-color-primary);
 	border-radius: 8px;
 	border: var(--task-item-border);
 
 	font: inherit;
-
 }
 
 .taskDescription {
 	align-self: flex-start;
 
-	max-width: 272px;
-	/* max-height: 16px;
-	height: 16px; */
+	max-width: 258px;
+	/* max-height: 16px;*/
+	height: 16px; 
 	
 	white-space: nowrap;
 	overflow: hidden;
@@ -38,7 +34,19 @@
 	font-size: 14px;
 	font-weight: 500;
 	line-height: 1.29; /* 128.571% */
+
 	} 
+
+.taskDescription:hover,
+.taskDescription:focus {
+	cursor: pointer;
+
+	height: fit-content;
+
+  white-space: normal;
+	word-break: break-all;
+	
+}
 
 .cardFooter {
 /* position: relative; */
@@ -54,16 +62,34 @@
 }
 
 .infoBoxAvatar {
+	display: flex;
+  justify-content: center;
+  align-items: center;
 
 	width: 32px;
 	height: 32px;
 
 	border-radius: 50%;
-	border: var(--task-avatar-border);
+	border: 1.8px solid var(--task-avatar-border);
+
+}
+
+.infoBoxTextAvatar {
+	display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  color: var(--text-color-secondary);
+  background-color: var(--background-color-quaternary);
+  font-family: 'Inter';
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
 }
 
 .infoBoxTaskPriority {
-	/* text-align: center; */
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -98,29 +124,14 @@
 
 		max-width: 300px;
 		/* max-height: 112px; */
-		height: 112px;
-
-		background-color: var(--background-color-primary);
-		border-radius: 8px;
-		border: var(--task-item-border)
+		min-height: 112px;
 	}
 
+
 	.taskDescription {
-	align-self: flex-start;
 
-	max-width: 272px;
-	/* max-height: 16px;
-	height: 16px; */
+	max-width: 260px;
 	
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
-
-	color: var(--text-color-primary);
-	font-size: 14px;
-	font-weight: 500;
-	line-height: 1.29; /* 128.571% */
-
-
 	} 
+
 }

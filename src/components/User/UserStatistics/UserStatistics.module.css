@@ -4,15 +4,13 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 20px;
-  padding: 120px 20px 135px 20px;
-  background-color: var(--bcg-color-white);
 }
 
 /*ByDay/Month Filter*/
 .textFilter {
   display: flex;
   gap: 14px;
+  margin-bottom: 40px;
 }
 
 .circleTextBlock {
@@ -70,13 +68,14 @@
   /*General container*/
   .container {
     gap: 48px;
-    padding: 140px 32px 224px 32px;
   }
 
   /*ByDay/Month Filter*/
   .textFilter {
     font-size: 16px;
     gap: 20px;
+    align-self: end;
+    margin-bottom: 0;
   }
 
   /*Chart Block*/
@@ -89,13 +88,5 @@
     color: #343434;
     font-family: Inter, sans-serif;
     font-size: 14px;
-  }
-}
-
-/*Styles from 768px*/
-@media screen and (min-width: 768px) {
-  /*General container*/
-  .container {
-    padding: 134px 114px 104px 114px;
   }
 }

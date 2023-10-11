@@ -86,7 +86,7 @@ export const RegisterForm = () => {
           {({ errors, touched }) => (
             <Form className={css.form} action="#" autoComplete="off">
               <div className={css.form_div}>
-                <label htmlFor="email" className={css.form_label}>
+                <label className={css.form_label}>
                   <span
                     style={{
                       alignItems: 'flex-start',
@@ -146,7 +146,7 @@ export const RegisterForm = () => {
                   />
                 </label>
 
-                <label htmlFor="email" className={css.form_label}>
+                <label className={css.form_label}>
                   <span
                     className={`${css.form_input_email} ${
                       touched.email && errors.email ? css.error : ''
@@ -204,7 +204,7 @@ export const RegisterForm = () => {
                   />
                 </label>
 
-                <label htmlFor="password" className={css.form_label_tw}>
+                <label className={css.form_label_tw}>
                   <span
                     className={`${css.form_input_email} ${
                       touched.password && errors.password ? css.error : ''

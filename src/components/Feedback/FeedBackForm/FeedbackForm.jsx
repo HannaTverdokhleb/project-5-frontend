@@ -113,8 +113,8 @@ const FeedbackForm = ({ onClose }) => {
     >
       {({ values }) => (
         <div className={css.formContainer}>
-          <Form>
-            <label className={css.formLabel} name="rating">
+          <Form autoComplete="off">
+            <label className={css.formLabel}>
               Rating
             </label>
             <Rating

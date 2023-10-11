@@ -1,13 +1,12 @@
-import React, { forwardRef, useState } from 'react';
+import React, { forwardRef } from 'react';
 import DatePicker from 'react-datepicker';
 // import { getMonth } from 'date-fns'; // Import getYear and getMonth
 
 import 'react-datepicker/dist/react-datepicker.css';
 import css from './CalendarPopup.module.css';
+import moment from 'moment';
 
-export const CalendarDropdown = () => {
-  const [startDate, setStartDate] = useState(new Date());
-
+export const CalendarDropdown = ({ day, setDay }) => {
   const renderDayContents = (day, date) => {
     const tooltipText = `Tooltip for date: ${date}`;
     return (
@@ -42,56 +41,56 @@ export const CalendarDropdown = () => {
     <DatePicker
       calendarStartDay={1}
       showPopperArrow={false}
-      selected={startDate}
-      onChange={date => setStartDate(date)}
+      selected={new Date(day)}
+      onChange={date => setDay(moment(date))}
       customInput={<CustomInput />}
       fixedHeight={css.fixedHeight}
       calendarClassName={css.calendar}
       renderDayContents={renderDayContents}
-      dateFormat="d MMMM yyyy"
-    //   renderCustomHeader={({
-    //     date,
-    //     changeMonth,
-    //     decreaseMonth,
-    //     increaseMonth,
-    //     prevMonthButtonDisabled,
-    //     nextMonthButtonDisabled,
-    //   }) => (
-    //     <div
-    //       className={css.headerMonth}
-    //       style={{ margin: 10, display: 'flex', justifyContent: 'center' }}
-    //     >
-    //       <button
-    //         className={css.headerMonth}
-    //         onClick={decreaseMonth}
-    //         disabled={prevMonthButtonDisabled}
-    //       >
-    //         {'<'}
-    //       </button>
+      dateFormat='d MMMM yyyy'
+      //   renderCustomHeader={({
+      //     date,
+      //     changeMonth,
+      //     decreaseMonth,
+      //     increaseMonth,
+      //     prevMonthButtonDisabled,
+      //     nextMonthButtonDisabled,
+      //   }) => (
+      //     <div
+      //       className={css.headerMonth}
+      //       style={{ margin: 10, display: 'flex', justifyContent: 'center' }}
+      //     >
+      //       <button
+      //         className={css.headerMonth}
+      //         onClick={decreaseMonth}
+      //         disabled={prevMonthButtonDisabled}
+      //       >
+      //         {'<'}
+      //       </button>
 
-    //       <select
-    //         className={css.headerMonth}
-    //         value={months[getMonth(date)]}
-    //         onChange={({ target: { value } }) =>
-    //           changeMonth(months.indexOf(value))
-    //         }
-    //       >
-    //         {months.map(option => (
-    //           <option key={option} value={option}>
-    //             {option}
-    //           </option>
-    //         ))}
-    //       </select>
+      //       <select
+      //         className={css.headerMonth}
+      //         value={months[getMonth(date)]}
+      //         onChange={({ target: { value } }) =>
+      //           changeMonth(months.indexOf(value))
+      //         }
+      //       >
+      //         {months.map(option => (
+      //           <option key={option} value={option}>
+      //             {option}
+      //           </option>
+      //         ))}
+      //       </select>
 
-    //       <button
-    //         className={css.headerMonth}
-    //         onClick={increaseMonth}
-    //         disabled={nextMonthButtonDisabled}
-    //       >
-    //         {'>'}
-    //       </button>
-    //     </div>
-    //   )}
+      //       <button
+      //         className={css.headerMonth}
+      //         onClick={increaseMonth}
+      //         disabled={nextMonthButtonDisabled}
+      //       >
+      //         {'>'}
+      //       </button>
+      //     </div>
+      //   )}
     />
   );
 };

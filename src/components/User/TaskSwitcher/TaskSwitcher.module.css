@@ -1,5 +1,6 @@
 .boxTasKSwitcher{
     position: absolute;
+
     z-index: 1;
 
     width: 115px;
@@ -59,11 +60,6 @@ margin-bottom: 0;
     width: 14px;
     height: 14px;
 }
-
-/*.taskSwitcherIcon:hover{
-    position: relative;
-    left: 5px;
-}*/
 
 @media screen and (min-width: 768px) {
     .taskSwitcherIcon {

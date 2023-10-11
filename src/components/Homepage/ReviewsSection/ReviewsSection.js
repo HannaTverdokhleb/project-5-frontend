@@ -57,21 +57,20 @@ const SlideDetails = ({ image, name, rating, comment }) => {
   );
 };
 
-
 //Slider Component
 export const ReviewsSlider = () => {
   const swiperParams = {
     modules: [Navigation, Pagination, Scrollbar, A11y],
-    spaceBetween: 24,
+    // loop: true,
     slidesPerView: 1,
-    navigation: true,
+    centeredSlides: true,
+    spaceBetween: 24,
+    navigation: {nextEl: ".arrowLeft", prevEl: ".arrowRight" },
     breakpoints: {
       1024: {
         slidesPerView: 2,
-      },
-      1050: {
-        slidesPerView: 2,
         spaceBetween: 24,
+        centeredSlides: false,
       },
     },
   };
@@ -102,6 +101,19 @@ export const ReviewsSlider = () => {
               </SwiperSlide>
             );
           })}
+          <div className={css.swipperArrows}>
+            <svg className="arrowLeft" xmlns="http://www.w3.org/2000/svg" width="62" height="61" viewBox="0 0 62 61" fill="none">
+              <path d="M15.1847 32.5346L12.8917 30.9754L56.5 30.9742V29.7542L13.165 29.7554L15.325 28.514L14.7174 27.4563L9.74654 30.3123L14.4984 33.5435L15.1847 32.5346Z" fill="#111111"/>
+            </svg>
+            <svg className="arrowRight" xmlns="http://www.w3.org/2000/svg" width="62" height="61" viewBox="0 0 62 61" fill="none">
+              <g clipPath="url(#clip0_182_6197)">
+                <path d="M41.8153 28.1937L44.1083 29.7529L0.5 29.7541L0.5 30.9741L43.835 30.9729L41.675 32.2142L42.2826 33.272L47.2535 30.416L42.5016 27.1848L41.8153 28.1937Z" fill="#111111"/>
+              </g>
+              <defs>
+                <rect width="61" height="61" fill="white" transform="matrix(0 -1 1 0 0.5 61)"/>
+              </defs>
+            </svg>
+          </div>
         </Swiper>
       )}
     </>

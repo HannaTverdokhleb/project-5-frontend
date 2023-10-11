@@ -4,11 +4,11 @@ import { ReactComponent as CalendarIcon } from 'images/calendar-side-bar.svg';
 import { BsBarChart as StatIcon } from 'react-icons/bs';
 import css from './UserNav.module.css';
 
-function UserNav() {
+function UserNav({toggleSidebar}) {
 
-  
+
     return (
-        <nav className={css.sidebarNav}>
+        <nav className={css.sidebarNav} onClick={toggleSidebar}>
             <ul className={css.nav_container}>
                 <li className={css.nav__item}>
                     <NavLink className={({ isActive }) => `${css['nav__link']}  ${isActive ? css['active'] : ''}`} to="/account">

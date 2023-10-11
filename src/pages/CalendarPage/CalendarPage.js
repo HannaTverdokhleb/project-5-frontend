@@ -1,49 +1,15 @@
-import React, { forwardRef, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { currentPage } from 'redux/actions';
-import css from './CalendarPage.module.css';
-import cssPopup from '../../components/User/CalendarPopup/CalendarPopup.module.css';
-
-import { CalendarTitle } from 'components/Calendar/СalendarTitle/СalendarTitle';
-import { CalendarTable } from 'components/Calendar/СalendarTable/СalendarTable';
+import React, { useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import moment from 'moment';
 import { routes } from '../../configs/routes';
+import { currentPage } from 'redux/actions';
+import css from './CalendarPage.module.css';
+import { CalendarTitle } from 'components/Calendar/СalendarTitle/СalendarTitle';
+import { CalendarTable } from 'components/Calendar/СalendarTable/СalendarTable';
+import CalendarPicker from 'components/Calendar/CalendarPicker';
 import TasksColumnsList from 'components/User/TasksColumnsList/TasksColumnsList';
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
-
-function CalendarPicker({ month }) {
-  const navigate = useNavigate();
-
-  const handleChange = date => {
-    navigate(
-      `${routes.private.month.path.replace(
-        ':month',
-        moment(date).format('YYYY-MM')
-      )}`
-    );
-  };
-
-  const CustomInput = forwardRef(({ value, onClick }, ref) => (
-    <button className={cssPopup.customInput} onClick={onClick} ref={ref}>
-      {value}
-    </button>
-  ));
-
-  return (
-    <DatePicker
-      calendarStartDay={1}
-      showPopperArrow={false}
-      selected={new Date(month)}
-      onChange={handleChange}
-      customInput={<CustomInput />}
-      fixedHeight={cssPopup.fixedHeight}
-      calendarClassName={cssPopup.calendar}
-      dateFormat="MMMM yyyy"
-    />
-  );
-}
+import { getTasks } from '../../redux/Tasks/operations';
 
 function ChosenDay({ day }) {
   const navigate = useNavigate();
@@ -54,26 +20,8 @@ function ChosenDay({ day }) {
     !isValidFormat && navigate(`${routes.private.calendar.path}`);
   }, [isValidFormat, navigate]);
 
-  // TODO: return your component
   return (
-    // <div style={{ color: 'red',  }}>{day}</div>
-    <>
-      <div
-        style={{
-          color: 'red',
-          width: '100%',
-          height: '114px',
-          marginBottom: '16px',
-          borderRadius: '16px',
-          textAlign: 'center',
-
-          outline: '1px solid blue',
-        }}
-      >
-        {day}
-      </div>
-      <TasksColumnsList day={day} />
-    </>
+    <TasksColumnsList day={day} />
   );
 }
 
@@ -86,31 +34,28 @@ function ChosenMonth({ month }) {
   }, [isValidFormat, navigate]);
 
   return (
-    <>
-      <div className={css.pageWrapper}>
-        <CalendarPicker month={month} />
-      </div>
-      <div className={css.pageWrapper}>
-        <CalendarTitle />
-      </div>
-      <div className={css.pageWrapper}>
-        <CalendarTable month={month} />
-      </div>
-    </>
+    <div className={css.pageWrapper}>
+      <CalendarPicker month={month} />
+      <CalendarTitle />
+      <CalendarTable month={month} />
+    </div>
   );
 }
 
-const CalendarPage = () => {
+export default function CalendarPage() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { month, day } = useParams();
   const currentMonth = moment().format('YYYY-MM');
 
   useEffect(() => {
-    !month &&
-      !day &&
-      navigate(`${routes.private.month.path.replace(':month', currentMonth)}`);
     dispatch(currentPage('Calendar'));
+
+    !month &&
+    !day &&
+    navigate(`${routes.private.month.path.replace(':month', currentMonth)}`);
+
+    dispatch(getTasks());
   }, [currentMonth, day, dispatch, month, navigate]);
 
   return (
@@ -120,5 +65,3 @@ const CalendarPage = () => {
     </div>
   );
 };
-
-export default CalendarPage;
