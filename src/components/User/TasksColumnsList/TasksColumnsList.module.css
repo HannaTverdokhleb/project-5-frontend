@@ -39,11 +39,44 @@ max-width: 1087px;
 	transition: height 0.2 linear;
 }
 
+.tasksColumnsList::-webkit-scrollbar {
+	/* width: 6px; */
+	height: 12px;
+	border-radius: 12px;
+	background: var(--vertical-scrollbar-track-color);
+}
+
+.tasksColumnsList::-webkit-scrollbar-track {
+	border-radius: 12px;
+}
+
+.tasksColumnsList::-webkit-scrollbar-thumb {
+	height: 12px;
+	background-color: var(--vertical-scrollbar-thumb-color);
+	border-radius: 12px;
+}
+
 @media screen and (min-width: 1024px) {
 	.tasksColumnsList {
 		overflow-x: auto;
 	}
 
-}
+		.tasksColumnsList::-webkit-scrollbar {
+		/* width: 8px; */
+		height: 14px;
+		border-radius: 12px;
+		background: var(--vertical-scrollbar-track-color);
+	}
 
+	.tasksColumnsList::-webkit-scrollbar-track {
+		border-radius: 12px;
+	}
+
+	.tasksColumnsList::-webkit-scrollbar-thumb {
+		height: 14px;
+		background-color: var(--vertical-scrollbar-thumb-color);
+		border-radius: 12px;
+	}
+
+}
 
