@@ -5,10 +5,22 @@
     background-color: var(--background-color-secondary);
     margin: 0 auto;
     width: 396px;
+    border-radius: 8px;
     }
 
 .popup{
     padding: 40px 28px;
+    
+}
+
+@media (max-width: 600px) {
+    .popup {
+       padding: 40px 18px;
+    }
+}
+
+body[data-theme='dark'] .popup input{
+    border: 1px solid var(--button-border-color);
 }
     
 .closeButton{
@@ -31,8 +43,6 @@
     border: none;
     border-radius: 8px;
     background: var(--add-task-input-background);
-    margin-bottom: 8px;
-    margin: 0;
     margin-bottom: 18px;
     padding-left: 18px;
     padding-top: 14px;
@@ -62,7 +72,7 @@ flex-direction: column;
 .timeGroup{
     display: flex;
     flex-direction: column;
-    
+    width: calc(100% - 14px);
 }
 
 
@@ -71,7 +81,7 @@ flex-direction: column;
     border: none;
     border-radius: 8px;
     background: var(--add-task-input-background);
-    width: 163px;
+    
     height: 46px;
     margin: 0;
     padding-left: 18px;
@@ -80,7 +90,12 @@ flex-direction: column;
     font-size: 14px;
     font-weight: 600;
     line-height: 1.28;
-    width: 146px;
+}
+
+@media (max-width: 600px) {
+    .timeInput {
+        width: 107px;
+    }
 }
 
 input[type="time"]::-webkit-calendar-picker-indicator {
@@ -172,6 +187,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
     font-weight: 600;
     line-height: 1.28;
     transition: var(--transition-cubic);
+    padding-left: 30px;
 }
 
 .addButton:hover,
@@ -184,10 +200,16 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 
 .addIcon{
     position: absolute;
-    margin-left: 55px;
+    margin-left: 65px;
     content: url(../../images/plus.svg);
     width: 20px;
     height: 20px;
+}
+
+@media (max-width: 600px) {
+    .addIcon, .editIcon {
+        margin-left: 45px;
+    }
 }
 
 .editIcon {
