@@ -71,8 +71,7 @@
 	height: 32px;
 
 	border-radius: 50%;
-	border: 1.8px solid var(--task-avatar-border);
-
+	border: var(--task-avatar-border);
 }
 
 .infoBoxTextAvatar {
@@ -81,9 +80,13 @@
   align-items: center;
   width: 32px;
   height: 32px;
+
   border-radius: 50%;
+	border: var(--task-avatar-border);
+
   color: var(--text-color-secondary);
   background-color: var(--background-color-quaternary);
+
   font-family: 'Inter';
   font-size: 20px;
   font-weight: 700;
@@ -98,7 +101,7 @@
 
 	border-radius: 4px;
 
-	color: #F7F6F9;
+	color: var(--task-priority-color);
 	
 	font-family: Inter;
 	font-size: 10px;
