@@ -13,7 +13,6 @@ import TasksColumnsList from 'components/User/TasksColumnsList/TasksColumnsList'
 import { getTasks } from '../../redux/Tasks/operations';
 import PeriodTypeSelect from 'components/User/CalendarToolbar/PeriodTypeSelect/PeriodTypeSelect';
 
-
 function ChosenDay({ day }) {
   const navigate = useNavigate();
   const isValidFormat =
@@ -28,14 +27,14 @@ function ChosenDay({ day }) {
   }
 
   return (
-      <div className={css.pageWrapper}>
-        <div className={css.toolbarWrapper}>
-          <CalendarPicker />
-          <PeriodTypeSelect day={day} />
-        </div>
-        <TaskWeek />
-        <TasksColumnsList day={day} />
+    <div className={css.pageWrapper}>
+      <div className={css.toolbarWrapper}>
+        <CalendarPicker day={day} />
+        <PeriodTypeSelect day={day} />
       </div>
+      <TaskWeek />
+      <TasksColumnsList day={day} />
+    </div>
   );
 }
 
@@ -53,7 +52,7 @@ function ChosenMonth({ month }) {
 
   return (
     <div className={css.pageWrapper}>
-      <div className={css.toolbarWrapper} >
+      <div className={css.toolbarWrapper}>
         <CalendarPicker month={month} />
         <PeriodTypeSelect month={month} />
       </div>
@@ -76,8 +75,11 @@ export default function CalendarPage() {
     !day &&
     navigate(`${routes.private.month.path.replace(':month', currentMonth)}`);
 
-    dispatch(getTasks());
   }, [currentMonth, day, dispatch, month, navigate]);
+
+  useEffect(() => {
+    dispatch(getTasks());
+  }, [dispatch]);
 
   return (
     <div className={css.pageWrapper}>
