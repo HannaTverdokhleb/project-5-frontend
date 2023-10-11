@@ -5,6 +5,34 @@
   align-items: center;
 }
 
+.header {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--main-color-blue);
+  font-weight: 700;
+}
+
+select {
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 18px;
+  border: none;
+  color: #fff;
+  background-color: var(--main-color-blue);
+}
+
+select:focus-visible {
+  outline-width: 0;
+}
+
+.button {
+  cursor: pointer;
+  font-size: 24px;
+  border: none;
+  color: #fff;
+  background-color: var(--main-color-blue);
+}
+
 .customInput {
   background-color: var(--main-color-blue);
   border: none;
@@ -29,29 +57,56 @@
   }
 }
 
-.fixedHeight {
-  height: 280px;
-}
-
 .calendar {
   background-color: var(--main-color-blue);
+  color: #fff;
   font-family: 'Inter', sans-serif;
   font-size: 14px;
   border: none;
-  border-radius: 16px;
 }
 
-.tooltipText {
-  color: #fff;
-}
-
-.headerMonth {
+.month {
+  margin: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: var(--main-color-blue);
-  border: none;
+  cursor: pointer;
   color: #fff;
-  font-family: 'Inter', sans-serif;
-  font-size: 16px;
-  font-weight: 600;
+  text-align: center;
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  height: 36px;
+}
+
+div[tabindex='0'] {
+  background-color: var(--main-color-blue);
+}
+
+div[tabindex='0']:hover {
+  background-color: var(--main-color-blue);
+}
+
+div[tabindex='0'] > .month {
+  border-radius: 18px;
+  background-color: #fff;
+  color: var(--main-color-blue);
+}
+
+div[tabindex='-1'] {
+  background-color: var(--main-color-blue);
+}
+
+div[tabindex='-1']:hover {
+  background-color: var(--main-color-blue);
+}
+
+div[tabindex='-1'] > .month:hover {
+  border-radius: 18px;
+  background-color: #fff;
+  color: var(--main-color-blue);
 }
 
 @media (max-width: 480px) {
