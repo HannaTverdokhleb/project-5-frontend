@@ -3,7 +3,6 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  margin-bottom: 18px;
 }
 
 .customInput {
@@ -53,4 +52,13 @@
   font-family: 'Inter', sans-serif;
   font-size: 16px;
   font-weight: 600;
+}
+
+@media (max-width: 480px) {
+  
+  .picker {
+    max-width: 100%;
+    width: 100%;
+    justify-content: space-between;
+  }
 }
