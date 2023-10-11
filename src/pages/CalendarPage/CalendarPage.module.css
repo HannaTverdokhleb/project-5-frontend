@@ -2,20 +2,9 @@
   padding: 0;
   border-radius: 16px;
 }
+
 @media screen and (min-width: 1440px) {
   .pageWrapper {
     width: 100%;
   }
-}
-.picker {
-  gap: 8px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  margin-bottom: 18px;
-  position: relative;
-}
-.picker div:nth-child(2) {
-  position: absolute;
-  left: 180px;
 }
