@@ -4,13 +4,13 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
 }
 
-/*ByDay/Month Filter*/
-.textFilter {
+.header {
+  width: 80%;
   display: flex;
-  gap: 14px;
-  margin-bottom: 40px;
+  justify-content: space-between;
 }
 
 .circleTextBlock {
@@ -74,8 +74,9 @@
   .textFilter {
     font-size: 16px;
     gap: 20px;
-    align-self: end;
     margin-bottom: 0;
+    display: flex;
+    align-self: center;
   }
 
   /*Chart Block*/
@@ -84,6 +85,7 @@
     padding: 32px;
     border-radius: 29px;
   }
+
   .textChart {
     color: #343434;
     font-family: Inter, sans-serif;

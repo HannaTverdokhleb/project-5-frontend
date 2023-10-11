@@ -1,10 +1,11 @@
+import 'react-datepicker/dist/react-datepicker.css';
+import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 import React, { forwardRef } from 'react';
 import DatePicker from 'react-datepicker';
-// import { getMonth } from 'date-fns'; // Import getYear and getMonth
-
-import 'react-datepicker/dist/react-datepicker.css';
-import css from './CalendarPopup.module.css';
 import moment from 'moment';
+
+import css from './CalendarPopup.module.css';
+import PeriodPaginator from '../CalendarToolbar/PeriodPaginator/PeriodPaginator';
 
 export const CalendarDropdown = ({ day, setDay }) => {
   const renderDayContents = (day, date) => {
@@ -16,10 +17,23 @@ export const CalendarDropdown = ({ day, setDay }) => {
     );
   };
 
+  const leftClick = () => {
+    setDay(moment(day).subtract(1, 'day'));
+  };
+
+  const rightClick = () => {
+    setDay(moment(day).add(1, 'day'));
+  };
+
   const CustomInput = forwardRef(({ value, onClick }, ref) => (
-    <button className={css.customInput} onClick={onClick} ref={ref}>
-      {value}
-    </button>
+    <div className={css.picker}>
+      <button className={css.customInput} onClick={onClick} ref={ref}>
+        {value}
+      </button>
+      <PeriodPaginator
+        leftClick={leftClick}
+        rightClick={rightClick} />
+    </div>
   ));
 
   // const months = [
@@ -39,7 +53,6 @@ export const CalendarDropdown = ({ day, setDay }) => {
 
   return (
     <DatePicker
-      calendarStartDay={1}
       showPopperArrow={false}
       selected={new Date(day)}
       onChange={date => setDay(moment(date))}
