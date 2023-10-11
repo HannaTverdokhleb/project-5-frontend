@@ -96,9 +96,11 @@
     margin-bottom: 20px;
   }
 }
+.avatarContainer:hover .plusInBorder path {
+  stroke: #3E85F3;
+}
 .avatarContainer:hover .plusInBorder {
-  color: #3E85F3;
-  background-color: #fff;
+  background: #fff;
   border-color: #3E85F3;
 }
 .avatarImage {
@@ -119,17 +121,14 @@
   justify-content: center;
   font-size: 28px;
   color: #fff;
-  border: 1px solid transparent;
-  width: 13px;
-  height: 13px;
+  border: 2px solid transparent;
+  width: 24px;
+  height: 24px;
   background-color: #2b78ef;
   border-radius: 50%;
   position: relative;
   z-index: 3;
   transition: all linear 0.3s;
-  & span {
-    padding-bottom: 6px;
-  }
 }
 
 .avatarUserName {
@@ -175,7 +174,6 @@
   @media screen and (min-width: 1441px) {
     flex-direction: row;
     justify-content: space-between;
-
     margin-bottom: 88px;
   }
 }
@@ -288,27 +286,21 @@
 
 @media screen and (min-width: 768px) {
   .plusInBorder {
-    width: 24px;
-    height: 24px;
     top: -25px;
     right: -83px;
   }
 }
 @media screen and (max-width: 767px) {
   .plusInBorder {
-    font-size: 20px;
-    right: -48px;
-    top: -12px;
-  }
-  .plusInBorder span {
-    font-size: 17px;
-    margin-bottom: -1px;
+    right: -44px;
+    top: -20px;
+    transform: scale(0.6);
   }
   .avatarContainer {
     margin-top: -90px;
   }
   .userForm {
-    margin-top: 40px;
+    margin-top: 30px;
     margin-bottom: 40px;
   }
   .userInput {
