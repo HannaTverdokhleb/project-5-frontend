@@ -57,6 +57,7 @@ const RoundedBar = props => {
 
 //Stats chart
 export const StatisticsChart = ({ day, setDay }) => {
+  // Компонент отримує day '2023-10-12'
   const [chartWidth, setChartWidth] = useState(280);
   const [chartHeight, setChartHeight] = useState(266);
   const [barSize, setBarSize] = useState(22);
