@@ -33,6 +33,9 @@ line-height: 1.11;
 	background: none;
 	
 	font: inherit;
+
+	transition: color var(--transition-cubic), fill var(--transition-cubic);
+
 	
 }
 .buttonIconAddTask:hover,
