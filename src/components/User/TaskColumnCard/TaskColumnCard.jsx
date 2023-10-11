@@ -1,5 +1,5 @@
 import css from './TaskColumnCard.module.css';
-import avatar from '../../../images/desktopImages/header/header_desk@1x.png';
+// import avatar from '../../../images/desktopImages/header/header_desk@1x.png';
 
 import TaskToolbar from '../TaskToolbar/TaskToolbar';
 
@@ -14,11 +14,13 @@ const TaskColumnCard = ({
       <p className={css.taskDescription}>{task.title}</p>
       <div className={css.cardFooter}>
         <div className={css.infoBox}>
-          <img
-            className={css.infoBoxAvatar}
-            src={avatarURL || avatar}
-            alt={name}
-          />
+          {avatarURL ? (
+            <img className={css.infoBoxAvatar} src={avatarURL} alt={name} />
+          ) : (
+            <p className={css.infoBoxTextAvatar}>
+              {name ? name.slice(0, 1) : 'A'}
+            </p>
+          )}
           <span className={`${css.infoBoxTaskPriority} ${css[task.priority]}`}>
             {`${task.priority.charAt(0).toUpperCase()}${task.priority.slice(
               1

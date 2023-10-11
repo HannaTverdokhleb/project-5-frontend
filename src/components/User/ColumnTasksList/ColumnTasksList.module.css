@@ -3,15 +3,46 @@
 .columnTasksList {
 	display: flex;
 	flex-direction: column;
-	gap: 18px;
-
-	/* height:500px; */
-	/* max-height:500px; */
-	max-height: 100%;
-	outline: 1px solid green;;
-
-
+	height: 100%;
+	border-radius: 8px;
+	padding-right: 6px;
 
 	/* overflow-y: scroll; */
-	 overflow-y: auto;
+	overflow-y: auto;
+}
+
+.columnTasksList::-webkit-scrollbar {
+	width: 6px;
+	/* height: 6px; */
+	border-radius: 12px;
+	background: var(--vertical-scrollbar-track-color);
+}
+
+.columnTasksList::-webkit-scrollbar-track {
+	border-radius: 12px;
+}
+
+.columnTasksList::-webkit-scrollbar-thumb {
+	width: 6px;
+	background-color: var(--vertical-scrollbar-thumb-color);
+	border-radius: 12px;
+}
+
+@media screen and (min-width: 768px) {
+	.columnTasksList::-webkit-scrollbar {
+		width: 8px;
+		/* height: 6px; */
+		border-radius: 12px;
+		background: var(--vertical-scrollbar-track-color);
+	}
+
+	.columnTasksList::-webkit-scrollbar-track {
+		border-radius: 12px;
+	}
+
+	.columnTasksList::-webkit-scrollbar-thumb {
+		width: 8px;
+		background-color: var(--vertical-scrollbar-thumb-color);
+		border-radius: 12px;
+	}
 }

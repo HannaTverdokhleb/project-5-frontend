@@ -21,7 +21,7 @@
   font-family: Inter, sans-serif;
   font-size: 32px;
   font-weight: 700;
-  line-height: 40px;
+  line-height: 1.25;
   text-transform: uppercase;
   margin-bottom: 14px;
 }
@@ -55,8 +55,6 @@
   background-color: var(--bcg-color-blue);
   border-radius: 44px;
   margin-bottom: 8px;
-}
-.titleSelectedTwo {
 }
 
 .text {
@@ -96,9 +94,10 @@
 
 @media screen and (min-width: 1440px) {
   .container {
-    width: 1184px;
+    max-width: 1184px;
+    width: 100%;
     margin: 64px auto;
-    margin-bottom: 118px;
+    margin-bottom: 100px;
   }
 
   .alignSelf {

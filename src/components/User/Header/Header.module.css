@@ -13,9 +13,16 @@
 }
 
 .burgerIcon {
+  width: 24px;
+  height: 24px;
+  color: var(--button-text-color-secondary);
+}
+
+@media screen and (min-width: 768px){
+.burgerIcon{
   width: 34px;
   height: 34px;
-  color: var(--button-text-color-secondary);
+}
 }
 
 .burgerIcon:active {
@@ -33,18 +40,6 @@
   color: var(--background-color-quaternary);
 }
 
-/* .feedbackButton {
-  border: 0;
-  border-radius: 14px;
-  padding: 0;
-  width: 130px;
-  height: 42px;
-  background-color: var(--background-color-quaternary);
-  font-family: 'Inter';
-  font-weight: 600;
-  font-size: 14px;
-  color: var(--button-text-color-primary);
-} */
 
 @media screen and (min-width: 335px) {
   .title {
@@ -53,18 +48,13 @@
   .burgerButton {
     background: none;
     border: 0ch;
-    padding: 0%;
-    width: 24px;
-    height: 24px;
-    display: block;
+    padding: 0;
+    display: flex;
+    align-items: center;
   }
 
   .calendar {
     display: none;
-  }
-  .feedbackButton {
-    width: 97px;
-    height: 32px;
   }
   .header {
     margin-bottom: 64px;
@@ -74,18 +64,9 @@
   .header {
     margin-top: 24px;
   }
-  .feedbackButton {
-    width: 130px;
-    height: 42px;
-  }
-  .burgerButton {
-    width: 34px;
-    height: 34px;
-    padding: 0%;
-  }
 }
 
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 991px) {
   .burgerButton {
     display: none;
   }
