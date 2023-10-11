@@ -7,6 +7,7 @@ import DatePicker from 'react-datepicker';
 import { routes } from '../../../configs/routes';
 import css from './index.module.css';
 import PeriodPaginator from '../../User/CalendarToolbar/PeriodPaginator/PeriodPaginator';
+import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai';
 
 export default function CalendarPicker({ month }) {
   const navigate = useNavigate();
@@ -18,6 +19,7 @@ export default function CalendarPicker({ month }) {
       if (header) {
         header.style.backgroundColor = '#3e85f3';
         header.style.borderBottom = '1px solid #fff';
+        header.style.margin = '12px';
       }
     });
   };
@@ -90,22 +92,24 @@ export default function CalendarPicker({ month }) {
             decreaseMonth();
           }}
           disabled={prevMonthButtonDisabled}>
-          {'<'}
+          <AiOutlineLeft />
         </button>
-        <select
-          value={moment(month).format('YYYY')}
-          onChange={({ target: { value } }) => {
-            handleChange(`${value}-${moment().format('MM')}`);
-            changeMonth(moment().format('MM'));
-            changeYear(value);
-          }}
-        >
-          {range.map((option) => (
-            <option key={option} value={option}>
-              {option}
-            </option>
-          ))}
-        </select>
+        <div className={css.dropdown}>
+          <select
+            value={moment(month).format('YYYY')}
+            onChange={({ target: { value } }) => {
+              handleChange(`${value}-${moment().format('MM')}`);
+              changeMonth(moment().format('MM'));
+              changeYear(value);
+            }}
+          >
+            {range.map((option) => (
+              <option key={option} value={option}>
+                {option}
+              </option>
+            ))}
+          </select>
+        </div>
         <button
           className={css.button}
           onClick={() => {
@@ -113,7 +117,7 @@ export default function CalendarPicker({ month }) {
             increaseMonth();
           }}
           disabled={nextMonthButtonDisabled}>
-          {'>'}
+          <AiOutlineRight />
         </button>
       </div>
     );
