@@ -6,6 +6,7 @@ import { routes } from '../../configs/routes';
 import { currentPage } from 'redux/actions';
 import css from './CalendarPage.module.css';
 import { CalendarTitle } from 'components/Calendar/СalendarTitle/СalendarTitle';
+import { TaskWeek } from 'components/User/TaskWeek/TaskWeek';
 import { CalendarTable } from 'components/Calendar/СalendarTable/СalendarTable';
 import CalendarPicker from 'components/Calendar/CalendarPicker';
 import TasksColumnsList from 'components/User/TasksColumnsList/TasksColumnsList';
@@ -32,7 +33,7 @@ function ChosenDay({ day }) {
           <CalendarPicker />
           <PeriodTypeSelect />
         </div>
-        <CalendarTitle />
+        <TaskWeek />
         <TasksColumnsList day={day} />
       </div>
   );
