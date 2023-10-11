@@ -74,8 +74,11 @@ export default function CalendarPage() {
     !day &&
     navigate(`${routes.private.month.path.replace(':month', currentMonth)}`);
 
-    dispatch(getTasks());
   }, [currentMonth, day, dispatch, month, navigate]);
+
+  useEffect(() => {
+    dispatch(getTasks());
+  }, [dispatch]);
 
   return (
     <div className={css.pageWrapper}>

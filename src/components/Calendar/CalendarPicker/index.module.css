@@ -78,8 +78,8 @@ select:focus-visible {
 }
 
 .month {
-  margin: 4px;
   display: flex;
+  margin: 4px;
   align-items: center;
   justify-content: center;
   background-color: var(--main-color-blue);
@@ -91,6 +91,22 @@ select:focus-visible {
   font-weight: 700;
   text-transform: uppercase;
   height: 36px;
+}
+
+.day {
+  margin: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--main-color-blue);
+  cursor: pointer;
+  color: #fff;
+  text-align: center;
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  height: 24px;
 }
 
 div[tabindex='0'] {
@@ -107,6 +123,12 @@ div[tabindex='0'] > .month {
   color: var(--main-color-blue);
 }
 
+div[tabindex='0'] > .day {
+  border-radius: 18px;
+  background-color: #fff;
+  color: var(--main-color-blue);
+}
+
 div[tabindex='-1'] {
   background-color: var(--main-color-blue);
 }
@@ -115,7 +137,14 @@ div[tabindex='-1']:hover {
   background-color: var(--main-color-blue);
 }
 
+
 div[tabindex='-1'] > .month:hover {
+  border-radius: 18px;
+  background-color: #fff;
+  color: var(--main-color-blue);
+}
+
+div[tabindex='-1'] > .day:hover {
   border-radius: 18px;
   background-color: #fff;
   color: var(--main-color-blue);
