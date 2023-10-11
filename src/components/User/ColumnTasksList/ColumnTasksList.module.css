@@ -17,3 +17,30 @@
 	/* overflow-y: scroll; */
 	 overflow-y: auto;
 }
+
+::-webkit-scrollbar {
+	width: 18px;
+	height: 12px;
+	/* background-color: yellow; */
+		border-radius: 12px;
+			background: var(--vertical-scrollbar-track-color);
+
+
+}
+
+::-webkit-scrollbar-track {
+	/* width: 18px; */
+	border: 6px solid var(--background-color-tertiary);
+	/* background-color: var(--vertical-scrollbar-track-color); */
+			border-radius: 12px;
+
+}
+
+::-webkit-scrollbar-thumb {
+	width: 6px;
+	background-color: var(--vertical-scrollbar-thumb-color);
+			border-radius: 12px;
+				border: 6px solid var(--background-color-tertiary);
+
+
+}
