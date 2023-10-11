@@ -14,11 +14,15 @@ import { getTasks } from '../../redux/Tasks/operations';
 function ChosenDay({ day }) {
   const navigate = useNavigate();
   const isValidFormat =
-    /^\d{4}-(0?[1-9]|1[012])-(0?[1-9]|[12][0-9]|3[01])$/.test(day);
+    /^\d{4}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])$/.test(day);
 
   useEffect(() => {
     !isValidFormat && navigate(`${routes.private.calendar.path}`);
   }, [isValidFormat, navigate]);
+
+  if (!isValidFormat) {
+    return null;
+  }
 
   return (
     <TasksColumnsList day={day} />
@@ -32,6 +36,10 @@ function ChosenMonth({ month }) {
   useEffect(() => {
     !isValidFormat && navigate(`${routes.private.calendar.path}`);
   }, [isValidFormat, navigate]);
+
+  if (!isValidFormat) {
+    return null;
+  }
 
   return (
     <div className={css.pageWrapper}>

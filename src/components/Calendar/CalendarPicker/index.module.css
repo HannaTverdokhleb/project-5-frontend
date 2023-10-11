@@ -19,6 +19,7 @@
   line-height: 1.286;
   font-weight: 700;
   text-transform: uppercase;
+  min-width: 170px;
 }
 
 @media screen and (min-width: 768px) {
