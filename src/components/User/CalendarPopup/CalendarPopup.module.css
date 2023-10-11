@@ -1,3 +1,11 @@
+.picker {
+  gap: 16px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
 .customInput {
     background-color: var(--main-color-blue);
     border: none;
@@ -20,7 +28,7 @@
     padding: 8px 12px;
   }
   }
-  
+
   .fixedHeight{
     height: 280px;
   }
