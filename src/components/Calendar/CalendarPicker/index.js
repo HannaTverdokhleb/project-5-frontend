@@ -128,7 +128,7 @@ export default function CalendarPicker({ month }) {
       <DatePicker
         fixedHeight
         showPopperArrow={false}
-        showMonthYearPicker
+        showMonthYearPicker={month}
         selected={new Date(`${month}-${moment().format('DD')}`)}
         onChange={handleChange}
         customInput={<CustomInput />}

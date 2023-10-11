@@ -12,7 +12,6 @@ import TasksColumnsList from 'components/User/TasksColumnsList/TasksColumnsList'
 import { getTasks } from '../../redux/Tasks/operations';
 import PeriodTypeSelect from 'components/User/CalendarToolbar/PeriodTypeSelect/PeriodTypeSelect';
 
-
 function ChosenDay({ day }) {
   const navigate = useNavigate();
   const isValidFormat =
@@ -27,14 +26,14 @@ function ChosenDay({ day }) {
   }
 
   return (
-      <div className={css.pageWrapper}>
-        <div className={css.toolbarWrapper}>
-          <CalendarPicker />
-          <PeriodTypeSelect />
-        </div>
-        <CalendarTitle />
-        <TasksColumnsList day={day} />
+    <div className={css.pageWrapper}>
+      <div className={css.toolbarWrapper}>
+        <CalendarPicker day={day} />
+        <PeriodTypeSelect day={day} />
       </div>
+      <CalendarTitle />
+      <TasksColumnsList day={day} />
+    </div>
   );
 }
 
@@ -52,9 +51,9 @@ function ChosenMonth({ month }) {
 
   return (
     <div className={css.pageWrapper}>
-      <div className={css.toolbarWrapper} >
+      <div className={css.toolbarWrapper}>
         <CalendarPicker month={month} />
-        <PeriodTypeSelect />
+        <PeriodTypeSelect month={month} />
       </div>
       <CalendarTitle />
       <CalendarTable month={month} />
