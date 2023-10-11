@@ -46,7 +46,6 @@
     flex-direction: column;
   }
   @media screen and (max-width: 767px) {
-    transform: translateY(-40px);
     max-width: 358px;
     margin: 0 auto;
     justify-content: center;
@@ -91,7 +90,6 @@
     height: 124px;
   }
   @media screen and (max-width: 767px) {
-    transform: translateY(-90px);
     margin-bottom: 18px;
   }
   @media screen and (min-width: 1440px) {
@@ -115,10 +113,7 @@
   background-color: var(--background-color-secondary);
 }
 .plusInBorder {
-  transform: translate(77px, -23px);
-  /* position: absolute; */
-  /* top: 55px;
-  left: 50px; */
+  position: absolute;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -132,14 +127,6 @@
   position: relative;
   z-index: 3;
   transition: all linear 0.3s;
-  @media screen and (min-width: 768px) {
-    width: 24px;
-    height: 24px;
-  }
-  @media screen and (max-width: 767px) {
-    font-size: 20px;
-    transform: translate(47px, -12px);
-  }
   & span {
     padding-bottom: 6px;
   }
@@ -159,7 +146,7 @@
     line-height: 1;
   }
   @media screen and (max-width: 767px) {
-    transform: translateY(-90px);
+    
   }
 }
 
@@ -177,7 +164,6 @@
     line-height: calc(18 / 14);
   }
   @media screen and (max-width: 767px) {
-    transform: translateY(-90px);
     margin-bottom: 0;
   }
 }
@@ -215,6 +201,7 @@
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
+  line-height: 1;
   line-height: calc(18 / 14);
   color: var(--feedback-text-primary);
   display: block;
@@ -297,4 +284,38 @@
   right: 0;
   top: 0;
   bottom: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .plusInBorder {
+    width: 24px;
+    height: 24px;
+    top: -25px;
+    right: -83px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .plusInBorder {
+    font-size: 20px;
+    right: -48px;
+    top: -12px;
+  }
+  .plusInBorder span {
+    font-size: 17px;
+    margin-bottom: -1px;
+  }
+  .avatarContainer {
+    margin-top: -90px;
+  }
+  .userForm {
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+  .userInput {
+    padding: 12px 14px;
+    font-size: 14px;
+  }
+  .userLabel {
+    font-size: 12px;
+  }
 }
