@@ -1,10 +1,9 @@
 import css from './TasksColumnsList.module.css';
 
 import TasksColumn from '../TasksColumn/TasksColumn';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { selectTasks } from 'redux/Tasks/selectors';
-import { useEffect } from 'react';
-import { getTasks } from 'redux/Tasks/operations';
+
 import moment from 'moment';
 
 const TasksColumnsList = ({ day }) => {
