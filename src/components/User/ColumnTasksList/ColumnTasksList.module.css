@@ -8,13 +8,12 @@
 	/* height:500px; */
 	/* max-height:500px; */
 	height: 100%;
-	outline: 1px solid green;
-
 	border-radius: 8px;
+
 	padding-right: 6px;
 
 	/* overflow-y: scroll; */
-	 overflow-y: auto;
+	overflow-y: auto;
 }
 
 .columnTasksList::-webkit-scrollbar {
