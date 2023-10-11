@@ -91,6 +91,8 @@ body[data-theme='light'] {
   --add-task-button-day-text-color: #111;
   --add-task-button-day-svg-color: #111;
   --add-task-button-day-hover-color: #dcebf7;
+  --add-task-button-day-hover-text-stroke: 1px #000000;
+  --add-task-button-day-hover-text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
   --add-task-background-button: #e3f3ff;
   --add-task-label-text-color: rgba(52, 52, 52, 0.8);
@@ -118,19 +120,20 @@ body[data-theme='light'] {
   --add-task-cancel-button-hover-color: #cccccc;
   --toast-main-color: #fff;
   --toast-background-color: #72c2f8;
-  --border-sort-task: 1px solid #fff;
-
+  
   --loader-gradient: linear-gradient(
     rgba(220, 235, 247, 0.56),
     rgba(164, 212, 248, 0.663)
-  );
-
+    );
+    
   --add-task-button-border: 1px dashed #3e85f3;
   --task-item-border: 1px solid rgba(220, 227, 229, 0.8);
   --task-avatar-border: 1.8px solid #3e85f3;
+  --task-priority-color: #F7F6F9;
+  --border-sort-task: 1px solid #fff;
 
   --vertical-scrollbar-track-color: #f2f2f2;
-  --vertical-scrollbar-thumb-color: #e7e5e5;
+  --vertical-scrollbar-thumb-color: #e7e5e5; 
   --horizontal-scrollbar-track-color: #f2f2f2;
   --horizontal-scrollbar-thumb-color: #e7e5e5;
 
@@ -252,6 +255,8 @@ body[data-theme='dark'] {
   --add-task-button-day-text-color: #fff;
   --add-task-button-day-svg-color: #fff;
   --add-task-button-day-hover-color: #2b78ef;
+  --add-task-button-day-hover-text-stroke: 1px #fff;
+  --add-task-button-day-hover-text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
   --add-task-background-button: #e3f3ff;
   --add-task-label-text-color: rgba(250, 250, 250, 0.3);
@@ -287,6 +292,8 @@ body[data-theme='dark'] {
   --add-task-button-border: none;
   --task-item-border: 1px solid rgba(255, 255, 255, 0.15);
   --task-avatar-border: 1.8px solid #3e85f3;
+  --task-priority-color: #171820;
+
   --border-sort-task: 1px solid rgba(255, 255, 255, 0.15);
 
   --vertical-scrollbar-track-color: #2d3037;
