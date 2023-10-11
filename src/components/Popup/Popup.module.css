@@ -92,12 +92,6 @@ flex-direction: column;
     line-height: 1.28;
 }
 
-@media (max-width: 600px) {
-    .timeInput {
-        width: 107px;
-    }
-}
-
 input[type="time"]::-webkit-calendar-picker-indicator {
     color: var(--text-color-primary);
     display: block;
