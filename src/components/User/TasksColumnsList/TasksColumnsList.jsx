@@ -11,12 +11,7 @@ const TasksColumnsList = ({ day }) => {
   const categories = ['to-do', 'in-progress', 'done'];
   const columnTitles = ['To do', 'In progress', 'Done'];
 
-  const dispatch = useDispatch();
   const tasks = useSelector(selectTasks);
-
-  useEffect(() => {
-    dispatch(getTasks());
-  }, [dispatch]);
 
   const filterTasksByDate = (tasks, targetDate) => {
     return tasks.filter(task => {

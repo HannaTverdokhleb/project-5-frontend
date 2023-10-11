@@ -73,11 +73,6 @@ export const CalendarTable = ({ month }) => {
   const CalendarTable = fillCalendar(date, tasks);
 
   const navigate = useNavigate();
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getTasks());
-  }, [dispatch]);
 
   const handleDayClick = dayValue => {
     const day = /^\d$/.test(dayValue) ? `0${dayValue}` : dayValue;
