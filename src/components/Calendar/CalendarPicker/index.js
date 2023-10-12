@@ -125,8 +125,8 @@ export default function CalendarPicker({ month, day }) {
                                  date,
                                  changeYear,
                                  changeMonth,
-                                 decreaseDay,
-                                 increaseDay,
+                                 decreaseMonth,
+                                 increaseMonth,
                                  prevMonthButtonDisabled,
                                  nextMonthButtonDisabled,
                                }) => {
@@ -134,10 +134,7 @@ export default function CalendarPicker({ month, day }) {
       <div className={css.header}>
         <button
           className={css.button}
-          onClick={() => {
-            leftClick();
-            decreaseDay();
-          }}
+          onClick={decreaseMonth}
           disabled={prevMonthButtonDisabled}>
           <AiOutlineLeft />
         </button>
@@ -160,10 +157,7 @@ export default function CalendarPicker({ month, day }) {
         </div>}
         <button
           className={css.button}
-          onClick={() => {
-            rightClick();
-            increaseDay();
-          }}
+          onClick={increaseMonth}
           disabled={nextMonthButtonDisabled}>
           <AiOutlineRight />
         </button>
