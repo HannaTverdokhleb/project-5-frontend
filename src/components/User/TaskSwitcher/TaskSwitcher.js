@@ -1,7 +1,7 @@
 import { AiOutlineLogin } from 'react-icons/ai';
 import css from './TaskSwitcher.module.css';
 
-export default function TaskSwitcher({ catId, onCategoryChange }) {
+export default function TaskSwitcher({ catId, onCategoryChange, isLast }) {
   const arrayCatId = ['to-do', 'in-progress', 'done'];
   const arrayCatNames = ['To do', 'In progress', 'Done'];
 
@@ -15,8 +15,10 @@ export default function TaskSwitcher({ catId, onCategoryChange }) {
     (_, index) => index !== categoryIndex
   );
 
+  const taskSwitcherClass = isLast ? css.centeredTaskSwitcher : ''; // Используйте css.centeredTaskSwitcher для класса
+
   return (
-    <div className={css.boxTasKSwitcher}>
+    <div className={`${css.boxTasKSwitcher} ${taskSwitcherClass}`}>
       <button
         type="button"
         aria-label="Button Task Switcher"

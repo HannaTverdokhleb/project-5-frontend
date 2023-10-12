@@ -19,6 +19,28 @@
     transform: translate(-50%, 10%);
 }
 
+.centeredTaskSwitcher {
+  position: absolute;
+  top: 55%;
+  left: 43%;
+  transform: translate(-50%, -50%);
+
+  
+    width: 115px;
+    height: 70px;
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+    justify-content: center;
+    border: var(--border-sort-task);
+
+    align-items: center;
+    border-radius: 8px;
+    background: var(--feedback-background-primary); /*#ffffff;*/
+    box-shadow: var(--modal-box-shadow-color);
+
+}
+
 @media screen and (min-width: 768px) {
     .boxTasKSwitcher {
         width: 147px;
