@@ -8,15 +8,17 @@
 	flex-direction: column;
 	/* align-items: flex-start; */
 	gap: 18px;
-
+	
+	width: 335px;
+	
+	min-height: 155px;
 	 max-height: 100%;
   /* overflow: hidden;  */
 
-	flex-shrink: 0;
-
-	width: 335px;
-	min-height: 155px;
+	
 	padding: 18px 18px 20px 18px;
+
+	flex-shrink: 0;
 	
 	border-radius: 8px;
 	border: var(--task-item-border);

@@ -4,7 +4,7 @@
 .tasksColumnsList  {
 	display: flex;
 	gap: 27px;
-	/* justify-content: space-between; */
+	justify-content: space-between;
 	height: 85dvh;
 	/* min-width: 100%; */
 
