@@ -19,6 +19,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  gap: 2px;
 }
 
 .textTitle {
@@ -31,7 +33,7 @@
 }
 
 .container li:nth-last-child(-n + 2) .textTitle {
-  color: #3E85F3;
+  color: #3e85f3;
 }
 @media screen and (min-width: 768px) {
   .textTitle {
@@ -47,8 +49,21 @@
   }
 }
 
+
+.textNumberWeek{
+    color: var(--feedback-text-secondary);
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1;
+  text-align: center;
+}
 strong.dayItem {
-  color: red;
+  background: #3e85f3;
+  color: #fff;
+  border-radius: 8px;
+  padding: 1px 6px;
+
 }
 /* span.dayItem {
   color: green;

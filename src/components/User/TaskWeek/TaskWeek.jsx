@@ -11,17 +11,24 @@ export const TaskWeek = () => {
     <ul className={css.container}>
       {DaysWeek.map((weekDay, i) => {
         DoW.add(i === 0 ? i : 1, 'days');
+
+        console.log(DoW);
+
         return (
-        <li key={weekDay} className={css.element}>
-          <p className={css.textTitle}>
-            <span className={css.dow}>{weekDay}</span>-
-            {day === DoW.format('YYYY-MM-DD') ?
-              <strong className={css.dayItem}>{DoW.format('D')}</strong> :
-              <span className={css.dayItem}>{DoW.format('D')}</span>
-            }
-          </p>
-        </li>
-      )})}
+          <li key={weekDay} className={css.element}>
+            <p className={css.textTitle}>
+              <span className={css.dow}>{weekDay}</span>
+            </p>
+            <div className={css.textNumberWeek}>
+              {day === DoW.format('YYYY-MM-DD') ? (
+                <strong className={css.dayItem}>{DoW.format('D')}</strong>
+              ) : (
+                <span className={css.dayItem}>{DoW.format('D')}</span>
+              )}
+            </div>
+          </li>
+        );
+      })}
     </ul>
   );
 };
