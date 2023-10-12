@@ -1,3 +1,5 @@
+@import '/src/css/variables.css';
+
 /*General container*/
 .container {
   display: flex;
@@ -20,7 +22,7 @@
 }
 
 .textBy {
-  color: #343434;
+  color: var(--text-color-secondary);
   font-family: Inter, sans-serif;
   font-size: 14px;
 }
@@ -51,14 +53,14 @@
 
 .tasks {
   margin-left: 30px;
-  color: #343434;
+  color: var(--text-color-secondary);
   font-family: Inter, sans-serif;
   font-size: 14px;
   font-weight: 600;
 }
 
 .textChart {
-  color: #343434;
+  color: var(--text-color-secondary);
   font-family: Inter, sans-serif;
   font-size: 12px;
 }
@@ -86,7 +88,7 @@
   }
 
   .textChart {
-    color: #343434;
+    color: var(--text-color-secondary);
     font-family: Inter, sans-serif;
     font-size: 14px;
   }
@@ -102,3 +104,8 @@
     margin-top: 20px;
   }
 }
+
+/*tspan{
+  color: var(--text-color-secondary);
+}*/
+
