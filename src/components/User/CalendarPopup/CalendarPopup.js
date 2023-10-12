@@ -1,19 +1,80 @@
 import 'react-datepicker/dist/react-datepicker.css';
 import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 import React, { forwardRef } from 'react';
-import DatePicker from 'react-datepicker';
+import DatePicker, { registerLocale } from 'react-datepicker';
 import moment from 'moment';
-
-import css from './CalendarPopup.module.css';
+import css from '../../../components/Calendar/CalendarPicker/index.module.css';
 import PeriodPaginator from '../CalendarToolbar/PeriodPaginator/PeriodPaginator';
+import en from 'date-fns/locale/en-GB';
+import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai';
 
+registerLocale('en', en);
 export const CalendarDropdown = ({ day, setDay }) => {
-  const renderDayContents = (day, date) => {
-    const tooltipText = `Tooltip for date: ${date}`;
+  const setStyles = (e) => {
+    e.target.value !== undefined && setTimeout(() => {
+      const [month] = document.getElementsByClassName('react-datepicker__month-container');
+      const [header] = month.getElementsByClassName('react-datepicker__header');
+      const days = month.getElementsByClassName('react-datepicker__day-name');
+      if (header) {
+        header.style.backgroundColor = '#3e85f3';
+        header.style.borderBottom = '1px solid #fff';
+        header.style.margin = '12px';
+      }
+      if (days) {
+        Array.from(days).forEach(day => {
+          day.style.color = '#fff';
+        });
+      }
+    });
+  };
+
+  const renderMonthContent = (month, shortMonth) => {
     return (
-      <span className={css.tooltipText} title={tooltipText}>
-        {date.getDate()}
-      </span>
+      <div className={css.month}>
+        {shortMonth}
+      </div>
+    );
+  };
+
+  const renderDayContent = day => {
+    return (
+      <div className={css.day}>
+        {day}
+      </div>
+    );
+  };
+
+  const renderHeaderContent = ({
+                                 date,
+                                 changeYear,
+                                 changeMonth,
+                                 decreaseMonth,
+                                 increaseMonth,
+                                 prevMonthButtonDisabled,
+                                 nextMonthButtonDisabled,
+                               }) => {
+    return (
+      <div className={css.header}>
+        <button
+          className={css.button}
+          onClick={() => {
+            leftClick();
+            decreaseMonth();
+          }}
+          disabled={prevMonthButtonDisabled}>
+          <AiOutlineLeft />
+        </button>
+        {day && <>{moment(date).format('MMMM YYYY').toUpperCase()}</>}
+        <button
+          className={css.button}
+          onClick={() => {
+            rightClick();
+            increaseMonth();
+          }}
+          disabled={nextMonthButtonDisabled}>
+          <AiOutlineRight />
+        </button>
+      </div>
     );
   };
 
@@ -36,74 +97,21 @@ export const CalendarDropdown = ({ day, setDay }) => {
     </div>
   ));
 
-  // const months = [
-  //   'January',
-  //   'February',
-  //   'March',
-  //   'April',
-  //   'May',
-  //   'June',
-  //   'July',
-  //   'August',
-  //   'September',
-  //   'October',
-  //   'November',
-  //   'December',
-  // ];
-
   return (
-    <DatePicker
-      showPopperArrow={false}
-      selected={new Date(day)}
-      onChange={date => setDay(moment(date))}
-      customInput={<CustomInput />}
-      fixedHeight={css.fixedHeight}
-      calendarClassName={css.calendar}
-      renderDayContents={renderDayContents}
-      dateFormat='d MMMM yyyy'
-      //   renderCustomHeader={({
-      //     date,
-      //     changeMonth,
-      //     decreaseMonth,
-      //     increaseMonth,
-      //     prevMonthButtonDisabled,
-      //     nextMonthButtonDisabled,
-      //   }) => (
-      //     <div
-      //       className={css.headerMonth}
-      //       style={{ margin: 10, display: 'flex', justifyContent: 'center' }}
-      //     >
-      //       <button
-      //         className={css.headerMonth}
-      //         onClick={decreaseMonth}
-      //         disabled={prevMonthButtonDisabled}
-      //       >
-      //         {'<'}
-      //       </button>
-
-      //       <select
-      //         className={css.headerMonth}
-      //         value={months[getMonth(date)]}
-      //         onChange={({ target: { value } }) =>
-      //           changeMonth(months.indexOf(value))
-      //         }
-      //       >
-      //         {months.map(option => (
-      //           <option key={option} value={option}>
-      //             {option}
-      //           </option>
-      //         ))}
-      //       </select>
-
-      //       <button
-      //         className={css.headerMonth}
-      //         onClick={increaseMonth}
-      //         disabled={nextMonthButtonDisabled}
-      //       >
-      //         {'>'}
-      //       </button>
-      //     </div>
-      //   )}
-    />
+    <div onClick={setStyles}>
+      <DatePicker
+        locale='en'
+        fixedHeight
+        showPopperArrow={false}
+        selected={new Date(day)}
+        onChange={date => setDay(moment(date))}
+        customInput={<CustomInput />}
+        calendarClassName={css.calendar}
+        renderDayContents={renderDayContent}
+        dateFormat='d MMMM yyyy'
+        renderMonthContent={renderMonthContent}
+        renderCustomHeader={renderHeaderContent}
+      />
+    </div>
   );
 };
