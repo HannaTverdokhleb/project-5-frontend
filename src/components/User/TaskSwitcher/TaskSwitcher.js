@@ -15,7 +15,7 @@ export default function TaskSwitcher({ catId, onCategoryChange, isLast }) {
     (_, index) => index !== categoryIndex
   );
 
-  const taskSwitcherClass = isLast ? css.centeredTaskSwitcher : ''; // Используйте css.centeredTaskSwitcher для класса
+  const taskSwitcherClass = isLast ? css.centeredTaskSwitcher : '';
 
   return (
     <div className={`${css.boxTasKSwitcher} ${taskSwitcherClass}`}>
