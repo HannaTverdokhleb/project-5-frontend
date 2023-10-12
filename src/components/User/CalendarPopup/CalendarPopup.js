@@ -68,18 +68,14 @@ export const CalendarDropdown = ({ day, setDay }) => {
       <div className={css.header}>
         <button
           className={css.button}
-          onClick={() => {
-            decreaseMonth();
-          }}
+          onClick={decreaseMonth}
           disabled={prevMonthButtonDisabled}>
           <AiOutlineLeft />
         </button>
         {day && <>{moment(date).format('MMMM YYYY').toUpperCase()}</>}
         <button
           className={css.button}
-          onClick={() => {
-            increaseMonth();
-          }}
+          onClick={increaseMonth}
           disabled={nextMonthButtonDisabled}>
           <AiOutlineRight />
         </button>

@@ -17,18 +17,18 @@
 
 .header {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   background-color: var(--main-color-blue);
   font-weight: 700;
   margin-bottom: 8px;
 }
 
 .dropdown {
-  gap: 4px;
   display: flex;
+  align-items: center;
+  gap: 4px;
   background-color: var(--main-color-blue);
   font-weight: 700;
-  align-items: center;
 }
 
 select {
