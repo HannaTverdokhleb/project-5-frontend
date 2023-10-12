@@ -24,11 +24,11 @@
 }
 
 .dropdown {
-  gap: 4px;
   display: flex;
+  align-items: center;
+  gap: 4px;
   background-color: var(--main-color-blue);
   font-weight: 700;
-  align-items: center;
 }
 
 select {

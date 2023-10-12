@@ -7,7 +7,7 @@ import DatePicker, { registerLocale } from 'react-datepicker';
 import { routes } from '../../../configs/routes';
 import css from './index.module.css';
 import PeriodPaginator from '../../User/CalendarToolbar/PeriodPaginator/PeriodPaginator';
-import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai';
+import { AiOutlineDown, AiOutlineLeft, AiOutlineRight } from 'react-icons/ai';
 import en from 'date-fns/locale/en-GB';
 
 registerLocale('en', en);
@@ -22,6 +22,8 @@ export default function CalendarPicker({ month, day }) {
       const [header] = month.querySelectorAll('.react-datepicker__header');
       const daysName = month.querySelectorAll('.react-datepicker__day-name');
       const weekdays = month.querySelectorAll('.weekday');
+      const yearDiv = header.querySelector('div');
+      day ? yearDiv.style.justifyContent = 'space-between' : yearDiv.style.justifyContent = 'center';
       if (header) {
         header.style.backgroundColor = '#3e85f3';
         header.style.borderBottom = '1px solid #fff';
@@ -125,27 +127,28 @@ export default function CalendarPicker({ month, day }) {
                                  date,
                                  changeYear,
                                  changeMonth,
-                                 decreaseMonth,
                                  increaseMonth,
+                                 decreaseMonth,
                                  prevMonthButtonDisabled,
                                  nextMonthButtonDisabled,
                                }) => {
     return (
       <div className={css.header}>
-        <button
+        {day && <button
           className={css.button}
           onClick={decreaseMonth}
           disabled={prevMonthButtonDisabled}>
           <AiOutlineLeft />
-        </button>
+        </button>}
         {day && <>{moment(date).format('MMMM YYYY').toUpperCase()}</>}
         {month && <div className={css.dropdown}>
+          <AiOutlineDown />
           <select
-            value={month ? moment(month).format('YYYY') : moment(day).format('YYYY')}
+            value={moment(month).format('YYYY')}
             onChange={({ target: { value } }) => {
-              month && handleChange(`${value}-${moment().format('MM')}`);
-              month && changeMonth(moment().format('MM'));
-              month && changeYear(value);
+              handleChange(`${value}-${moment().format('MM')}`);
+              changeMonth(moment().format('MM'));
+              changeYear(value);
             }}
           >
             {range.map((option) => (
@@ -155,12 +158,12 @@ export default function CalendarPicker({ month, day }) {
             ))}
           </select>
         </div>}
-        <button
+        {day && <button
           className={css.button}
           onClick={increaseMonth}
           disabled={nextMonthButtonDisabled}>
           <AiOutlineRight />
-        </button>
+        </button>}
       </div>
     );
   };
