@@ -1,6 +1,6 @@
 import 'react-datepicker/dist/react-datepicker.css';
 import 'react-datepicker/dist/react-datepicker-cssmodules.css';
-import React, { forwardRef } from 'react';
+import React, { forwardRef, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import moment from 'moment/moment';
 import DatePicker, { registerLocale } from 'react-datepicker';
@@ -13,20 +13,32 @@ import en from 'date-fns/locale/en-GB';
 registerLocale('en', en);
 export default function CalendarPicker({ month, day }) {
   const navigate = useNavigate();
+  const ref = useRef(null);
 
   const setStyles = (e) => {
     e.target.value !== undefined && setTimeout(() => {
-      const [month] = document.getElementsByClassName('react-datepicker__month-container');
-      const [header] = month.getElementsByClassName('react-datepicker__header');
-      const days = month.getElementsByClassName('react-datepicker__day-name');
+      const [month] = document.querySelectorAll('.react-datepicker__month-container');
+      const [children] = document.querySelectorAll('.react-datepicker__children-container');
+      const [header] = month.querySelectorAll('.react-datepicker__header');
+      const daysName = month.querySelectorAll('.react-datepicker__day-name');
+      const weekdays = month.querySelectorAll('.weekday');
       if (header) {
         header.style.backgroundColor = '#3e85f3';
         header.style.borderBottom = '1px solid #fff';
         header.style.margin = '12px';
       }
-      if (days) {
-        Array.from(days).forEach(day => {
+      if (children) {
+        children.style.width = '100%';
+      }
+      if (daysName) {
+        Array.from(daysName).forEach(day => {
           day.style.color = '#fff';
+        });
+      }
+      if (weekdays) {
+        Array.from(weekdays).forEach(weekday => {
+          const div = weekday.querySelector('div');
+          div.style.fontWeight = '400';
         });
       }
     });
@@ -162,10 +174,15 @@ export default function CalendarPicker({ month, day }) {
   return (
     <div onClick={setStyles}>
       <DatePicker
+        ref={ref}
         locale='en'
         fixedHeight
         showPopperArrow={false}
         showMonthYearPicker={month}
+        dayClassName={(date) => {
+          const isWeekDay = moment(date).isoWeekday() === 6 || moment(date).isoWeekday() === 7;
+          return isWeekDay ? 'weekday' : undefined;
+        }}
         selected={month
           ? new Date(`${month}-${moment().format('DD')}`)
           : new Date(moment(day).format('YYYY-MM-DD'))
@@ -177,7 +194,14 @@ export default function CalendarPicker({ month, day }) {
         renderDayContents={renderDayContent}
         renderCustomHeader={renderHeaderContent}
         dateFormat={month ? 'MMMM yyyy' : 'd MMMM yyyy'}
-      />
+      >
+        {day && <div className={css.today} onClick={() => {
+          handleChange(moment().format('YYYY-MM-DD'));
+          ref.current?.setOpen(false);
+        }}>
+          TODAY
+        </div>}
+      </DatePicker>
     </div>
 
   );

@@ -4,6 +4,15 @@
   justify-content: flex-start;
   align-items: center;
   font-family: 'Inter', sans-serif;
+  width: 100%;
+}
+
+@media (max-width: 480px) {
+  .picker {
+    max-width: 100%;
+    width: 100%;
+    justify-content: space-between;
+  }
 }
 
 .header {
@@ -44,6 +53,13 @@ select:focus-visible {
   border: none;
   color: #fff;
   background-color: var(--main-color-blue);
+}
+
+.today {
+  text-align: center;
+  font-size: 14px;
+  width: 100%;
+  cursor: pointer;
 }
 
 .customInput {
@@ -109,6 +125,7 @@ select:focus-visible {
   height: 24px;
 }
 
+
 div[tabindex='0'] {
   background-color: var(--main-color-blue);
 }
@@ -137,7 +154,6 @@ div[tabindex='-1']:hover {
   background-color: var(--main-color-blue);
 }
 
-
 div[tabindex='-1'] > .month:hover {
   border-radius: 18px;
   background-color: #fff;
@@ -150,11 +166,3 @@ div[tabindex='-1'] > .day:hover {
   color: var(--main-color-blue);
 }
 
-@media (max-width: 480px) {
-
-  .picker {
-    max-width: 100%;
-    width: 100%;
-    justify-content: space-between;
-  }
-}
