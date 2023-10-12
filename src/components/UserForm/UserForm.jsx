@@ -111,7 +111,7 @@ const UserForm = () => {
                   </svg>
                 </label>
 
-                {!user.avatarURL ?
+                {user.avatarURL ?
                   <img src={user.avatarURL} alt="avatar" width="120" height="120" className={css.avatarImage} />
                   :
                   <AiOutlineUser className={css.avatarImage} style={{color: '#3E85F32E', padding: '35px'}} />
