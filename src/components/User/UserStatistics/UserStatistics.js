@@ -86,6 +86,13 @@ export const StatisticsChart = ({ day, setDay }) => {
     return task
   });
 
+  if (tasksByDay < 1) {
+    tasksByDay = 1;
+  }
+  if (tasksByMonth < 1) {
+    tasksByMonth = 1;
+  }
+
   let tasksByDay_cat_todo_percentage = tasksByDay_cat_todo * 100 / tasksByDay;
   let tasksByDay_cat_inprogress_percentage = tasksByDay_cat_inprogress * 100 / tasksByDay;
   let tasksByDay_cat_done_percentage = tasksByDay_cat_done * 100 / tasksByDay;
