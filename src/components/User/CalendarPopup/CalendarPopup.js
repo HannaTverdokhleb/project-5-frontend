@@ -115,16 +115,12 @@ export const CalendarDropdown = ({ day, setDay }) => {
         dayClassName={(date) => {
           const isWeekDay = moment(date).isoWeekday() === 6 || moment(date).isoWeekday() === 7;
           return isWeekDay ? 'weekday' : undefined;
-        }
-        }
+        }}
         locale='en'
         fixedHeight
         showPopperArrow={false}
         selected={new Date(day)}
         onChange={date => setDay(moment(date))}
-        onBlur={() => {
-          console.log('blur');
-        }}
         customInput={<CustomInput />}
         calendarClassName={css.calendar}
         renderDayContents={renderDayContent}
