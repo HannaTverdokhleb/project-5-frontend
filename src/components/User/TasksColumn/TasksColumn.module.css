@@ -2,7 +2,7 @@
 @import '../../../css/variables.css';
 
 .tasksColumnWrapper {
-	position: relative;
+	/* position: relative; */
 	
 	display: flex;
 	flex-direction: column;

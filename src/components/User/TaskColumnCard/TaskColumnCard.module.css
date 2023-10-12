@@ -1,7 +1,7 @@
 @import "../../../css/variables.css";
 
 .cardWrapper {
-	/* position: relative; */
+	position: relative;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -42,7 +42,8 @@
 .taskDescription:focus {
 	cursor: pointer;
 
-	height: 32px;
+	/* height: 32px; */
+	height: 100%;
 
   white-space: normal;
 	word-break: break-all;
@@ -138,9 +139,9 @@
 	
 	} 
 
-	.taskDescription:hover,
+	/* .taskDescription:hover,
 	.taskDescription:focus {
 	height: 36px;	
-}
+} */
 
 }

@@ -7,7 +7,7 @@ import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { useEffect } from 'react';
 
-const TaskToolbar = ({ openPopup, task, handleTask }) => {
+const TaskToolbar = ({ openPopup, task, handleTask, isLast }) => {
   const [isOpen, setIsOpen] = useState(false);
   const dispatch = useDispatch();
 
@@ -75,6 +75,7 @@ const TaskToolbar = ({ openPopup, task, handleTask }) => {
         <TaskSwitcher
           catId={task.category}
           onCategoryChange={handleCategoryChange}
+          isLast={isLast}
         />
       )}
     </div>

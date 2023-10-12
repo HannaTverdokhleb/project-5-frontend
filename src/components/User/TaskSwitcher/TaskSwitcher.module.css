@@ -1,7 +1,7 @@
 .boxTasKSwitcher{
     position: absolute;
 
-    /* z-index: 1; */
+    z-index: 1;
 
     width: 115px;
     height: 70px;
@@ -17,6 +17,15 @@
     box-shadow: var(--modal-box-shadow-color);
 
     transform: translate(-50%, 10%);
+}
+
+.centeredTaskSwitcher {
+  position: absolute;
+  top: 55%;
+  left: 43%;
+  transform: translate(-50%, -50%);
+
+
 }
 
 @media screen and (min-width: 768px) {

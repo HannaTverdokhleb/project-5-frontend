@@ -8,6 +8,7 @@ const TaskColumnCard = ({
   user: { avatarURL, name },
   openPopup,
   handleTask,
+  isLast,
 }) => {
   return (
     <div className={css.cardWrapper}>
@@ -31,6 +32,7 @@ const TaskColumnCard = ({
           openPopup={openPopup}
           task={task}
           handleTask={handleTask}
+          isLast={isLast}
         />
       </div>
     </div>

@@ -21,7 +21,6 @@ const TasksColumnsList = ({ day }) => {
 
   const filteredAndSortedTasks = filterTasksByDate(tasks, day);
 
-  //TODO Підставити відфільтрований список в фільтр по категоріям
   const tasksByCategory = categories.reduce((acc, category) => {
     acc[category] = filteredAndSortedTasks.filter(
       task => task.category === category
@@ -42,24 +41,6 @@ const TasksColumnsList = ({ day }) => {
       ))}
     </ul>
   );
-
-  // const todoTasks = tasks.filter(task => task.category === 'to-do');
-  // const inProgressTasks = tasks.filter(task => task.category === 'in-progress');
-  // const doneTasks = tasks.filter(task => task.category === 'done');
-
-  // return (
-  //   <ul className={css.tasksColumnsList}>
-  //     <li key="to-do">
-  //       <TasksColumn headBarName="To do" tasks={todoTasks} />
-  //     </li>
-  //     <li key="in-progress">
-  //       <TasksColumn headBarName="In progress" tasks={inProgressTasks} />
-  //     </li>
-  //     <li key="done">
-  //       <TasksColumn headBarName="Done" tasks={doneTasks} />
-  //     </li>
-  //   </ul>
-  // );
 };
 
 export default TasksColumnsList;
