@@ -230,3 +230,23 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   background: var(--add-task-cancel-button-hover-color);
   transition: var(--transition-cubic);
 }
+
+
+.errorInput {
+  border: 1px solid red;
+}
+
+.errorTime{
+  border: 1px solid red;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+  margin-top: -16px;
+}
+
+.errorTimeInput{
+  color: red;
+    font-size: 12px;
+}
