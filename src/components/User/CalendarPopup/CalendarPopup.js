@@ -69,7 +69,6 @@ export const CalendarDropdown = ({ day, setDay }) => {
         <button
           className={css.button}
           onClick={() => {
-            leftClick();
             decreaseMonth();
           }}
           disabled={prevMonthButtonDisabled}>
@@ -79,7 +78,6 @@ export const CalendarDropdown = ({ day, setDay }) => {
         <button
           className={css.button}
           onClick={() => {
-            rightClick();
             increaseMonth();
           }}
           disabled={nextMonthButtonDisabled}>
