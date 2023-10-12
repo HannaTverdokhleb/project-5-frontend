@@ -14,7 +14,7 @@ export const TaskWeek = () => {
         return (
         <li key={weekDay} className={css.element}>
           <p className={css.textTitle}>
-            <span className={css.dow}>{weekDay}</span>-
+            <span className={css.dow}>{weekDay}</span>
             {day === DoW.format('YYYY-MM-DD') ?
               <strong className={css.dayItem}>{DoW.format('D')}</strong> :
               <span className={css.dayItem}>{DoW.format('D')}</span>
