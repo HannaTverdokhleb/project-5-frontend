@@ -65,6 +65,7 @@ export const ReviewsSlider = () => {
     slidesPerView: 1,
     centeredSlides: true,
     spaceBetween: 24,
+    initialSlide: 3,
     navigation: {nextEl: ".arrowLeft", prevEl: ".arrowRight" },
     breakpoints: {
       1024: {
