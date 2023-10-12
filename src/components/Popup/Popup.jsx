@@ -23,13 +23,24 @@ const Popup = ({ isOpen, onClose, task, category }) => {
   const [selectedPriority, setSelectedPriority] = useState('low');
   const [isTaskCreated, setIsTaskCreated] = useState(false);
 
+   const [formErrors, setFormErrors] = useState({
+    title: '',
+    start: '',
+    end: '',
+  });
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
       ...prevData,
       [name]: value,
     }));
+    setFormErrors((prevErrors) => ({
+      ...prevErrors,
+      [name]: '',
+    }));
   };
+  
 
   const handleTimeChange = (name) => (e) => {
     const { value } = e.target;
@@ -37,20 +48,44 @@ const Popup = ({ isOpen, onClose, task, category }) => {
       ...prevData,
       [name]: value,
     }));
+   setFormErrors((prevErrors) => ({
+      ...prevErrors,
+      [name]: '',
+    }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (task) {
-      dispatch(editTask({ _id: task._id, ...formData, date: day, category }));
-      setFormData(initialFormData);
-    } else {
-      dispatch(createTask({...formData, date: day, category}));
-      setIsTaskCreated(true);
-      setFormData(initialFormData);
+
+    const errors = {};
+    if (formData.title === '') {
+      errors.title = 'Title is required';
     }
-    onClose();
-    dispatch(getTasks());
+    if (formData.start === '') {
+      errors.start = 'Start time is required';
+    }
+    if (formData.end === '') {
+      errors.end = 'End time is required';
+    }
+
+    if (formData.start >= formData.end) {
+      errors.start = 'Start must be before end';
+    }
+
+    if (Object.keys(errors).length === 0) {
+      if (task) {
+        dispatch(editTask({ _id: task._id, ...formData, date: day, category }));
+        setFormData(initialFormData);
+      } else {
+        dispatch(createTask({ ...formData, date: day, category }));
+        setIsTaskCreated(true);
+        setFormData(initialFormData);
+      }
+      onClose();
+      dispatch(getTasks());
+    } else {
+      setFormErrors(errors);
+    }
   };
 
   const priorities = ['Low', 'Medium', 'High'];
@@ -86,7 +121,11 @@ const Popup = ({ isOpen, onClose, task, category }) => {
               Title
             </label>
             <input
-              className={styles.inputTitle}
+              className={`${
+    styles.inputTitle
+  } ${
+    formErrors.title ? styles.errorInput : ''
+  }`}
               type="text"
               name="title"
               id="title"
@@ -94,6 +133,7 @@ const Popup = ({ isOpen, onClose, task, category }) => {
               onChange={handleChange}
               placeholder="Enter text"
             />
+            {formErrors.title && <span className={styles.error}>{formErrors.title}</span>}
           </div>
           <div className={styles.timeInputsContainer}>
             <div className={styles.timeGroup}>
@@ -106,8 +146,13 @@ const Popup = ({ isOpen, onClose, task, category }) => {
                 id="start"
                 value={formData.start}
                 onChange={handleTimeChange('start')}
-                className={styles.timeInput}
+                className={`${
+    styles.timeInput
+  } ${
+    formErrors.start ? styles.errorTime : ''
+  }`}
               />
+              {formErrors.start && <span className={styles.errorTimeInput}>{formErrors.start}</span>}
             </div>
             <div className={styles.timeGroup}>
               <label htmlFor="end" className={styles.label}>
@@ -119,8 +164,13 @@ const Popup = ({ isOpen, onClose, task, category }) => {
                 id="end"
                 value={formData.end}
                 onChange={handleTimeChange('end')}
-                className={styles.timeInput}
+                className={`${
+    styles.timeInput
+  } ${
+    formErrors.end ? styles.errorTime : ''
+  }`}
               />
+              {formErrors.end && <div className={styles.errorTimeInput}>{formErrors.end}</div>}
             </div>
           </div>
           <div className={styles.radioContainer}>
