@@ -10,7 +10,8 @@ const TasksColumnsList = ({ day }) => {
   const categories = ['to-do', 'in-progress', 'done'];
   const columnTitles = ['To do', 'In progress', 'Done'];
 
-  const tasks = useSelector(selectTasks);
+  const allTasks = useSelector(selectTasks);
+  const tasks = [...allTasks].sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt))
 
   const filterTasksByDate = (tasks, targetDate) => {
     return tasks.filter(task => {
