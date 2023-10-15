@@ -12,6 +12,10 @@ const TasksColumnsList = ({ day }) => {
 
   const tasks = useSelector(selectTasks);
 
+  const sortedTasks = [...tasks].sort(
+    (a, b) => new Date(b.updatedAt) - new Date(a.updatedAt)
+  );
+
   const filterTasksByDate = (tasks, targetDate) => {
     return tasks.filter(task => {
       const taskDate = moment(task.date).format('YYYY-MM-DD');
@@ -19,7 +23,7 @@ const TasksColumnsList = ({ day }) => {
     });
   };
 
-  const filteredAndSortedTasks = filterTasksByDate(tasks, day);
+  const filteredAndSortedTasks = filterTasksByDate(sortedTasks, day);
 
   const tasksByCategory = categories.reduce((acc, category) => {
     acc[category] = filteredAndSortedTasks.filter(
@@ -27,6 +31,8 @@ const TasksColumnsList = ({ day }) => {
     );
     return acc;
   }, {});
+
+  console.log('TASKS_BY_CATEGORY', tasksByCategory);
 
   return (
     <ul className={css.tasksColumnsList}>
