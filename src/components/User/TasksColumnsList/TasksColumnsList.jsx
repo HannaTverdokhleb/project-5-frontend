@@ -32,8 +32,6 @@ const TasksColumnsList = ({ day }) => {
     return acc;
   }, {});
 
-  console.log('TASKS_BY_CATEGORY', tasksByCategory);
-
   return (
     <ul className={css.tasksColumnsList}>
       {categories.map((category, index) => (
